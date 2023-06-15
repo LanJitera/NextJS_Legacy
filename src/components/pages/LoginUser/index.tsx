@@ -99,7 +99,7 @@ function LoginUserPage(props: LoginUserPageProps): JSX.Element {
               />
               <Box className={styles.input_1_error_message_container}>
                 <Text className={styles.input_1_error_message_text} textType="Text">
-                  {formForm1.getValues("input_email")}
+                  {get(formForm1Errors, "input_email.message")}
                 </Text>
               </Box>
             </Box>
@@ -121,6 +121,7 @@ function LoginUserPage(props: LoginUserPageProps): JSX.Element {
                   return (
                     <Input
                       inputStyle={styles.input_password_input}
+                      isPasswordField
                       placeholder={t("login_user.input_2")}
                       className={styles.input_password}
                       onChange={onChange}
@@ -132,7 +133,7 @@ function LoginUserPage(props: LoginUserPageProps): JSX.Element {
               />
               <Box className={styles.input_2_error_message_container}>
                 <Text className={styles.input_2_error_message_text} textType="Text">
-                  {formForm1.getValues("input_password")}
+                  {get(formForm1Errors, "input_password.message")}
                 </Text>
               </Box>
             </Box>
