@@ -1,0 +1,29 @@
+.custom_component_container {
+  width: 100%;
+}
+.box_1 {
+  background-color: #ddd;
+  display: flex;
+  flex-direction: column;
+  height: px;
+  min-height: px;
+  width: %;
+  cursor: pointer;
+}
+.image_2 {
+  height: 30px;
+  width: 30px;
+}
+.box_0 {
+  background-color: #ddd;
+  display: flex;
+  flex-direction: column;
+  height: px;
+  min-height: px;
+  width: %;
+  cursor: pointer;
+}
+.image_3 {
+  height: 30px;
+  width: 30px;
+}

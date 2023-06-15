@@ -1,0 +1,12 @@
+.molecule {
+  height: auto;
+}
+.box_2 {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+}
+.dashboardnavbarmenuitem_1 {
+  height: auto;
+  width: 100%;
+}

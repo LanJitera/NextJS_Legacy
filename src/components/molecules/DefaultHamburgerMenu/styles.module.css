@@ -1,0 +1,43 @@
+.box_0 {
+  background-color: rgba(0, 21, 41, 1);
+  margin-right: 16px;
+  min-height: auto;
+  min-width: auto;
+}
+.box_1 {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+}
+.hamburger_menu_molecule_home {
+  color: rgba(0, 21, 41, 1);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-decoration-line: underline;
+  word-break: break-word;
+}
+.hamburger_menu_molecule_news {
+  color: rgba(0, 21, 41, 1);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-decoration-line: underline;
+  word-break: break-word;
+}
+.hamburger_menu_molecule_about_us_0 {
+  color: rgba(0, 21, 41, 1);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-decoration-line: underline;
+  word-break: break-word;
+}
+.hamburger_menu_molecule_contact_0 {
+  color: rgba(0, 21, 41, 1);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-decoration-line: underline;
+  word-break: break-word;
+}

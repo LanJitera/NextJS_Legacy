@@ -1,0 +1,232 @@
+.page_container {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  flex-grow: 0px;
+  height: 77px;
+  justify-content: flex-start;
+  position: relative;
+  width: 1440px;
+}
+.top_header20 {
+  align-items: center;
+  align-self: stretch;
+  background-color: #ffffff;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  flex-grow: 0px;
+  gap: 10px;
+  height: 77px;
+  justify-content: center;
+  padding-bottom: 22px;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 22px;
+  position: relative;
+  width: 1440px;
+}
+.top_container20 {
+  align-items: center;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  flex-grow: 1px;
+  height: 36px;
+  justify-content: space-between;
+  position: relative;
+  width: 1280px;
+}
+.fickleflight_logo8 {
+  flex: none;
+  flex-grow: 0px;
+  height: 33px;
+  position: relative;
+  width: 174px;
+}
+.symbols8 {
+  height: 32px;
+  width: 173px;
+}
+.webscreen8 {
+  height: 32px;
+  width: 173px;
+}
+.image8 {
+  bottom: 0%;
+  height: 25px;
+  position: absolute;
+  top: 0%;
+  width: 173px;
+}
+.group8 {
+  height: 32px;
+  width: 173px;
+}
+.navigationright20 {
+  align-items: center;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  flex-grow: 0px;
+  gap: 36px;
+  height: 36px;
+  justify-content: flex-end;
+  position: relative;
+  width: 435px;
+}
+.navigation_menu14 {
+  align-items: center;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  flex-grow: 0px;
+  gap: 30px;
+  height: 16px;
+  justify-content: flex-end;
+  position: relative;
+  width: 260px;
+}
+.text11 {
+  color: #1262af;
+  flex: none;
+  flex-grow: 0px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+.text12 {
+  color: #414141;
+  flex: none;
+  flex-grow: 0px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+.text13 {
+  color: #414141;
+  flex: none;
+  flex-grow: 0px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+.text14 {
+  color: #414141;
+  flex: none;
+  flex-grow: 0px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+}
+.login {
+  color: #414141;
+  flex: none;
+  flex-grow: 0px;
+  font-family: unset;
+  font-size: 16px;
+  font-style: unset;
+  font-weight: 500;
+  line-height: normal;
+  padding-left: unset;
+  position: relative;
+  text-align: left;
+  text-decoration: unset;
+  vertical-align: top;
+  white-space: unset;
+}
+.text_0 {
+  color: #414141;
+  flex: none;
+  flex-grow: 0px;
+  font-family: unset;
+  font-size: 16px;
+  font-style: unset;
+  font-weight: 500;
+  line-height: normal;
+  padding-left: unset;
+  position: relative;
+  text-align: left;
+  text-decoration: unset;
+  vertical-align: top;
+  white-space: unset;
+}
+.accountsection20 {
+  align-items: center;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  flex-grow: 0px;
+  gap: 12px;
+  height: 36px;
+  justify-content: center;
+  position: relative;
+  width: 72px;
+}
+.notificationbell19 {
+  flex: none;
+  flex-grow: 0px;
+  height: 24px;
+  position: relative;
+  width: 24px;
+}
+.image17 {
+  bottom: 14.06%;
+  height: 19px;
+  left: 8.47%;
+  position: absolute;
+  right: 8.75%;
+  top: 4.93%;
+  width: 19px;
+}
+.image18 {
+  bottom: 4.94%;
+  height: 1px;
+  left: 42.56%;
+  position: absolute;
+  right: 42.83%;
+  top: 88.72%;
+  width: 3px;
+}
+.ellipse5319 {
+  background-color: #f99a0e;
+  border-color: #ffffff;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 1px;
+  bottom: 64.85%;
+  height: 6px;
+  left: 64.4%;
+  position: absolute;
+  right: 10.6%;
+  top: 10.15%;
+  width: 6px;
+}
+.image20 {
+  border-color: #f0f2f8;
+  border-style: solid;
+  border-width: 0px;
+  flex: none;
+  flex-grow: 0px;
+  height: 36px;
+  position: relative;
+  width: 36px;
+}

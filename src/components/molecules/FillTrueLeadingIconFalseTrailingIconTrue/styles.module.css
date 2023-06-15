@@ -1,0 +1,50 @@
+.page_container {
+  align-items: center;
+  background-color: #371dda;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  height: 60px;
+  justify-content: flex-start;
+  padding-bottom: 18px;
+  padding-left: 34px;
+  padding-right: 34px;
+  padding-top: 18px;
+  position: relative;
+  width: 163px;
+}
+.text10 {
+  color: #ffffff;
+  flex: none;
+  flex-grow: 0px;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+  position: relative;
+  text-align: left;
+  vertical-align: middle;
+}
+.icons_arrow13 {
+  flex: none;
+  flex-grow: 0px;
+  height: 24px;
+  position: relative;
+  width: 24px;
+}
+.image12 {
+  height: 24px;
+  position: absolute;
+  top: 0%;
+  width: 24px;
+}
+.image13 {
+  bottom: 33.33%;
+  height: 7px;
+  left: 23.48%;
+  position: absolute;
+  right: 23.48%;
+  top: 34.26%;
+  width: 12px;
+}

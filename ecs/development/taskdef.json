@@ -1,0 +1,60 @@
+{
+    "family": "nextjs",
+    "networkMode": "awsvpc",
+    "taskRoleArn": "arn:aws:iam:::role/ecs_tasks_party_booking_app_development",
+    "executionRoleArn": "arn:aws:iam:::role/ecs_tasks_party_booking_app_development",
+    
+     "cpu": "512",
+     "memory": "1024",
+    
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "containerDefinitions": [
+        {
+            "name": "nextjs",
+            "image": "<IMAGE1_NAME>",
+            "essential": true,
+            "command": ["yarn", "start", "-p", "80"],
+            "ulimits": [ { "name": "nofile", "softLimit": 65536, "hardLimit": 65536 } ],
+            "portMappings": [
+                {
+                    "protocol": "tcp",
+                    "containerPort": 80,
+                    "hostPort": 80
+                }
+            ],
+            "environment": [
+                { "name": "NEXT_PUBLIC_APP_ENV", "value": "production" },
+                { "name": "NEXT_PUBLIC_SITE_URL", "value": "http://localhost:3000" },
+                { "name": "NEXT_PUBLIC_GRAPHQL_ENDPOINT", "value" : "" }
+            ],
+            "secrets": [
+                  {
+                    "name": "NEXT_PUBLIC_CLIENT_ROLLBAR_TOKEN",
+                    "valueFrom": "arn:aws:ssm:ap-northeast-1::parameter/party_booking_app_development/rollbar_token"
+                  },
+                  {
+                    "name": "BASIC_AUTH_USER",
+                    "valueFrom": "arn:aws:ssm:ap-northeast-1::parameter/party_booking_app_development/basic_auth_username"
+                  },
+                  {
+                    "name": "BASIC_AUTH_PASSWORD",
+                    "valueFrom": "arn:aws:ssm:ap-northeast-1::parameter/party_booking_app_development/basic_auth_password"
+                  },
+                  {
+                    "name":  "SECRET_COOKIE_PASSWORD",
+                    "valueFrom": "arn:aws:ssm:ap-northeast-1::parameter/party_booking_app_development/secret_cookie_password"
+                  }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "party_booking_app_development_ecs_web",
+                    "awslogs-region": "ap-northeast-1",
+                    "awslogs-stream-prefix": "nextjs"
+                }
+            }
+        }
+    ]
+}

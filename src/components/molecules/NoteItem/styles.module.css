@@ -1,0 +1,45 @@
+.page_container {
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  height: 64px;
+  justify-content: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  position: relative;
+  width: 500px;
+}
+.wrapper_note13 {
+  align-items: flex-start;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  flex-grow: 0px;
+  gap: 10px;
+  height: 22px;
+  justify-content: flex-start;
+  position: relative;
+  width: 460px;
+  cursor: pointer;
+}
+.text3 {
+  color: #0f0f0f;
+  flex: none;
+  flex-grow: 0px;
+  font-family: Noto Sans JP;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 100%;
+  position: relative;
+  text-align: left;
+  vertical-align: middle;
+}
+.ic_linedelete1 {
+  flex: none;
+  flex-grow: 0px;
+  height: 24px;
+  position: relative;
+  width: 24px;
+}

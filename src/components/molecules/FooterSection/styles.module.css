@@ -1,0 +1,346 @@
+.page_container {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  flex-grow: 0px;
+  height: 225px;
+  justify-content: flex-start;
+  position: relative;
+  width: 1440px;
+}
+.footer_section53 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  flex-grow: 0px;
+  height: 225px;
+  justify-content: flex-start;
+  position: relative;
+  width: 1440px;
+}
+.footer53 {
+  align-items: flex-start;
+  align-self: stretch;
+  background-color: #8ddaf8;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  flex-grow: 0px;
+  gap: 44px;
+  height: 225px;
+  justify-content: flex-start;
+  padding-bottom: 33px;
+  padding-left: 84px;
+  padding-right: 84px;
+  padding-top: 33px;
+  position: relative;
+  width: 1440px;
+}
+.fickle_flight_bio33 {
+  align-items: flex-start;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  flex-grow: 1px;
+  gap: 14px;
+  height: 145px;
+  justify-content: flex-start;
+  position: relative;
+  width: 592px;
+}
+.logo25 {
+  flex: none;
+  flex-grow: 0px;
+  height: 33px;
+  position: relative;
+  width: 174px;
+}
+.image25 {
+  bottom: 1.44%;
+  height: 25px;
+  position: absolute;
+  right: 0.18%;
+  top: 1.59%;
+  width: 173px;
+}
+.social_icons33 {
+  flex: none;
+  flex-grow: 0px;
+  height: 30px;
+  position: relative;
+  width: 130px;
+}
+.facebook_icon29 {
+  height: 30px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 30px;
+}
+.image29 {
+  bottom: 2%;
+  height: 28px;
+  left: 2%;
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  width: 28px;
+}
+.twitter_icon31 {
+  height: 30px;
+  left: 100px;
+  position: absolute;
+  top: 0px;
+  width: 30px;
+}
+.image31 {
+  bottom: 2%;
+  height: 28px;
+  left: 2%;
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  width: 28px;
+}
+.instagram_icon33 {
+  height: 30px;
+  left: 50px;
+  position: absolute;
+  top: 0px;
+  width: 30px;
+}
+.image33 {
+  bottom: 2%;
+  height: 28px;
+  left: 2%;
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  width: 28px;
+}
+.seperator34 {
+  border-color: rgba(255, 255, 255, 0.20000000298023224);
+  border-style: solid;
+  border-width: 1px;
+  flex: none;
+  flex-grow: 0px;
+  position: relative;
+  transform: rotate(-91deg);
+  width: 156px;
+}
+.footer_links53 {
+  align-items: flex-start;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  flex-grow: 1px;
+  height: 159px;
+  justify-content: space-between;
+  position: relative;
+  width: 592px;
+}
+.company41 {
+  flex: none;
+  flex-grow: 0px;
+  height: 159px;
+  position: relative;
+  width: 197px;
+}
+.text37 {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  left: 0px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 47.7578125px;
+  vertical-align: top;
+}
+.text38 {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 500;
+  left: 0px;
+  line-height: 27px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  vertical-align: top;
+}
+.text39 {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  left: 0px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 78.7578125px;
+  vertical-align: top;
+}
+.text40 {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  left: 0px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 109.7578125px;
+  vertical-align: top;
+}
+.text41 {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  left: 0px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 140.7578125px;
+  vertical-align: top;
+}
+.support47 {
+  flex: none;
+  flex-grow: 0px;
+  height: 159px;
+  position: relative;
+  width: 197px;
+}
+.text43 {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  left: 0px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 47.7578125px;
+  vertical-align: top;
+}
+.text44 {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 500;
+  left: 0px;
+  line-height: 27px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  vertical-align: top;
+}
+.text45 {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  left: 0px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 78.7578125px;
+  vertical-align: top;
+}
+.text46 {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  left: 0px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 109.7578125px;
+  vertical-align: top;
+}
+.text47 {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  left: 0px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 140.7578125px;
+  vertical-align: top;
+}
+.more53 {
+  flex: none;
+  flex-grow: 0px;
+  height: 159px;
+  position: relative;
+  width: 197px;
+}
+.text49 {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  left: 0px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 47.7578125px;
+  vertical-align: top;
+}
+.text50 {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 500;
+  left: 0px;
+  line-height: 27px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  vertical-align: top;
+}
+.text51 {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  left: 0px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 78.7578125px;
+  vertical-align: top;
+}
+.text52 {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  left: 0px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 109.7578125px;
+  vertical-align: top;
+}
+.text53 {
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  left: 0px;
+  line-height: normal;
+  position: absolute;
+  text-align: left;
+  top: 140.7578125px;
+  vertical-align: top;
+}

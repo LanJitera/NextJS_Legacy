@@ -1,0 +1,17 @@
+.molecule {
+  height: auto;
+  width: 100%;
+}
+.box_2 {
+  background-color: transparent;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  cursor: pointer;
+}
+.text_2 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+}

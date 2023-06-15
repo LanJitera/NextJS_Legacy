@@ -1,0 +1,19 @@
+.box_1 {
+  align-items: center;
+  background-color: #001529;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  cursor: pointer;
+}
+.text_1 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  word-break: break-word;
+}

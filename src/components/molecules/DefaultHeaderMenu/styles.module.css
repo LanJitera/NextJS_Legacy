@@ -1,0 +1,43 @@
+.header_menu_molecule_box_0 {
+  align-items: center;
+  background-color: rgba(0, 21, 41, 1);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+  margin-right: 16px;
+  margin-top: 16px;
+}
+.header_menu_molecule_home_0 {
+  color: rgba(255, 255, 255, 1);
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 24px;
+  text-decoration-line: underline;
+  word-break: break-word;
+}
+.header_menu_molecule_news_0 {
+  color: rgba(255, 255, 255, 1);
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 24px;
+  text-decoration-line: underline;
+  word-break: break-word;
+}
+.header_menu_molecule_contact_us_0 {
+  color: rgba(255, 255, 255, 1);
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 24px;
+  text-decoration-line: underline;
+  word-break: break-word;
+}
+.header_menu_molecule_about_0 {
+  color: rgba(255, 255, 255, 1);
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 24px;
+  text-decoration-line: underline;
+  word-break: break-word;
+}

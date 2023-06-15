@@ -1,0 +1,26 @@
+.page_container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  height: 24px;
+  justify-content: flex-start;
+  position: relative;
+  width: 24px;
+}
+.arrow_drop_down329 {
+  flex: none;
+  flex-grow: 0px;
+  height: 24px;
+  position: relative;
+  width: 24px;
+}
+.image329 {
+  bottom: 37.5%;
+  height: 5px;
+  left: 29.17%;
+  position: absolute;
+  right: 29.17%;
+  top: 41.67%;
+  width: 10px;
+}

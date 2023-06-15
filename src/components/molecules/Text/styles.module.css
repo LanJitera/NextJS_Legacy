@@ -1,0 +1,16 @@
+.custom_component_container {
+  width: 100%;
+}
+.box_1 {
+  background-color: #ddd;
+  min-height: 20px;
+  width: %;
+  cursor: pointer;
+}
+.text_1 {
+  color: #000000;
+  font-size: 16px;
+  font-weight: 500;
+  word-break: break-word;
+  cursor: pointer;
+}

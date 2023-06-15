@@ -1,0 +1,39 @@
+.footer_molecule_0 {
+  width: 100%;
+}
+.footer_molecule_box_0 {
+  align-items: center;
+  background-color: rgba(0, 21, 41, 1);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: auto;
+  justify-content: center;
+  width: 100%;
+}
+.footer_molecule_box_1 {
+  background-color: transparent;
+  height: auto;
+  margin-bottom: 36px;
+  margin-top: 36px;
+  min-height: auto;
+  min-width: auto;
+  width: auto;
+}
+.footer_molecule_box_2 {
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: auto;
+  justify-content: center;
+  margin-bottom: 12px;
+  min-height: auto;
+  min-width: auto;
+  width: auto;
+}
+.footer_molecule_image_0 {
+  height: auto;
+  width: 100px;
+}

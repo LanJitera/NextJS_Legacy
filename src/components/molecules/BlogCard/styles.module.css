@@ -1,0 +1,138 @@
+.custom_component_container {
+  height: 188px;
+  width: 661px;
+}
+.box_8 {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  height: 188px;
+  min-height: px;
+  width: 661px;
+}
+.image_1 {
+  height: 188px;
+  width: 258px;
+}
+.box_1 {
+  align-items: flex-start;
+  align-self: stretch;
+  background-color: #ffffff;
+  border-bottom-right-radius: 24px;
+  border-top-right-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  height: 188px;
+  justify-content: center;
+  min-height: px;
+  position: relative;
+  width: 403px;
+}
+.box_3 {
+  align-items: flex-start;
+  align-self: stretch;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  height: 45px;
+  justify-content: flex-start;
+  margin-left: 20;
+  min-height: px;
+  position: relative;
+  width: 355px;
+}
+.text_3 {
+  color: #000000;
+  font-size: 24px;
+  font-weight: 500;
+  word-break: break-word;
+}
+.box_2 {
+  align-items: center;
+  align-self: stretch;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  height: 18px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  margin-left: 20;
+  min-height: px;
+  position: relative;
+  width: 355px;
+}
+.text_1 {
+  color: #6e798c;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  word-break: break-word;
+}
+.text_2 {
+  color: #6e798c;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  word-break: break-word;
+}
+.box_4 {
+  align-items: center;
+  align-self: stretch;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  height: 28px;
+  justify-content: space-between;
+  margin-left: 20;
+  min-height: 0px;
+  position: relative;
+  width: 355px;
+}
+.box_5 {
+  background-color: transparent;
+  height: 27px;
+  min-height: px;
+  position: relative;
+  width: 153px;
+}
+.text_4 {
+  color: #374a59;
+  font-size: 14px;
+  font-weight: 400;
+  left: 36px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  word-break: break-word;
+}
+.image_2 {
+  height: 27px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 27px;
+}
+.box_6 {
+  background-color: transparent;
+  height: 18px;
+  min-height: 0px;
+  width: 102px;
+}
+.button_1 {
+  border-radius: 2px;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  height: auto;
+  padding-bottom: 4px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 4px;
+  width: auto;
+}
+.button_1_text_0 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  word-break: break-word;
+}
