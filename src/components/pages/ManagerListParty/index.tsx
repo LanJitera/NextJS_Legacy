@@ -33,7 +33,8 @@ interface Form1FormData {
 }
 function ManagerListPartyPage(props: ManagerListPartyPageProps): JSX.Element {
   const authenticationService = useAuthenticationService();
-  const authenticatedDataValue = authenticationService.useAuthenticatedData("authenticatedData");
+  const authenticatedDataValue =
+    authenticationService.useAuthenticatedData("authenticatedData");
   const partyService = usePartyService();
   const getApiPartiesInstance = partyService.useGetApiParties();
   const getApiPartiesResult = getApiPartiesInstance.useQuery({
@@ -117,7 +118,11 @@ function ManagerListPartyPage(props: ManagerListPartyPageProps): JSX.Element {
             <Text className={styles.text4} textType="Text">
               Party list
             </Text>
-            <Button buttonType="primary" className={styles.button_2} onClick={handleButton2}>
+            <Button
+              buttonType="primary"
+              className={styles.button_2}
+              onClick={handleButton2}
+            >
               Create new party
             </Button>
           </Box>

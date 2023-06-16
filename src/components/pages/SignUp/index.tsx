@@ -38,9 +38,16 @@ function SignUpPage(props: SignUpPageProps): JSX.Element {
   const validationForm2Schema = useMemo(
     () =>
       yup.object().shape({
-        input_username: yup.string().required("input_username is a required field"),
-        input_email: yup.string().email().required("input_email is a required field"),
-        input_password: yup.string().required("input_password is a required field"),
+        input_username: yup
+          .string()
+          .required("input_username is a required field"),
+        input_email: yup
+          .string()
+          .email()
+          .required("input_email is a required field"),
+        input_password: yup
+          .string()
+          .required("input_password is a required field"),
       }),
     []
   );
@@ -61,8 +68,10 @@ function SignUpPage(props: SignUpPageProps): JSX.Element {
   const handleButton0 = async (values?: Form2FormData) => {
     try {
       await authenticationService.signupWithEmail("users", {
-        email: get(values, "input_email", ""),
-        password: get(values, "input_password", ""),
+        users: {
+          email: get(values, "input_email", ""),
+          password: get(values, "input_password", ""),
+        },
       });
       navigateService.navigate("/User/login");
     } catch (e: unknown) {
@@ -185,10 +194,16 @@ function SignUpPage(props: SignUpPageProps): JSX.Element {
             <Box className={styles.box_6}>
               <Box className={styles.datetimepicker_1_container}>
                 <Box className={styles.datetimepicker_1_inner}>
-                  <Text className={styles.datetimepicker_1_label} textType="Text">
+                  <Text
+                    className={styles.datetimepicker_1_label}
+                    textType="Text"
+                  >
                     {t("signup.datetimepicker_1_label")}
                   </Text>
-                  <Text className={styles.datetimepicker_1_required} textType="Text">
+                  <Text
+                    className={styles.datetimepicker_1_required}
+                    textType="Text"
+                  >
                     *
                   </Text>
                 </Box>
@@ -230,7 +245,11 @@ function SignUpPage(props: SignUpPageProps): JSX.Element {
               <Text className={styles.text_14} textType="Text">
                 {t("sign_up.text_14")}
               </Text>
-              <Text href={"/NewUser/login"} className={styles.text_15} textType="Link">
+              <Text
+                href={"/User/login"}
+                className={styles.text_15}
+                textType="Link"
+              >
                 {t("sign_up.text_15")}
               </Text>
             </Box>

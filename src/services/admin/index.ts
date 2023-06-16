@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { MutateOptions, useMutation, useQuery, useQueryClient } from "react-query";
+import {
+  MutateOptions,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from "react-query";
 import { DEFAULT_QUERY_OPTIONS } from "@constants/query";
 import { fetchToServiceResponse } from "@utils/service";
 import {
@@ -32,7 +37,8 @@ export const useAdminService = () => {
   const mutationDeleteApiAdminsId = useMutation(mutateDeleteApiAdminsId);
 
   const useGetApiAdmins = () => {
-    const [query, setQuery] = useState<{ params?: Partial<FetchGetApiAdminsRequestBody> }>();
+    const [query, setQuery] =
+      useState<{ params?: Partial<FetchGetApiAdminsRequestBody> }>();
     const queryResult = useQuery(
       [...DefaultGetApiAdminsQueryKey, query?.params],
       fetchGetApiAdmins,
@@ -55,13 +61,17 @@ export const useAdminService = () => {
         params: Partial<FetchGetApiAdminsRequestBody> = {}
       ): Promise<FetchGetApiAdminsResponseBody> => {
         setQuery({ params });
-        return fetchToServiceResponse(queryClient, [...DefaultGetApiAdminsQueryKey, params]);
+        return fetchToServiceResponse(queryClient, [
+          ...DefaultGetApiAdminsQueryKey,
+          params,
+        ]);
       },
     };
   };
 
   const useGetApiAdminsId = () => {
-    const [query, setQuery] = useState<{ params?: Partial<FetchGetApiAdminsIdRequestBody> }>();
+    const [query, setQuery] =
+      useState<{ params?: Partial<FetchGetApiAdminsIdRequestBody> }>();
     const queryResult = useQuery(
       [...DefaultGetApiAdminsIdQueryKey, query?.params],
       fetchGetApiAdminsId,
@@ -84,7 +94,10 @@ export const useAdminService = () => {
         params: Partial<FetchGetApiAdminsIdRequestBody> = {}
       ): Promise<FetchGetApiAdminsIdResponseBody> => {
         setQuery({ params });
-        return fetchToServiceResponse(queryClient, [...DefaultGetApiAdminsIdQueryKey, params]);
+        return fetchToServiceResponse(queryClient, [
+          ...DefaultGetApiAdminsIdQueryKey,
+          params,
+        ]);
       },
     };
   };

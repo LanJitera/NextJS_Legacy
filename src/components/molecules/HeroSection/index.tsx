@@ -21,7 +21,11 @@ function HeroSectionMolecule(props: HeroSectionMoleculeProps): JSX.Element {
           <Box className={styles.fickleflight_logo8}>
             <Box className={styles.symbols8}>
               <Box className={styles.webscreen8}>
-                <Image src={assets("1686625755503logogmopng")} alt={""} className={styles.image8} />
+                <Image
+                  src={assets("1686625755503logogmopng")}
+                  alt={""}
+                  className={styles.image8}
+                />
                 <Box className={styles.group8} />
               </Box>
             </Box>
@@ -40,20 +44,40 @@ function HeroSectionMolecule(props: HeroSectionMoleculeProps): JSX.Element {
               <Text className={styles.text14} textType="Text">
                 {t("hero_section.text14")}
               </Text>
-              <Text href={"/NewUser/login"} className={styles.login} textType="Link">
+              <Text
+                href={"/NewUser/login"}
+                className={styles.login}
+                textType="Link"
+              >
                 {t("molecule_herosection")}
               </Text>
-              <Text href={"https://jitera.com"} className={styles.text_0} textType="Link">
+              <Text
+                href={"https://jitera.com"}
+                className={styles.text_0}
+                textType="Link"
+              >
                 {t("hero_section.text_0")}
               </Text>
             </Box>
             <Box className={styles.accountsection20}>
               <Box className={styles.notificationbell19}>
-                <Image src={assets("1686622898324svg")} alt={""} className={styles.image17} />
-                <Image src={assets("1686622898327svg")} alt={""} className={styles.image18} />
+                <Image
+                  src={assets("1686622898324svg")}
+                  alt={""}
+                  className={styles.image17}
+                />
+                <Image
+                  src={assets("1686622898327svg")}
+                  alt={""}
+                  className={styles.image18}
+                />
                 <Box className={styles.ellipse5319} />
               </Box>
-              <Image src={assets("1686622898330png")} alt={""} className={styles.image20} />
+              <Image
+                src={assets("1686622898330png")}
+                alt={""}
+                className={styles.image20}
+              />
             </Box>
           </Box>
         </Box>

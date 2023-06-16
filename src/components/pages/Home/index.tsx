@@ -36,7 +36,9 @@ function HomePage(props: HomePageProps): JSX.Element {
   const { t } = useTranslation("web");
   const partyService = usePartyService();
   const getApiPartiesInstance = partyService.useGetApiParties();
-  const getApiPartiesResult = getApiPartiesInstance.useQuery({ parties: { isstatus: "Public" } });
+  const getApiPartiesResult = getApiPartiesInstance.useQuery({
+    parties: { isstatus: "Public" },
+  });
   const navigateService = useNavigateService();
   const validationForm0Schema = useMemo(() => yup.object().shape({}), []);
   const formForm0 = useForm<Form0FormData>({
@@ -76,8 +78,16 @@ function HomePage(props: HomePageProps): JSX.Element {
       <Box className={styles.box_2}>
         <HeroSection className={styles.herosection_1} />
         <Box className={styles.box_12}>
-          <Image src={assets("1686621805569png")} alt={""} className={styles.image_4} />
-          <Image src={assets("1686621806021png")} alt={""} className={styles.image_5} />
+          <Image
+            src={assets("1686621805569png")}
+            alt={""}
+            className={styles.image_4}
+          />
+          <Image
+            src={assets("1686621806021png")}
+            alt={""}
+            className={styles.image_5}
+          />
           <Box className={styles.box_13}>
             <Box className={styles.box_14}>
               <Text className={styles.text_4} textType="Text">
@@ -181,7 +191,11 @@ function HomePage(props: HomePageProps): JSX.Element {
           </Box>
           <Box className={styles.box_59}>
             <Box className={styles.box_72}>
-              <Image src={assets("1686621806872png")} alt={""} className={styles.image_17} />
+              <Image
+                src={assets("1686621806872png")}
+                alt={""}
+                className={styles.image_17}
+              />
               <Box className={styles.box_73}>
                 <Box className={styles.box_74}>
                   <Box className={styles.box_75}>
@@ -208,9 +222,18 @@ function HomePage(props: HomePageProps): JSX.Element {
               renderItem={useCallback(
                 (item: any) => (
                   <CardItem
-                    nameParty={get(getApiPartiesResult, "data.parties.nameparty")}
-                    partystarttime={get(getApiPartiesResult, "data.parties.partystarttime")}
-                    partyLocation={get(getApiPartiesResult, "data.parties.partylocation")}
+                    nameParty={get(
+                      getApiPartiesResult,
+                      "data.parties.nameparty"
+                    )}
+                    partystarttime={get(
+                      getApiPartiesResult,
+                      "data.parties.partystarttime"
+                    )}
+                    partyLocation={get(
+                      getApiPartiesResult,
+                      "data.parties.partylocation"
+                    )}
                     decribe={get(getApiPartiesResult, "data.parties.describe")}
                     img={get(getApiPartiesResult, "data.parties.describe")}
                     label={"Booking"}
@@ -234,7 +257,11 @@ function HomePage(props: HomePageProps): JSX.Element {
           <Box className={styles.box_38}>
             <Box className={styles.box_39}>
               <Box className={styles.box_40}>
-                <Image src={assets("1686621806353png")} alt={""} className={styles.image_9} />
+                <Image
+                  src={assets("1686621806353png")}
+                  alt={""}
+                  className={styles.image_9}
+                />
                 <Box className={styles.box_41}>
                   <Text className={styles.text_17} textType="Text">
                     Paris
@@ -252,7 +279,11 @@ function HomePage(props: HomePageProps): JSX.Element {
             </Box>
             <Box className={styles.box_43}>
               <Box className={styles.box_44}>
-                <Image src={assets("1686621806424png")} alt={""} className={styles.image_10} />
+                <Image
+                  src={assets("1686621806424png")}
+                  alt={""}
+                  className={styles.image_10}
+                />
                 <Box className={styles.box_45}>
                   <Text className={styles.text_20} textType="Text">
                     Greece
@@ -270,7 +301,11 @@ function HomePage(props: HomePageProps): JSX.Element {
             </Box>
             <Box className={styles.box_47}>
               <Box className={styles.box_48}>
-                <Image src={assets("1686621806490png")} alt={""} className={styles.image_11} />
+                <Image
+                  src={assets("1686621806490png")}
+                  alt={""}
+                  className={styles.image_11}
+                />
                 <Box className={styles.box_49}>
                   <Text className={styles.text_23} textType="Text">
                     Norway
@@ -288,7 +323,11 @@ function HomePage(props: HomePageProps): JSX.Element {
             </Box>
             <Box className={styles.box_51}>
               <Box className={styles.box_52}>
-                <Image src={assets("1686621806559png")} alt={""} className={styles.image_12} />
+                <Image
+                  src={assets("1686621806559png")}
+                  alt={""}
+                  className={styles.image_12}
+                />
                 <Box className={styles.box_53}>
                   <Text className={styles.text_26} textType="Text">
                     Tuscany
@@ -311,21 +350,38 @@ function HomePage(props: HomePageProps): JSX.Element {
         <Box className={styles.box_14}>
           <Box className={styles.box_15}>
             <Box className={styles.box_16}>
-              <Image src={assets("1686630477484logogmopng")} alt={""} className={styles.image_0} />
+              <Image
+                src={assets("1686630477484logogmopng")}
+                alt={""}
+                className={styles.image_0}
+              />
             </Box>
             <Text className={styles.text_5} textType="Text">
-              Fickle Flight is your one-stop travel portal. We offer hassle free flight and hotel
-              bookings. We also have all your flight needs in you online shop.
+              Fickle Flight is your one-stop travel portal. We offer hassle free
+              flight and hotel bookings. We also have all your flight needs in
+              you online shop.
             </Text>
             <Box className={styles.box_17}>
               <Box className={styles.box_18}>
-                <Image src={assets("1686621807407svg")} alt={""} className={styles.image_2} />
+                <Image
+                  src={assets("1686621807407svg")}
+                  alt={""}
+                  className={styles.image_2}
+                />
               </Box>
               <Box className={styles.box_19}>
-                <Image src={assets("1686621807409svg")} alt={""} className={styles.image_3} />
+                <Image
+                  src={assets("1686621807409svg")}
+                  alt={""}
+                  className={styles.image_3}
+                />
               </Box>
               <Box className={styles.box_20}>
-                <Image src={assets("1686621807413svg")} alt={""} className={styles.image_4} />
+                <Image
+                  src={assets("1686621807413svg")}
+                  alt={""}
+                  className={styles.image_4}
+                />
               </Box>
             </Box>
           </Box>

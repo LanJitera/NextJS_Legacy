@@ -4,10 +4,11 @@ import { DefaultPageProps } from "@interfaces/page";
 import get from "lodash/get";
 import { Box, Text } from "@jitera/jitera-web-ui-library";
 import styles from "./styles.module.css";
-type VariantContainedSizeLargeIconLeftFalseIconRightFalseMoleculeProps = DefaultPageProps & {
-  pageName?: string;
-  className?: string;
-};
+type VariantContainedSizeLargeIconLeftFalseIconRightFalseMoleculeProps =
+  DefaultPageProps & {
+    pageName?: string;
+    className?: string;
+  };
 function VariantContainedSizeLargeIconLeftFalseIconRightFalseMolecule(
   props: VariantContainedSizeLargeIconLeftFalseIconRightFalseMoleculeProps
 ): JSX.Element {

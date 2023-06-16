@@ -10,7 +10,14 @@ import assets from "@assets/index";
 import { useTranslation } from "next-i18next";
 import { useAuthenticationService } from "@services/authentication";
 import { useNavigateService } from "@services/navigate";
-import { Page, Box, Text, Input, Button, Toast } from "@jitera/jitera-web-ui-library";
+import {
+  Page,
+  Box,
+  Text,
+  Input,
+  Button,
+  Toast,
+} from "@jitera/jitera-web-ui-library";
 import styles from "./styles.module.css";
 type LoginUserPageProps = DefaultPageProps & {
   pageName?: string;
@@ -98,7 +105,10 @@ function LoginUserPage(props: LoginUserPageProps): JSX.Element {
                 name="input_email"
               />
               <Box className={styles.input_1_error_message_container}>
-                <Text className={styles.input_1_error_message_text} textType="Text">
+                <Text
+                  className={styles.input_1_error_message_text}
+                  textType="Text"
+                >
                   {get(formForm1Errors, "input_email.message")}
                 </Text>
               </Box>
@@ -132,7 +142,10 @@ function LoginUserPage(props: LoginUserPageProps): JSX.Element {
                 name="input_password"
               />
               <Box className={styles.input_2_error_message_container}>
-                <Text className={styles.input_2_error_message_text} textType="Text">
+                <Text
+                  className={styles.input_2_error_message_text}
+                  textType="Text"
+                >
                   {get(formForm1Errors, "input_password.message")}
                 </Text>
               </Box>
@@ -150,7 +163,11 @@ function LoginUserPage(props: LoginUserPageProps): JSX.Element {
               <Text className={styles.text_5} textType="Text">
                 {t("login_user.text_5")}
               </Text>
-              <Text href={"/NewUser/sign-up"} className={styles.text_register} textType="Link">
+              <Text
+                href={"/NewUser/sign-up"}
+                className={styles.text_register}
+                textType="Link"
+              >
                 {t("login_user.text_6")}
               </Text>
             </Box>

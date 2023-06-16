@@ -19,12 +19,15 @@ type HistoryPageProps = DefaultPageProps & {
 function HistoryPage(props: HistoryPageProps): JSX.Element {
   const { t } = useTranslation("web");
   const authenticationService = useAuthenticationService();
-  const authenticatedDataValue = authenticationService.useAuthenticatedData("authenticatedData");
+  const authenticatedDataValue =
+    authenticationService.useAuthenticatedData("authenticatedData");
   const partyService = usePartyService();
-  const getApiPartiesBookingHistoryInstance = partyService.useGetApiPartiesBookingHistory();
-  const getApiPartiesBookingHistoryResult = getApiPartiesBookingHistoryInstance.useQuery({
-    useid: get(authenticatedDataValue, "id"),
-  });
+  const getApiPartiesBookingHistoryInstance =
+    partyService.useGetApiPartiesBookingHistory();
+  const getApiPartiesBookingHistoryResult =
+    getApiPartiesBookingHistoryInstance.useQuery({
+      useid: get(authenticatedDataValue, "id"),
+    });
 
   return (
     <Page className={styles.page_container}>
@@ -40,7 +43,11 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
           </Box>
           <Box className={styles.box_5}>
             <Box className={styles.box_6}>
-              <Image src={assets("1686621806872png")} alt={""} className={styles.image_1} />
+              <Image
+                src={assets("1686621806872png")}
+                alt={""}
+                className={styles.image_1}
+              />
               <Box className={styles.box_7}>
                 <Box className={styles.box_8}>
                   <Box className={styles.box_9}>
@@ -67,7 +74,10 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
               renderItem={useCallback(
                 (item: any) => (
                   <CardItem
-                    nameParty={get(getApiPartiesBookingHistoryResult, "data.parties.nameparty")}
+                    nameParty={get(
+                      getApiPartiesBookingHistoryResult,
+                      "data.parties.nameparty"
+                    )}
                     partystarttime={get(
                       getApiPartiesBookingHistoryResult,
                       "data.parties.partystarttime"
@@ -76,8 +86,14 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
                       getApiPartiesBookingHistoryResult,
                       "data.parties.partylocation"
                     )}
-                    decribe={get(getApiPartiesBookingHistoryResult, "data.parties.describe")}
-                    img={get(getApiPartiesBookingHistoryResult, "data.parties.nameparty")}
+                    decribe={get(
+                      getApiPartiesBookingHistoryResult,
+                      "data.parties.describe"
+                    )}
+                    img={get(
+                      getApiPartiesBookingHistoryResult,
+                      "data.parties.nameparty"
+                    )}
                     label={"Huỷ đặt"}
                     Id={""}
                   />

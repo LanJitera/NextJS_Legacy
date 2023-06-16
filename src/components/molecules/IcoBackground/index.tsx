@@ -17,7 +17,11 @@ function IcoBackgroundMolecule(props: IcoBackgroundMoleculeProps): JSX.Element {
       sourceType="upload"
       className={`${styles.page_container} ${get(props, "className")}`}
     >
-      <Image src={assets("1683261192898png")} alt={""} className={styles.image1} />
+      <Image
+        src={assets("1683261192898png")}
+        alt={""}
+        className={styles.image1}
+      />
     </Box>
   );
 }

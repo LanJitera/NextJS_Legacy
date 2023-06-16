@@ -16,7 +16,11 @@ function FormValueMolecule(props: FormValueMoleculeProps): JSX.Element {
   return (
     <Box className={`${styles.page_container} ${get(props, "className")}`}>
       <Box className={styles.newsletter_form_section21}>
-        <Image src={assets("1686625909972png")} alt={""} className={styles.image4} />
+        <Image
+          src={assets("1686625909972png")}
+          alt={""}
+          className={styles.image4}
+        />
         <Box className={styles.subscribe_form21}>
           <Box className={styles.form_header8}>
             <Text className={styles.text7} textType="Text">

@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { MutateOptions, useMutation, useQuery, useQueryClient } from "react-query";
+import {
+  MutateOptions,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from "react-query";
 import { DEFAULT_QUERY_OPTIONS } from "@constants/query";
 import { fetchToServiceResponse } from "@utils/service";
 import {
@@ -27,12 +32,17 @@ export const usePartybookingService = () => {
 
   const mutationPostApiPartybookings = useMutation(mutatePostApiPartybookings);
 
-  const mutationPutApiPartybookingsId = useMutation(mutatePutApiPartybookingsId);
+  const mutationPutApiPartybookingsId = useMutation(
+    mutatePutApiPartybookingsId
+  );
 
-  const mutationDeleteApiPartybookingsId = useMutation(mutateDeleteApiPartybookingsId);
+  const mutationDeleteApiPartybookingsId = useMutation(
+    mutateDeleteApiPartybookingsId
+  );
 
   const useGetApiPartybookings = () => {
-    const [query, setQuery] = useState<{ params?: Partial<FetchGetApiPartybookingsRequestBody> }>();
+    const [query, setQuery] =
+      useState<{ params?: Partial<FetchGetApiPartybookingsRequestBody> }>();
     const queryResult = useQuery(
       [...DefaultGetApiPartybookingsQueryKey, query?.params],
       fetchGetApiPartybookings,
@@ -55,7 +65,10 @@ export const usePartybookingService = () => {
         params: Partial<FetchGetApiPartybookingsRequestBody> = {}
       ): Promise<FetchGetApiPartybookingsResponseBody> => {
         setQuery({ params });
-        return fetchToServiceResponse(queryClient, [...DefaultGetApiPartybookingsQueryKey, params]);
+        return fetchToServiceResponse(queryClient, [
+          ...DefaultGetApiPartybookingsQueryKey,
+          params,
+        ]);
       },
     };
   };
@@ -75,7 +88,9 @@ export const usePartybookingService = () => {
       query: (params: Partial<FetchGetApiPartybookingsIdRequestBody> = {}) => {
         setQuery({ params });
       },
-      useQuery: (params: Partial<FetchGetApiPartybookingsIdRequestBody> = {}) => {
+      useQuery: (
+        params: Partial<FetchGetApiPartybookingsIdRequestBody> = {}
+      ) => {
         useEffect(() => {
           setQuery({ params });
         }, []);

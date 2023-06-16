@@ -95,7 +95,12 @@ export type FetchGetApiPartiesIdResponseBody = {
 
 export const fetchGetApiPartiesId = async (
   context: QueryFunctionContext<
-    [string, string, string, Partial<FetchGetApiPartiesIdRequestBody> | undefined]
+    [
+      string,
+      string,
+      string,
+      Partial<FetchGetApiPartiesIdRequestBody> | undefined
+    ]
   >
 ): Promise<FetchGetApiPartiesIdResponseBody> => {
   return serviceFetch({
@@ -104,11 +109,11 @@ export const fetchGetApiPartiesId = async (
     method: "GET",
   });
 };
-export const DefaultGetApiPartiesBookingHistoryQueryKey: [string, string, string] = [
-  "Party",
-  "GET",
-  "/api/parties/BookingHistory",
-];
+export const DefaultGetApiPartiesBookingHistoryQueryKey: [
+  string,
+  string,
+  string
+] = ["Party", "GET", "/api/parties/BookingHistory"];
 export type FetchGetApiPartiesBookingHistoryRequestBody = {
   pagination_page: number;
   pagination_limit: number;
@@ -142,7 +147,12 @@ export type FetchGetApiPartiesBookingHistoryResponseBody = {
 
 export const fetchGetApiPartiesBookingHistory = async (
   context: QueryFunctionContext<
-    [string, string, string, Partial<FetchGetApiPartiesBookingHistoryRequestBody> | undefined]
+    [
+      string,
+      string,
+      string,
+      Partial<FetchGetApiPartiesBookingHistoryRequestBody> | undefined
+    ]
   >
 ): Promise<FetchGetApiPartiesBookingHistoryResponseBody> => {
   return serviceFetch({

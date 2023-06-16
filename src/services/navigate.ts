@@ -5,7 +5,10 @@ export const useNavigateService = () => {
   const navigateService = useRouter();
 
   return {
-    navigate: (url: string, params?: Record<string, string | number | undefined>) => {
+    navigate: (
+      url: string,
+      params?: Record<string, string | number | undefined>
+    ) => {
       if (navigateService) {
         navigateService.push({
           pathname: parseParamUrl(url, params),
@@ -15,7 +18,10 @@ export const useNavigateService = () => {
         window.open(parseParamUrl(url, params), "_self");
       }
     },
-    replace: (url: string, params?: Record<string, string | number | undefined>) => {
+    replace: (
+      url: string,
+      params?: Record<string, string | number | undefined>
+    ) => {
       if (navigateService) {
         navigateService.replace({
           pathname: parseParamUrl(url, params),

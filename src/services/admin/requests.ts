@@ -77,7 +77,12 @@ export type FetchGetApiAdminsIdResponseBody = {
 
 export const fetchGetApiAdminsId = async (
   context: QueryFunctionContext<
-    [string, string, string, Partial<FetchGetApiAdminsIdRequestBody> | undefined]
+    [
+      string,
+      string,
+      string,
+      Partial<FetchGetApiAdminsIdRequestBody> | undefined
+    ]
   >
 ): Promise<FetchGetApiAdminsIdResponseBody> => {
   return serviceFetch({
@@ -87,7 +92,9 @@ export const fetchGetApiAdminsId = async (
   });
 };
 
-export type MutatePostApiAdminsRequestBody = { admins: { name?: string; email?: string } };
+export type MutatePostApiAdminsRequestBody = {
+  admins: { name?: string; email?: string };
+};
 export type MutatePostApiAdminsResponseBody = {
   admin: {
     id?: number;

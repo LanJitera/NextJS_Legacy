@@ -4,10 +4,11 @@ import { DefaultPageProps } from "@interfaces/page";
 import get from "lodash/get";
 import { Box, Text } from "@jitera/jitera-web-ui-library";
 import styles from "./styles.module.css";
-type StateDefaultPostIconFALSETagFALSEPreIconFALSEMoleculeProps = DefaultPageProps & {
-  pageName?: string;
-  className?: string;
-};
+type StateDefaultPostIconFALSETagFALSEPreIconFALSEMoleculeProps =
+  DefaultPageProps & {
+    pageName?: string;
+    className?: string;
+  };
 function StateDefaultPostIconFALSETagFALSEPreIconFALSEMolecule(
   props: StateDefaultPostIconFALSETagFALSEPreIconFALSEMoleculeProps
 ): JSX.Element {

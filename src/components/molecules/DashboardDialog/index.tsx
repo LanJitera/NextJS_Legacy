@@ -12,7 +12,9 @@ type DashboardDialogMoleculeProps = DefaultPageProps & {
   onCancel?: () => any;
   onConfirm?: () => any;
 };
-function DashboardDialogMolecule(props: DashboardDialogMoleculeProps): JSX.Element {
+function DashboardDialogMolecule(
+  props: DashboardDialogMoleculeProps
+): JSX.Element {
   const handleOnClickButton1 = async () => {
     try {
       const { onCancel } = props;

@@ -10,7 +10,9 @@ type DashboardFooterMoleculeProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
 };
-function DashboardFooterMolecule(props: DashboardFooterMoleculeProps): JSX.Element {
+function DashboardFooterMolecule(
+  props: DashboardFooterMoleculeProps
+): JSX.Element {
   return (
     <Box className={`${styles.molecule} ${get(props, "className")}`}>
       <Box className={styles.box_2}>

@@ -14,7 +14,11 @@ function ArrowMolecule(props: ArrowMoleculeProps): JSX.Element {
   return (
     <Box className={`${styles.page_container} ${get(props, "className")}`}>
       <Box className={styles.arrow_drop_down329}>
-        <Image src={assets("1686621807430svg")} alt={""} className={styles.image329} />
+        <Image
+          src={assets("1686621807430svg")}
+          alt={""}
+          className={styles.image329}
+        />
       </Box>
     </Box>
   );

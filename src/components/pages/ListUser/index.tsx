@@ -159,8 +159,16 @@ function ListUserPage(props: ListUserPageProps): JSX.Element {
         </Box>
       </Box>
       <Box className={styles.box_1}>
-        <Image src={assets("1686622898337png")} alt={""} className={styles.image_1} />
-        <Image src={assets("1686622898751png")} alt={""} className={styles.image_0} />
+        <Image
+          src={assets("1686622898337png")}
+          alt={""}
+          className={styles.image_1}
+        />
+        <Image
+          src={assets("1686622898751png")}
+          alt={""}
+          className={styles.image_0}
+        />
       </Box>
       <FooterSection className={styles.footersection_1} />
     </Page>

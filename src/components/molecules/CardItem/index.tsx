@@ -25,7 +25,12 @@ function CardItemMolecule(props: CardItemMoleculeProps): JSX.Element {
     } catch (e: unknown) {}
   };
   return (
-    <Box className={`${styles.custom_component_container} ${get(props, "className")}`}>
+    <Box
+      className={`${styles.custom_component_container} ${get(
+        props,
+        "className"
+      )}`}
+    >
       <Box className={styles.box_3}>
         <Image
           src={get(props, "img")}
@@ -49,7 +54,11 @@ function CardItemMolecule(props: CardItemMoleculeProps): JSX.Element {
             </Text>
           </Box>
           <Button buttonType="primary" className={styles.button_0}>
-            <Text className={styles.text_29} textType="Text" onClick={handleText29}>
+            <Text
+              className={styles.text_29}
+              textType="Text"
+              onClick={handleText29}
+            >
               {get(props, "label")}
             </Text>
           </Button>
