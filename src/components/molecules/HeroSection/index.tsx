@@ -16,20 +16,31 @@ type HeroSectionMoleculeProps = DefaultPageProps & {
 function HeroSectionMolecule(props: HeroSectionMoleculeProps): JSX.Element {
   const { t } = useTranslation("web");
   const authenticationService = useAuthenticationService();
-  const authenticatedDataValue = authenticationService.useAuthenticatedData("authenticatedData");
+  const authenticatedDataValue =
+    authenticationService.useAuthenticatedData("authenticatedData");
   const userService = useUserService();
   const getApiUsersIdInstance = userService.useGetApiUsersId();
-
-  const handleTopHeader20 = async () => {
-    try {
-      const responseGetApiUsersId = await getApiUsersIdInstance.fetch({
-        id: get(authenticatedDataValue, "id"),
-      });
-    } catch (e: unknown) {}
-  };
+  let test = '';
+  useEffect(() => {
+    const handleTopHeader = async () => {
+      try {
+        const responseGetApiUsersId = await getApiUsersIdInstance.fetch({
+          id: get(authenticatedDataValue, "id"),
+        });
+        const username = responseGetApiUsersId?.user.username;
+        console.log(username);
+        if(username != ''){
+          test=username
+        }
+        return test;
+      } catch (e: unknown) {}
+    };
+    handleTopHeader();
+  }, []);
+  console.log(test);
   return (
     <Box className={`${styles.page_container} ${get(props, "className")}`}>
-      <Box className={styles.top_header20} onClick={handleTopHeader20}>
+      <Box className={styles.top_header20}>
         <Box className={styles.top_container20}>
           <Box className={styles.fickleflight_logo8}>
             <Box className={styles.symbols8}>
@@ -57,15 +68,11 @@ function HeroSectionMolecule(props: HeroSectionMoleculeProps): JSX.Element {
               <Text className={styles.text14} textType="Text">
                 {t("hero_section.text14")}
               </Text>
-<<<<<<< HEAD
               <Text
                 href={"/User/login"}
                 className={styles.login}
                 textType="Link"
               >
-=======
-              <Text href={"/User/login"} className={styles.login} textType="Link">
->>>>>>> 85078b6cfa1e1b84c41249d2ee3615de06b72ac2
                 {t("molecule_herosection")}
               </Text>
               <Text

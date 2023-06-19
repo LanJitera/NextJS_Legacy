@@ -18,6 +18,7 @@ type CardItemMoleculeProps = DefaultPageProps & {
   Id?: number;
 };
 function CardItemMolecule(props: CardItemMoleculeProps): JSX.Element {
+  console.log(props);
   const handleText29 = async () => {
     try {
       const { onPress, Id } = props;

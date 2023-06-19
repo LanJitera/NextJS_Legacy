@@ -39,6 +39,7 @@ function HomePage(props: HomePageProps): JSX.Element {
   const getApiPartiesResult = getApiPartiesInstance.useQuery({
     parties: { isstatus: "Public" },
   });
+  console.log(getApiPartiesResult.data?.parties);
   const navigateService = useNavigateService();
   const validationForm0Schema = useMemo(() => yup.object().shape({}), []);
   const formForm0 = useForm<Form0FormData>({
@@ -64,6 +65,7 @@ function HomePage(props: HomePageProps): JSX.Element {
           partystarttime: get(values, "datetimepicker_1", ""),
         },
       });
+      
     } catch (e: unknown) {}
   };
   const handleOnPressList1Item = async (Id?: number) => {
@@ -214,7 +216,7 @@ function HomePage(props: HomePageProps): JSX.Element {
               </Box>
             </Box>
             <List
-              dataSource={undefined}
+              dataSource={getApiPartiesResult.data?.parties}
               rowKey={useCallback(
                 (item: Record<string, any>) => `${item.id}_${item.created_at}`,
                 []
@@ -223,18 +225,20 @@ function HomePage(props: HomePageProps): JSX.Element {
               renderItem={useCallback(
                 (item: any) => (
                   <CardItem
-                    nameParty={get(
-                      getApiPartiesResult,
-                      "data.parties.nameparty"
-                    )}
-                    partystarttime={get(
-                      getApiPartiesResult,
-                      "data.parties.partystarttime"
-                    )}
-                    partyLocation={get(
-                      getApiPartiesResult,
-                      "data.parties.partylocation"
-                    )}
+                    // nameParty={get(
+                    //   getApiPartiesResult,
+                    //   "data.parties.nameparty"
+                    // )}
+                    nameParty={item.nameparty}
+                    // partystarttime={get(
+                    //   getApiPartiesResult,
+                    //   "data.parties.partystarttime"
+                    // )}
+                    nameParty={item.partystarttime}
+                    // partyLocation={get(
+                    //   getApiPartiesResult,
+                    //   "data.parties.partylocation"
+                    // )}
                     decribe={get(getApiPartiesResult, "data.parties.describe")}
                     img={get(getApiPartiesResult, "data.parties.describe")}
                     label={"Booking"}
@@ -242,7 +246,7 @@ function HomePage(props: HomePageProps): JSX.Element {
                     Id={get(getApiPartiesResult, "data.parties.id")}
                   />
                 ),
-                []
+                [getApiPartiesResult]
               )}
             />
           </Box>
