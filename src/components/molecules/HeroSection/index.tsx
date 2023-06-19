@@ -45,7 +45,7 @@ function HeroSectionMolecule(props: HeroSectionMoleculeProps): JSX.Element {
                 {t("hero_section.text14")}
               </Text>
               <Text
-                href={"/NewUser/login"}
+                href={"/User/login"}
                 className={styles.login}
                 textType="Link"
               >

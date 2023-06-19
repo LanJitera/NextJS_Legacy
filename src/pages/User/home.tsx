@@ -3,6 +3,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { initServerInfo } from "@utils/serverSide";
 import { dehydrate } from "react-query";
 import Home from "@components/pages/Home";
+
 export async function getServerSideProps(context: NextPageContext) {
   const { locale = "en", query } = context;
   const options: {
@@ -18,7 +19,6 @@ export async function getServerSideProps(context: NextPageContext) {
       },
     };
   }
-
   return {
     ...options,
     props: {
