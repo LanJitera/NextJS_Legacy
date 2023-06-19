@@ -26,7 +26,12 @@
   padding-right: 80px;
   padding-top: 22px;
   position: relative;
+<<<<<<< HEAD
   width: 100%;
+=======
+  width: 1440px;
+  cursor: pointer;
+>>>>>>> 85078b6cfa1e1b84c41249d2ee3615de06b72ac2
 }
 .top_container20 {
   align-items: center;
@@ -154,6 +159,22 @@
   white-space: unset;
 }
 .text_0 {
+  color: #414141;
+  flex: none;
+  flex-grow: 0px;
+  font-family: unset;
+  font-size: 16px;
+  font-style: unset;
+  font-weight: 500;
+  line-height: normal;
+  padding-left: unset;
+  position: relative;
+  text-align: left;
+  text-decoration: unset;
+  vertical-align: top;
+  white-space: unset;
+}
+.text_8 {
   color: #414141;
   flex: none;
   flex-grow: 0px;
