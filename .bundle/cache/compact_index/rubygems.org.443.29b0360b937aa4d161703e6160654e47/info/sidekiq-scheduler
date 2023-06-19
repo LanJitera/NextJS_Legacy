@@ -1,0 +1,68 @@
+---
+0.0.0 sidekiq:>= 0.8.0|checksum:ebac49a544e8d5eda125757a5f267e6ecd98429655238fdca817fb66eb55b820
+0.1.0 sidekiq:>= 0.8.0|checksum:1697e6375533b477d288fa2cb0e59fee2822682bd342b5ad39cf72a600bcd677
+0.1.1 sidekiq:>= 0.8.0|checksum:7aa71d6a9100dfa68007b92dbf5155c3ed8b24da3e415b0bb1498c7852a5c3c7
+0.1.2 sidekiq:>= 0.8.0|checksum:545b731e3e130f6d4761ddae72d39e2a100d5fa01d124859c076421670435ea6
+0.2.0 sidekiq:>= 0.9.0|checksum:93cdfddb458b5cc38b7ad980ffdcf6aa4be5313280d1387633a85b2d008360bd
+0.2.1 sidekiq:>= 0.9.0|checksum:5db081d1c068e09375d6e6c4c27c7731ad77469801670055025c1246437c48e7
+0.3.0 sidekiq:~> 1.0.0|checksum:f992319c0970d2e2fc58cee1b9484ac3c9a4c6a71c1d2a562634641adf0dcdbf
+0.3.1 sidekiq:~> 1.0|checksum:5571be7c51a6d7b3283164b2e66c30c3c49f1e2efac041a35a1bbe7c1d20ac5d
+0.3.2 sidekiq:~> 1.0|checksum:72ca76c29a3e80face98505648ddc5007bb49235077c0e7320c88a8a164de35b
+0.4.0 redis:>= 2.0.1,rufus-scheduler:~> 2.0,sidekiq:~> 2.0|checksum:7ef56a693d8f7342ab32d4d03c59670f33b19b654cd04fddb698f0fcf9836abc
+0.4.1 redis:>= 2.0.1,rufus-scheduler:~> 2.0,sidekiq:~> 2.0|checksum:2447b68648c28e9f5f8c2c5ae770aed5c13fa0e823d9b1b1afff61dea9cbc664
+0.6 multi_json:>= 0,redis:>= 2.0.1,rufus-scheduler:~> 2.0,sidekiq:~> 2.12.0|checksum:4195290d5504f7e6c945d14ab0c5f4c55a12e890405e35a764531082b3f6fe09
+0.7 multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 2,sidekiq:>= 2.12&~> 2|checksum:eda5de2ccc00fe19dffc7d04fa7eefac957f4603924dfa7d46117900136b1453
+1.0 multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 2,sidekiq:>= 2.12&~> 3|checksum:0bd17261785b99daeda4f3f6f80bfdbd88c30a94c801593f4d7e3b675ebaebc4
+1.1 multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 3,sidekiq:>= 2.12&~> 3|checksum:29f99dc84b5035d893c8e07c289401dda62cfa54ea4e865d226266e659e1e4c2
+1.2 multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 3,sidekiq:>= 2.12&~> 3|checksum:832e23f400db6c01e1e09078b60e5841a8ac3c8f2818ad55e91c241922490c14
+1.2.1 multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 3,sidekiq:~> 3|checksum:fcee9dff3c14ea46d3769ed493a97c6903eb526d7761b2d4c4dd1174e9f99676
+1.2.2 multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 3,sidekiq:~> 3|checksum:994aed2752983a725c23c835f099e0f93b5b20bb39b8b185fab103ebdbea8206
+1.2.3 multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 3.1.7,sidekiq:~> 3|checksum:9364b7d19d6d94888dc1af07bdb0d4b6f092e9c42807c6e5eb5d39dda0bdb563
+1.2.4 multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 3.1.8,sidekiq:~> 3|checksum:fb7cf2cc64886f34dc2c5e91f017f640c2254abf397469c5b81c49dea55c881c
+2.0.0 multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 3.1.8,sidekiq:>= 3|checksum:d82abef7f92b7fe682d9cf6ef570680d8bac03bb0e33f257d677c8b6156312ec
+2.0.1 multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 3.1.8,sidekiq:>= 3,tilt:~> 2.0|checksum:a3affea6e06a36ac5cf3609c0553ec43778155fae219ecd9cb441a4c9f5c8cd3
+2.0.2 multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 3.1.8,sidekiq:>= 3,tilt:~> 2.0|checksum:487f790483ac5d2fca6bf9ef5703e7a60c420d5b86280808e0d8d8425ff8f653
+2.0.3 multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 3.1.8,sidekiq:>= 3,tilt:~> 2.0|checksum:5c4af1b5682833366e7bc40b91ffb3789f85bca109026710bb6ba8a2dacb9310
+2.0.4 multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 3.1.8,sidekiq:>= 3,tilt:~> 2.0|checksum:e23d6d9352a5526cea060ab1b4e868353ab78fec7458092922f3fc6871740312
+2.0.5 multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 3.1.8,sidekiq:>= 3,tilt:~> 2.0|checksum:61759fc148a6682eccf7687d7a1b37deb928bf794bbab0331ae984f4be710d05
+2.0.6 multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 3.1.8,sidekiq:>= 3,tilt:>= 1.4.0|checksum:89eb82a3ab0061b1b752fd9fde3fe32904b6f8e2ee5c12e27e8e36f67ad0ebf3
+2.0.7 multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 3.1.8,sidekiq:>= 3,tilt:>= 1.4.0|checksum:203f23ad6861b2934ba307d9213867ba954f913e39687a76c523f574c9f5df5d
+2.0.8 multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 3.1.8,sidekiq:>= 3,tilt:>= 1.4.0|checksum:be325863f918d1c00c85dbeae489eb21da0ebcfe109d204ff67eeb11cc59c4c4
+2.0.9 multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 3.1.8,sidekiq:>= 3,tilt:>= 1.4.0|checksum:c30e197f14fa3ea2b49221485c148cceffa36294421e9d13d682ecc4bdd2665f
+2.0.10 hashwithindifferentaccess:>= 0,multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 3.1.8,sidekiq:>= 3,tilt:>= 1.4.0|checksum:c9a8dc23fa7b0c933759719059055b881e175f3b18d1715706fd0a29f75bd579
+2.0.12 hashie:~> 3.4,multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 3.1.8,sidekiq:>= 3,tilt:>= 1.4.0|checksum:286a69ebe855acfb5df9ea93cf5b2f2255e05acc4bb3165ce1e3d6ba82d89414
+2.0.18 hashie:~> 3.4,multi_json:~> 1,redis:~> 3,rufus-scheduler:~> 3.1.8,sidekiq:>= 3,tilt:>= 1.4.0|checksum:2beeb82991114af20dde2b2280fe13109e0fee65b3f3a289ec9100871a04a80b
+2.0.19 hashie:~> 3.4,redis:~> 3,rufus-scheduler:~> 3.1.8,sidekiq:>= 3,tilt:>= 1.4.0|checksum:2bce0f99c817ceefaa831ba831b322d18f570fbd85b0101d7c6fd9dafd05d625
+2.0.20 hashie:~> 3.4,redis:~> 3,rufus-scheduler:~> 3.1.8,sidekiq:>= 3,tilt:>= 1.4.0|checksum:e7c0aced7ba14622f8af6213e00225413a09fae8585e2303872476a5bc992e18
+2.0.21 hashie:~> 3.4,redis:~> 3,rufus-scheduler:~> 3.1.8,sidekiq:>= 3,tilt:>= 1.4.0|checksum:b2effdfeea0c6dd4a9268eff72eff3091b393eb6175672bee6ce345720a88116
+2.1.0 hashie:~> 3.4,redis:~> 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,tilt:>= 1.4.0|checksum:7f8eab7b7d7dd81c33e388ba6073295ea36c93e97e1900a39dd4132b8dfadc9c
+2.1.1 hashie:~> 3.4,redis:~> 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,tilt:>= 1.4.0|checksum:d7cd45dd2d74a8441e5dc87f2dd976939a610c592118343b53338f0bd04425c1
+2.1.2 hashie:~> 3.4,redis:~> 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,tilt:>= 1.4.0|checksum:d913ab14ead3a5cd1ca2f75a657a91e5683136177d8bfac25a085a787742b9f1
+2.1.3 hashie:~> 3.4,redis:~> 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,tilt:>= 1.4.0|checksum:bc8d50c126d3132877fb18fb82c275b431bde407c4d2c93831d69facd185b0e4
+2.1.4 redis:~> 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,tilt:>= 1.4.0|checksum:6e0e5a7f2ceed3052f4e0626296cf701359f08b7eca72ebcd975368845ee4f8f
+2.1.5 redis:~> 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,tilt:>= 1.4.0|checksum:893ce7572e9c428f1449bf6ddd45616cb54d84bb2263fa1169a7d097bbfd3539
+2.1.6 redis:~> 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,tilt:>= 1.4.0|checksum:e4418f1f26448dc6f4d284858c6545f1bb4e4401c21f64d2fc5d0236aa4e8219
+2.1.7 redis:~> 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,tilt:>= 1.4.0|checksum:7b0a26d414b56207103479e070115fb014b5437d6fdb35bad5edf1e27c724681
+2.1.8 redis:~> 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,tilt:>= 1.4.0|checksum:a987cfd3585e9e0bccc2d6c158bd7347e485c48becdd6496bd73b86df7d0fce9
+2.1.9 redis:~> 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,tilt:>= 1.4.0|checksum:22b6fec4c12f76fb6ff564caa9fc823ad6d4b3174edbf560a552c8f81e9be779
+2.1.10 redis:< 5&>= 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,tilt:>= 1.4.0|checksum:065fbb826babacd00246c8e348824e26a89d762044faa5e64e0d7fe9aa50c16b
+2.2.1 redis:< 5&>= 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,tilt:>= 1.4.0|checksum:6ed8e283162b5d7aa7d3989ccf70f5e6633a15eb04eae94a2659223f9332bba0
+2.2.2 redis:< 5&>= 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,tilt:>= 1.4.0|checksum:4970bdea805d1eb21533c3b28ea9893b4286d68166c0b79ff0525d22c2d9a599
+3.0.0 redis:< 5&>= 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,tilt:>= 1.4.0|checksum:7cb5d230ea8e73f66ab2b3876542365d29b5be7f8269d671b3a467f462b868d8
+3.0.1 e2mmap:>= 0,redis:< 5&>= 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,thwait:>= 0,tilt:>= 1.4.0|checksum:21f167d9459fdb119b25fa2c6872c6aee84a56003ce1428539add513dcad9cf9
+3.1.0 e2mmap:>= 0,redis:< 5&>= 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,thwait:>= 0,tilt:>= 1.4.0|checksum:bafdbc1315df6fef3fea7f6a91c201eb87a0fd462362ef05482da397f535c84c
+3.1.1 e2mmap:>= 0,redis:< 5&>= 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,thwait:>= 0,tilt:>= 1.4.0|checksum:5d0b11a1699ba60967347a3a4ee88cc83131c65d4eb1f9329d3cf0440d10ec8e
+3.2.0 e2mmap:>= 0,redis:< 5&>= 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,thwait:>= 0,tilt:>= 1.4.0|checksum:6313187c95206ef76ad58e47d3a3e7c583c363088899932a439d6d4f1ff09459
+4.0.0.alpha1 redis:>= 4.2.0,rufus-scheduler:~> 3.2,sidekiq:>= 3,tilt:>= 1.4.0|checksum:d11c49b4ee1b8425a268b63cabab60d1a4e163c2d63601608efe2c2f90d4965b,ruby:>= 2.5,rubygems:> 1.3.1
+3.2.1 e2mmap:>= 0,redis:< 5&>= 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,thwait:>= 0,tilt:>= 1.4.0|checksum:bb9b1154b7941b3690b01ea235d93f4113899a604607606d75516608e40db308
+4.0.0 redis:>= 4.2.0,rufus-scheduler:~> 3.2,sidekiq:>= 4,tilt:>= 1.4.0|checksum:d57900679ea9f94a7dac464bc55f8028bf490f736db09b5421039d43efffc04e,ruby:>= 2.5
+4.0.1 redis:>= 4.2.0,rufus-scheduler:~> 3.2,sidekiq:>= 4,tilt:>= 1.4.0|checksum:21d4c11b0eeb908b31a2c3627b0386c29e09f3e0d80b206f3f762ff0962204bb,ruby:>= 2.5
+3.2.2 e2mmap:>= 0,redis:< 5&>= 3,rufus-scheduler:~> 3.2,sidekiq:>= 3,thwait:>= 0,tilt:>= 1.4.0|checksum:4f0ba769bf3151c72caff05ea6a54da091844f77035b4a8e6e81e6f353a1e7e7
+4.0.2 redis:>= 4.2.0,rufus-scheduler:~> 3.2,sidekiq:>= 4,tilt:>= 1.4.0|checksum:fd81e11e5fc9974dfb457193de29f1f33762d19e75eb1267483a142b2f76310c,ruby:>= 2.5
+4.0.3 redis:>= 4.2.0,rufus-scheduler:~> 3.2,sidekiq:< 7&>= 4,tilt:>= 1.4.0|checksum:4418473dc11afba45a972fe7c135c577136ad2233237cd82756ec44f2aa94046,ruby:>= 2.5
+5.0.0.beta1 rufus-scheduler:~> 3.2,sidekiq:< 8&>= 4,tilt:>= 1.4.0|checksum:b0e452a605300979baf4737fd5b38c5713083ef9cb0d0a2838590f0a1cb3e52b,ruby:>= 2.7,rubygems:> 1.3.1
+5.0.0.beta2 rufus-scheduler:~> 3.2,sidekiq:< 8&>= 4,tilt:>= 1.4.0|checksum:9b3b2245afd44882e83ea3c32b43039d508fb58d135bd3fa9202e3c1e61c05da,ruby:>= 2.7,rubygems:> 1.3.1
+5.0.0 rufus-scheduler:~> 3.2,sidekiq:< 8&>= 4,tilt:>= 1.4.0|checksum:e23e8551f35ce6dda2dca8d76b122ee5cbec7f292b248f4f5b863e26e3150941,ruby:>= 2.7
+5.0.1 rufus-scheduler:~> 3.2,sidekiq:< 8&>= 4,tilt:>= 1.4.0|checksum:d045cc1c3e63e92496b17234567d816b0d3fd6d600825817de7e4cf08d9734a6,ruby:>= 2.7
+5.0.2 rufus-scheduler:~> 3.2,sidekiq:< 8&>= 6,tilt:>= 1.4.0|checksum:d2052e10254529d55931969b069196e9f4b924429413f9644c8f04b19cf5fa79,ruby:>= 2.7
+5.0.3 rufus-scheduler:~> 3.2,sidekiq:< 8&>= 6,tilt:>= 1.4.0|checksum:30dc8d4da95ac24143662d013442cc571083574f4377928877425dd18796b25c,ruby:>= 2.7

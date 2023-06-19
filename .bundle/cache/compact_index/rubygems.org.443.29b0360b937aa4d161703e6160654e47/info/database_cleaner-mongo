@@ -1,0 +1,8 @@
+---
+1.8.0.beta database_cleaner:~> 1.8.0,mongo:>= 0|checksum:553db81b4bd2ad1b7e3665b0b3ad4fdbaf45e85185e4eaba51c9f3fee7e004a5,rubygems:> 1.3.1
+1.8.0 database_cleaner:~> 1.8.0,mongo:>= 0|checksum:707106fb5b9b6e226f0ef4622c8dbda4f92663097ce200381e36606f3df43161
+1.8.1 database_cleaner:~> 1.8.0,mongo:>= 0|checksum:b074bf3a31eb35c781eaad452afaef455070c4f4a3691dd57e1b7d317d81ad43
+1.99.0.beta database_cleaner:~> 1.99.0.beta,mongo:>= 0|checksum:6a86b7017b571fd0f9aeb118384c718b75ecdc64a13e2a668224be3f9ea8e0eb,rubygems:> 1.3.1
+2.0.0.beta database_cleaner-core:~> 2.0.0.beta2,mongo:~> 2.0|checksum:0f4a8ad492d94e61cc13746d5b8a34214f2bb20aa3719644d803466d5680ade5,rubygems:> 1.3.1
+1.99.0 database_cleaner:~> 1.99.0,mongo:>= 0|checksum:e7a04e7269151d71de07b7827e9f7cabda21b5970292dd7bca6b7809e36271f4
+2.0.0 database_cleaner-core:~> 2.0.0,mongo:~> 2.0|checksum:d0665654e8026985b54c2764883c0e930946597ef80aba2ad2e1af7b96831c44

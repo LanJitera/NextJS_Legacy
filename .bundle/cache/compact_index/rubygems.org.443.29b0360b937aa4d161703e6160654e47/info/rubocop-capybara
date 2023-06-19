@@ -1,0 +1,4 @@
+---
+2.17.0 rubocop:~> 1.41|checksum:bbdc757d091788fafc37a634c54e1a930489498a36f81321c5c50cf0a76498c0,ruby:>= 2.6.0
+2.17.1 rubocop:~> 1.41|checksum:d648a6efd9607da494e379cdeb8d4569f88eb0e6c0a35ba964af2f0c6815e5df,ruby:>= 2.6.0
+2.18.0 rubocop:~> 1.41|checksum:66b256755101f76dc455ba9694e2414bc957db5200401d204b00bc835401d605,ruby:>= 2.6.0

@@ -1,0 +1,26 @@
+---
+0.1.0 graphql:~> 0.8|checksum:63476973602880cfe163c21a0da1e9c26bc0707177e6ed3d396e33e619f54e03
+0.2.0 graphql:~> 0.8,promise.rb:~> 0.7.0.rc2|checksum:24930474d31254e229aa7c1f6072f6ee40341e5043b60a8c5c4d79acf7517684
+0.2.1 graphql:~> 0.8,promise.rb:~> 0.7.0.rc2|checksum:28124bea062ae9256dcb3bbd35f4cae7195d263a0bd7838c344b7e8f552f90bc
+0.2.2 graphql:~> 0.8,promise.rb:~> 0.7.0.rc2|checksum:d710c00eb08147bb305753e6b928ad3c9200cd9c33fc9ffbaab2148919691fc3
+0.2.3 graphql:~> 0.8,promise.rb:~> 0.7.0.rc2|checksum:91e76a55dcbce404933ce1333ae20d4b3493753b7802381766ed0b4b6d66fa84
+0.2.4 graphql:~> 0.8,promise.rb:~> 0.7.0.rc2|checksum:9f73296913f5de7192fbb2f215fe200eb7cb5c91b5349017051dc31c30cc2da9
+0.2.5 graphql:< 2&>= 0.8,promise.rb:~> 0.7.0.rc2|checksum:9b974394c2a497500289e49d25dbfa3505dbfe870712c302a24c9cc915094a8b
+0.3.0 graphql:< 2&>= 0.8,promise.rb:~> 0.7.2|checksum:61bc625032a0a5410ad26be975ccd81b7e2d063ed70c9e29df80b4ec3be2b918
+0.3.1 graphql:< 2&>= 0.8,promise.rb:~> 0.7.2|checksum:c659e3c0e6f59ee6344c6aff3b1d428e695f56ea5c823387bd5e7c2e34f0f124
+0.3.2 graphql:< 2&>= 0.8,promise.rb:~> 0.7.2|checksum:1014e696a4d7ee51b9af7ab5a862b4932e77dd4d3cc0d5ab6e0cc862d9fca83f
+0.3.3 graphql:< 2&>= 0.8,promise.rb:~> 0.7.2|checksum:0d44e2873a9793b158e15ed4dd3727cf58eaf03bb9292256a7ff57bb9f8f38ac
+0.3.4 graphql:< 2&>= 0.8,promise.rb:~> 0.7.2|checksum:88f0f6f97f9baa94589212cdaba8e869c514fa462afa86c33f09d9ec8b9a9615
+0.3.5 graphql:< 2&>= 0.8,promise.rb:~> 0.7.2|checksum:e7cd2d596ddb1b0e0e131335d0e587f254126e4e49673b84d5af296541617464
+0.3.7 graphql:< 2&>= 0.8,promise.rb:~> 0.7.2|checksum:c560816aa0a85f54ec7df0fd43ce451f79b57d6610207b59db10e38a98e921a6
+0.3.8 graphql:< 2&>= 0.8,promise.rb:~> 0.7.2|checksum:145d9bf1afe1cb123bac67539a705f36f629f14b1153ac4c05351ce76d8e6a56
+0.3.9 graphql:< 2&>= 0.8,promise.rb:~> 0.7.2|checksum:12f07a0a8b813f48ec436529ce46ce5c6dbd28f413cd690906faf7d675dd810f
+0.3.10 graphql:< 2&>= 0.8,promise.rb:~> 0.7.2|checksum:d333e32515e97a720ec6ecfbe0029f6d7f6e9d228fe8c4923bbfb8ded9751b17
+0.4.0 graphql:< 2&>= 1.3,promise.rb:~> 0.7.2|checksum:b1fc715a13a37c27c9abddd43d40706efdecdae2ec1ce466643e86008a74c59f
+0.4.1 graphql:< 2&>= 1.3,promise.rb:~> 0.7.2|checksum:663eea915bea5a81a2119f402f071fa3cd28afa57db195765e6af2ab0a034810
+0.4.2 graphql:< 2&>= 1.3,promise.rb:~> 0.7.2|checksum:167fc5dbcc5ffdf3f04159c4dcf6db7839256c1f82d3df5869fd782dd6a9c1eb
+0.4.3 graphql:< 2&>= 1.3,promise.rb:~> 0.7.2|checksum:b3bf2f3b4b69fffab422b6ec5117db8aee7290e1479abc02285561565cdd48b6
+0.5.0 graphql:< 2&>= 1.10,promise.rb:~> 0.7.2|checksum:66c1578a619e347323629c8b5d06874a0e043dee858a23c10be49a9606edba1f
+0.5.1 graphql:< 3&>= 1.10,promise.rb:~> 0.7.2|checksum:094bc4d7bc89c3cabd42bd7e63b74bea0a3dd08427f985c83de2c2e90f95d6fe
+0.5.2 graphql:< 3&>= 1.10,promise.rb:~> 0.7.2|checksum:5b1280eb461ab811946e5d78420b583f5c2c879f669f88e743aa2678487452db
+0.5.3 graphql:< 3&>= 1.12.18,promise.rb:~> 0.7.2|checksum:54515dcd3db4220aa3aa79fec7a2b5c45486945b931abb3479584a9230651479

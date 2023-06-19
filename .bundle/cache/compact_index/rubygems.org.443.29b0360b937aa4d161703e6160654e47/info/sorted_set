@@ -1,0 +1,9 @@
+---
+1.0.0 rbtree:>= 0,set:~> 1.0|checksum:1c3bd2db34728d2bdf0576bad22259f2c449f8bf244ec98c56858ee0d7cbfcac,ruby:>= 2.3.0
+1.0.0-java rbtree-jruby:>= 0,set:~> 1.0|checksum:c59bd9d771551c984081c246a390cf642617850fdca60df01db74e2ef7d97815,ruby:>= 2.3.0
+1.0.1 rbtree:>= 0,set:~> 1.0|checksum:fd028b79fa991f2418f5cf69b9b086536d1f7186974bb2f691f65dfce360bbfc,ruby:>= 2.3.0
+1.0.1-java |checksum:454dc2afe1772639582812cc1f78fd133a285292b24f05be500de571370c5642,ruby:>= 2.3.0
+1.0.2 rbtree3:>= 0,set:~> 1.0|checksum:2168a3fe76c88707c102b45938f06a2f39d6dfc030867a598f3be1bd0f1f6938,ruby:>= 2.3.0
+1.0.2-java |checksum:6f77823d5255bd451e9dc476df1c85722cbe9efbc89d4a248babfe8b8ca696c8,ruby:>= 2.3.0
+1.0.3 rbtree:>= 0,set:~> 1.0|checksum:4f2b8bee6e8c59cbd296228c0f1f81679357177a8b6859dcc2a99e86cce6372f,ruby:>= 2.3.0
+1.0.3-java |checksum:996283f2e5c6e838825bcdcee31d6306515ae5f24bcb0ee4ce09dfff32919b8c,ruby:>= 2.3.0

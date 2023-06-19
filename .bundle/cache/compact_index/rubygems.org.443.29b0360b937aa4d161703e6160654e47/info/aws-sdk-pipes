@@ -1,0 +1,7 @@
+---
+1.0.0 aws-sdk-core:>= 3.165.0&~> 3,aws-sigv4:~> 1.1|checksum:c9e3c3f59cdb3bef939e0b2b11f755b4791643b9895e56f50927bd3a046ed902,ruby:>= 2.3
+1.1.0 aws-sdk-core:>= 3.165.0&~> 3,aws-sigv4:~> 1.1|checksum:c772b0e92a0b85e1e415ba9a5ce9c9f2bf0cbab3671df4b9777b67e7b6bcf2e7,ruby:>= 2.3
+1.2.0 aws-sdk-core:>= 3.165.0&~> 3,aws-sigv4:~> 1.1|checksum:697b7d8fdf57dcdb0c64605f8c616d0309e08955fbe7c7f5245b818c71853a7b,ruby:>= 2.3
+1.3.0 aws-sdk-core:>= 3.165.0&~> 3,aws-sigv4:~> 1.1|checksum:06193be67370b6c87626712ce61c574e97a6255639cdb90cd61a9a6ed91abdce,ruby:>= 2.3
+1.4.0 aws-sdk-core:>= 3.174.0&~> 3,aws-sigv4:~> 1.1|checksum:ea7de5c60093675ae39267e7a21e36a1b0d0c1885fb0f95c1b0ad2ab69f145e7,ruby:>= 2.3
+1.5.0 aws-sdk-core:>= 3.174.0&~> 3,aws-sigv4:~> 1.1|checksum:905ced91ce0db555c9b1e9b6aee50bd570bf2510847f89f49508746ec6cf196f,ruby:>= 2.3

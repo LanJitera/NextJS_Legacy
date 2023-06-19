@@ -1,0 +1,16 @@
+---
+1.0.0 aws-sdk-core:>= 3.112.0&~> 3,aws-sigv4:~> 1.1|checksum:05db1b2227d846b6b54790deba930a7febe13648748fe7e3f90afbba166f3a1e
+1.1.0 aws-sdk-core:>= 3.118.0&~> 3,aws-sigv4:~> 1.1|checksum:0a50f71a1264269c7fa9be01e0013b521b577a53a76b7c501c43420e7039d002
+1.2.0 aws-sdk-core:>= 3.119.0&~> 3,aws-sigv4:~> 1.1|checksum:215b70b069b6d020a49d3a3a9544f97dc0189e59c50002e1483e5fc3068bfc72
+1.3.0 aws-sdk-core:>= 3.120.0&~> 3,aws-sigv4:~> 1.1|checksum:eb9d2dcb84eda6e98dfefdb6d0f8547589b32cd5286e084887f4db7590b8607f,ruby:>= 2.3
+1.4.0 aws-sdk-core:>= 3.121.2&~> 3,aws-sigv4:~> 1.1|checksum:8f628e7cb5164391cd38409f734b265b7749ec6ba61013ab1c9cfef4b4cb1642,ruby:>= 2.3
+1.5.0 aws-sdk-core:>= 3.122.0&~> 3,aws-sigv4:~> 1.1|checksum:bb873778d32ba7f38850eb450dad6a06c29bd4fa268a894f2b972ff2471aee13,ruby:>= 2.3
+1.6.0 aws-sdk-core:>= 3.122.0&~> 3,aws-sigv4:~> 1.1|checksum:1be2b4642a4ceb9db05b55d4f2ef8582a8d6adc4c8270590084bd7b6b416650e,ruby:>= 2.3
+1.7.0 aws-sdk-core:>= 3.125.0&~> 3,aws-sigv4:~> 1.1|checksum:fc743a19f315864087bdbb3284c494e1bffde1e1e578bb34831aa317f3b13e57,ruby:>= 2.3
+1.8.0 aws-sdk-core:>= 3.125.0&~> 3,aws-sigv4:~> 1.1|checksum:0824b4ee8fd648eb771ee79bc6ae061557f1f515c113d4949efdbaafd0e6f40e,ruby:>= 2.3
+1.9.0 aws-sdk-core:>= 3.126.0&~> 3,aws-sigv4:~> 1.1|checksum:e4d11222e3148e2e66d1e476dcd0864abef700347bf081f52e3bb4bd400f8b46,ruby:>= 2.3
+1.10.0 aws-sdk-core:>= 3.127.0&~> 3,aws-sigv4:~> 1.1|checksum:47d541c5fe4f9e6037278bd85c24886cf0467ea08a55974ec32d172434439ea7,ruby:>= 2.3
+1.11.0 aws-sdk-core:>= 3.165.0&~> 3,aws-sigv4:~> 1.1|checksum:7d9fd28670968b2e1b51243454def65389551943c487c9d83a174fc9f3cd90f3,ruby:>= 2.3
+1.12.0 aws-sdk-core:>= 3.165.0&~> 3,aws-sigv4:~> 1.1|checksum:3f4dc77c0b25b54172075c130ffcfedff4cd20122d7e97b443388a9f30769e1c,ruby:>= 2.3
+1.13.0 aws-sdk-core:>= 3.174.0&~> 3,aws-sigv4:~> 1.1|checksum:cc4262802231b640071d1f8b521b515b8cb5aaeb4b61e06b66b195c911a84199,ruby:>= 2.3
+1.14.0 aws-sdk-core:>= 3.174.0&~> 3,aws-sigv4:~> 1.1|checksum:7a64bd193ae025b236639eba6312a88d602c4d9eb7c05e4a3177bd8db4ce1b6e,ruby:>= 2.3

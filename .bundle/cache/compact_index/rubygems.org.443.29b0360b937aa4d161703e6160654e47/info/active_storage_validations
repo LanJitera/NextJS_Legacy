@@ -1,0 +1,38 @@
+---
+0.1 rails:~> 5.2.0|checksum:51dd408c2f346b4298cfa503aa6af04779d8255de0dfa97414b965b5280e7a78
+0.2 rails:~> 5.2.0|checksum:7ea1a9271f0d12f99ff2a1bbc687f915b64ffb8074bb63b62c74848326bbcdc1
+0.3 rails:~> 5.2.0|checksum:833839f77a59041731799ded7319b11ae7db5914bd03d478bd7909af449242f6
+0.3.1 rails:~> 5.2.0|checksum:7ca44dadebc28ee41eeb1ab21c516ba5e2fa6ae82c4283e05673d075bb223ed8
+0.4.0 rails:~> 5.2.0|checksum:efdf591bd5c574bde5df122f9e842b47e4d4a8d1b5e3b3c74b8606bdb3a88b88
+0.5.0 rails:~> 5.2.0|checksum:0f69e4c6c9989fed977754e037ae2b5eb75c01652486b10c94ee0b502324d5f3
+0.5.1 rails:~> 5.2.0|checksum:ea642443382f3b43eae6ed656eb651180c491109a7bbda6fd32d9e5c8b547133
+0.5.2 rails:~> 5.2.0|checksum:08d95ca036675862e927d91b53148e1d857bb59e10c11b7157896d18022f0f70
+0.5.3 rails:>= 5.2.0|checksum:e3fe310a6cc9ca224895ce94f7eba36338175b57f3a28a540bf750933a5e23f7
+0.6.0 rails:>= 5.2.0|checksum:62e77ee4e939b40778d1a6904d2b1bdf7b485e9a239b0ccc38f1403d12591e19
+0.6.1 rails:>= 5.2.0|checksum:53b598e0a4b1f39dcba75d356096137ad02f9935a9667013d571e13d48706266
+0.7.0 image_processing:>= 1.8,rails:>= 5.2.0|checksum:4b2080b3871721302ede10a6b14f6501dbad7dcf72e717a54ec4be3f4982a864
+0.7.1 rails:>= 5.2.0|checksum:82c2c7d98574769d65d40533d7cc4689f3562eaae8de716fab0e7ce728610510
+0.8.0 rails:>= 5.2.0|checksum:fecb254ad476214fa4def87ce8aa414d2f9ba945703d4e99b96e31dcf00214ce
+0.8.1 rails:>= 5.2.0|checksum:ca0e6540f9255986e3f1374cca70cb81a4fcab9aa697406d569e3671bd42cf96
+0.8.2 rails:>= 5.2.0|checksum:9e6bd42b8908c47722f9f5a4a7b9d60946347eec8b7427f24de8e08539af7e1f
+0.8.3 rails:>= 5.2.0|checksum:2d7bafba95f82229baa4caed5f40bd51dcee36a7300cd61d0a31a57e27727fe8
+0.8.4 rails:>= 5.2.0|checksum:67de75ac3b7ac1028eba438a3595e1e1cf78daf6c671f17ba94628459e1de3f3
+0.8.5 rails:>= 5.2.0|checksum:281f8fdc25ff51bd8801c90c2df9448b055591902dfadc272da2eca1d3c58db7
+0.8.6 rails:>= 5.2.0|checksum:6735690c620125a7aadf7c22469b75cbe557f48c438ad23b19260dc08c20a416
+0.8.7 rails:>= 5.2.0|checksum:1a6780248cc4c4943479b095f41ba5e579fbf3c27e3734c527158cbfea3a08f7
+0.8.8 rails:>= 5.2.0|checksum:6129fa09670a744a25ae6502301fd0b0aa0c9d52847c795a0fb8c9acb8ca2f2b
+0.8.9 rails:>= 5.2.0|checksum:9324a31dbb3be0fcb7c98fdd4a1f1482525eef3065c857936fa74d129bcb6537
+0.9.0 rails:>= 5.2.0|checksum:a20efe8ea77ae4704418b36d313e2ab053ed6f0c52289db5f6edeccd69d56bd6
+0.9.1 rails:>= 5.2.0|checksum:551fb6468bd2939e6dd32460b4dfc3e664abf524b63fe46fa85c06c922079099
+0.9.2 rails:>= 5.2.0|checksum:dafe9d1b44c5f773e10c0b7b098f4739541c22f5990a1986880c05ced4944ee6
+0.9.3 rails:>= 5.2.0|checksum:129729ed621aa67fd67baf626e4dc7d68a9a67ea47c8473ac45daa493dfb77cf
+0.9.4 rails:>= 5.2.0|checksum:dd6860fa3df044b895de68174f5683a656f45b3e9dc2bb96b0213e0822179811
+0.9.5 rails:>= 5.2.0|checksum:3d848cb94920a7840a27f69f233a7fc6d3a505688414a565031ccd7d743c8a4d
+0.9.6 activejob:>= 5.2.0,activemodel:>= 5.2.0,activestorage:>= 5.2.0,activesupport:>= 5.2.0|checksum:577f7d0aa271df4892efb241b7e214858edfef86e82bfb4b58ca3a980e4515cd
+0.9.7 activejob:>= 5.2.0,activemodel:>= 5.2.0,activestorage:>= 5.2.0,activesupport:>= 5.2.0|checksum:b53e6c061103634477a1fb6dee43d126800561332edde54c0a1a22fe67657062
+0.9.8 activejob:>= 5.2.0,activemodel:>= 5.2.0,activestorage:>= 5.2.0,activesupport:>= 5.2.0|checksum:01bc78f6bdde9e7a623580ee2f181d8bf35c0d28a49f83f14f92ae0a96106259
+1.0.0 activejob:>= 5.2.0,activemodel:>= 5.2.0,activestorage:>= 5.2.0,activesupport:>= 5.2.0|checksum:aa045e45889a763767be93deaeb4d161e0f926e85d33383151194c50f4f681c9
+1.0.1 activejob:>= 5.2.0,activemodel:>= 5.2.0,activestorage:>= 5.2.0,activesupport:>= 5.2.0|checksum:e5bea177bb045eb723d280ea118bcea0241082de5f0bb312ea58d6018bd3857a
+1.0.2 activejob:>= 5.2.0,activemodel:>= 5.2.0,activestorage:>= 5.2.0,activesupport:>= 5.2.0|checksum:5a6b7820b2ed52351675bbbcb459addea1ded3ad8993ff878962da640495c27f
+1.0.3 activejob:>= 5.2.0,activemodel:>= 5.2.0,activestorage:>= 5.2.0,activesupport:>= 5.2.0|checksum:4068ece38f0f7cc8634c2dceef85da78755838b8d2c1c25de3c112bb52cdd105
+1.0.4 activejob:>= 5.2.0,activemodel:>= 5.2.0,activestorage:>= 5.2.0,activesupport:>= 5.2.0|checksum:f3b4021b9701d70d7c6ba9d869e9c76a437adb6692f4d0c114d66a445130d551

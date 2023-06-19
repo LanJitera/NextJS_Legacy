@@ -1,0 +1,8 @@
+---
+0.1.0 rbs:>= 0,syntax_tree:>= 2.0.1|checksum:5c425be0583471751fb4656c513b7336040d27421a45bf2edb51b09abe8019aa
+0.2.0 rbs:>= 0,syntax_tree:>= 2.0.1|checksum:30b54f03307dee87673fc193b3dd7e29b70aae8d68fc4f67cee4e88f01c0513f
+0.3.0 prettier_print:>= 0,rbs:>= 0,syntax_tree:>= 2.0.1|checksum:5034d2d8f4b95b4a86dec09ea292d59b7866389a6c25cbbcfb28daf9e8873c0e
+0.4.0 prettier_print:>= 0,rbs:>= 0,syntax_tree:>= 2.0.1|checksum:915c7e8a49d87fe1f0bffab13aea4f4e1cd39729676d582af085757325a6acd0
+0.5.0 prettier_print:>= 0,rbs:>= 0,syntax_tree:>= 2.0.1|checksum:1fa6dcd1574f5ed6a225eaf36f79b3603ccc8930b595f48560a07ec45e88a70f
+0.5.1 prettier_print:>= 0,rbs:>= 0,syntax_tree:>= 2.0.1|checksum:1d1eaa54e29a386fd4b27b1edb4d67aa46d77653a80fe91c82775f405462a8bb
+1.0.0 prettier_print:>= 0,rbs:>= 0,syntax_tree:>= 2.0.1|checksum:596728cb588a78a197f5b0c0d09e58a00bad1d9856dc3dfaa065199f521436bd

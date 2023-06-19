@@ -1,0 +1,16 @@
+---
+1.0.0 aws-sdk-core:>= 3.120.0&~> 3,aws-sigv4:~> 1.1|checksum:9c5c6a1c0f54be22399a2b76b2521c09ddb06ad2f4de157ed526605dc1beae33,ruby:>= 2.3
+1.1.0 aws-sdk-core:>= 3.121.2&~> 3,aws-sigv4:~> 1.1|checksum:2686a01811bbdcfc44d959b57c016ef8a05796abe09dacc2ef0750d587ebd1d8,ruby:>= 2.3
+1.2.0 aws-sdk-core:>= 3.122.0&~> 3,aws-sigv4:~> 1.1|checksum:439e682146dc728ce72dc8b1e7f42ec7b0e6b13b94733a254436de99afff6914,ruby:>= 2.3
+1.3.0 aws-sdk-core:>= 3.122.0&~> 3,aws-sigv4:~> 1.1|checksum:3bfb5432159e1d9ea314120b0d2729ad3fce48648fdad800659a5e59d0505b06,ruby:>= 2.3
+1.4.0 aws-sdk-core:>= 3.125.0&~> 3,aws-sigv4:~> 1.1|checksum:76a70e874b9ccb29b7b0cb6f6f88dc9cad4ccee4f905a619528b073883958dd7,ruby:>= 2.3
+1.5.0 aws-sdk-core:>= 3.126.0&~> 3,aws-sigv4:~> 1.1|checksum:3a4192c32cce4d03b7a587d4db6a7d66daec1b69040e3cf6387d2f29ec14785a,ruby:>= 2.3
+1.6.0 aws-sdk-core:>= 3.127.0&~> 3,aws-sigv4:~> 1.1|checksum:84388c3bd816e64304c6bd28fb71d4b7cfac5e2587634db95e75c51cfe157062,ruby:>= 2.3
+1.7.0 aws-sdk-core:>= 3.127.0&~> 3,aws-sigv4:~> 1.1|checksum:39a62459dda23b6840d68e394b459a59afa6542478a554b26e8e54360d1d6c13,ruby:>= 2.3
+1.8.0 aws-sdk-core:>= 3.165.0&~> 3,aws-sigv4:~> 1.1|checksum:e0639e8e75d301512f67e15034afbb2843324ab94573c39d73407a1c53a0e11c,ruby:>= 2.3
+1.9.0 aws-sdk-core:>= 3.165.0&~> 3,aws-sigv4:~> 1.1|checksum:d76ca76bd284a364e241dd75cd2e521ef0981593c7b1b505c4b098d7993dcadf,ruby:>= 2.3
+1.10.0 aws-sdk-core:>= 3.165.0&~> 3,aws-sigv4:~> 1.1|checksum:b20df0429a06cbdde9481c31a3431f37b341c2045442be98803606e4d33392d6,ruby:>= 2.3
+1.11.0 aws-sdk-core:>= 3.165.0&~> 3,aws-sigv4:~> 1.1|checksum:dfee158b5d8e21b3fad50659f4ed8cf31f5857242a5b5003d394b5f6f368dee7,ruby:>= 2.3
+1.12.0 aws-sdk-core:>= 3.174.0&~> 3,aws-sigv4:~> 1.1|checksum:ac074cce24e99357b955fb1b316aeb103b1274edf3156f22af7f1a274d15fa33,ruby:>= 2.3
+1.13.0 aws-sdk-core:>= 3.174.0&~> 3,aws-sigv4:~> 1.1|checksum:d065c798c3111da6f44d851f8d33f0cfdbfc6d4e55663c07889bb0b944a13315,ruby:>= 2.3
+1.14.0 aws-sdk-core:>= 3.174.0&~> 3,aws-sigv4:~> 1.1|checksum:a33d980d3245a1cd5d608e794a8935c890ba68a1ac704818f2c87e54861d9c16,ruby:>= 2.3

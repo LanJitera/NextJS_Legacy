@@ -1,0 +1,3 @@
+---
+1.0.0 aws-sdk-core:>= 3.174.0&~> 3,aws-sigv4:~> 1.1|checksum:d9a8acfec82797abda5b73377c7bbb591907310ce5532dfd4ff9dc49bb372cf5,ruby:>= 2.3
+1.1.0 aws-sdk-core:>= 3.174.0&~> 3,aws-sigv4:~> 1.1|checksum:b4fd90929b358f7255cc76c47c6449c4c877772dc2daee8ac0169011d51962f3,ruby:>= 2.3

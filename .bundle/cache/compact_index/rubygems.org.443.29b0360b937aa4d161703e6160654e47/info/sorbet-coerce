@@ -1,0 +1,22 @@
+---
+0.0.1 safe_type:>= 1.1.1&~> 1.1,sorbet:~> 0.4.4704,sorbet-runtime:~> 0.4.4704|checksum:bbd480c2d6129458afe4ca57f42f5c47d636880c75f1f86023554a6967db7880,ruby:>= 2.3.0
+0.1.0 safe_type:>= 1.1.1&~> 1.1,sorbet:~> 0.4.4704,sorbet-runtime:~> 0.4.4704|checksum:fa834026b2d4f81511ad08d6cb438793d58822f9ff2ec7a1467c5fcb312c41c4,ruby:>= 2.3.0
+0.1.1 safe_type:>= 1.1.1&~> 1.1,sorbet:~> 0.4.4704,sorbet-runtime:~> 0.4.4704|checksum:349b1e5b79f8c89d1a6c67a8161fa6896d6a773adaf1745ea1a97ef5fc6f3a75,ruby:>= 2.3.0
+0.1.2 polyfill:~> 1.8,safe_type:>= 1.1.1&~> 1.1,sorbet:~> 0.4.4704,sorbet-runtime:~> 0.4.4704|checksum:a4aa21427cdd42d20707a526d34ab8870d01683b42b0c95e0a9e0b9cf4e22d10,ruby:>= 2.3.0
+0.1.3 polyfill:~> 1.8,safe_type:>= 1.1.1&~> 1.1,sorbet:~> 0.4.4704,sorbet-runtime:~> 0.4.4704|checksum:a1593fac378ff8f62b1ffc779166bf971e5bd6e6bef0fc2ddc71f95d08a503e0,ruby:>= 2.3.0
+0.1.4 polyfill:~> 1.8,safe_type:>= 1.1.1&~> 1.1,sorbet:~> 0.4.4704,sorbet-runtime:~> 0.4.4704|checksum:ff0d93f933f1e520f01471437f02f5339b16c038ebf0321a13706c86a7c88a65,ruby:>= 2.3.0
+0.1.5 polyfill:~> 1.8,safe_type:>= 1.1.1&~> 1.1,sorbet:~> 0.4.4704,sorbet-runtime:~> 0.4.4704|checksum:2bee4d06c8d260d6780a94703c5d6661a0a45d5a9c096b60e984a0227417c43d,ruby:>= 2.3.0
+0.1.6 polyfill:~> 1.8,safe_type:>= 1.1.1&~> 1.1,sorbet:~> 0.4.4704,sorbet-runtime:~> 0.4.4704|checksum:51fe02f70d3b446c7e6912a9d2f200edc56f663d395ce256fe2e89d9f05f62ce,ruby:>= 2.3.0
+0.2.0 polyfill:~> 1.8,safe_type:>= 1.1.1&~> 1.1,sorbet:>= 0.4.4704,sorbet-runtime:>= 0.4.4704|checksum:ad2f5efaddcc0707f66e835a242b38c94c0f83f6260a92edc6465e61efdbe212,ruby:>= 2.4.0
+0.2.1 polyfill:~> 1.8,safe_type:>= 1.1.1&~> 1.1,sorbet:>= 0.4.4704,sorbet-runtime:>= 0.4.4704|checksum:06340faf4bb5b535564f9a8fbb81ba25c5af401a56ff22b08b5cbec3f820b208,ruby:>= 2.4.0
+0.2.2 polyfill:~> 1.8,safe_type:>= 1.1.1&~> 1.1,sorbet:>= 0.4.4704,sorbet-runtime:>= 0.4.4704|checksum:846aa3a82f7769fb049299850bb1833694f8c3967e77efaf76b564e6b8479c1a,ruby:>= 2.4.0
+0.2.3 polyfill:~> 1.8,safe_type:>= 1.1.1&~> 1.1,sorbet:>= 0.4.4704,sorbet-runtime:>= 0.4.4704|checksum:9061ca18cbe5d675c24f357a4de2dda07f7a4e1ad0c9de255206a396861b9fc4,ruby:>= 2.4.0
+0.2.4 polyfill:~> 1.8,safe_type:>= 1.1.1&~> 1.1,sorbet:>= 0.4.4704,sorbet-runtime:>= 0.4.4704|checksum:7a165960d4b46f9c2bcbecb6d8d8acb2833d83d037d30b3657f28f5addcc1b7b,ruby:>= 2.4.0
+0.2.5 polyfill:~> 1.8,safe_type:>= 1.1.1&~> 1.1,sorbet:>= 0.4.4704,sorbet-runtime:>= 0.4.4704|checksum:9b0a39d0ef464b837e93ecbc3032426833f5346aebe109b394c385922312022b,ruby:>= 2.4.0
+0.2.6 polyfill:~> 1.8,safe_type:>= 1.1.1&~> 1.1,sorbet:>= 0.4.4704,sorbet-runtime:>= 0.4.4704|checksum:a98e06e8e63e8bd07eb37339dfcb3ca0a0d2006094adad0e37e254326fb2a0cf,ruby:>= 2.4.0
+0.2.7 polyfill:~> 1.8,safe_type:>= 1.1.1&~> 1.1,sorbet:>= 0.4.4704,sorbet-runtime:>= 0.4.4704|checksum:f402ccbf32dbcf203020bb2b5c7fdd525b2d81d6d47bace12bfc948a01d118ab,ruby:>= 2.4.0
+0.3.0 polyfill:~> 1.8,safe_type:>= 1.1.1&~> 1.1,sorbet:>= 0.4.4704,sorbet-runtime:>= 0.4.4704|checksum:a7484f24b14af582e2ff0b58620884bd4d753670958b76cc06a62c7ab476091e,ruby:>= 2.4.0
+0.4.0 polyfill:~> 1.8,safe_type:>= 1.1.1&~> 1.1,sorbet-runtime:>= 0.4.4704|checksum:b356019cd61c07bb791c2c7416ddd62beb1dd4f8f7039b77f1a56fe25de7a981,ruby:>= 2.4.0
+0.5.0 polyfill:~> 1.8,safe_type:>= 1.1.1&~> 1.1,sorbet-runtime:>= 0.4.4704|checksum:7591169464306c892cd42d6b8cb0023e1626ba0378d31af1b764bec182a4e687,ruby:>= 2.4.0
+0.6.0 polyfill:~> 1.8,safe_type:>= 1.1.1&~> 1.1,sorbet-runtime:>= 0.4.4704|checksum:e8040807b018755631405ba1641cfe20a1c501a76cd8ddbc8a40ad638fc8220a,ruby:>= 2.4.0
+0.7.0 polyfill:~> 1.8,safe_type:>= 1.1.1&~> 1.1,sorbet-runtime:>= 0.4.4704|checksum:b340fa40971340e946c698a05e7f5c640909480e8024344272c2e763f289c4e5,ruby:>= 2.7.0
