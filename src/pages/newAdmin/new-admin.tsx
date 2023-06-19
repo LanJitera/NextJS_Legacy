@@ -2,7 +2,7 @@ import type { NextPageContext } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { initServerInfo } from "@utils/serverSide";
 import { dehydrate } from "react-query";
-import Home from "@components/pages/Home";
+import NewAdmin from "@components/pages/NewAdmin";
 export async function getServerSideProps(context: NextPageContext) {
   const { locale = "en", query } = context;
   const options: {
@@ -10,14 +10,6 @@ export async function getServerSideProps(context: NextPageContext) {
     redirect?: Record<string, unknown>;
   } = {};
   const { session, queryClient } = await initServerInfo(context);
-  if (!session?.user?.accessToken) {
-    return {
-      redirect: {
-        destination: "/User/login",
-        permanent: false,
-      },
-    };
-  }
 
   return {
     ...options,
@@ -34,4 +26,4 @@ export async function getServerSideProps(context: NextPageContext) {
     },
   };
 }
-export default Home;
+export default NewAdmin;
