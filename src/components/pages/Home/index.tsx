@@ -74,7 +74,7 @@ function HomePage(props: HomePageProps): JSX.Element {
     } catch (e: unknown) {}
   };
   return (
-    <Page className={styles.page_container}>
+    <Page className={styles.page_container} >
       <Box className={styles.box_2}>
         <HeroSection className={styles.herosection_1} />
         <Box className={styles.box_12}>
@@ -94,7 +94,8 @@ function HomePage(props: HomePageProps): JSX.Element {
                 {t("home.text_4")}
               </Text>
               <Text className={styles.text_5} textType="Text">
-                Find the best destinations and the most popular stays!
+              {/* Khám phá các hoạt động và địa điểm tham quan mới theo sở thích và gu du lịch của bạn
+              Tham gia các buổi tiệc hoành tráng nhất  */}
               </Text>
             </Box>
             <Box className={styles.box_1}>
@@ -347,7 +348,7 @@ function HomePage(props: HomePageProps): JSX.Element {
         </Box>
       </Box>
       <Box className={styles.box_106}>
-        <Box className={styles.box_14}>
+        <Box className={styles.box_14_footer}>
           <Box className={styles.box_15}>
             <Box className={styles.box_16}>
               <Image

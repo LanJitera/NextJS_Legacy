@@ -35,7 +35,10 @@ function LoginUserPage(props: LoginUserPageProps): JSX.Element {
   const validationForm1Schema = useMemo(
     () =>
       yup.object().shape({
-        input_email: yup.string().required("input_email is a required field"),
+        input_email: yup.string().required("email is a required field"),
+        input_password: yup
+          .string()
+          .required("password is a required field"),
       }),
     []
   );
@@ -59,6 +62,7 @@ function LoginUserPage(props: LoginUserPageProps): JSX.Element {
         email: get(values, "input_email", ""),
         password: get(values, "input_password", ""),
       });
+      
       navigateService.navigate("/User/home");
     } catch (e: unknown) {
       Toast.error("Account password is not correct" || "");
@@ -164,7 +168,7 @@ function LoginUserPage(props: LoginUserPageProps): JSX.Element {
                 {t("login_user.text_5")}
               </Text>
               <Text
-                href={"/NewUser/sign-up"}
+                href={"/User/sign-up"}
                 className={styles.text_register}
                 textType="Link"
               >

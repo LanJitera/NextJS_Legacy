@@ -26,7 +26,7 @@
   padding-right: 80px;
   padding-top: 22px;
   position: relative;
-  width: 1440px;
+  width: 100%;
 }
 .top_container20 {
   align-items: center;
@@ -37,7 +37,7 @@
   height: 36px;
   justify-content: space-between;
   position: relative;
-  width: 1280px;
+  width: 100%;
 }
 .fickleflight_logo8 {
   flex: none;
