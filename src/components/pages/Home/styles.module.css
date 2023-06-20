@@ -254,8 +254,8 @@
   flex: none;
   flex-direction: column;
   flex-grow: 0px;
-  gap: 24px;
-  height: 386px;
+  gap: 10px;
+  height: auto;
   justify-content: center;
   position: relative;
   width: 100%;
@@ -329,7 +329,7 @@
   flex: none;
   flex-direction: row;
   flex-grow: 0px;
-  height: 327px;
+  height: auto;
   justify-content: space-around;
   position: relative;
   width: 100%;

@@ -8378,6 +8378,7 @@ _:-ms-fullscreen .jitera-picker-range-wrapper .jitera-picker-year-panel .jitera-
 .jitera-row {
   display: flex;
   flex-flow: row wrap;
+
 }
 .jitera-row::after,
 .jitera-row::before {

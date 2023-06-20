@@ -17,9 +17,9 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
   const partyService = usePartyService();
   const getApiPartiesIdInstance = partyService.useGetApiPartiesId();
   const getApiPartiesIdResult = getApiPartiesIdInstance.useQuery({
-    id: undefined,
+    id: props.query.id,
   });
-
+  
   return (
     <Page className={styles.page_container}>
       <HeroSection className={styles.herosection_1} />
@@ -30,13 +30,14 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
           className={styles.image_2}
         />
         <DetailBookingParty
-          className={styles.detailbookingparty_1}
-          nameParty
-          partyStartTime
-          partyLocation
-          numberOfPeople
-          describe
-          img
+          // className={styles.detailbookingparty_1} ,
+          {...getApiPartiesIdResult?.data?.party}
+          // nameParty ={getApiPartiesIdResult}
+          // partyStartTime
+          // partyLocation
+          // numberOfPeople
+          // describe
+          // img
         />
       </Box>
       <Box className={styles.box_3}>

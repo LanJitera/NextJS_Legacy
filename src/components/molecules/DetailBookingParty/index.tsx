@@ -16,11 +16,13 @@ type DetailBookingPartyMoleculeProps = DefaultPageProps & {
   describe?: string;
   img?: string;
 };
+import dateFormat, { masks } from "dateformat";
 function DetailBookingPartyMolecule(
   props: DetailBookingPartyMoleculeProps
 ): JSX.Element {
   const { t } = useTranslation("web");
-
+  console.log(props);
+  
   return (
     <Box className={`${styles.page_container} ${get(props, "className")}`}>
       {/* <Image
@@ -38,27 +40,27 @@ function DetailBookingPartyMolecule(
       >
         <Col md={Number(12)} xl={Number(8)} xs={Number(24)}>
           <Box className={styles.images4}>
-            {/* <Image
-              src={get(props, "img")}
+            <Image
+              src={""}
               width={"360px"}
               height={"380px"}
               alt={""}
               className={styles.image4}
-            /> */}
+            />
           </Box>
         </Col>
         <Col md={Number(12)} xl={Number(15)} xs={Number(24)}>
           <Box className={styles.content8}>
             <Box className={styles.text8}>
               <Text className={styles.text7} textType="Text">
-                {get(props, "nameParty")}
+                {props?.nameparty}
               </Text>
               <Box className={styles.box_4}>
                 <Text className={styles.text_7} textType="Text">
                   {t("detail_booking_party.text_7")}
                 </Text>
                 <Text className={styles.text_8} textType="Text">
-                  {get(props, "nameParty")}
+                  {props?.partylocation}
                 </Text>
               </Box>
               <Box className={styles.box_5}>
@@ -66,7 +68,7 @@ function DetailBookingPartyMolecule(
                   {t("detail_booking_party.text8")}
                 </Text>
                 <Text className={styles.text_9} textType="Text">
-                  {get(props, "partyStartTime")}
+                  {/* {dateFormat(props?.partystarttime,'paddedShortDate')} */}
                 </Text>
               </Box>
               <Box className={styles.box_6}>
@@ -74,7 +76,7 @@ function DetailBookingPartyMolecule(
                   {t("detail_booking_party.text_5")}
                 </Text>
                 <Text className={styles.text_10} textType="Text">
-                  [Text]
+                {props?.numberofpeople}
                 </Text>
               </Box>
               <Box className={styles.box_7}>
@@ -82,7 +84,7 @@ function DetailBookingPartyMolecule(
                   {t("detail_booking_party.text_6")}
                 </Text>
                 <Text className={styles.text_11} textType="Text">
-                  [Text]
+                {props?.requiredage}
                 </Text>
               </Box>
             </Box>

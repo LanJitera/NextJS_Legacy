@@ -1,6 +1,7 @@
 .custom_component_container {
   height: 327px;
   width: 320px;
+  margin-top: 20px;
 }
 .box_3 {
   align-items: center;

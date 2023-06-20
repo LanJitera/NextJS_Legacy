@@ -69,10 +69,12 @@ function HomePage(props: HomePageProps): JSX.Element {
     } catch (e: unknown) {}
   };
   
-  const handleOnPressList1Item = async (Id?: number) => {
+  const handleOnPressList1Item = async (Id?: number,index?:number) => {
     try {
       navigateService.navigate(`/User/party-detail/${Id}`);
-    } catch (e: unknown) {}
+
+    } catch (e: unknown) {
+    }
   };
   return (
     <Page className={styles.page_container} >
@@ -144,7 +146,7 @@ function HomePage(props: HomePageProps): JSX.Element {
                 <Box className={styles.box_78}>
                   <Box className={styles.datetimepicker_1_container}>
                     <Controller
-                      control={formForm0.control}
+                      control={formForm0?.control}
                       render={({
                         field: { onChange, onBlur, value },
                         fieldState: { isTouched, error },
@@ -194,7 +196,7 @@ function HomePage(props: HomePageProps): JSX.Element {
           </Box>
           <Box className={styles.box_59}>
             <List
-              dataSource={getApiPartiesResult.data?.parties}
+              dataSource={getApiPartiesResult?.data?.parties}
               rowKey={useCallback(
                 (item: Record<string, any>) => `${item.id}_${item.created_at}`,
                 []
@@ -203,18 +205,14 @@ function HomePage(props: HomePageProps): JSX.Element {
               renderItem={useCallback(
                 (item: any) => (
                   <CardItem
-                    // nameParty={get(
-                    //   getApiPartiesResult,
-                    //   "data.parties.nameparty"
-                    // )}
                     nameParty={item.nameparty}
-
                     partystarttime={dateFormat(item.partystarttime,'paddedShortDate')}
                     partyLocation={item.partylocation}
                     decribe={item.describe}
                     // img={item.describe}
                     img={"https://picsum.photos/seed/picsum/200/300"}
                     label={"Booking"}
+                    // onPress={handleOnPressList1Item(123)}
                     onPress={handleOnPressList1Item}
                     Id={item.id}
                   />
