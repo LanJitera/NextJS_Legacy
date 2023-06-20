@@ -8,9 +8,13 @@ type DefaultHeaderMenuMoleculeProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
 };
-function DefaultHeaderMenuMolecule(props: DefaultHeaderMenuMoleculeProps): JSX.Element {
+function DefaultHeaderMenuMolecule(
+  props: DefaultHeaderMenuMoleculeProps
+): JSX.Element {
   return (
-    <Box className={`${styles.header_menu_molecule_0} ${get(props, "className")}`}>
+    <Box
+      className={`${styles.header_menu_molecule_0} ${get(props, "className")}`}
+    >
       <Box
         responsiveVisibility={["desktop", "tablet", "mobile"]}
         className={styles.header_menu_molecule_box_0}

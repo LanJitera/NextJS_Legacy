@@ -14,7 +14,9 @@ function BackgroundMolecule(props: BackgroundMoleculeProps): JSX.Element {
   return (
     <Box className={`${styles.page_container} ${get(props, "className")}`}>
       <Image
-        src={assets("1683519697539pngtreegoldpartybackgroundlightimage389751jpg")}
+        src={assets(
+          "1683519697539pngtreegoldpartybackgroundlightimage389751jpg"
+        )}
         alt={""}
         className={styles.image30}
       />

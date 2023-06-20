@@ -1,0 +1,18 @@
+.page_container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+.defaultheader_1 {
+  width: 100%;
+}
+.content_box_0 {
+  background-color: #eee;
+  flex: 1;
+  min-height: auto;
+  width: 100%;
+}
+.defaultfooter_1 {
+  width: 100%;
+}

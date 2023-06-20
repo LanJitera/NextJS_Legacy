@@ -19,7 +19,10 @@ type PageProps = {
   session: Session;
   seo: { title: string; description: string };
 } & SSRConfig;
-const MyApp: FunctionComponent<AppProps<PageProps>> = ({ Component, pageProps }) => {
+const MyApp: FunctionComponent<AppProps<PageProps>> = ({
+  Component,
+  pageProps,
+}) => {
   const queryClient = useMemo(() => new QueryClient(), []);
   memoryStorage.setAuthenticationInfo(pageProps.session);
   return (
@@ -28,7 +31,10 @@ const MyApp: FunctionComponent<AppProps<PageProps>> = ({ Component, pageProps })
         <Hydrate state={pageProps.dehydratedState}>
           <ThemeProvider>
             <SessionProvider session={pageProps.session}>
-              <NextSeo title={pageProps?.seo?.title} description={pageProps?.seo?.description} />
+              <NextSeo
+                title={pageProps?.seo?.title}
+                description={pageProps?.seo?.description}
+              />
 
               <AppProvider>
                 <Component {...pageProps} />

@@ -30,6 +30,7 @@ interface Form2FormData {
   input_email: string;
   input_password: string;
   datetimepicker_1: string;
+  password_confirmation: string;
 }
 function SignUpPage(props: SignUpPageProps): JSX.Element {
   const { t } = useTranslation("web");
@@ -38,9 +39,15 @@ function SignUpPage(props: SignUpPageProps): JSX.Element {
   const validationForm2Schema = useMemo(
     () =>
       yup.object().shape({
-        input_username: yup.string().required("input_username is a required field"),
-        input_email: yup.string().email().required("input_email is a required field"),
-        input_password: yup.string().required("input_password is a required field"),
+        input_username: yup.string().required("Username is a required field"),
+        input_email: yup.string().email().required("email is a required field"),
+        input_password: yup.string().required("password is a required field"),
+        // password_confirmation: yup
+        //   .string()
+        //   .required("input_password is a required field"),
+        password_confirmation: yup
+          .string()
+          .oneOf([yup.ref("input_password"), null], "Passwords must match"),
       }),
     []
   );
@@ -61,8 +68,13 @@ function SignUpPage(props: SignUpPageProps): JSX.Element {
   const handleButton0 = async (values?: Form2FormData) => {
     try {
       await authenticationService.signupWithEmail("users", {
-        email: get(values, "input_email", ""),
-        password: get(values, "input_password", ""),
+        user: {
+          password: get(values, "input_password", ""),
+          password_confirmation: get(values, "password_confirmation", ""),
+          username: get(values, "input_username", ""),
+          email: get(values, "input_email", ""),
+          dateofbirth: get(values, "datetimepicker_1", ""),
+        },
       });
       navigateService.navigate("/User/login");
     } catch (e: unknown) {
@@ -182,13 +194,53 @@ function SignUpPage(props: SignUpPageProps): JSX.Element {
                 </Text>
               </Box>
             </Box>
+            <Box className={styles.box_11}>
+              <Box className={styles.box_12}>
+                <Text className={styles.text_10} textType="Text">
+                  {t("sign_up.text_11")}
+                </Text>
+                <Text className={styles.text_11} textType="Text">
+                  *
+                </Text>
+              </Box>
+              <Controller
+                control={formForm2.control}
+                render={({
+                  field: { onChange, onBlur, value },
+                  fieldState: { isTouched, error },
+                }: any) => {
+                  return (
+                    <Input
+                      inputStyle={styles.input_password_input}
+                      isPasswordField
+                      placeholder={t("sign_up.input_2")}
+                      className={styles.input_password}
+                      onChange={onChange}
+                      value={value}
+                    />
+                  );
+                }}
+                name="password_confirmation"
+              />
+              <Box className={styles.box_13}>
+                <Text className={styles.text_12} textType="Text">
+                  {get(formForm2Errors, "password_confirmation.message")}
+                </Text>
+              </Box>
+            </Box>
             <Box className={styles.box_6}>
               <Box className={styles.datetimepicker_1_container}>
                 <Box className={styles.datetimepicker_1_inner}>
-                  <Text className={styles.datetimepicker_1_label} textType="Text">
+                  <Text
+                    className={styles.datetimepicker_1_label}
+                    textType="Text"
+                  >
                     {t("signup.datetimepicker_1_label")}
                   </Text>
-                  <Text className={styles.datetimepicker_1_required} textType="Text">
+                  <Text
+                    className={styles.datetimepicker_1_required}
+                    textType="Text"
+                  >
                     *
                   </Text>
                 </Box>
@@ -230,7 +282,11 @@ function SignUpPage(props: SignUpPageProps): JSX.Element {
               <Text className={styles.text_14} textType="Text">
                 {t("sign_up.text_14")}
               </Text>
-              <Text href={"/NewUser/login"} className={styles.text_15} textType="Link">
+              <Text
+                href={"/User/login"}
+                className={styles.text_15}
+                textType="Link"
+              >
                 {t("sign_up.text_15")}
               </Text>
             </Box>

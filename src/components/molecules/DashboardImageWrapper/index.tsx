@@ -9,7 +9,9 @@ type DashboardImageWrapperMoleculeProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
 };
-function DashboardImageWrapperMolecule(props: DashboardImageWrapperMoleculeProps): JSX.Element {
+function DashboardImageWrapperMolecule(
+  props: DashboardImageWrapperMoleculeProps
+): JSX.Element {
   return (
     <Box className={`${styles.molecule} ${get(props, "className")}`}>
       <Box className={styles.box_2}>

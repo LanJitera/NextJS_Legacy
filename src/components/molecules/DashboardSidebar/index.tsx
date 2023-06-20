@@ -9,8 +9,13 @@ type DashboardSidebarMoleculeProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
 };
-function DashboardSidebarMolecule(props: DashboardSidebarMoleculeProps): JSX.Element {
+function DashboardSidebarMolecule(
+  props: DashboardSidebarMoleculeProps
+): JSX.Element {
   const handleOnClickDashboardmenuitem1 = async () => {
+    // TODO: handle logic
+  };
+  const handleOnClickDashboardmenuitem2 = async () => {
     // TODO: handle logic
   };
   return (
@@ -18,9 +23,15 @@ function DashboardSidebarMolecule(props: DashboardSidebarMoleculeProps): JSX.Ele
       <Box className={styles.box_2}>
         <DashboardMenuItem
           className={styles.dashboardmenuitem_1}
-          label="Admins"
+          label="List party"
           onClick={handleOnClickDashboardmenuitem1}
         />
+        <DashboardMenuItem
+          className={styles.dashboardmenuitem_2}
+          label="List user"
+          onClick={handleOnClickDashboardmenuitem2}
+        />
+        <DashboardMenuItem className={styles.dashboardmenuitem_3} label="List user booking" />
       </Box>
     </Box>
   );

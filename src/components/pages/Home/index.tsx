@@ -21,6 +21,7 @@ import {
   Button,
   List,
 } from "@jitera/jitera-web-ui-library";
+import dateFormat, { masks } from "dateformat";
 import styles from "./styles.module.css";
 type HomePageProps = DefaultPageProps & {
   pageName?: string;
@@ -36,7 +37,9 @@ function HomePage(props: HomePageProps): JSX.Element {
   const { t } = useTranslation("web");
   const partyService = usePartyService();
   const getApiPartiesInstance = partyService.useGetApiParties();
-  const getApiPartiesResult = getApiPartiesInstance.useQuery({ parties: { isstatus: "Public" } });
+  const getApiPartiesResult = getApiPartiesInstance.useQuery({
+    parties: { isstatus: "Public" },
+  });
   const navigateService = useNavigateService();
   const validationForm0Schema = useMemo(() => yup.object().shape({}), []);
   const formForm0 = useForm<Form0FormData>({
@@ -62,29 +65,40 @@ function HomePage(props: HomePageProps): JSX.Element {
           partystarttime: get(values, "datetimepicker_1", ""),
         },
       });
+      console.log(responseGetApiParties);
     } catch (e: unknown) {}
   };
-  const handleOnPressList1Item = async (Id?: number) => {
+  
+  const handleOnPressList1Item = async (Id?: number,index?:number) => {
     try {
-      navigateService.navigate("/User/party-detail/:id", {
-        id: get(getApiPartiesResult, "data.parties.describe"),
-      });
-    } catch (e: unknown) {}
+      navigateService.navigate(`/User/party-detail/${Id}`);
+
+    } catch (e: unknown) {
+    }
   };
   return (
-    <Page className={styles.page_container}>
+    <Page className={styles.page_container} >
       <Box className={styles.box_2}>
         <HeroSection className={styles.herosection_1} />
         <Box className={styles.box_12}>
-          <Image src={assets("1686621805569png")} alt={""} className={styles.image_4} />
-          <Image src={assets("1686621806021png")} alt={""} className={styles.image_5} />
+          <Image
+            src={assets("1686621805569png")}
+            alt={""}
+            className={styles.image_4}
+          />
+          <Image
+            src={assets("1686621806021png")}
+            alt={""}
+            className={styles.image_5}
+          />
           <Box className={styles.box_13}>
             <Box className={styles.box_14}>
               <Text className={styles.text_4} textType="Text">
                 {t("home.text_4")}
               </Text>
               <Text className={styles.text_5} textType="Text">
-                Find the best destinations and the most popular stays!
+              {/* Khám phá các hoạt động và địa điểm tham quan mới theo sở thích và gu du lịch của bạn
+              Tham gia các buổi tiệc hoành tráng nhất  */}
               </Text>
             </Box>
             <Box className={styles.box_1}>
@@ -132,7 +146,7 @@ function HomePage(props: HomePageProps): JSX.Element {
                 <Box className={styles.box_78}>
                   <Box className={styles.datetimepicker_1_container}>
                     <Controller
-                      control={formForm0.control}
+                      control={formForm0?.control}
                       render={({
                         field: { onChange, onBlur, value },
                         fieldState: { isTouched, error },
@@ -163,6 +177,7 @@ function HomePage(props: HomePageProps): JSX.Element {
           </Box>
         </Box>
       </Box>
+      
       <Box className={styles.box_41}>
         <Box className={styles.box_55}>
           <Box className={styles.box_56}>
@@ -180,45 +195,29 @@ function HomePage(props: HomePageProps): JSX.Element {
             </Box>
           </Box>
           <Box className={styles.box_59}>
-            <Box className={styles.box_72}>
-              <Image src={assets("1686621806872png")} alt={""} className={styles.image_17} />
-              <Box className={styles.box_73}>
-                <Box className={styles.box_74}>
-                  <Box className={styles.box_75}>
-                    <Text className={styles.text_40} textType="Text">
-                      Palawan
-                    </Text>
-                    <Text className={styles.text_41} textType="Text">
-                      4D3N
-                    </Text>
-                  </Box>
-                  <Text className={styles.text_42} textType="Text">
-                    $789
-                  </Text>
-                </Box>
-              </Box>
-            </Box>
             <List
-              dataSource={undefined}
+              dataSource={getApiPartiesResult?.data?.parties}
               rowKey={useCallback(
                 (item: Record<string, any>) => `${item.id}_${item.created_at}`,
                 []
               )}
-              grid={{ gutter: 0, xl: 12 }}
+              grid={{ gutter: 0, xxl: 4 }}
               renderItem={useCallback(
                 (item: any) => (
                   <CardItem
-                    nameParty={get(getApiPartiesResult, "data.parties.nameparty")}
-                    partystarttime={get(getApiPartiesResult, "data.parties.partystarttime")}
-                    partyLocation={get(getApiPartiesResult, "data.parties.partylocation")}
-                    decribe={get(getApiPartiesResult, "data.parties.describe")}
-                    img={get(getApiPartiesResult, "data.parties.describe")}
+                    nameParty={item.nameparty}
+                    partystarttime={dateFormat(item.partystarttime,'paddedShortDate')}
+                    partyLocation={item.partylocation}
+                    decribe={item.describe}
+                    // img={item.describe}
+                    img={"https://picsum.photos/seed/picsum/200/300"}
                     label={"Booking"}
+                    // onPress={handleOnPressList1Item(123)}
                     onPress={handleOnPressList1Item}
-                    Id={get(getApiPartiesResult, "data.parties.id")}
+                    Id={item.id}
                   />
                 ),
-                []
+                [getApiPartiesResult]
               )}
             />
           </Box>
@@ -234,7 +233,11 @@ function HomePage(props: HomePageProps): JSX.Element {
           <Box className={styles.box_38}>
             <Box className={styles.box_39}>
               <Box className={styles.box_40}>
-                <Image src={assets("1686621806353png")} alt={""} className={styles.image_9} />
+                <Image
+                  src={assets("1686621806353png")}
+                  alt={""}
+                  className={styles.image_9}
+                />
                 <Box className={styles.box_41}>
                   <Text className={styles.text_17} textType="Text">
                     Paris
@@ -252,7 +255,11 @@ function HomePage(props: HomePageProps): JSX.Element {
             </Box>
             <Box className={styles.box_43}>
               <Box className={styles.box_44}>
-                <Image src={assets("1686621806424png")} alt={""} className={styles.image_10} />
+                <Image
+                  src={assets("1686621806424png")}
+                  alt={""}
+                  className={styles.image_10}
+                />
                 <Box className={styles.box_45}>
                   <Text className={styles.text_20} textType="Text">
                     Greece
@@ -270,7 +277,11 @@ function HomePage(props: HomePageProps): JSX.Element {
             </Box>
             <Box className={styles.box_47}>
               <Box className={styles.box_48}>
-                <Image src={assets("1686621806490png")} alt={""} className={styles.image_11} />
+                <Image
+                  src={assets("1686621806490png")}
+                  alt={""}
+                  className={styles.image_11}
+                />
                 <Box className={styles.box_49}>
                   <Text className={styles.text_23} textType="Text">
                     Norway
@@ -288,7 +299,11 @@ function HomePage(props: HomePageProps): JSX.Element {
             </Box>
             <Box className={styles.box_51}>
               <Box className={styles.box_52}>
-                <Image src={assets("1686621806559png")} alt={""} className={styles.image_12} />
+                <Image
+                  src={assets("1686621806559png")}
+                  alt={""}
+                  className={styles.image_12}
+                />
                 <Box className={styles.box_53}>
                   <Text className={styles.text_26} textType="Text">
                     Tuscany
@@ -307,25 +322,43 @@ function HomePage(props: HomePageProps): JSX.Element {
           </Box>
         </Box>
       </Box>
+      
       <Box className={styles.box_106}>
-        <Box className={styles.box_14}>
+        <Box className={styles.box_14_footer}>
           <Box className={styles.box_15}>
             <Box className={styles.box_16}>
-              <Image src={assets("1686630477484logogmopng")} alt={""} className={styles.image_0} />
+              <Image
+                src={assets("1686630477484logogmopng")}
+                alt={""}
+                className={styles.image_0}
+              />
             </Box>
             <Text className={styles.text_5} textType="Text">
-              Fickle Flight is your one-stop travel portal. We offer hassle free flight and hotel
-              bookings. We also have all your flight needs in you online shop.
+              Fickle Flight is your one-stop travel portal. We offer hassle free
+              flight and hotel bookings. We also have all your flight needs in
+              you online shop.
             </Text>
             <Box className={styles.box_17}>
               <Box className={styles.box_18}>
-                <Image src={assets("1686621807407svg")} alt={""} className={styles.image_2} />
+                <Image
+                  src={assets("1686621807407svg")}
+                  alt={""}
+                  className={styles.image_2}
+                />
               </Box>
               <Box className={styles.box_19}>
-                <Image src={assets("1686621807409svg")} alt={""} className={styles.image_3} />
+                <Image
+                  src={assets("1686621807409svg")}
+                  alt={""}
+                  className={styles.image_3}
+                />
               </Box>
               <Box className={styles.box_20}>
-                <Image src={assets("1686621807413svg")} alt={""} className={styles.image_4} />
+                <Image
+                  src={assets("1686621807413svg")}
+                  alt={""}
+                  className={styles.image_4}
+                />
               </Box>
             </Box>
           </Box>

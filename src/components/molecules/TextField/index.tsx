@@ -15,7 +15,9 @@ function TextFieldMolecule(props: TextFieldMoleculeProps): JSX.Element {
     <Box className={`${styles.page_container} ${get(props, "className")}`}>
       <Box className={styles.wrapper2}>
         <TextFieldTitle className={styles.title1} />
-        <StateDefaultPostIconFALSETagFALSEPreIconFALSE className={styles.input1} />
+        <StateDefaultPostIconFALSETagFALSEPreIconFALSE
+          className={styles.input1}
+        />
       </Box>
     </Box>
   );

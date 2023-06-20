@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
-import { MutateOptions, useMutation, useQuery, useQueryClient } from "react-query";
+import {
+  MutateOptions,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from "react-query";
 import { DEFAULT_QUERY_OPTIONS } from "@constants/query";
 import { fetchToServiceResponse } from "@utils/service";
 import {
@@ -32,11 +37,16 @@ export const useUserService = () => {
   const mutationDeleteApiUsersId = useMutation(mutateDeleteApiUsersId);
 
   const useGetApiUsers = () => {
-    const [query, setQuery] = useState<{ params?: Partial<FetchGetApiUsersRequestBody> }>();
-    const queryResult = useQuery([...DefaultGetApiUsersQueryKey, query?.params], fetchGetApiUsers, {
-      ...DEFAULT_QUERY_OPTIONS,
-      enabled: query !== undefined,
-    });
+    const [query, setQuery] =
+      useState<{ params?: Partial<FetchGetApiUsersRequestBody> }>();
+    const queryResult = useQuery(
+      [...DefaultGetApiUsersQueryKey, query?.params],
+      fetchGetApiUsers,
+      {
+        ...DEFAULT_QUERY_OPTIONS,
+        enabled: query !== undefined,
+      }
+    );
     return {
       query: (params: Partial<FetchGetApiUsersRequestBody> = {}) => {
         setQuery({ params });
@@ -51,13 +61,17 @@ export const useUserService = () => {
         params: Partial<FetchGetApiUsersRequestBody> = {}
       ): Promise<FetchGetApiUsersResponseBody> => {
         setQuery({ params });
-        return fetchToServiceResponse(queryClient, [...DefaultGetApiUsersQueryKey, params]);
+        return fetchToServiceResponse(queryClient, [
+          ...DefaultGetApiUsersQueryKey,
+          params,
+        ]);
       },
     };
   };
 
   const useGetApiUsersId = () => {
-    const [query, setQuery] = useState<{ params?: Partial<FetchGetApiUsersIdRequestBody> }>();
+    const [query, setQuery] =
+      useState<{ params?: Partial<FetchGetApiUsersIdRequestBody> }>();
     const queryResult = useQuery(
       [...DefaultGetApiUsersIdQueryKey, query?.params],
       fetchGetApiUsersId,
@@ -80,7 +94,10 @@ export const useUserService = () => {
         params: Partial<FetchGetApiUsersIdRequestBody> = {}
       ): Promise<FetchGetApiUsersIdResponseBody> => {
         setQuery({ params });
-        return fetchToServiceResponse(queryClient, [...DefaultGetApiUsersIdQueryKey, params]);
+        return fetchToServiceResponse(queryClient, [
+          ...DefaultGetApiUsersIdQueryKey,
+          params,
+        ]);
       },
     };
   };

@@ -17,7 +17,11 @@ function IcLinedeleteMolecule(props: IcLinedeleteMoleculeProps): JSX.Element {
       sourceType="upload"
       className={`${styles.page_container} ${get(props, "className")}`}
     >
-      <Image src={assets("1683261286543png")} alt={""} className={styles.image26} />
+      <Image
+        src={assets("1683261286543png")}
+        alt={""}
+        className={styles.image26}
+      />
     </Box>
   );
 }
