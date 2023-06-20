@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useCallback, useMemo, useEffect } from "react";
+import React, { useCallback, useMemo, useEffect, useState } from "react";
 import { DefaultPageProps } from "@interfaces/page";
 import get from "lodash/get";
 import Image from "next/future/image";
@@ -8,6 +8,7 @@ import { useTranslation } from "next-i18next";
 import { useAuthenticationService } from "@services/authentication";
 import { useUserService } from "@services/user";
 import { Box, Text } from "@jitera/jitera-web-ui-library";
+import { useNavigateService } from '@services/navigate';
 import styles from "./styles.module.css";
 type HeroSectionMoleculeProps = DefaultPageProps & {
   pageName?: string;
@@ -15,12 +16,13 @@ type HeroSectionMoleculeProps = DefaultPageProps & {
 };
 function HeroSectionMolecule(props: HeroSectionMoleculeProps): JSX.Element {
   const { t } = useTranslation("web");
+  const navigation = useNavigateService()
   const authenticationService = useAuthenticationService();
   const authenticatedDataValue =
     authenticationService.useAuthenticatedData("authenticatedData");
   const userService = useUserService();
   const getApiUsersIdInstance = userService.useGetApiUsersId();
-  let test = '';
+  const [userLogin, setUserLogin] = useState("");
   useEffect(() => {
     const handleTopHeader = async () => {
       try {
@@ -28,23 +30,23 @@ function HeroSectionMolecule(props: HeroSectionMoleculeProps): JSX.Element {
           id: get(authenticatedDataValue, "id"),
         });
         const username = responseGetApiUsersId?.user.username;
-        console.log(username);
-        if(username != ''){
-          test=username
+        if (username !== undefined && username !== "") {
+          setUserLogin(username);
         }
-        return test;
       } catch (e: unknown) {}
     };
     handleTopHeader();
   }, []);
-  console.log(test);
+  const handleWebscreen = () => {
+    navigation.navigate('/User/home');
+  };
   return (
     <Box className={`${styles.page_container} ${get(props, "className")}`}>
       <Box className={styles.top_header20}>
         <Box className={styles.top_container20}>
           <Box className={styles.fickleflight_logo8}>
             <Box className={styles.symbols8}>
-              <Box className={styles.webscreen8}>
+              <Box className={styles.webscreen8} onClick={handleWebscreen}>
                 <Image
                   src={assets("1686625755503logogmopng")}
                   alt={""}
@@ -68,22 +70,27 @@ function HeroSectionMolecule(props: HeroSectionMoleculeProps): JSX.Element {
               <Text className={styles.text14} textType="Text">
                 {t("hero_section.text14")}
               </Text>
-              <Text
-                href={"/User/login"}
-                className={styles.login}
-                textType="Link"
-              >
-                {t("molecule_herosection")}
-              </Text>
-              <Text
-                href={"https://jitera.com"}
-                className={styles.text_0}
-                textType="Link"
-              >
-                {t("hero_section.text_0")}
-              </Text>
+
+              {userLogin !== "" ? (
+                <Text
+                  href={"/User/login"}
+                  className={styles.text_0}
+                  textType="Link"
+                >
+                  {t("hero_section.text_0")}
+                </Text>
+              ) : (
+                <Text
+                  href={"/User/login"}
+                  className={styles.login}
+                  textType="Link"
+                >
+                  {t("molecule_herosection")}
+                </Text>
+              )}
+
               <Text className={styles.text_8} textType="Text">
-                {get(authenticatedDataValue, "username")}
+                {userLogin}
               </Text>
             </Box>
             <Box className={styles.accountsection20}>

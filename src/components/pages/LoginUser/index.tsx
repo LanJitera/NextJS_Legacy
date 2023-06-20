@@ -62,7 +62,6 @@ function LoginUserPage(props: LoginUserPageProps): JSX.Element {
         email: get(values, "input_email", ""),
         password: get(values, "input_password", ""),
       });
-      
       navigateService.navigate("/User/home");
     } catch (e: unknown) {
       Toast.error("Account password is not correct" || "");

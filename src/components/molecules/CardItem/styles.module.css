@@ -13,7 +13,7 @@
   padding-left: 16px;
   padding-right: 16px;
   position: relative;
-  width: 320px;
+  width: 350px;
 }
 .image_1 {
   align-self: stretch;
@@ -21,7 +21,7 @@
   flex-grow: 0px;
   height: 242px;
   position: relative;
-  width: 288px;
+  width: 350px;
 }
 .box_4 {
   align-items: center;
@@ -53,7 +53,7 @@
   padding-right: 16px;
   padding-top: 20px;
   position: relative;
-  width: 288px;
+  width: 350px;
 }
 .box_5 {
   align-items: center;

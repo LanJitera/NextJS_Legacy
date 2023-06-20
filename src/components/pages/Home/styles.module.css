@@ -268,7 +268,7 @@
   flex-direction: row;
   flex-grow: 0px;
   height: 35px;
-  justify-content: flex-start;
+  justify-content: center;
   position: relative;
   width: 100%;
 }
@@ -330,7 +330,7 @@
   flex-direction: row;
   flex-grow: 0px;
   height: 327px;
-  justify-content: flex-start;
+  justify-content: space-around;
   position: relative;
   width: 100%;
 }
@@ -483,7 +483,7 @@
   flex-grow: 1px;
   height: 35px;
   position: relative;
-  width: 100%;
+  width: 8%;
 }
 .text_1 {
   align-content: center;
@@ -512,7 +512,7 @@
   flex-direction: row;
   flex-grow: 0px;
   height: 182px;
-  justify-content: flex-start;
+  justify-content: center;
   position: relative;
   width: 100%;
 }

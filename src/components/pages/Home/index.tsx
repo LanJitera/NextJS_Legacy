@@ -21,6 +21,7 @@ import {
   Button,
   List,
 } from "@jitera/jitera-web-ui-library";
+import dateFormat, { masks } from "dateformat";
 import styles from "./styles.module.css";
 type HomePageProps = DefaultPageProps & {
   pageName?: string;
@@ -39,7 +40,6 @@ function HomePage(props: HomePageProps): JSX.Element {
   const getApiPartiesResult = getApiPartiesInstance.useQuery({
     parties: { isstatus: "Public" },
   });
-  console.log(getApiPartiesResult.data?.parties);
   const navigateService = useNavigateService();
   const validationForm0Schema = useMemo(() => yup.object().shape({}), []);
   const formForm0 = useForm<Form0FormData>({
@@ -65,14 +65,13 @@ function HomePage(props: HomePageProps): JSX.Element {
           partystarttime: get(values, "datetimepicker_1", ""),
         },
       });
-      
+      console.log(responseGetApiParties);
     } catch (e: unknown) {}
   };
+  
   const handleOnPressList1Item = async (Id?: number) => {
     try {
-      navigateService.navigate("/User/party-detail/:id", {
-        id: get(getApiPartiesResult, "data.parties.describe"),
-      });
+      navigateService.navigate(`/User/party-detail/${Id}`);
     } catch (e: unknown) {}
   };
   return (
@@ -176,6 +175,7 @@ function HomePage(props: HomePageProps): JSX.Element {
           </Box>
         </Box>
       </Box>
+      
       <Box className={styles.box_41}>
         <Box className={styles.box_55}>
           <Box className={styles.box_56}>
@@ -193,35 +193,13 @@ function HomePage(props: HomePageProps): JSX.Element {
             </Box>
           </Box>
           <Box className={styles.box_59}>
-            <Box className={styles.box_72}>
-              <Image
-                src={assets("1686621806872png")}
-                alt={""}
-                className={styles.image_17}
-              />
-              <Box className={styles.box_73}>
-                <Box className={styles.box_74}>
-                  <Box className={styles.box_75}>
-                    <Text className={styles.text_40} textType="Text">
-                      Palawan
-                    </Text>
-                    <Text className={styles.text_41} textType="Text">
-                      4D3N
-                    </Text>
-                  </Box>
-                  <Text className={styles.text_42} textType="Text">
-                    $789
-                  </Text>
-                </Box>
-              </Box>
-            </Box>
             <List
               dataSource={getApiPartiesResult.data?.parties}
               rowKey={useCallback(
                 (item: Record<string, any>) => `${item.id}_${item.created_at}`,
                 []
               )}
-              grid={{ gutter: 0, xl: 12 }}
+              grid={{ gutter: 0, xxl: 4 }}
               renderItem={useCallback(
                 (item: any) => (
                   <CardItem
@@ -230,20 +208,15 @@ function HomePage(props: HomePageProps): JSX.Element {
                     //   "data.parties.nameparty"
                     // )}
                     nameParty={item.nameparty}
-                    // partystarttime={get(
-                    //   getApiPartiesResult,
-                    //   "data.parties.partystarttime"
-                    // )}
-                    nameParty={item.partystarttime}
-                    // partyLocation={get(
-                    //   getApiPartiesResult,
-                    //   "data.parties.partylocation"
-                    // )}
-                    decribe={get(getApiPartiesResult, "data.parties.describe")}
-                    img={get(getApiPartiesResult, "data.parties.describe")}
+
+                    partystarttime={dateFormat(item.partystarttime,'paddedShortDate')}
+                    partyLocation={item.partylocation}
+                    decribe={item.describe}
+                    // img={item.describe}
+                    img={"https://picsum.photos/seed/picsum/200/300"}
                     label={"Booking"}
                     onPress={handleOnPressList1Item}
-                    Id={get(getApiPartiesResult, "data.parties.id")}
+                    Id={item.id}
                   />
                 ),
                 [getApiPartiesResult]
@@ -351,6 +324,7 @@ function HomePage(props: HomePageProps): JSX.Element {
           </Box>
         </Box>
       </Box>
+      
       <Box className={styles.box_106}>
         <Box className={styles.box_14_footer}>
           <Box className={styles.box_15}>

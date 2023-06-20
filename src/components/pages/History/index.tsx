@@ -40,31 +40,6 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
                 {t("history.text_5")}
               </Text>
             </Box>
-          </Box>
-          <Box className={styles.box_5}>
-            <Box className={styles.box_6}>
-              <Image
-                src={assets("1686621806872png")}
-                alt={""}
-                className={styles.image_1}
-              />
-              <Box className={styles.box_7}>
-                <Box className={styles.box_8}>
-                  <Box className={styles.box_9}>
-                    <Text className={styles.text_2} textType="Text">
-                      Palawan
-                    </Text>
-                    <Text className={styles.text_3} textType="Text">
-                      4D3N
-                    </Text>
-                  </Box>
-                  <Text className={styles.text_4} textType="Text">
-                    $789
-                  </Text>
-                </Box>
-              </Box>
-            </Box>
-            <List
               dataSource={undefined}
               rowKey={useCallback(
                 (item: Record<string, any>) => `${item.id}_${item.created_at}`,
