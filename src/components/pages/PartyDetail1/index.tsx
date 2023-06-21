@@ -17,7 +17,7 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
   const partyService = usePartyService();
   const getApiPartiesIdInstance = partyService.useGetApiPartiesId();
   const getApiPartiesIdResult = getApiPartiesIdInstance.useQuery({
-    id: props.query.id,
+    id: props?.query?.id,
   });
   
   return (

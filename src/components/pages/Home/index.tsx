@@ -23,6 +23,7 @@ import {
 } from "@jitera/jitera-web-ui-library";
 import dateFormat, { masks } from "dateformat";
 import styles from "./styles.module.css";
+import { log } from "console";
 type HomePageProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
@@ -57,22 +58,26 @@ function HomePage(props: HomePageProps): JSX.Element {
   }, []);
 
   const handleButton1 = async (values?: Form0FormData) => {
+
     try {
+      const datetime = get(values, "datetimepicker_1._d", "");
+      const formattedDate = datetime  !== "" ? dateFormat(get(values, "datetimepicker_1._d", ""),'yyyy-mm-dd') : undefined;
       const responseGetApiParties = await getApiPartiesInstance.fetch({
         parties: {
           nameparty: get(values, "input_SearchName", ""),
           partylocation: get(values, "input_SearchAddress", ""),
-          partystarttime: get(values, "datetimepicker_1", ""),
+          partystarttime: formattedDate,
         },
+        
       });
-      console.log(responseGetApiParties);
     } catch (e: unknown) {}
   };
+
+  
   
   const handleOnPressList1Item = async (Id?: number,index?:number) => {
     try {
       navigateService.navigate(`/User/party-detail/${Id}`);
-
     } catch (e: unknown) {
     }
   };
@@ -195,13 +200,13 @@ function HomePage(props: HomePageProps): JSX.Element {
             </Box>
           </Box>
           <Box className={styles.box_59}>
-            <List
+            <List className={styles.ListAll}
               dataSource={getApiPartiesResult?.data?.parties}
               rowKey={useCallback(
                 (item: Record<string, any>) => `${item.id}_${item.created_at}`,
                 []
               )}
-              grid={{ gutter: 0, xxl: 4 }}
+              grid={{ gutter: 0,xs: 2,md: 2, xl: 3, xxl: 4 }}
               renderItem={useCallback(
                 (item: any) => (
                   <CardItem
@@ -212,7 +217,6 @@ function HomePage(props: HomePageProps): JSX.Element {
                     // img={item.describe}
                     img={"https://picsum.photos/seed/picsum/200/300"}
                     label={"Booking"}
-                    // onPress={handleOnPressList1Item(123)}
                     onPress={handleOnPressList1Item}
                     Id={item.id}
                   />

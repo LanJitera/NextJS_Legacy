@@ -1,5 +1,4 @@
 .custom_component_container {
-  height: 327px;
   width: 320px;
   margin-top: 20px;
 }
@@ -9,7 +8,7 @@
   flex: none;
   flex-direction: column;
   flex-grow: 1px;
-  height: 327px;
+  height: auto;
   justify-content: flex-start;
   padding-left: 16px;
   padding-right: 16px;
@@ -23,6 +22,8 @@
   height: 242px;
   position: relative;
   width: 350px;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
 }
 .box_4 {
   align-items: center;
@@ -47,14 +48,15 @@
   flex-direction: column;
   flex-grow: 0px;
   gap: 12px;
-  height: 85px;
-  justify-content: center;
+  height: 150px;
+  justify-content: space-between;
   padding-bottom: 20px;
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 20px;
   position: relative;
   width: 350px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
 }
 .box_5 {
   align-items: center;
@@ -66,7 +68,7 @@
   height: 45px;
   justify-content: flex-start;
   position: relative;
-  width: 256px;
+  width: 100%;
 }
 .box_6 {
   align-items: flex-start;
@@ -78,7 +80,8 @@
   height: 45px;
   justify-content: flex-start;
   position: relative;
-  width: 184px;
+  width: 100%;
+
 }
 .text_1 {
   align-self: stretch;
@@ -109,7 +112,7 @@
   vertical-align: top;
 }
 .text_3 {
-  color: #1262af;
+  color: #000000;
   flex: none;
   flex-grow: 0px;
   font-family: Baloo Bhai;
@@ -130,10 +133,56 @@
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 4px;
-  width: auto;
+  width: 100%;
+  background-color: white;
 }
+
+.button_0:hover {
+  color: rgb(45, 149, 235);
+  box-shadow:none;
+}
+/* 5 */
+/* .button_0:hover {
+  color: #f0094a;
+  background: transparent;
+   box-shadow:none;
+} */
+/* .button_0:before,
+.button_0:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #f0094a;
+  box-shadow:
+   -1px -1px 5px 0px #fff,
+   7px 7px 20px 0px #0003,
+   4px 4px 5px 0px #0002;
+  transition:400ms ease all;
+} */
+/* .button_0:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.button_0:hover:before,
+.button_0:hover:after{
+  width:100%;
+  transition:800ms ease all;
+} */
+
+
+
+
+
+
+
+
 .text_29 {
-  color: #ffffff;
+  color: black;
   font-size: 16px;
   font-weight: 500;
   word-break: break-word;
