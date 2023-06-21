@@ -8,15 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import CommonButton2 from "@components/molecules/CommonButton2";
 import { useAuthenticationService } from "@services/authentication";
-import {
-  Page,
-  Box,
-  Text,
-  Col,
-  Input,
-  DateTimePicker,
-  Toast,
-} from "@jitera/jitera-web-ui-library";
+import { Page, Box, Text, Col, Input, DateTimePicker, Toast } from "@jitera/jitera-web-ui-library";
 import styles from "./styles.module.css";
 type SignUpAdminPageProps = DefaultPageProps & {
   pageName?: string;
@@ -36,9 +28,7 @@ function SignUpAdminPage(props: SignUpAdminPageProps): JSX.Element {
       yup.object().shape({
         Name_input: yup.string().required("Name_input is a required field"),
         email_input: yup.string().required("email_input is a required field"),
-        password_input: yup
-          .string()
-          .required("password_input is a required field"),
+        password_input: yup.string().required("password_input is a required field"),
       }),
     []
   );
@@ -143,8 +133,7 @@ function SignUpAdminPage(props: SignUpAdminPageProps): JSX.Element {
                         {get(formForm1Errors, "Name_input.message")}
                       </Text>
                       <Text className={styles.text_6} textType="Text">
-                        By registering, you agree to the privacy policy and
-                        membership agreement.
+                        By registering, you agree to the privacy policy and membership agreement.
                       </Text>
                     </Box>
                   </Box>
@@ -210,26 +199,17 @@ function SignUpAdminPage(props: SignUpAdminPageProps): JSX.Element {
                       name="password_input"
                     />
                     <Box className={styles.input_2_error_message_container}>
-                      <Text
-                        className={styles.input_2_error_message_text}
-                        textType="Text"
-                      >
+                      <Text className={styles.input_2_error_message_text} textType="Text">
                         {get(formForm1Errors, "password_input.message")}
                       </Text>
                     </Box>
                   </Box>
                   <Box className={styles.datetimepicker_1_container}>
                     <Box className={styles.datetimepicker_1_inner}>
-                      <Text
-                        className={styles.datetimepicker_1_label}
-                        textType="Text"
-                      >
+                      <Text className={styles.datetimepicker_1_label} textType="Text">
                         Date of birth
                       </Text>
-                      <Text
-                        className={styles.datetimepicker_1_required}
-                        textType="Text"
-                      >
+                      <Text className={styles.datetimepicker_1_required} textType="Text">
                         *
                       </Text>
                     </Box>

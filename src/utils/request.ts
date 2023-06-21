@@ -29,9 +29,7 @@ requestAuthenticated.interceptors.request.use(async function (config) {
   if (!authenticationInfo) {
     return config;
   }
-  const tokenCreatedTime = localStorage.getItem(
-    STORAGE_KEYS.TOKEN_CREATED_TIME
-  );
+  const tokenCreatedTime = localStorage.getItem(STORAGE_KEYS.TOKEN_CREATED_TIME);
   if (
     !refreshProcess &&
     tokenCreatedTime &&
@@ -62,11 +60,7 @@ requestAuthenticated.interceptors.response.use(
   },
   async function (error) {
     // Try to refresh token in this case
-    if (
-      axios.isAxiosError(error) &&
-      error.response?.status === 401 &&
-      !error.config.retry
-    ) {
+    if (axios.isAxiosError(error) && error.response?.status === 401 && !error.config.retry) {
       let authenticationInfo = memoryStorage.getAuthenticationInfo();
       refreshProcess = refreshToken().then((result) => {
         refreshProcess = undefined;

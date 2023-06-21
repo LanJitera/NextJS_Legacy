@@ -8,9 +8,7 @@ type TextFieldTitleMoleculeProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
 };
-function TextFieldTitleMolecule(
-  props: TextFieldTitleMoleculeProps
-): JSX.Element {
+function TextFieldTitleMolecule(props: TextFieldTitleMoleculeProps): JSX.Element {
   return (
     <Box className={`${styles.page_container} ${get(props, "className")}`}>
       <Text className={styles.text5} textType="Text">
