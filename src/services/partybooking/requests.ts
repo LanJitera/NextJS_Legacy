@@ -37,12 +37,7 @@ export type FetchGetApiPartybookingsResponseBody = {
 
 export const fetchGetApiPartybookings = async (
   context: QueryFunctionContext<
-    [
-      string,
-      string,
-      string,
-      Partial<FetchGetApiPartybookingsRequestBody> | undefined
-    ]
+    [string, string, string, Partial<FetchGetApiPartybookingsRequestBody> | undefined]
   >
 ): Promise<FetchGetApiPartybookingsResponseBody> => {
   return serviceFetch({
@@ -81,12 +76,7 @@ export type FetchGetApiPartybookingsIdResponseBody = {
 
 export const fetchGetApiPartybookingsId = async (
   context: QueryFunctionContext<
-    [
-      string,
-      string,
-      string,
-      Partial<FetchGetApiPartybookingsIdRequestBody> | undefined
-    ]
+    [string, string, string, Partial<FetchGetApiPartybookingsIdRequestBody> | undefined]
   >
 ): Promise<FetchGetApiPartybookingsIdResponseBody> => {
   return serviceFetch({

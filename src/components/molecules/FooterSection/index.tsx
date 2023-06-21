@@ -17,33 +17,17 @@ function FooterSectionMolecule(props: FooterSectionMoleculeProps): JSX.Element {
         <Box className={styles.footer53}>
           <Box className={styles.fickle_flight_bio33}>
             <Box className={styles.logo25}>
-              <Image
-                src={assets("1686630477484logogmopng")}
-                alt={""}
-                className={styles.image25}
-              />
+              <Image src={assets("1686630477484logogmopng")} alt={""} className={styles.image25} />
             </Box>
             <Box className={styles.social_icons33}>
               <Box className={styles.facebook_icon29}>
-                <Image
-                  src={assets("1686625910040svg")}
-                  alt={""}
-                  className={styles.image29}
-                />
+                <Image src={assets("1686625910040svg")} alt={""} className={styles.image29} />
               </Box>
               <Box className={styles.twitter_icon31}>
-                <Image
-                  src={assets("1686625910042svg")}
-                  alt={""}
-                  className={styles.image31}
-                />
+                <Image src={assets("1686625910042svg")} alt={""} className={styles.image31} />
               </Box>
               <Box className={styles.instagram_icon33}>
-                <Image
-                  src={assets("1686625910044svg")}
-                  alt={""}
-                  className={styles.image33}
-                />
+                <Image src={assets("1686625910044svg")} alt={""} className={styles.image33} />
               </Box>
             </Box>
           </Box>

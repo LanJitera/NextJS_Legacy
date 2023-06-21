@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  MutateOptions,
-  useMutation,
-  useQuery,
-  useQueryClient,
-} from "react-query";
+import { MutateOptions, useMutation, useQuery, useQueryClient } from "react-query";
 import { DEFAULT_QUERY_OPTIONS } from "@constants/query";
 import { fetchToServiceResponse } from "@utils/service";
 import {
@@ -41,8 +36,7 @@ export const usePartyService = () => {
   const mutationDeleteApiPartiesId = useMutation(mutateDeleteApiPartiesId);
 
   const useGetApiParties = () => {
-    const [query, setQuery] =
-      useState<{ params?: Partial<FetchGetApiPartiesRequestBody> }>();
+    const [query, setQuery] = useState<{ params?: Partial<FetchGetApiPartiesRequestBody> }>();
     const queryResult = useQuery(
       [...DefaultGetApiPartiesQueryKey, query?.params],
       fetchGetApiParties,
@@ -65,17 +59,13 @@ export const usePartyService = () => {
         params: Partial<FetchGetApiPartiesRequestBody> = {}
       ): Promise<FetchGetApiPartiesResponseBody> => {
         setQuery({ params });
-        return fetchToServiceResponse(queryClient, [
-          ...DefaultGetApiPartiesQueryKey,
-          params,
-        ]);
+        return fetchToServiceResponse(queryClient, [...DefaultGetApiPartiesQueryKey, params]);
       },
     };
   };
 
   const useGetApiPartiesId = () => {
-    const [query, setQuery] =
-      useState<{ params?: Partial<FetchGetApiPartiesIdRequestBody> }>();
+    const [query, setQuery] = useState<{ params?: Partial<FetchGetApiPartiesIdRequestBody> }>();
     const queryResult = useQuery(
       [...DefaultGetApiPartiesIdQueryKey, query?.params],
       fetchGetApiPartiesId,
@@ -98,18 +88,14 @@ export const usePartyService = () => {
         params: Partial<FetchGetApiPartiesIdRequestBody> = {}
       ): Promise<FetchGetApiPartiesIdResponseBody> => {
         setQuery({ params });
-        return fetchToServiceResponse(queryClient, [
-          ...DefaultGetApiPartiesIdQueryKey,
-          params,
-        ]);
+        return fetchToServiceResponse(queryClient, [...DefaultGetApiPartiesIdQueryKey, params]);
       },
     };
   };
 
   const useGetApiPartiesBookingHistory = () => {
-    const [query, setQuery] = useState<{
-      params?: Partial<FetchGetApiPartiesBookingHistoryRequestBody>;
-    }>();
+    const [query, setQuery] =
+      useState<{ params?: Partial<FetchGetApiPartiesBookingHistoryRequestBody> }>();
     const queryResult = useQuery(
       [...DefaultGetApiPartiesBookingHistoryQueryKey, query?.params],
       fetchGetApiPartiesBookingHistory,
@@ -119,14 +105,10 @@ export const usePartyService = () => {
       }
     );
     return {
-      query: (
-        params: Partial<FetchGetApiPartiesBookingHistoryRequestBody> = {}
-      ) => {
+      query: (params: Partial<FetchGetApiPartiesBookingHistoryRequestBody> = {}) => {
         setQuery({ params });
       },
-      useQuery: (
-        params: Partial<FetchGetApiPartiesBookingHistoryRequestBody> = {}
-      ) => {
+      useQuery: (params: Partial<FetchGetApiPartiesBookingHistoryRequestBody> = {}) => {
         useEffect(() => {
           setQuery({ params });
         }, []);

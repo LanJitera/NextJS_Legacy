@@ -8,16 +8,9 @@ type DefaultHamburgerMenuMoleculeProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
 };
-function DefaultHamburgerMenuMolecule(
-  props: DefaultHamburgerMenuMoleculeProps
-): JSX.Element {
+function DefaultHamburgerMenuMolecule(props: DefaultHamburgerMenuMoleculeProps): JSX.Element {
   return (
-    <Box
-      className={`${styles.hamburger_menu_molecule_0} ${get(
-        props,
-        "className"
-      )}`}
-    >
+    <Box className={`${styles.hamburger_menu_molecule_0} ${get(props, "className")}`}>
       <Box className={styles.box_0}>
         <HamburgerMenu
           buttonProps={{ buttonType: "primary" }}
