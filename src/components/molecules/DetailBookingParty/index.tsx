@@ -21,7 +21,6 @@ function DetailBookingPartyMolecule(
   props: DetailBookingPartyMoleculeProps
 ): JSX.Element {
   const { t } = useTranslation("web");
-  console.log(props);
   
   return (
     <Box className={`${styles.page_container} ${get(props, "className")}`}>

@@ -5,6 +5,7 @@ import get from "lodash/get";
 import Image from "next/future/image";
 import { Box, Text, Button } from "@jitera/jitera-web-ui-library";
 import styles from "./styles.module.css";
+import CommonButton2Molecule from "../CommonButton2";
 type CardItemMoleculeProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
@@ -42,26 +43,26 @@ function CardItemMolecule(props: CardItemMoleculeProps): JSX.Element {
         <Box className={styles.box_4}>
           <Box className={styles.box_5}>
             <Box className={styles.box_6}>
-              <Text className={styles.text_1} textType="Text">
-                {get(props, "nameParty")}
-              </Text>
               <Text className={styles.text_2} textType="Text">
                 {get(props, "partystarttime")}
               </Text>
+              <Text className={styles.text_3} textType="Text">
+                {get(props, "nameParty")}
+              </Text>
+              <Text className={styles.text_1} textType="Text">
+                {get(props, "partyLocation")}
+              </Text>
+              <Button buttonType="primary" className={styles.button_0}  onClick={handleText29}>
+                <Text
+                  className={styles.text_29}
+                  textType="Text"
+                >
+                  {get(props, "label")}
+                </Text>
+              </Button>
+              {/* <CommonButton2Molecule label="Booking" onClick={handleText29}/> */}
             </Box>
-            <Text className={styles.text_3} textType="Text">
-              {get(props, "decribe")}
-            </Text>
           </Box>
-          <Button buttonType="primary" className={styles.button_0}>
-            <Text
-              className={styles.text_29}
-              textType="Text"
-              onClick={handleText29}
-            >
-              {get(props, "label")}
-            </Text>
-          </Button>
         </Box>
       </Box>
     </Box>
