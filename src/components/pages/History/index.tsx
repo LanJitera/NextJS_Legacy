@@ -17,6 +17,7 @@ type HistoryPageProps = DefaultPageProps & {
 function HistoryPage(props: HistoryPageProps): JSX.Element {
   const { t } = useTranslation("web");
   const authenticationService = useAuthenticationService();
+
   const authenticatedDataValue = authenticationService.useAuthenticatedData("authenticatedData");
   const partybookingService = usePartybookingService();
   const getApiPartybookingsInstance = partybookingService.useGetApiPartybookings();
