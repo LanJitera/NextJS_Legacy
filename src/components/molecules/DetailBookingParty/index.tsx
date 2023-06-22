@@ -1,11 +1,23 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useCallback, useMemo, useEffect } from "react";
+import React, { useCallback, useMemo, useEffect, useLayoutEffect, useState } from "react";
 import { DefaultPageProps } from "@interfaces/page";
 import get from "lodash/get";
 import Image from "next/future/image";
 import { useTranslation } from "next-i18next";
-import { Box, Row, Col, Text, Button } from "@jitera/jitera-web-ui-library";
+import {
+  Box,
+  Row,
+  Col,
+  Text,
+  Button,
+  Toast,
+} from "@jitera/jitera-web-ui-library";
 import styles from "./styles.module.css";
+import { useAuthenticationService } from "@services/authentication";
+import { usePartybookingService } from "@services/partybooking";
+import { useNavigateService } from "@services/navigate";
+
+import dateFormat, { masks } from "dateformat";
 type DetailBookingPartyMoleculeProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
@@ -15,12 +27,52 @@ type DetailBookingPartyMoleculeProps = DefaultPageProps & {
   numberOfPeople?: number;
   describe?: string;
   img?: string;
+  partybookings?: string;
+  id?: string;
 };
-import dateFormat, { masks } from "dateformat";
 function DetailBookingPartyMolecule(
   props: DetailBookingPartyMoleculeProps
 ): JSX.Element {
+  const [PartyBooker,usePartyBooker] = useState()
+
   const { t } = useTranslation("web");
+  const authenticationService = useAuthenticationService();
+  const partybookingService = usePartybookingService();
+  const authenticatedDataValue =
+    authenticationService.useAuthenticatedData("authenticatedData");
+  const navigateService = useNavigateService();
+
+  const handleCreatePartyBooking = async () => {
+    try {
+      const responsePostApiPartybookings =
+        await partybookingService.postApiPartybookings.fetch({
+          partybookings: {
+            user_id: get(authenticatedDataValue, "id"),
+            party_id: props.id,
+            status: "Unvalue",
+          },
+        });
+      navigateService.navigate("/User/home");
+    } catch (e: unknown) {
+      Toast.error("Thất bại" || "");
+    }
+  };
+  useLayoutEffect(() => {
+    const partyBookerIndex  = props?.partybookings?.findIndex(
+      (userID) => userID.user_id === get(authenticatedDataValue, "id")
+    );
+    usePartyBooker(partyBookerIndex);
+  }, [props?.partybookings,authenticatedDataValue]);
+
+  const currentDate = new Date();
+  const partyStartTime = new Date(props?.partystarttime);
+  let isDate = false
+  if (currentDate >= partyStartTime) {
+    isDate = false
+  } else {
+    isDate = true
+  }
+  
   
   return (
     <Box className={`${styles.page_container} ${get(props, "className")}`}>
@@ -67,7 +119,7 @@ function DetailBookingPartyMolecule(
                   {t("detail_booking_party.text8")}
                 </Text>
                 <Text className={styles.text_9} textType="Text">
-                  {/* {dateFormat(props?.partystarttime,'paddedShortDate')} */}
+                  {dateFormat(props?.partystarttime,'paddedShortDate') || ""}
                 </Text>
               </Box>
               <Box className={styles.box_6}>
@@ -75,7 +127,7 @@ function DetailBookingPartyMolecule(
                   {t("detail_booking_party.text_5")}
                 </Text>
                 <Text className={styles.text_10} textType="Text">
-                {props?.numberofpeople}
+                  {props?.numberofpeople}
                 </Text>
               </Box>
               <Box className={styles.box_7}>
@@ -83,22 +135,25 @@ function DetailBookingPartyMolecule(
                   {t("detail_booking_party.text_6")}
                 </Text>
                 <Text className={styles.text_11} textType="Text">
-                {props?.requiredage}
+                  {props?.requiredage}
                 </Text>
               </Box>
             </Box>
-            <Box className={styles.box_8}>
-              <Button buttonType="primary" className={styles.button_1}>
-                <Text className={styles.button_1_text_0} textType="Text">
-                  {t("detail_booking_party.button_1_text_0")}
-                </Text>
-              </Button>
-              <Button buttonType="primary" className={styles.button_2}>
-                <Text className={styles.button_2_text_0} textType="Text">
-                  {t("detail_booking_party.button_2_text_0")}
-                </Text>
-              </Button>
-            </Box>
+            {PartyBooker === -1 && isDate  ? (
+              <Box className={styles.box_8}>
+                <Button
+                  buttonType="primary"
+                  className={styles.button_1}
+                  onClick={handleCreatePartyBooking}
+                >
+                  <Text className={styles.button_1_text_0} textType="Text">
+                    {t("detail_booking_party.button_1_text_0")}
+                  </Text>
+                </Button>
+              </Box>
+            ) : (
+              ""
+            )}
           </Box>
         </Col>
       </Row>

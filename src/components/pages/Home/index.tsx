@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useCallback, useMemo, useEffect } from "react";
+import React, { useCallback, useMemo, useEffect, useState } from "react";
 import { DefaultPageProps } from "@interfaces/page";
 import get from "lodash/get";
 import HeroSection from "@components/molecules/HeroSection";
@@ -35,6 +35,8 @@ interface Form0FormData {
   datetimepicker_1: string;
 }
 function HomePage(props: HomePageProps): JSX.Element {
+  // const [timeParty,useTimeParty] = useState()
+  
   const { t } = useTranslation("web");
   const partyService = usePartyService();
   const getApiPartiesInstance = partyService.useGetApiParties();
@@ -51,6 +53,7 @@ function HomePage(props: HomePageProps): JSX.Element {
     mode: "onChange",
     reValidateMode: "onChange",
   });
+  
   const { errors: formForm0Errors } = formForm0.formState;
 
   useEffect(() => {
@@ -58,7 +61,6 @@ function HomePage(props: HomePageProps): JSX.Element {
   }, []);
 
   const handleButton1 = async (values?: Form0FormData) => {
-
     try {
       const datetime = get(values, "datetimepicker_1._d", "");
       const formattedDate = datetime  !== "" ? dateFormat(get(values, "datetimepicker_1._d", ""),'yyyy-mm-dd') : undefined;
@@ -68,12 +70,9 @@ function HomePage(props: HomePageProps): JSX.Element {
           partylocation: get(values, "input_SearchAddress", ""),
           partystarttime: formattedDate,
         },
-        
       });
     } catch (e: unknown) {}
   };
-
-  
   
   const handleOnPressList1Item = async (Id?: number,index?:number) => {
     try {
@@ -81,6 +80,12 @@ function HomePage(props: HomePageProps): JSX.Element {
     } catch (e: unknown) {
     }
   };
+  
+  // const handlePartyHappenning = () => {
+  
+  // }
+  
+  
   return (
     <Page className={styles.page_container} >
       <Box className={styles.box_2}>

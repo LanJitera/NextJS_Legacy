@@ -103,6 +103,7 @@ export const fetchGetApiPartiesId = async (
     ]
   >
 ): Promise<FetchGetApiPartiesIdResponseBody> => {
+
   return serviceFetch({
     url: getRoute("/api/parties/:id", context.queryKey[3]),
     params: context.queryKey[3],
@@ -119,6 +120,7 @@ export type FetchGetApiPartiesBookingHistoryRequestBody = {
   pagination_limit: number;
   useid: number;
 };
+
 export type FetchGetApiPartiesBookingHistoryResponseBody = {
   total_pages: number;
   parties: {
