@@ -28,6 +28,10 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
     getApiPartiesBookingHistoryInstance.useQuery({
       useid: get(authenticatedDataValue, "id"),
     });
+    
+  console.log(getApiPartiesBookingHistoryResult);
+    
+    
   return (
     <Page className={styles.page_container}>
       <HeroSection className={styles.herosection_1} />
