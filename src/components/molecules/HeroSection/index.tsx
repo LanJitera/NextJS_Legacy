@@ -40,6 +40,11 @@ function HeroSectionMolecule(props: HeroSectionMoleculeProps): JSX.Element {
   const handleWebscreen = () => {
     navigation.navigate('/User/home');
   };
+  function deleteCookie(name) {
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+  }
+  
+  
   return (
     <Box className={`${styles.page_container} ${get(props, "className")}`}>
       <Box className={styles.top_header20}>
@@ -67,15 +72,16 @@ function HeroSectionMolecule(props: HeroSectionMoleculeProps): JSX.Element {
               <Text className={styles.text13} textType="Text">
                 {t("hero_section.text13")}
               </Text>
-              <Text className={styles.text14} textType="Text">
+              <Text className={styles.text14} textType="Link" href={"/User/history"}>
                 {t("hero_section.text14")}
               </Text>
 
               {userLogin !== "" ? (
                 <Text
-                  href={"/User/login"}
+                  // href={"/User/login"}
                   className={styles.text_0}
                   textType="Link"
+                  onClick={()=>{deleteCookie("next-auth.session-token");}}
                 >
                   {t("hero_section.text_0")}
                 </Text>
