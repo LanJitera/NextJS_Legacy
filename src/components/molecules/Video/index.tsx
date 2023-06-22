@@ -17,11 +17,7 @@ function VideoMolecule(props: VideoMoleculeProps): JSX.Element {
       sourceType="upload"
       className={`${styles.page_container} ${get(props, "className")}`}
     >
-      <Image
-        src={assets("1686619839538svg")}
-        alt={""}
-        className={styles.image207}
-      />
+      <Image src={assets("1686619839538svg")} alt={""} className={styles.image207} />
     </Box>
   );
 }

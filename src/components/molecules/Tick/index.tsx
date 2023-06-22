@@ -26,25 +26,12 @@ function TickMolecule(props: TickMoleculeProps): JSX.Element {
     } catch (e: unknown) {}
   };
   return (
-    <Box
-      className={`${styles.custom_component_container} ${get(
-        props,
-        "className"
-      )}`}
-    >
+    <Box className={`${styles.custom_component_container} ${get(props, "className")}`}>
       <Box className={styles.box_1} onClick={handleBox1}>
-        <Image
-          src={assets("1683537343659filepng")}
-          alt={""}
-          className={styles.image_2}
-        />
+        <Image src={assets("1683537343659filepng")} alt={""} className={styles.image_2} />
       </Box>
       <Box className={styles.box_0} onClick={handleBox0}>
-        <Image
-          src={assets("1683554521045removepng")}
-          alt={""}
-          className={styles.image_3}
-        />
+        <Image src={assets("1683554521045removepng")} alt={""} className={styles.image_3} />
       </Box>
     </Box>
   );

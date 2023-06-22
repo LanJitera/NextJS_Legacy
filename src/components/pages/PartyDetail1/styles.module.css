@@ -16,7 +16,6 @@
   justify-content: flex-start;
   position: relative;
   width: 100%;
-  z-index: 99;
 }
 .box_2 {
   align-self: stretch;
@@ -24,7 +23,7 @@
   flex: none;
   flex-grow: 0px;
   height: 69%;
-  /* position: relative; */
+  position: relative;
   width: 100%;
 }
 .image_2 {
@@ -50,9 +49,6 @@
   justify-content: flex-start;
   position: relative;
   width: 100%;
-  
-  /* dung tam */
-  margin-top: 605px;
 }
 .box_4 {
   align-items: flex-start;
