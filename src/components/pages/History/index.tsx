@@ -18,12 +18,16 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
   const { t } = useTranslation("web");
   const authenticationService = useAuthenticationService();
 
-  const authenticatedDataValue = authenticationService.useAuthenticatedData("authenticatedData");
+  const authenticatedDataValue =
+    authenticationService.useAuthenticatedData("authenticatedData");
   const partybookingService = usePartybookingService();
-  const getApiPartybookingsInstance = partybookingService.useGetApiPartybookings();
+  const getApiPartybookingsInstance =
+    partybookingService.useGetApiPartybookings();
   const getApiPartybookingsResult = getApiPartybookingsInstance.useQuery({
     partybookings: { user_id: get(authenticatedDataValue, "id") },
   });
+
+  // console.log(get(getApiPartybookingsResult, "data.partybookings[0].party.nameparty"));
 
   return (
     <Page className={styles.page_container}>
@@ -39,7 +43,7 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
           </Box>
           <Box className={styles.box_5}>
             <List
-              dataSource={undefined}
+              dataSource={getApiPartybookingsResult?.data?.partybookings}
               rowKey={useCallback(
                 (item: Record<string, any>) => `${item.id}_${item.created_at}`,
                 []
@@ -48,15 +52,39 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
               renderItem={useCallback(
                 (item: any) => (
                   <BlogCard
-                    nameParty={get(getApiPartybookingsResult, "data.party.nameparty")}
-                    partystarttime={get(getApiPartybookingsResult, "data.party.partystarttime")}
-                    partyLocation={get(getApiPartybookingsResult, "data.party.partylocation")}
-                    decribe={get(getApiPartybookingsResult, "data.party.describe")}
-                    img={get(getApiPartybookingsResult, "data.party.nameparty")}
+                    nameParty={get(
+                      getApiPartybookingsResult,
+                      `data.partybookings[${index}].party.nameparty`
+                    )}
+                    partystarttime={get(
+                      getApiPartybookingsResult,
+                      "data.partybooking.party.partystarttime"
+                    )}
+                    partyLocation={get(
+                      getApiPartybookingsResult,
+                      "data.partybooking.party.partylocation"
+                    )}
+                    decribe={get(
+                      getApiPartybookingsResult,
+                      "data.partybooking.party.describe"
+                    )}
+                    img={get(
+                      getApiPartybookingsResult,
+                      "data.partybooking.party.nameparty"
+                    )}
                     label={"Hủy đặt vé "}
-                    IdPartyBooking={get(getApiPartybookingsResult, "data.partybookings.id")}
-                    numberofpeople={get(getApiPartybookingsResult, "data.party.numberofpeople")}
-                    IdParty={get(getApiPartybookingsResult, "data.party.id")}
+                    IdPartyBooking={get(
+                      getApiPartybookingsResult,
+                      "data.partybookings.id"
+                    )}
+                    numberofpeople={get(
+                      getApiPartybookingsResult,
+                      "data.partybooking.party.numberofpeople"
+                    )}
+                    IdParty={get(
+                      getApiPartybookingsResult,
+                      "data.partybooking.party.id"
+                    )}
                   />
                 ),
                 []
