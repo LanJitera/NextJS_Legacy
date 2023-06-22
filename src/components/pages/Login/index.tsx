@@ -27,6 +27,8 @@ interface Form1FormData {
   input_email: string;
   password_input: string;
 }
+
+
 function LoginPage(props: LoginPageProps): JSX.Element {
   const authenticationService = useAuthenticationService();
   const navigateService = useNavigateService();
