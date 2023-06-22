@@ -28,7 +28,6 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
     getApiPartiesBookingHistoryInstance.useQuery({
       useid: get(authenticatedDataValue, "id"),
     });
-
   return (
     <Page className={styles.page_container}>
       <HeroSection className={styles.herosection_1} />
@@ -40,7 +39,7 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
                 {t("history.text_5")}
               </Text>
             </Box>
-              dataSource={undefined}
+              {/* dataSource={undefined}
               rowKey={useCallback(
                 (item: Record<string, any>) => `${item.id}_${item.created_at}`,
                 []
@@ -75,7 +74,7 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
                 ),
                 []
               )}
-            />
+            /> */}
           </Box>
         </Box>
       </Box>

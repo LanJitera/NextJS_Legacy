@@ -76,6 +76,7 @@ export const usePartyService = () => {
   const useGetApiPartiesId = () => {
     const [query, setQuery] =
       useState<{ params?: Partial<FetchGetApiPartiesIdRequestBody> }>();
+      
     const queryResult = useQuery(
       [...DefaultGetApiPartiesIdQueryKey, query?.params],
       fetchGetApiPartiesId,

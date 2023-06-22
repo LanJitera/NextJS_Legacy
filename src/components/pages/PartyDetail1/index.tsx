@@ -16,10 +16,8 @@ type PartyDetail1PageProps = DefaultPageProps & {
 function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
   const partyService = usePartyService();
   const getApiPartiesIdInstance = partyService.useGetApiPartiesId();
-  const getApiPartiesIdResult = getApiPartiesIdInstance.useQuery({
-    id: props?.query?.id,
-  });
   
+  const getApiPartiesIdResult = getApiPartiesIdInstance.useQuery({id: props?.query?.id,});
   return (
     <Page className={styles.page_container}>
       <HeroSection className={styles.herosection_1} />
