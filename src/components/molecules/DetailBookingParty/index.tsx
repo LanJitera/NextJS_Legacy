@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useCallback, useMemo, useEffect, useLayoutEffect, useState } from "react";
+import React, {
+  useCallback,
+  useMemo,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from "react";
 import { DefaultPageProps } from "@interfaces/page";
 import get from "lodash/get";
 import Image from "next/future/image";
@@ -29,51 +35,31 @@ type DetailBookingPartyMoleculeProps = DefaultPageProps & {
   img?: string;
   partybookings?: string;
   id?: string;
+  handleDeletePartyBooking?: () => void;
+  handleCreatePartyBooking?: () => void;
 };
 function DetailBookingPartyMolecule(
   props: DetailBookingPartyMoleculeProps
 ): JSX.Element {
-  const [PartyBooker,usePartyBooker] = useState()
+  const { handleDeletePartyBooking, handleCreatePartyBooking } = props;
+  // const [PartyBooker, usePartyBooker] = useState();
 
   const { t } = useTranslation("web");
-  const authenticationService = useAuthenticationService();
-  const partybookingService = usePartybookingService();
-  const authenticatedDataValue =
-    authenticationService.useAuthenticatedData("authenticatedData");
+  // const authenticationService = useAuthenticationService();
+  // const authenticatedDataValue =
+  //   authenticationService.useAuthenticatedData("authenticatedData");
   const navigateService = useNavigateService();
-
-  const handleCreatePartyBooking = async () => {
-    try {
-      const responsePostApiPartybookings =
-        await partybookingService.postApiPartybookings.fetch({
-          partybookings: {
-            user_id: get(authenticatedDataValue, "id"),
-            party_id: props.id,
-            status: "Unvalue",
-          },
-        });
-      navigateService.navigate("/User/home");
-    } catch (e: unknown) {
-      Toast.error("Thất bại" || "");
-    }
-  };
-  useLayoutEffect(() => {
-    const partyBookerIndex  = props?.partybookings?.findIndex(
-      (userID) => userID.user_id === get(authenticatedDataValue, "id")
-    );
-    usePartyBooker(partyBookerIndex);
-  }, [props?.partybookings,authenticatedDataValue]);
+  const partybookingService = usePartybookingService();
 
   const currentDate = new Date();
   const partyStartTime = new Date(props?.partystarttime);
-  let isDate = false
+  let isDate = false;
   if (currentDate >= partyStartTime) {
-    isDate = false
+    isDate = false;
   } else {
-    isDate = true
+    isDate = true;
   }
-  
-  
+
   return (
     <Box className={`${styles.page_container} ${get(props, "className")}`}>
       {/* <Image
@@ -119,7 +105,7 @@ function DetailBookingPartyMolecule(
                   {t("detail_booking_party.text8")}
                 </Text>
                 <Text className={styles.text_9} textType="Text">
-                  {dateFormat(props?.partystarttime,'paddedShortDate') || ""}
+                  {dateFormat(props?.partystarttime, "paddedShortDate") || ""}
                 </Text>
               </Box>
               <Box className={styles.box_6}>
@@ -139,8 +125,8 @@ function DetailBookingPartyMolecule(
                 </Text>
               </Box>
             </Box>
-            {PartyBooker === -1 && isDate  ? (
-              <Box className={styles.box_8}>
+            <Box className={styles.box_8}>
+              {props.idPartyBooker === -1 && isDate ? (
                 <Button
                   buttonType="primary"
                   className={styles.button_1}
@@ -150,10 +136,18 @@ function DetailBookingPartyMolecule(
                     {t("detail_booking_party.button_1_text_0")}
                   </Text>
                 </Button>
-              </Box>
-            ) : (
-              ""
-            )}
+              ) : (
+                <Button
+                  buttonType="primary"
+                  className={styles.button_1}
+                  onClick={handleDeletePartyBooking}
+                >
+                  <Text className={styles.button_1_text_0} textType="Text">
+                    {t("detail_booking_party.button_2_text_0")}
+                  </Text>
+                </Button>
+              )}
+            </Box>
           </Box>
         </Col>
       </Row>
