@@ -24,17 +24,11 @@ export function fetchToServiceResponse<T>(
   });
 }
 
-export const fetchResponseToServiceData = (
-  res: AxiosResponse,
-  model: string
-) => {
+export const fetchResponseToServiceData = (res: AxiosResponse, model: string) => {
   return res.data?.[model];
 };
 
-export const serviceFetch = async (
-  options: AxiosRequestConfig,
-  model?: string
-) => {
+export const serviceFetch = async (options: AxiosRequestConfig, model?: string) => {
   const res = await requestAuthenticated({
     ...options,
     paramsSerializer: (params: unknown) => {

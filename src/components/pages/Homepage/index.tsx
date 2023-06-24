@@ -26,11 +26,7 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
               <Box className={styles.symbols9}>
                 <Box className={styles.webscreen9}>
                   <Box className={styles.group9}>
-                    <Image
-                      src={assets("1686621805510png")}
-                      alt={""}
-                      className={styles.image9}
-                    />
+                    <Image src={assets("1686621805510png")} alt={""} className={styles.image9} />
                   </Box>
                 </Box>
               </Box>
@@ -52,38 +48,18 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
               </Box>
               <Box className={styles.accountsection21}>
                 <Box className={styles.notificationbell20}>
-                  <Image
-                    src={assets("1686621805540svg")}
-                    alt={""}
-                    className={styles.image18}
-                  />
-                  <Image
-                    src={assets("1686621805542svg")}
-                    alt={""}
-                    className={styles.image19}
-                  />
+                  <Image src={assets("1686621805540svg")} alt={""} className={styles.image18} />
+                  <Image src={assets("1686621805542svg")} alt={""} className={styles.image19} />
                   <Box className={styles.ellipse5320} />
                 </Box>
-                <Image
-                  src={assets("1686621805544png")}
-                  alt={""}
-                  className={styles.image21}
-                />
+                <Image src={assets("1686621805544png")} alt={""} className={styles.image21} />
               </Box>
             </Box>
           </Box>
         </Box>
         <Box className={styles.search_section62}>
-          <Image
-            src={assets("1686621805569png")}
-            alt={""}
-            className={styles.image23}
-          />
-          <Image
-            src={assets("1686621806021png")}
-            alt={""}
-            className={styles.image24}
-          />
+          <Image src={assets("1686621805569png")} alt={""} className={styles.image23} />
+          <Image src={assets("1686621806021png")} alt={""} className={styles.image24} />
           <Box className={styles.search_container62}>
             <Box className={styles.title28}>
               <Text className={styles.text27} textType="Text">
@@ -102,9 +78,7 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
                   <Box className={styles.flighttype39}>
                     <Box className={styles.radio36}>
                       <Box className={styles.padding35}>
-                        <RadioButtonUnchecked
-                          className={styles.radio_button_unchecked1}
-                        />
+                        <RadioButtonUnchecked className={styles.radio_button_unchecked1} />
                       </Box>
                       <Text className={styles.text36} textType="Text">
                         Return
@@ -112,9 +86,7 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
                     </Box>
                     <Box className={styles.radio39}>
                       <Box className={styles.padding38}>
-                        <RadioButtonChecked
-                          className={styles.radio_button_checked1}
-                        />
+                        <RadioButtonChecked className={styles.radio_button_checked1} />
                       </Box>
                       <Text className={styles.text39} textType="Text">
                         One-way
@@ -258,61 +230,37 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
                 </Text>
                 <Box className={styles.trip_menus117}>
                   <Box className={styles.hotel102}>
-                    <Image
-                      src={assets("1686621806329svg")}
-                      alt={""}
-                      className={styles.image101}
-                    />
+                    <Image src={assets("1686621806329svg")} alt={""} className={styles.image101} />
                     <Text className={styles.text102} textType="Text">
                       Hotel
                     </Text>
                   </Box>
                   <Box className={styles.attractions105}>
-                    <Image
-                      src={assets("1686621806331svg")}
-                      alt={""}
-                      className={styles.image104}
-                    />
+                    <Image src={assets("1686621806331svg")} alt={""} className={styles.image104} />
                     <Text className={styles.text105} textType="Text">
                       Attractions
                     </Text>
                   </Box>
                   <Box className={styles.eats108}>
-                    <Image
-                      src={assets("1686621806334svg")}
-                      alt={""}
-                      className={styles.image107}
-                    />
+                    <Image src={assets("1686621806334svg")} alt={""} className={styles.image107} />
                     <Text className={styles.text108} textType="Text">
                       Eats
                     </Text>
                   </Box>
                   <Box className={styles.commute111}>
-                    <Image
-                      src={assets("1686621806337svg")}
-                      alt={""}
-                      className={styles.image110}
-                    />
+                    <Image src={assets("1686621806337svg")} alt={""} className={styles.image110} />
                     <Text className={styles.text111} textType="Text">
                       Commute
                     </Text>
                   </Box>
                   <Box className={styles.taxi114}>
-                    <Image
-                      src={assets("1686621806341svg")}
-                      alt={""}
-                      className={styles.image113}
-                    />
+                    <Image src={assets("1686621806341svg")} alt={""} className={styles.image113} />
                     <Text className={styles.text114} textType="Text">
                       Taxi
                     </Text>
                   </Box>
                   <Box className={styles.movies117}>
-                    <Image
-                      src={assets("1686621806343svg")}
-                      alt={""}
-                      className={styles.image116}
-                    />
+                    <Image src={assets("1686621806343svg")} alt={""} className={styles.image116} />
                     <Text className={styles.text117} textType="Text">
                       Movies
                     </Text>
@@ -337,22 +285,14 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
                 View all destinations
               </Text>
               <Box className={styles.arrowright126}>
-                <Image
-                  src={assets("1686621806350svg")}
-                  alt={""}
-                  className={styles.image126}
-                />
+                <Image src={assets("1686621806350svg")} alt={""} className={styles.image126} />
               </Box>
             </Box>
           </Box>
           <Box className={styles.cards_container159}>
             <Box className={styles.col1135}>
               <Box className={styles.paris_card135}>
-                <Image
-                  src={assets("1686621806353png")}
-                  alt={""}
-                  className={styles.image130}
-                />
+                <Image src={assets("1686621806353png")} alt={""} className={styles.image130} />
                 <Box className={styles.destination_details135}>
                   <Text className={styles.text132} textType="Text">
                     Paris
@@ -370,11 +310,7 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
             </Box>
             <Box className={styles.col2143}>
               <Box className={styles.greece_card143}>
-                <Image
-                  src={assets("1686621806424png")}
-                  alt={""}
-                  className={styles.image138}
-                />
+                <Image src={assets("1686621806424png")} alt={""} className={styles.image138} />
                 <Box className={styles.destination_details143}>
                   <Text className={styles.text140} textType="Text">
                     Greece
@@ -392,11 +328,7 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
             </Box>
             <Box className={styles.col3151}>
               <Box className={styles.norway_card151}>
-                <Image
-                  src={assets("1686621806490png")}
-                  alt={""}
-                  className={styles.image146}
-                />
+                <Image src={assets("1686621806490png")} alt={""} className={styles.image146} />
                 <Box className={styles.destination_details151}>
                   <Text className={styles.text148} textType="Text">
                     Norway
@@ -414,11 +346,7 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
             </Box>
             <Box className={styles.col4159}>
               <Box className={styles.tuscany_card159}>
-                <Image
-                  src={assets("1686621806559png")}
-                  alt={""}
-                  className={styles.image154}
-                />
+                <Image src={assets("1686621806559png")} alt={""} className={styles.image154} />
                 <Box className={styles.destination_details159}>
                   <Text className={styles.text156} textType="Text">
                     Tuscany
@@ -446,21 +374,13 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
                 View all holidays
               </Text>
               <Box className={styles.arrowright166}>
-                <Image
-                  src={assets("1686621806621svg")}
-                  alt={""}
-                  className={styles.image166}
-                />
+                <Image src={assets("1686621806621svg")} alt={""} className={styles.image166} />
               </Box>
             </Box>
           </Box>
           <Box className={styles.reccardscontainer199}>
             <Box className={styles.reccard1175}>
-              <Image
-                src={assets("1686621806624png")}
-                alt={""}
-                className={styles.image169}
-              />
+              <Image src={assets("1686621806624png")} alt={""} className={styles.image169} />
               <Box className={styles.holidaydetails175}>
                 <Box className={styles.frame685175}>
                   <Box className={styles.frame684174}>
@@ -478,11 +398,7 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
               </Box>
             </Box>
             <Box className={styles.reccard2183}>
-              <Image
-                src={assets("1686621806703png")}
-                alt={""}
-                className={styles.image177}
-              />
+              <Image src={assets("1686621806703png")} alt={""} className={styles.image177} />
               <Box className={styles.holidaydetails183}>
                 <Box className={styles.card_info183}>
                   <Box className={styles.frame684182}>
@@ -500,11 +416,7 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
               </Box>
             </Box>
             <Box className={styles.reccard3191}>
-              <Image
-                src={assets("1686621806779png")}
-                alt={""}
-                className={styles.image185}
-              />
+              <Image src={assets("1686621806779png")} alt={""} className={styles.image185} />
               <Box className={styles.holidaydetails191}>
                 <Box className={styles.card_info191}>
                   <Box className={styles.details190}>
@@ -522,11 +434,7 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
               </Box>
             </Box>
             <Box className={styles.reccard4199}>
-              <Image
-                src={assets("1686621806872png")}
-                alt={""}
-                className={styles.image193}
-              />
+              <Image src={assets("1686621806872png")} alt={""} className={styles.image193} />
               <Box className={styles.holidaydetails199}>
                 <Box className={styles.card_info199}>
                   <Box className={styles.details198}>
@@ -557,22 +465,14 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
                 View all stays
               </Text>
               <Box className={styles.arrowright207}>
-                <Image
-                  src={assets("1686621806944svg")}
-                  alt={""}
-                  className={styles.image207}
-                />
+                <Image src={assets("1686621806944svg")} alt={""} className={styles.image207} />
               </Box>
             </Box>
           </Box>
           <Box className={styles.hotel_cards268}>
             <Box className={styles.hotel_card1223}>
               <Box className={styles.hotel_card223}>
-                <Image
-                  src={assets("1686621806947png")}
-                  alt={""}
-                  className={styles.image211}
-                />
+                <Image src={assets("1686621806947png")} alt={""} className={styles.image211} />
                 <Box className={styles.stay_details216}>
                   <Box className={styles.stay_detailsrows216}>
                     <Text className={styles.text214} textType="Text">
@@ -595,11 +495,7 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
                     <Text className={styles.text220} textType="Text">
                       4.9
                     </Text>
-                    <Image
-                      src={assets("1686621807020svg")}
-                      alt={""}
-                      className={styles.image221}
-                    />
+                    <Image src={assets("1686621807020svg")} alt={""} className={styles.image221} />
                   </Box>
                 </Box>
                 <Box className={styles.more_details_button223}>
@@ -611,11 +507,7 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
             </Box>
             <Box className={styles.hotel_card2238}>
               <Box className={styles.hotel_card238}>
-                <Image
-                  src={assets("1686621807026png")}
-                  alt={""}
-                  className={styles.image226}
-                />
+                <Image src={assets("1686621807026png")} alt={""} className={styles.image226} />
                 <Box className={styles.stay_details231}>
                   <Box className={styles.stay_detailsrows231}>
                     <Text className={styles.text229} textType="Text">
@@ -638,11 +530,7 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
                     <Text className={styles.text235} textType="Text">
                       4.8
                     </Text>
-                    <Image
-                      src={assets("1686621807091svg")}
-                      alt={""}
-                      className={styles.image236}
-                    />
+                    <Image src={assets("1686621807091svg")} alt={""} className={styles.image236} />
                   </Box>
                 </Box>
                 <Box className={styles.more_details_button238}>
@@ -654,11 +542,7 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
             </Box>
             <Box className={styles.hotel_card3253}>
               <Box className={styles.hotel_card253}>
-                <Image
-                  src={assets("1686621807096png")}
-                  alt={""}
-                  className={styles.image241}
-                />
+                <Image src={assets("1686621807096png")} alt={""} className={styles.image241} />
                 <Box className={styles.stay_details246}>
                   <Box className={styles.stay_detailsrows246}>
                     <Text className={styles.text244} textType="Text">
@@ -681,11 +565,7 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
                     <Text className={styles.text250} textType="Text">
                       4.7
                     </Text>
-                    <Image
-                      src={assets("1686621807176svg")}
-                      alt={""}
-                      className={styles.image251}
-                    />
+                    <Image src={assets("1686621807176svg")} alt={""} className={styles.image251} />
                   </Box>
                 </Box>
                 <Box className={styles.more_details_button253}>
@@ -697,11 +577,7 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
             </Box>
             <Box className={styles.hotel_card4268}>
               <Box className={styles.hotel_card268}>
-                <Image
-                  src={assets("1686621807182png")}
-                  alt={""}
-                  className={styles.image256}
-                />
+                <Image src={assets("1686621807182png")} alt={""} className={styles.image256} />
                 <Box className={styles.stay_details261}>
                   <Box className={styles.stay_detailsrows261}>
                     <Text className={styles.text259} textType="Text">
@@ -724,11 +600,7 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
                     <Text className={styles.text265} textType="Text">
                       4.6
                     </Text>
-                    <Image
-                      src={assets("1686621807250svg")}
-                      alt={""}
-                      className={styles.image266}
-                    />
+                    <Image src={assets("1686621807250svg")} alt={""} className={styles.image266} />
                   </Box>
                 </Box>
                 <Box className={styles.more_details_button268}>
@@ -743,11 +615,7 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
       </Box>
       <Box className={styles.footer_section320}>
         <Box className={styles.subscribe_section288}>
-          <Image
-            src={assets("1686621807256png")}
-            alt={""}
-            className={styles.image271}
-          />
+          <Image src={assets("1686621807256png")} alt={""} className={styles.image271} />
           <Box className={styles.shareyourtravelsform288}>
             <Box className={styles.form_header275}>
               <Text className={styles.text274} textType="Text">
@@ -796,38 +664,21 @@ function HomepagePage(props: HomepagePageProps): JSX.Element {
         <Box className={styles.footer320}>
           <Box className={styles.fickle_flight_bio300}>
             <Box className={styles.logo292}>
-              <Image
-                src={assets("1686621807404svg")}
-                alt={""}
-                className={styles.image292}
-              />
+              <Image src={assets("1686621807404svg")} alt={""} className={styles.image292} />
             </Box>
             <Text className={styles.text293} textType="Text">
-              Fickle Flight is your one-stop travel portal. We offer hassle free
-              flight and hotel bookings. We also have all your flight needs in
-              you online shop.
+              Fickle Flight is your one-stop travel portal. We offer hassle free flight and hotel
+              bookings. We also have all your flight needs in you online shop.
             </Text>
             <Box className={styles.social_icons300}>
               <Box className={styles.entyposocialfacebookwithcircle296}>
-                <Image
-                  src={assets("1686621807407svg")}
-                  alt={""}
-                  className={styles.image296}
-                />
+                <Image src={assets("1686621807407svg")} alt={""} className={styles.image296} />
               </Box>
               <Box className={styles.entyposocialtwitterwithcircle298}>
-                <Image
-                  src={assets("1686621807409svg")}
-                  alt={""}
-                  className={styles.image298}
-                />
+                <Image src={assets("1686621807409svg")} alt={""} className={styles.image298} />
               </Box>
               <Box className={styles.entyposocialinstagramwithcircle300}>
-                <Image
-                  src={assets("1686621807413svg")}
-                  alt={""}
-                  className={styles.image300}
-                />
+                <Image src={assets("1686621807413svg")} alt={""} className={styles.image300} />
               </Box>
             </Box>
           </Box>

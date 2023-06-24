@@ -9,14 +9,7 @@ import * as yup from "yup";
 import CommonButton2 from "@components/molecules/CommonButton2";
 import { useAuthenticationService } from "@services/authentication";
 import { useNavigateService } from "@services/navigate";
-import {
-  Page,
-  Box,
-  Text,
-  Col,
-  Input,
-  Toast,
-} from "@jitera/jitera-web-ui-library";
+import { Page, Box, Text, Col, Input, Toast } from "@jitera/jitera-web-ui-library";
 import styles from "./styles.module.css";
 type LoginPageProps = DefaultPageProps & {
   pageName?: string;
@@ -27,21 +20,14 @@ interface Form1FormData {
   input_email: string;
   password_input: string;
 }
-
-
 function LoginPage(props: LoginPageProps): JSX.Element {
   const authenticationService = useAuthenticationService();
   const navigateService = useNavigateService();
   const validationForm1Schema = useMemo(
     () =>
       yup.object().shape({
-        input_email: yup
-          .string()
-          .email()
-          .required("input_email is a required field"),
-        password_input: yup
-          .string()
-          .required("password_input is a required field"),
+        input_email: yup.string().email().required("input_email is a required field"),
+        password_input: yup.string().required("password_input is a required field"),
       }),
     []
   );

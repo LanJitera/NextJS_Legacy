@@ -6,11 +6,10 @@ import Image from "next/future/image";
 import assets from "@assets/index";
 import { Box, Text } from "@jitera/jitera-web-ui-library";
 import styles from "./styles.module.css";
-type FillTrueLeadingIconFalseTrailingIconTrueMoleculeProps =
-  DefaultPageProps & {
-    pageName?: string;
-    className?: string;
-  };
+type FillTrueLeadingIconFalseTrailingIconTrueMoleculeProps = DefaultPageProps & {
+  pageName?: string;
+  className?: string;
+};
 function FillTrueLeadingIconFalseTrailingIconTrueMolecule(
   props: FillTrueLeadingIconFalseTrailingIconTrueMoleculeProps
 ): JSX.Element {
@@ -20,16 +19,8 @@ function FillTrueLeadingIconFalseTrailingIconTrueMolecule(
         Button
       </Text>
       <Box className={styles.icons_arrow13}>
-        <Image
-          src={assets("1686668131148png")}
-          alt={""}
-          className={styles.image12}
-        />
-        <Image
-          src={assets("1686668131166svg")}
-          alt={""}
-          className={styles.image13}
-        />
+        <Image src={assets("1686668131148png")} alt={""} className={styles.image12} />
+        <Image src={assets("1686668131166svg")} alt={""} className={styles.image13} />
       </Box>
     </Box>
   );

@@ -9,9 +9,7 @@ type DashboardSidebarMoleculeProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
 };
-function DashboardSidebarMolecule(
-  props: DashboardSidebarMoleculeProps
-): JSX.Element {
+function DashboardSidebarMolecule(props: DashboardSidebarMoleculeProps): JSX.Element {
   const handleOnClickDashboardmenuitem1 = async () => {
     // TODO: handle logic
   };

@@ -208,10 +208,7 @@ const providers = [
         }
         const model = pluralize.singular(credentials.table);
         const res: any = await request({
-          url: AUTHENTICATION_METHODS.GOOGLE.endpoint.replace(
-            ":table",
-            credentials.table
-          ),
+          url: AUTHENTICATION_METHODS.GOOGLE.endpoint.replace(":table", credentials.table),
           method: "POST",
           data: {
             email: credentials.email,
@@ -240,10 +237,7 @@ const providers = [
         }
         const model = pluralize.singular(credentials.table);
         const res: any = await request({
-          url: AUTHENTICATION_METHODS.FACEBOOK.endpoint.replace(
-            ":table",
-            credentials.table
-          ),
+          url: AUTHENTICATION_METHODS.FACEBOOK.endpoint.replace(":table", credentials.table),
           method: "POST",
           data: {
             access_token: credentials.access_token,
@@ -271,10 +265,7 @@ const providers = [
         }
         const model = pluralize.singular(credentials.table);
         const res: any = await request({
-          url: AUTHENTICATION_METHODS.APPLE.endpoint.replace(
-            ":table",
-            credentials.table
-          ),
+          url: AUTHENTICATION_METHODS.APPLE.endpoint.replace(":table", credentials.table),
           method: "POST",
           data: {
             id_token: credentials.id_token,
@@ -376,5 +367,4 @@ const options = {
 };
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default (req: NextApiRequest, res: NextApiResponse) =>
-  NextAuth(req, res, options);
+export default (req: NextApiRequest, res: NextApiResponse) => NextAuth(req, res, options);

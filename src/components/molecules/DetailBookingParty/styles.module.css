@@ -17,13 +17,11 @@
   margin-right: 0px;
   margin-top: 0px;
   width: 100%;
-  flex-flow: row nowrap !important;
 }
 .images4 {
   height: 400px;
   margin-top: 85px;
   width: 530px;
-  
 }
 .image4 {
   border-radius: 0px;
@@ -31,24 +29,18 @@
   left: 70px;
   position: absolute;
   width: 360px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 20px;
 }
 .content8 {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
   gap: 80px;
-  height: 372px;
+  height: 450px;
   justify-content: flex-start;
-  margin-left: 20px;
+  margin-left: 20;
   margin-top: 85px;
   position: absolute;
   width: 570px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 20px;
-  padding-left: 30px;
-  padding-top: 15px;
 }
 .text8 {
   align-self: stretch;
@@ -56,8 +48,8 @@
   flex: none;
   flex-grow: 0px;
   font-family: Raleway;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 400;
   line-height: 24px;
   opacity: 0.7px;
   position: relative;
@@ -76,7 +68,6 @@
   position: relative;
   text-align: left;
   vertical-align: top;
-  font-size: 60px;
 }
 .box_4 {
   background-color: transparent;
@@ -87,8 +78,8 @@
 }
 .text_7 {
   color: #222222;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 400;
   line-height: 24px;
   word-break: break-word;
 }
@@ -98,7 +89,6 @@
   font-weight: 400;
   line-height: 24px;
   word-break: break-word;
-  margin-left: 10px;
 }
 .box_5 {
   background-color: transparent;
@@ -112,7 +102,6 @@
   font-size: 16px;
   font-weight: 400;
   word-break: break-word;
-  margin-left: 10px;
 }
 .box_6 {
   background-color: transparent;
@@ -123,8 +112,8 @@
 }
 .text_5 {
   color: #222222;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 400;
   line-height: 24px;
   word-break: break-word;
 }
@@ -133,7 +122,6 @@
   font-size: 16px;
   font-weight: 500;
   word-break: break-word;
-  margin-left: 10px;
 }
 .box_7 {
   background-color: transparent;
@@ -144,8 +132,8 @@
 }
 .text_6 {
   color: #222222;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 400;
   line-height: 24px;
   word-break: break-word;
 }
@@ -154,7 +142,6 @@
   font-size: 16px;
   font-weight: 500;
   word-break: break-word;
-  margin-left: 10px;
 }
 .box_8 {
   background-color: transparent;
@@ -173,6 +160,7 @@
   padding-right: 15px;
   padding-top: 4px;
   width: auto;
+  cursor: pointer;
 }
 .button_1_text_0 {
   color: #ffffff;
