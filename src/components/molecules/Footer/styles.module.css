@@ -20,7 +20,7 @@
   height: 754px;
   justify-content: flex-start;
   position: relative;
-  width: 1440px;
+  width: 100%;
 }
 .newsletter_form_section21 {
   align-self: stretch;
@@ -366,7 +366,7 @@
   padding-right: 84px;
   padding-top: 33px;
   position: relative;
-  width: 1440px;
+  width: 100%;
 }
 .fickle_flight_bio33 {
   align-items: flex-start;

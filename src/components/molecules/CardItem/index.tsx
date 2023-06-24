@@ -19,7 +19,7 @@ type CardItemMoleculeProps = DefaultPageProps & {
   Id?: number;
 };
 function CardItemMolecule(props: CardItemMoleculeProps): JSX.Element {
-  const handleText29 = async () => {
+  const handleDetailBooking = async () => {
     try {
       const { onPress, Id } = props;
       return onPress && onPress(Id);
@@ -52,7 +52,7 @@ function CardItemMolecule(props: CardItemMoleculeProps): JSX.Element {
               <Text className={styles.text_1} textType="Text">
                 {get(props, "partyLocation")}
               </Text>
-              <Button buttonType="primary" className={styles.button_0}  onClick={handleText29}>
+              <Button buttonType="primary" className={styles.button_0}  onClick={handleDetailBooking}>
                 <Text
                   className={styles.text_29}
                   textType="Text"
