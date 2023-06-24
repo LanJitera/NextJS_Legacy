@@ -3,15 +3,38 @@ import React, { useCallback, useMemo, useEffect } from "react";
 import { DefaultPageProps } from "@interfaces/page";
 import get from "lodash/get";
 import Image from "next/future/image";
-import { useTranslation } from "next-i18next";
-import { Box, Text, Button } from "@jitera/jitera-web-ui-library";
+import { usePartybookingService } from "@services/partybooking";
+import { Box, Text, Button, Toast } from "@jitera/jitera-web-ui-library";
+import dateFormat, { masks } from "dateformat";
 import styles from "./styles.module.css";
 type BlogCardMoleculeProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
+  nameParty?: string;
+  partystarttime?: string;
+  partyLocation?: string;
+  decribe?: string;
+  img?: string;
+  label?: string;
+  onPress?: (Id?: number) => any;
+  IdPartyBooking?: number;
+  numberofpeople?: number;
+  IdParty?: number;
 };
 function BlogCardMolecule(props: BlogCardMoleculeProps): JSX.Element {
-  const { t } = useTranslation("web");
+  const partybookingService = usePartybookingService();
+
+  const handleDeletePartyBooking = async () => {
+    try {
+      const responseDeleteApiPartybookingsId =
+        await partybookingService.deleteApiPartybookingsId.fetch({
+          id: get(props, "IdPartyBooking"),
+        });
+      Toast.success("Huỷ thành công" || "");
+    } catch (e: unknown) {
+      Toast.error("Huỷ thất bại" || "");
+    }
+  };
 
   return (
     <Box
@@ -23,42 +46,41 @@ function BlogCardMolecule(props: BlogCardMoleculeProps): JSX.Element {
       <Box className={styles.box_8}>
         <Image
           src={`https://picsum.photos/600/600`}
-          width={"258px"}
-          height={"188px"}
+          width={258}
+          height={188}
           alt={""}
           className={styles.image_1}
         />
         <Box className={styles.box_1}>
           <Box className={styles.box_3}>
             <Text className={styles.text_3} textType="Text">
-              {t("blog_card.text_3")}
+              {get(props, "nameParty")}
             </Text>
           </Box>
           <Box className={styles.box_2}>
             <Text className={styles.text_1} textType="Text">
-              {t("blog_card.text_1")}
+              <span className={styles.Text_partyLocation}>Địa điểm : </span>
+              {get(props, "partyLocation")}
             </Text>
             <Text className={styles.text_2} textType="Text">
-              {t("blog_card.text_2")}
+              {dateFormat(props?.partystarttime, "paddedShortDate") || ""}
             </Text>
           </Box>
           <Box className={styles.box_4}>
             <Box className={styles.box_5}>
               <Text className={styles.text_4} textType="Text">
-                {t("blog_card.text_4")}
+              <span className={styles.Text_numberofpeople}>Số người tham gia: </span>
+                 {get(props, "numberofpeople")}
               </Text>
-              <Image
-                src={`https://picsum.photos/600/600`}
-                width={"27px"}
-                height={"27px"}
-                alt={""}
-                className={styles.image_2}
-              />
             </Box>
             <Box className={styles.box_6}>
-              <Button buttonType="primary" className={styles.button_1}>
+              <Button
+                buttonType="primary"
+                className={styles.button_1}
+                onClick={handleDeletePartyBooking}
+              >
                 <Text className={styles.button_1_text_0} textType="Text">
-                  {t("blog_card.button_1_text_0")}
+                  {get(props, "label")}
                 </Text>
               </Button>
             </Box>

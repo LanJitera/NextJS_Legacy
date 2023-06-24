@@ -36,7 +36,7 @@ interface Form0FormData {
 }
 function HomePage(props: HomePageProps): JSX.Element {
   // const [timeParty,useTimeParty] = useState()
-  
+
   const { t } = useTranslation("web");
   const partyService = usePartyService();
   const getApiPartiesInstance = partyService.useGetApiParties();
@@ -53,7 +53,7 @@ function HomePage(props: HomePageProps): JSX.Element {
     mode: "onChange",
     reValidateMode: "onChange",
   });
-  
+
   const { errors: formForm0Errors } = formForm0.formState;
 
   useEffect(() => {
@@ -63,7 +63,10 @@ function HomePage(props: HomePageProps): JSX.Element {
   const handleButton1 = async (values?: Form0FormData) => {
     try {
       const datetime = get(values, "datetimepicker_1._d", "");
-      const formattedDate = datetime  !== "" ? dateFormat(get(values, "datetimepicker_1._d", ""),'yyyy-mm-dd') : undefined;
+      const formattedDate =
+        datetime !== ""
+          ? dateFormat(get(values, "datetimepicker_1._d", ""), "yyyy-mm-dd")
+          : undefined;
       const responseGetApiParties = await getApiPartiesInstance.fetch({
         parties: {
           nameparty: get(values, "input_SearchName", ""),
@@ -73,21 +76,19 @@ function HomePage(props: HomePageProps): JSX.Element {
       });
     } catch (e: unknown) {}
   };
-  
-  const handleOnPressList1Item = async (Id?: number,index?:number) => {
+
+  const handleOnPressList1Item = async (Id?: number, index?: number) => {
     try {
       navigateService.navigate(`/User/party-detail/${Id}`);
-    } catch (e: unknown) {
-    }
+    } catch (e: unknown) {}
   };
-  
-  // const handlePartyHappenning = () => {
-  
-  // }
-  
-  
+
+  const handlePartyHappenning = () => {
+    
+  };
+
   return (
-    <Page className={styles.page_container} >
+    <Page className={styles.page_container}>
       <Box className={styles.box_2}>
         <HeroSection className={styles.herosection_1} />
         <Box className={styles.box_12}>
@@ -107,7 +108,7 @@ function HomePage(props: HomePageProps): JSX.Element {
                 {t("home.text_4")}
               </Text>
               <Text className={styles.text_5} textType="Text">
-              {/* Khám phá các hoạt động và địa điểm tham quan mới theo sở thích và gu du lịch của bạn
+                {/* Khám phá các hoạt động và địa điểm tham quan mới theo sở thích và gu du lịch của bạn
               Tham gia các buổi tiệc hoành tráng nhất  */}
               </Text>
             </Box>
@@ -187,12 +188,12 @@ function HomePage(props: HomePageProps): JSX.Element {
           </Box>
         </Box>
       </Box>
-      
+
       <Box className={styles.box_41}>
         <Box className={styles.box_55}>
           <Box className={styles.box_56}>
             <Box className={styles.box_57}>
-              <Button buttonType="primary" className={styles.button_3}>
+              <Button buttonType="primary" className={styles.button_3} onClick={handlePartyHappenning}>
                 <Text className={styles.button_3_text_0} textType="Text">
                   {t("home.button_3_text_0")}
                 </Text>
@@ -205,18 +206,22 @@ function HomePage(props: HomePageProps): JSX.Element {
             </Box>
           </Box>
           <Box className={styles.box_59}>
-            <List className={styles.ListAll}
+            <List
+              className={styles.ListAll}
               dataSource={getApiPartiesResult?.data?.parties}
               rowKey={useCallback(
                 (item: Record<string, any>) => `${item.id}_${item.created_at}`,
                 []
               )}
-              grid={{ gutter: 0,xs: 2,md: 2, xl: 3, xxl: 4 }}
+              grid={{ gutter: 0, xs: 2, md: 2, xl: 3, xxl: 4 }}
               renderItem={useCallback(
                 (item: any) => (
                   <CardItem
                     nameParty={item.nameparty}
-                    partystarttime={dateFormat(item.partystarttime,'paddedShortDate')}
+                    partystarttime={dateFormat(
+                      item.partystarttime,
+                      "paddedShortDate"
+                    )}
                     partyLocation={item.partylocation}
                     decribe={item.describe}
                     // img={item.describe}
@@ -331,7 +336,7 @@ function HomePage(props: HomePageProps): JSX.Element {
           </Box>
         </Box>
       </Box>
-      
+
       <Box className={styles.box_106}>
         <Box className={styles.box_14_footer}>
           <Box className={styles.box_15}>
