@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useCallback, useMemo, useEffect } from "react";
+import React, { useCallback, useMemo, useEffect } from 'react';
 import { DefaultPageProps } from "@interfaces/page";
+
 import get from "lodash/get";
 import Image from "next/future/image";
 import { usePartybookingService } from "@services/partybooking";
@@ -89,5 +90,6 @@ function BlogCardMolecule(props: BlogCardMoleculeProps): JSX.Element {
       </Box>
     </Box>
   );
+
 }
 export default BlogCardMolecule;

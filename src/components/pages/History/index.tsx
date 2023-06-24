@@ -18,11 +18,13 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
   const { t } = useTranslation("web");
   const authenticationService = useAuthenticationService();
 
+
   const authenticatedDataValue =
     authenticationService.useAuthenticatedData("authenticatedData");
   const partybookingService = usePartybookingService();
   const getApiPartybookingsInstance =
     partybookingService.useGetApiPartybookings();
+
   const getApiPartybookingsResult = getApiPartybookingsInstance.useQuery({
     partybookings: { user_id: get(authenticatedDataValue, "id") },
   });
@@ -40,6 +42,7 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
             </Box>
           </Box>
           <Box className={styles.box_5}>
+
             <div className="ListBlogCard">
               <List
                 dataSource={getApiPartybookingsResult?.data?.partybookings}
@@ -67,6 +70,7 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
                 )}
               />
             </div>
+
           </Box>
         </Box>
       </Box>
