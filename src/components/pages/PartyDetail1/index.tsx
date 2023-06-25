@@ -78,8 +78,6 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
     }
   };
   
-  console.log(get(getApiPartiesIdResult,`data.party.partybookings.[${idPartyBooker}].id`));
-  console.log(getApiPartiesIdResult);
   
   return (
     <Page className={styles.page_container}>
