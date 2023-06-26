@@ -81,7 +81,9 @@ function HeroSectionMolecule(props: HeroSectionMoleculeProps): JSX.Element {
                   href={"/User/login"}
                   className={styles.text_0}
                   textType="Link"
+
                   // onClick={()=>{deleteCookie("next-auth.session-token");}}
+
                 >
                   {t("hero_section.text_0")}
                 </Text>

@@ -17,10 +17,11 @@
   position: relative;
   width: 100%;
   z-index: 99;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
 }
 .box_2 {
   align-self: stretch;
-  /* background-color: #f3f7fb; */
+  background-color: white;
   flex: none;
   flex-grow: 0px;
   height: 73%;

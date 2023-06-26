@@ -41,30 +41,35 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
             </Box>
           </Box>
           <Box className={styles.box_5}>
-            <List
-              dataSource={getApiPartybookingsResult?.data?.partybookings}
-              rowKey={useCallback(
-                (item: Record<string, any>) => `${item.id}_${item.created_at}`,
-                []
-              )}
-              grid={{ gutter: 48, xl: 4, md: 2, xs: 1 }}
-              renderItem={useCallback(
-                (item: any) => (
-                  <BlogCard
-                    nameParty={item.party.nameparty}
-                    partystarttime={item.party.partystarttime}
-                    partyLocation={item.party.partylocation}
-                    decribe={item.party.partylocation}
-                    img={item.party.img}
-                    label={"Hủy đặt vé "}
-                    IdPartyBooking={item.id}
-                    numberofpeople={item.party.numberofpeople}
-                    IdParty={item.party_id}
-                  />
-                ),
-                []
-              )}
-            />
+
+            <div className="ListBlogCard">
+              <List
+                dataSource={getApiPartybookingsResult?.data?.partybookings}
+                rowKey={useCallback(
+                  (item: Record<string, any>) =>
+                    `${item.id}_${item.created_at}`,
+                  []
+                )}
+                grid={{ gutter: 48, xl: 4, md: 2, xs: 1 }}
+                renderItem={useCallback(
+                  (item: any) => (
+                    <BlogCard
+                      nameParty={item.party.nameparty}
+                      partystarttime={item.party.partystarttime}
+                      partyLocation={item.party.partylocation}
+                      decribe={item.party.partylocation}
+                      img={item.party.img}
+                      label={"Hủy đặt vé "}
+                      IdPartyBooking={item.id}
+                      numberofpeople={item.party.numberofpeople}
+                      IdParty={item.party_id}
+                    />
+                  ),
+                  []
+                )}
+              />
+            </div>
+
           </Box>
         </Box>
       </Box>

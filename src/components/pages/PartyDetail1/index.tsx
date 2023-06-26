@@ -70,9 +70,7 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
         });
       
       Toast.success("Huỷ thành công" || "");
-      const getApiPartiesIdResult = getApiPartiesIdInstance.useQuery({
-        id: props?.query?.id,
-      });
+    
       // tạm bợ tiếp tục phát triển 
       window.location.reload();
     } catch (e: unknown) {
@@ -80,8 +78,6 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
     }
   };
   
-  console.log(get(getApiPartiesIdResult,`data.party.partybookings.[${idPartyBooker}].id`));
-  console.log(getApiPartiesIdResult);
   
   return (
     <Page className={styles.page_container}>

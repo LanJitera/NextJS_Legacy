@@ -41,7 +41,12 @@ type DetailBookingPartyMoleculeProps = DefaultPageProps & {
 function DetailBookingPartyMolecule(
   props: DetailBookingPartyMoleculeProps
 ): JSX.Element {
+<<<<<<< HEAD
   const { handleDeletePartyBooking, handleCreatePartyBooking } = props;
+=======
+  const { handleDeletePartyBooking, handleCreatePartyBooking, idPartyBooker } =
+    props;
+>>>>>>> 65185a8dd59e6934e98adb20128c504fe23dae0d
   // const [PartyBooker, usePartyBooker] = useState();
 
   const { t } = useTranslation("web");
@@ -59,6 +64,10 @@ function DetailBookingPartyMolecule(
   } else {
     isDate = true;
   }
+<<<<<<< HEAD
+=======
+  console.log(props?.partybookings?.[idPartyBooker]?.status);
+>>>>>>> 65185a8dd59e6934e98adb20128c504fe23dae0d
 
   return (
     <Box className={`${styles.page_container} ${get(props, "className")}`}>
@@ -123,6 +132,33 @@ function DetailBookingPartyMolecule(
                 <Text className={styles.text_11} textType="Text">
                   {props?.requiredage}
                 </Text>
+              </Box>
+              <Box className={styles.box_7}>
+                <Text className={styles.text_6} textType="Text">
+                  {t("detail_booking_party.text_Desc")}
+                </Text>
+                <Text className={styles.text_11} textType="Text">
+                  {props?.describe}
+                </Text>
+              </Box>
+              <Box className={styles.box_7}>
+                {props?.partybookings?.[idPartyBooker]?.status === "Unvalue" ? (
+                  <Text className={styles.Unvalue} textType="Text">
+                    Đang chờ xác nhận từ admin
+                  </Text>
+                ) : props?.partybookings?.[idPartyBooker]?.status ===
+                  "Approve" ? (
+                  <Text className={styles.Approve} textType="Text">
+                    Đặt đã được admin chấp nhận
+                  </Text>
+                ) : props?.partybookings?.[idPartyBooker]?.status ===
+                  "Reject" ? (
+                  <Text className={styles.Reject} textType="Text">
+                    Đã từ chối
+                  </Text>
+                ) : (
+                  ""
+                )}
               </Box>
             </Box>
             <Box className={styles.box_8}>

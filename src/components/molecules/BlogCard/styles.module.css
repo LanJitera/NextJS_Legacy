@@ -1,6 +1,9 @@
 .custom_component_container {
   height: 188px;
   width: 661px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 20px;
+ 
 }
 .box_8 {
   background-color: transparent;
@@ -13,6 +16,7 @@
 .image_1 {
   height: 188px;
   width: 258px;
+  border-radius: 20px 0px 0px 20px;
 }
 .box_1 {
   align-items: flex-start;
@@ -24,9 +28,9 @@
   flex-direction: column;
   height: 188px;
   justify-content: center;
-  min-height: px;
   position: relative;
   width: 403px;
+  margin-left: 20px;
 }
 .box_3 {
   align-items: flex-start;
@@ -43,8 +47,8 @@
 }
 .text_3 {
   color: #000000;
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 30px;
+  font-weight: bold;
   word-break: break-word;
 }
 .box_2 {
@@ -93,13 +97,13 @@
   height: 27px;
   min-height: px;
   position: relative;
-  width: 153px;
+  width: 180px;
 }
 .text_4 {
   color: #374a59;
   font-size: 14px;
   font-weight: 400;
-  left: 36px;
+  /* left: 36px; */
   position: absolute;
   text-align: left;
   top: 5px;
@@ -129,4 +133,16 @@
   font-size: 16px;
   font-weight: 500;
   word-break: break-word;
+}
+.Text_partyLocation{  font-weight: 500;
+  font-size: 16px;
+  color: black !important;
+  font-weight: 500;
+  font-size: 16px;
+  color: black !important;
+}
+.Text_numberofpeople{
+  font-weight: 500;
+  font-size: 16px;
+  color: black !important;
 }

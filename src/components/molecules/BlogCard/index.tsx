@@ -5,6 +5,7 @@ import get from "lodash/get";
 import Image from "next/future/image";
 import { usePartybookingService } from "@services/partybooking";
 import { Box, Text, Button, Toast } from "@jitera/jitera-web-ui-library";
+import dateFormat, { masks } from "dateformat";
 import styles from "./styles.module.css";
 type BlogCardMoleculeProps = DefaultPageProps & {
   pageName?: string;
@@ -61,16 +62,18 @@ function BlogCardMolecule(props: BlogCardMoleculeProps): JSX.Element {
           </Box>
           <Box className={styles.box_2}>
             <Text className={styles.text_1} textType="Text">
+              <span className={styles.Text_partyLocation}>Địa điểm : </span>
               {get(props, "partyLocation")}
             </Text>
             <Text className={styles.text_2} textType="Text">
-              {get(props, "partystarttime")}
+              {dateFormat(props?.partystarttime, "paddedShortDate") || ""}
             </Text>
           </Box>
           <Box className={styles.box_4}>
             <Box className={styles.box_5}>
               <Text className={styles.text_4} textType="Text">
-                {get(props, "numberofpeople")}
+              <span className={styles.Text_numberofpeople}>Số người tham gia: </span>
+                 {get(props, "numberofpeople")}
               </Text>
             </Box>
             <Box className={styles.box_6}>
