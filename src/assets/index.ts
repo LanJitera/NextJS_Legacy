@@ -9,6 +9,7 @@ import Image1683554521045removepng from "./images/1683554521045_remove.png";
 import Image1686622898337png from "./images/1686622898337.png";
 import Image1686622898751png from "./images/1686622898751.png";
 import Image1686619839538svg from "./images/1686619839538.svg";
+import Image1686630477484logogmopng from "./images/1686630477484_logo_gmo.png";
 import Image1686621807427svg from "./images/1686621807427.svg";
 import Image1686621807428svg from "./images/1686621807428.svg";
 import Image1686621807430svg from "./images/1686621807430.svg";
@@ -54,7 +55,6 @@ import Image1686625755503logogmopng from "./images/1686625755503_logo_gmo.png";
 import Image1686622898324svg from "./images/1686622898324.svg";
 import Image1686622898327svg from "./images/1686622898327.svg";
 import Image1686622898330png from "./images/1686622898330.png";
-import Image1686630477484logogmopng from "./images/1686630477484_logo_gmo.png";
 import Image1686625910040svg from "./images/1686625910040.svg";
 import Image1686625910042svg from "./images/1686625910042.svg";
 import Image1686625910044svg from "./images/1686625910044.svg";
@@ -67,6 +67,7 @@ import Image1686626885283svg from "./images/1686626885283.svg";
 import Image1686668131148png from "./images/1686668131148.png";
 import Image1686668131166svg from "./images/1686668131166.svg";
 import Image16867118351071i0i3jhzu13af58qoc1bzf4xl9phpng from "./images/1686711835107_1i0i3jhzu13af58qoc1bzf4xl9ph.png";
+import Image1687671995128p9jxw3tbg90zyayptr9zwq2w7rgusvg from "./images/1687671995128_p9jxw3tbg90zyayptr9zwq2w7rgu.svg";
 const assets = (name: string) => {
   switch (name) {
     case "logo":
@@ -89,6 +90,8 @@ const assets = (name: string) => {
       return Image1686622898751png;
     case "1686619839538svg":
       return Image1686619839538svg;
+    case "1686630477484logogmopng":
+      return Image1686630477484logogmopng;
     case "1686621807427svg":
       return Image1686621807427svg;
     case "1686621807428svg":
@@ -179,8 +182,6 @@ const assets = (name: string) => {
       return Image1686622898327svg;
     case "1686622898330png":
       return Image1686622898330png;
-    case "1686630477484logogmopng":
-      return Image1686630477484logogmopng;
     case "1686625910040svg":
       return Image1686625910040svg;
     case "1686625910042svg":
@@ -205,6 +206,8 @@ const assets = (name: string) => {
       return Image1686668131166svg;
     case "16867118351071i0i3jhzu13af58qoc1bzf4xl9phpng":
       return Image16867118351071i0i3jhzu13af58qoc1bzf4xl9phpng;
+    case "1687671995128p9jxw3tbg90zyayptr9zwq2w7rgusvg":
+      return Image1687671995128p9jxw3tbg90zyayptr9zwq2w7rgusvg;
     default:
       return NoImage;
   }

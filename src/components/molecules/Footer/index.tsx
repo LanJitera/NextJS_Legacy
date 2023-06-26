@@ -17,11 +17,7 @@ function FooterMolecule(props: FooterMoleculeProps): JSX.Element {
     <Box className={`${styles.page_container} ${get(props, "className")}`}>
       <Box className={styles.footer_section53}>
         <Box className={styles.newsletter_form_section21}>
-          <Image
-            src={assets("1686626885199png")}
-            alt={""}
-            className={styles.image4}
-          />
+          <Image src={assets("1686626885199png")} alt={""} className={styles.image4} />
           <Box className={styles.subscribe_form21}>
             <Box className={styles.form_header8}>
               <Text className={styles.text7} textType="Text">
@@ -70,38 +66,21 @@ function FooterMolecule(props: FooterMoleculeProps): JSX.Element {
         <Box className={styles.footer53}>
           <Box className={styles.fickle_flight_bio33}>
             <Box className={styles.logo25}>
-              <Image
-                src={assets("1686626885275svg")}
-                alt={""}
-                className={styles.image25}
-              />
+              <Image src={assets("1686626885275svg")} alt={""} className={styles.image25} />
             </Box>
             <Text className={styles.text26} textType="Text">
-              Fickle Flight is your one-stop travel portal. We offer hassle free
-              flight and hotel bookings. We also have all your flight needs in
-              you online shop.
+              Fickle Flight is your one-stop travel portal. We offer hassle free flight and hotel
+              bookings. We also have all your flight needs in you online shop.
             </Text>
             <Box className={styles.social_icons33}>
               <Box className={styles.facebook_icon29}>
-                <Image
-                  src={assets("1686626885279svg")}
-                  alt={""}
-                  className={styles.image29}
-                />
+                <Image src={assets("1686626885279svg")} alt={""} className={styles.image29} />
               </Box>
               <Box className={styles.twitter_icon31}>
-                <Image
-                  src={assets("1686626885281svg")}
-                  alt={""}
-                  className={styles.image31}
-                />
+                <Image src={assets("1686626885281svg")} alt={""} className={styles.image31} />
               </Box>
               <Box className={styles.instagram_icon33}>
-                <Image
-                  src={assets("1686626885283svg")}
-                  alt={""}
-                  className={styles.image33}
-                />
+                <Image src={assets("1686626885283svg")} alt={""} className={styles.image33} />
               </Box>
             </Box>
           </Box>

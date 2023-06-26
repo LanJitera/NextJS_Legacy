@@ -10,20 +10,14 @@ type RadioButtonCheckedMoleculeProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
 };
-function RadioButtonCheckedMolecule(
-  props: RadioButtonCheckedMoleculeProps
-): JSX.Element {
+function RadioButtonCheckedMolecule(props: RadioButtonCheckedMoleculeProps): JSX.Element {
   return (
     <Box
       source={undefined}
       sourceType="upload"
       className={`${styles.page_container} ${get(props, "className")}`}
     >
-      <Image
-        src={assets("1686621807428svg")}
-        alt={""}
-        className={styles.image326}
-      />
+      <Image src={assets("1686621807428svg")} alt={""} className={styles.image326} />
     </Box>
   );
 }

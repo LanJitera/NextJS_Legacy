@@ -29,20 +29,15 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
 
   const columnsTable1 = useMemo<TableColumnDefinition<any>[]>(
     () => [
+      { path: "img", name: "Img", sortable: false },
       { path: "created_at", name: "Created At", sortable: false },
-      { path: "updated_at", name: "Updated At", sortable: false },
       { path: "nameparty", name: "Nameparty", sortable: false },
       { path: "partystarttime", name: "Partystarttime", sortable: false },
       { path: "partylocation", name: "Partylocation", sortable: false },
       { path: "numberofpeople", name: "Numberofpeople", sortable: false },
       { path: "isstatus", name: "Isstatus", sortable: false },
-      { path: "created_at", name: "Created At", sortable: false },
-      { path: "updated_at", name: "Updated At", sortable: false },
-      { path: "created_at", name: "Created At", sortable: false },
-      { path: "updated_at", name: "Updated At", sortable: false },
       { path: "describe", name: "Describe", sortable: false },
       { path: "requiredage", name: "Requiredage", sortable: false },
-      { path: "img", name: "Img", sortable: false },
     ],
     []
   );
