@@ -64,8 +64,6 @@ function HomePage(props: HomePageProps): JSX.Element {
     if (getApiPartiesResult.data) {
       setDataSource(getApiPartiesResult?.data?.parties)
     }
-
- 
   }, [getApiPartiesResult.data]);
 
   
@@ -84,6 +82,7 @@ function HomePage(props: HomePageProps): JSX.Element {
           partystarttime: formattedDate,
         },
       });
+      console.log(responseGetApiParties);
     } catch (e: unknown) {}
   };
 
@@ -110,7 +109,9 @@ function HomePage(props: HomePageProps): JSX.Element {
     } catch (e: unknown) {}
 
   };
-
+  console.log(getApiPartiesResult?.data?.parties);
+ 
+  
   return (
     <Page className={styles.page_container}>
       <Box className={styles.box_2}>

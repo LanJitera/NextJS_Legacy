@@ -1,15 +1,15 @@
 .page_container {
+  background-color: #f5f2eb;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
 }
-.box_2 {
-  background-color: transparent;
-  padding-bottom: 16px;
-  padding-left: 24;
-  padding-right: 30px;
-  padding-top: 16px;
+.header11 {
+  background-color: #f5f2eb;
+  height: 100%;
+  min-height: 300px;
+  position: absolute;
   width: 100%;
 }
 .image_1 {
@@ -19,7 +19,7 @@
   top: 50px;
   width: 598px;
 }
-.box_0 {
+.box_3 {
   background-color: #ffffff;
   border-radius: 30px;
   height: 650px;
@@ -42,7 +42,7 @@
   padding-right: 26px;
   padding-top: 26px;
 }
-.text_1 {
+.form_1_name {
   align-items: center;
   color: #000000;
   display: flex;
@@ -52,13 +52,21 @@
   letter-spacing: 0.5px;
   margin-bottom: 40px;
 }
-.box_3 {
+.input_1_container {
+  background-color: transparent;
+  padding-bottom: 16px;
+  padding-left: 24px;
+  padding-right: 30px;
+  padding-top: 16px;
+  width: 100%;
+}
+.box_1 {
   background-color: transparent;
   margin-bottom: 10px;
   margin-top: 10px;
   width: 100%;
 }
-.text_0 {
+.text_1 {
   color: #000;
   display: inline;
   font-weight: bold;
@@ -82,17 +90,17 @@
   background-color: transparent;
   width: 100%;
 }
-.box_4 {
+.input_1_error_message_container {
   background-color: transparent;
   margin-top: 10px;
   width: 100%;
 }
-.text_3 {
+.input_1_error_message_text {
   color: #f00;
   display: inline;
   font-weight: bold;
 }
-.box_5 {
+.input_2_container {
   background-color: transparent;
   padding-bottom: 16;
   padding-left: 24px;
@@ -100,19 +108,19 @@
   padding-top: 16px;
   width: 100%;
 }
-.box_6 {
+.box_2 {
   background-color: transparent;
   margin-bottom: 10px;
   margin-top: 10px;
   width: 100%;
 }
-.text_4 {
+.text_3 {
   color: #000;
   display: inline;
   font-weight: bold;
   margin-right: 10px;
 }
-.text_5 {
+.text_4 {
   color: #f00;
   display: inline;
   font-weight: bold;
@@ -130,33 +138,33 @@
   background-color: transparent;
   width: 100%;
 }
-.box_7 {
+.input_2_error_message_container {
   background-color: transparent;
   margin-top: 10px;
   width: 100%;
 }
-.text_6 {
+.input_2_error_message_text {
   color: #f00;
   display: inline;
   font-weight: bold;
 }
-.button_1 {
+.form_1_button {
   background-color: #aed6b3;
   height: 48px;
   margin-bottom: 16px;
-  margin-left: 24;
+  margin-left: 24px;
   margin-right: 30px;
   margin-top: 16px;
   width: 376px;
   cursor: pointer;
 }
-.text_7 {
+.form_1_text_0 {
   color: #ffffff;
   font-size: 18px;
   font-weight: 600;
   word-break: break-word;
 }
-.box_8 {
+.box_7 {
   align-items: center;
   background-color: #ffffff;
   display: flex;
@@ -168,7 +176,7 @@
   min-height: 10px;
   width: 376px;
 }
-.text_8 {
+.text_5 {
   align-items: center;
   color: #000000;
   display: flex;
@@ -179,7 +187,7 @@
   padding-left: 73px;
   word-break: break-word;
 }
-.text_9 {
+.text_register {
   color: #0394fb;
   font-family: unset;
   font-size: 16px;
