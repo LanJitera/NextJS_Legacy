@@ -23,6 +23,7 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
   const partybookingService = usePartybookingService();
   const getApiPartybookingsInstance =
     partybookingService.useGetApiPartybookings();
+
   const getApiPartybookingsResult = getApiPartybookingsInstance.useQuery({
     partybookings: { user_id: get(authenticatedDataValue, "id") },
   });
@@ -64,6 +65,7 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
                       numberofpeople={item.party.numberofpeople}
                       IdParty={item.party_id}
                       status={item.status}
+
                     />
                   ),
                   []

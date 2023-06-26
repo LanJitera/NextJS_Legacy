@@ -66,6 +66,7 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
     try {
       const responseDeleteApiPartybookingsId =
         await partybookingService.deleteApiPartybookingsId.fetch({
+
           id: get(
             getApiPartiesIdResult,
             `data.party.partybookings.[${idPartyBooker}].id`
@@ -75,13 +76,12 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
       Toast.success("Huỷ thành công" || "");
 
       // tạm bợ tiếp tục phát triển
+
       window.location.reload();
     } catch (e: unknown) {
       Toast.error("Huỷ thất bại" || "");
     }
   };
-
-
 
   return (
     <Page className={styles.page_container}>

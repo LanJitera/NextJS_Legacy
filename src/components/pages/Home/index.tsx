@@ -93,6 +93,7 @@ function HomePage(props: HomePageProps): JSX.Element {
     } catch (e: unknown) {}
   };
 
+
   const handlePartyHappenning = async (values?: Form0FormData) => {
     try {
       const responseGetApiParties = await getApiPartiesInstance.fetch();
@@ -107,6 +108,7 @@ function HomePage(props: HomePageProps): JSX.Element {
     try {
       const responseGetApiParties = await getApiPartiesInstance.fetch();
     } catch (e: unknown) {}
+
   };
 
   return (
@@ -215,11 +217,13 @@ function HomePage(props: HomePageProps): JSX.Element {
         <Box className={styles.box_55}>
           <Box className={styles.box_56}>
             <Box className={styles.box_57}>
+
               <Button
                 buttonType="primary"
                 className={styles.button_3}
                 onClick={formForm0.handleSubmit(handlePartyHappenning)}
               >
+
                 <Text className={styles.button_3_text_0} textType="Text">
                   {t("home.button_3_text_0")}
                 </Text>
@@ -234,8 +238,10 @@ function HomePage(props: HomePageProps): JSX.Element {
           <Box className={styles.box_59}>
             <List
               className={styles.ListAll}
+
               // dataSource={getApiPartiesResult?.data?.parties}
               dataSource={dataSource}
+
               rowKey={useCallback(
                 (item: Record<string, any>) => `${item.id}_${item.created_at}`,
                 []

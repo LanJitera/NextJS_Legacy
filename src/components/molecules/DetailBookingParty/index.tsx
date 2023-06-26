@@ -41,8 +41,10 @@ type DetailBookingPartyMoleculeProps = DefaultPageProps & {
 function DetailBookingPartyMolecule(
   props: DetailBookingPartyMoleculeProps
 ): JSX.Element {
+
   const { handleDeletePartyBooking, handleCreatePartyBooking, idPartyBooker } =
     props;
+
   // const [PartyBooker, usePartyBooker] = useState();
 
   const { t } = useTranslation("web");
@@ -54,6 +56,7 @@ function DetailBookingPartyMolecule(
 
   const currentDate = new Date();
   const partyStartTime = new Date(props?.partystarttime);
+
   let isDate = true;
   if (currentDate >= partyStartTime) {
     // còn  hạn
@@ -62,6 +65,7 @@ function DetailBookingPartyMolecule(
   // quá hạn
     isDate = false;
   }
+
 
 
 
@@ -138,6 +142,7 @@ function DetailBookingPartyMolecule(
                   {props?.describe}
                 </Text>
               </Box>
+
               <Box className={styles.box_7}>
                 {props?.partybookings?.[idPartyBooker]?.status === "Unvalue" ? (
                   <Text className={styles.Unvalue} textType="Text">
@@ -173,6 +178,7 @@ function DetailBookingPartyMolecule(
               </Text>
             </Button>
               : isDate ?
+
                 <Button
                   buttonType="primary"
                   className={styles.button_1}
@@ -182,6 +188,7 @@ function DetailBookingPartyMolecule(
                     {t("detail_booking_party.button_2_text_0")}
                   </Text>
                 </Button>
+
               : <Button
               buttonType="primary"
               className={styles.button_1}
@@ -192,6 +199,7 @@ function DetailBookingPartyMolecule(
               </Text>
             </Button>
               }
+
             </Box>
           </Box>
         </Col>

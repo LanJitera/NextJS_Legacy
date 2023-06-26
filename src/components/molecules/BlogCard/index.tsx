@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useCallback, useMemo, useEffect } from "react";
 import { DefaultPageProps } from "@interfaces/page";
+
 import get from "lodash/get";
 import Image from "next/future/image";
 import { usePartybookingService } from "@services/partybooking";
@@ -23,8 +24,6 @@ type BlogCardMoleculeProps = DefaultPageProps & {
 };
 function BlogCardMolecule(props: BlogCardMoleculeProps): JSX.Element {
   const partybookingService = usePartybookingService();
-
-  
   const handleDeletePartyBooking = async () => {
     try {
       const responseDeleteApiPartybookingsId =
@@ -38,9 +37,6 @@ function BlogCardMolecule(props: BlogCardMoleculeProps): JSX.Element {
   };
 
 
-
-  
-  
   return (
     <Box
       className={`${styles.custom_component_container} ${get(
@@ -90,6 +86,7 @@ function BlogCardMolecule(props: BlogCardMoleculeProps): JSX.Element {
               </Button>
             </Box>
           </Box>
+
           <Box className={styles.box_7}>
                 {props?.status === "Unvalue" ? (
                   <Text className={styles.Unvalue} textType="Text">
@@ -109,9 +106,11 @@ function BlogCardMolecule(props: BlogCardMoleculeProps): JSX.Element {
                   ""
                 )}
               </Box>
+
         </Box>
       </Box>
     </Box>
   );
+
 }
 export default BlogCardMolecule;
