@@ -22,13 +22,15 @@ export type FetchGetApiPartybookingsResponseBody = {
     user_id?: string;
     party?: {
       id?: number;
-      created_at?: Date;
-      updated_at?: Date;
       nameparty?: string;
       partystarttime?: Date;
       partylocation?: string;
       numberofpeople?: number;
       isstatus?: boolean;
+      img?: any;
+      describe?: string;
+      requiredage?: number;
+      admin_id?: string;
     };
     party_id?: string;
     status?: boolean;
@@ -37,12 +39,7 @@ export type FetchGetApiPartybookingsResponseBody = {
 
 export const fetchGetApiPartybookings = async (
   context: QueryFunctionContext<
-    [
-      string,
-      string,
-      string,
-      Partial<FetchGetApiPartybookingsRequestBody> | undefined
-    ]
+    [string, string, string, Partial<FetchGetApiPartybookingsRequestBody> | undefined]
   >
 ): Promise<FetchGetApiPartybookingsResponseBody> => {
   return serviceFetch({
@@ -81,12 +78,7 @@ export type FetchGetApiPartybookingsIdResponseBody = {
 
 export const fetchGetApiPartybookingsId = async (
   context: QueryFunctionContext<
-    [
-      string,
-      string,
-      string,
-      Partial<FetchGetApiPartybookingsIdRequestBody> | undefined
-    ]
+    [string, string, string, Partial<FetchGetApiPartybookingsIdRequestBody> | undefined]
   >
 ): Promise<FetchGetApiPartybookingsIdResponseBody> => {
   return serviceFetch({

@@ -11,9 +11,7 @@ type ModalConfirmDeleteMoleculeProps = DefaultPageProps & {
   yes?: () => any;
   No?: () => any;
 };
-function ModalConfirmDeleteMolecule(
-  props: ModalConfirmDeleteMoleculeProps
-): JSX.Element {
+function ModalConfirmDeleteMolecule(props: ModalConfirmDeleteMoleculeProps): JSX.Element {
   const handleOnPressCommonButton1 = async () => {
     try {
       const { yes } = props;

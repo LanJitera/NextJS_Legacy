@@ -2,11 +2,7 @@ import { QueryFunctionContext } from "react-query";
 import { serviceFetch } from "@utils/service";
 import { getRoute } from "@utils/route";
 
-export const DefaultGetApiUsersQueryKey: [string, string, string] = [
-  "User",
-  "GET",
-  "/api/users",
-];
+export const DefaultGetApiUsersQueryKey: [string, string, string] = ["User", "GET", "/api/users"];
 export type FetchGetApiUsersRequestBody = {
   pagination_page: number;
   pagination_limit: number;
@@ -24,12 +20,7 @@ export type FetchGetApiUsersResponseBody = {
     id?: number;
     created_at?: Date;
     updated_at?: Date;
-    partybookings?: {
-      id?: number;
-      created_at?: Date;
-      updated_at?: Date;
-      user_id?: string;
-    }[];
+    partybookings?: { id?: number; created_at?: Date; updated_at?: Date; user_id?: string }[];
     isactive?: boolean;
     username?: string;
     password?: string;
@@ -56,24 +47,14 @@ export const DefaultGetApiUsersIdQueryKey: [string, string, string] = [
 ];
 export type FetchGetApiUsersIdRequestBody = {
   id: string;
-  users: {
-    username?: string;
-    password?: string;
-    email?: string;
-    dateofbirth?: Date;
-  };
+  users: { username?: string; password?: string; email?: string; dateofbirth?: Date };
 };
 export type FetchGetApiUsersIdResponseBody = {
   user: {
     id?: number;
     created_at?: Date;
     updated_at?: Date;
-    partybookings?: {
-      id?: number;
-      created_at?: Date;
-      updated_at?: Date;
-      user_id?: string;
-    }[];
+    partybookings?: { id?: number; created_at?: Date; updated_at?: Date; user_id?: string }[];
     isactive?: boolean;
     username?: string;
     password?: string;
@@ -108,12 +89,7 @@ export type MutatePostApiUsersResponseBody = {
     id?: number;
     created_at?: Date;
     updated_at?: Date;
-    partybookings?: {
-      id?: number;
-      created_at?: Date;
-      updated_at?: Date;
-      user_id?: string;
-    }[];
+    partybookings?: { id?: number; created_at?: Date; updated_at?: Date; user_id?: string }[];
     isactive?: boolean;
     username?: string;
     password?: string;
@@ -146,12 +122,7 @@ export type MutatePutApiUsersIdResponseBody = {
     id?: number;
     created_at?: Date;
     updated_at?: Date;
-    partybookings?: {
-      id?: number;
-      created_at?: Date;
-      updated_at?: Date;
-      user_id?: string;
-    }[];
+    partybookings?: { id?: number; created_at?: Date; updated_at?: Date; user_id?: string }[];
     isactive?: boolean;
     username?: string;
     password?: string;
@@ -171,12 +142,7 @@ export const mutatePutApiUsersId = async (
 };
 export type MutateDeleteApiUsersIdRequestBody = {
   id: string;
-  users: {
-    username?: string;
-    email?: string;
-    password?: string;
-    dateofbirth?: Date;
-  };
+  users: { username?: string; email?: string; password?: string; dateofbirth?: Date };
 };
 export type MutateDeleteApiUsersIdResponseBody = {};
 

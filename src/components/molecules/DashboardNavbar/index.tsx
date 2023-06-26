@@ -11,9 +11,7 @@ type DashboardNavbarMoleculeProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
 };
-function DashboardNavbarMolecule(
-  props: DashboardNavbarMoleculeProps
-): JSX.Element {
+function DashboardNavbarMolecule(props: DashboardNavbarMoleculeProps): JSX.Element {
   const handleBox6 = async () => {
     try {
       Drawer.show(<DashboardSidebar />, { position: "right" });
@@ -23,14 +21,8 @@ function DashboardNavbarMolecule(
     <Box className={`${styles.molecule} ${get(props, "className")}`}>
       <Box className={styles.box_2}>
         <DashboardImageWrapper className={styles.molecule_3} />
-        <Box
-          responsiveVisibility={["desktop", "tablet", "mobile"]}
-          className={styles.box_4}
-        >
-          <DashboardMenu
-            responsiveVisibility={["desktop"]}
-            className={styles.molecule_5}
-          />
+        <Box responsiveVisibility={["desktop", "tablet", "mobile"]} className={styles.box_4}>
+          <DashboardMenu responsiveVisibility={["desktop"]} className={styles.molecule_5} />
           <Box
             responsiveVisibility={["tablet", "mobile"]}
             className={styles.box_6}
