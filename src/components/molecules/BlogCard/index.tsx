@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useCallback, useMemo, useEffect } from 'react';
+import React, { useCallback, useMemo, useEffect } from "react";
 import { DefaultPageProps } from "@interfaces/page";
 
 import get from "lodash/get";
@@ -24,7 +24,6 @@ type BlogCardMoleculeProps = DefaultPageProps & {
 };
 function BlogCardMolecule(props: BlogCardMoleculeProps): JSX.Element {
   const partybookingService = usePartybookingService();
-
   const handleDeletePartyBooking = async () => {
     try {
       const responseDeleteApiPartybookingsId =
@@ -36,6 +35,7 @@ function BlogCardMolecule(props: BlogCardMoleculeProps): JSX.Element {
       Toast.error("Huỷ thất bại" || "");
     }
   };
+
 
   return (
     <Box
@@ -86,6 +86,27 @@ function BlogCardMolecule(props: BlogCardMoleculeProps): JSX.Element {
               </Button>
             </Box>
           </Box>
+
+          <Box className={styles.box_7}>
+                {props?.status === "Unvalue" ? (
+                  <Text className={styles.Unvalue} textType="Text">
+                    Đang chờ xác nhận từ admin
+                  </Text>
+                ) : props?.status ===
+                  "Approve" ? (
+                  <Text className={styles.Approve} textType="Text">
+                    Đặt đã được admin chấp nhận
+                  </Text>
+                ) : props?.status ===
+                  "Reject" ? (
+                  <Text className={styles.Reject} textType="Text">
+                    Đã từ chối
+                  </Text>
+                ) : (
+                  ""
+                )}
+              </Box>
+
         </Box>
       </Box>
     </Box>

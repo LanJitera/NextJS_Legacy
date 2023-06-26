@@ -3,7 +3,9 @@
   width: 661px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 20px;
- 
+
+ margin-right: 30px;
+
 }
 .box_8 {
   background-color: transparent;
@@ -145,4 +147,28 @@
   font-weight: 500;
   font-size: 16px;
   color: black !important;
+
+}
+
+
+.Unvalue{
+  color: #08bcf3;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 24px;
+  word-break: break-word;
+}
+.Approve {
+  color: #079647;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 24px;
+  word-break: break-word;
+}
+.Reject {
+  color: #9c0505;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 24px;
+  word-break: break-word;
 }

@@ -66,34 +66,35 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
     try {
       const responseDeleteApiPartybookingsId =
         await partybookingService.deleteApiPartybookingsId.fetch({
-          id: get(getApiPartiesIdResult,`data.party.partybookings.[${idPartyBooker}].id`),
+
+          id: get(
+            getApiPartiesIdResult,
+            `data.party.partybookings.[${idPartyBooker}].id`
+          ),
         });
-      
+
       Toast.success("Huỷ thành công" || "");
-    
-      // tạm bợ tiếp tục phát triển 
+
+      // tạm bợ tiếp tục phát triển
+
       window.location.reload();
     } catch (e: unknown) {
       Toast.error("Huỷ thất bại" || "");
     }
   };
-  
-  console.log(get(getApiPartiesIdResult,`data.party.partybookings.[${idPartyBooker}].id`));
-  console.log(getApiPartiesIdResult);
-  
+
   return (
     <Page className={styles.page_container}>
       <HeroSection className={styles.herosection_1} />
       <Box className={styles.box_2}>
-        <Image
+        {/* <Image
           src={assets("1686621807256png")}
           alt={""}
           className={styles.image_2}
-        />
+        /> */}
         <DetailBookingParty
           // className={styles.detailbookingparty_1} ,
           {...getApiPartiesIdResult?.data?.party}
-          // nameParty ={getApiPartiesIdResult}
           // partyStartTime
           // partyLocation
           // numberOfPeople

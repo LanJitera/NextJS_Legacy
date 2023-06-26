@@ -18,7 +18,6 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
   const { t } = useTranslation("web");
   const authenticationService = useAuthenticationService();
 
-
   const authenticatedDataValue =
     authenticationService.useAuthenticatedData("authenticatedData");
   const partybookingService = usePartybookingService();
@@ -29,6 +28,7 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
     partybookings: { user_id: get(authenticatedDataValue, "id") },
   });
 
+  
   return (
     <Page className={styles.page_container}>
       <HeroSection className={styles.herosection_1} />
@@ -64,6 +64,8 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
                       IdPartyBooking={item.id}
                       numberofpeople={item.party.numberofpeople}
                       IdParty={item.party_id}
+                      status={item.status}
+
                     />
                   ),
                   []
