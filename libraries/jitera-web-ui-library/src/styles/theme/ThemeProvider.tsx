@@ -1,7 +1,7 @@
 import { ReactElement, useMemo, useState } from "react";
 import { ConfigProvider } from "antd";
 
-import { ToastContainer } from "@src/components/widgets/Toast/Toast.component";
+import { ToastContainer } from "../../components/widgets/Toast/Toast.component";
 
 import { PreviewProps } from "@src/types/preview";
 
