@@ -19,11 +19,7 @@ function IconssafarichevronbackwardMolecule(
       sourceType="upload"
       className={`${styles.page_container} ${get(props, "className")}`}
     >
-      <Image
-        src={assets("1683261192698png")}
-        alt={""}
-        className={styles.image20}
-      />
+      <Image src={assets("1683261192698png")} alt={""} className={styles.image20} />
     </Box>
   );
 }

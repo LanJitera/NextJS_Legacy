@@ -9,7 +9,6 @@
   justify-content: flex-start;
   position: relative;
   width: 1440px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .top_header20 {
   align-items: center;
@@ -27,7 +26,7 @@
   padding-right: 80px;
   padding-top: 22px;
   position: relative;
-  width: 100%;
+  width: 1440px;
   cursor: pointer;
 }
 .top_container20 {
@@ -39,7 +38,7 @@
   height: 36px;
   justify-content: space-between;
   position: relative;
-  width: 100%;
+  width: 1280px;
 }
 .fickleflight_logo8 {
   flex: none;
@@ -55,16 +54,13 @@
 .webscreen8 {
   height: 32px;
   width: 173px;
+  cursor: pointer;
 }
 .image8 {
   bottom: 0%;
   height: 25px;
   position: absolute;
   top: 0%;
-  width: 173px;
-}
-.group8 {
-  height: 32px;
   width: 173px;
 }
 .navigationright20 {
