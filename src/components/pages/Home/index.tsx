@@ -67,7 +67,7 @@ function HomePage(props: HomePageProps): JSX.Element {
 
  
   }, [getApiPartiesResult.data]);
-  console.log(dataSource);
+
   
   
   const handleButton1 = async (values?: Form0FormData) => {

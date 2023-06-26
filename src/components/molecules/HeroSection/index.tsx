@@ -63,7 +63,7 @@ function HeroSectionMolecule(props: HeroSectionMoleculeProps): JSX.Element {
           </Box>
           <Box className={styles.navigationright20}>
             <Box className={styles.navigation_menu14}>
-              <Text className={styles.text11} textType="Text">
+              <Text href={"/User/home"} className={styles.text11} textType="Link">
                 {t("hero_section.text11")}
               </Text>
               <Text className={styles.text12} textType="Text">

@@ -37,6 +37,8 @@ function BlogCardMolecule(props: BlogCardMoleculeProps): JSX.Element {
     }
   };
 
+
+
   
   
   return (
@@ -88,6 +90,25 @@ function BlogCardMolecule(props: BlogCardMoleculeProps): JSX.Element {
               </Button>
             </Box>
           </Box>
+          <Box className={styles.box_7}>
+                {props?.status === "Unvalue" ? (
+                  <Text className={styles.Unvalue} textType="Text">
+                    Đang chờ xác nhận từ admin
+                  </Text>
+                ) : props?.status ===
+                  "Approve" ? (
+                  <Text className={styles.Approve} textType="Text">
+                    Đặt đã được admin chấp nhận
+                  </Text>
+                ) : props?.status ===
+                  "Reject" ? (
+                  <Text className={styles.Reject} textType="Text">
+                    Đã từ chối
+                  </Text>
+                ) : (
+                  ""
+                )}
+              </Box>
         </Box>
       </Box>
     </Box>

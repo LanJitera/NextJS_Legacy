@@ -26,7 +26,7 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
   const getApiPartybookingsResult = getApiPartybookingsInstance.useQuery({
     partybookings: { user_id: get(authenticatedDataValue, "id") },
   });
-  console.log(getApiPartybookingsResult);
+
   
   return (
     <Page className={styles.page_container}>
@@ -63,6 +63,7 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
                       IdPartyBooking={item.id}
                       numberofpeople={item.party.numberofpeople}
                       IdParty={item.party_id}
+                      status={item.status}
                     />
                   ),
                   []

@@ -41,12 +41,8 @@ type DetailBookingPartyMoleculeProps = DefaultPageProps & {
 function DetailBookingPartyMolecule(
   props: DetailBookingPartyMoleculeProps
 ): JSX.Element {
-<<<<<<< HEAD
-  const { handleDeletePartyBooking, handleCreatePartyBooking } = props;
-=======
   const { handleDeletePartyBooking, handleCreatePartyBooking, idPartyBooker } =
     props;
->>>>>>> 65185a8dd59e6934e98adb20128c504fe23dae0d
   // const [PartyBooker, usePartyBooker] = useState();
 
   const { t } = useTranslation("web");
@@ -58,16 +54,17 @@ function DetailBookingPartyMolecule(
 
   const currentDate = new Date();
   const partyStartTime = new Date(props?.partystarttime);
-  let isDate = false;
+  let isDate = true;
   if (currentDate >= partyStartTime) {
-    isDate = false;
-  } else {
+    // còn  hạn
     isDate = true;
+  } else {
+  // quá hạn
+    isDate = false;
   }
-<<<<<<< HEAD
-=======
-  console.log(props?.partybookings?.[idPartyBooker]?.status);
->>>>>>> 65185a8dd59e6934e98adb20128c504fe23dae0d
+
+
+
 
   return (
     <Box className={`${styles.page_container} ${get(props, "className")}`}>
@@ -162,17 +159,20 @@ function DetailBookingPartyMolecule(
               </Box>
             </Box>
             <Box className={styles.box_8}>
-              {props.idPartyBooker === -1 && isDate ? (
-                <Button
-                  buttonType="primary"
-                  className={styles.button_1}
-                  onClick={handleCreatePartyBooking}
-                >
-                  <Text className={styles.button_1_text_0} textType="Text">
-                    {t("detail_booking_party.button_1_text_0")}
-                  </Text>
-                </Button>
-              ) : (
+              {props.idPartyBooker === -1  ? 
+              isDate ? 
+              ""
+              : 
+              <Button
+              buttonType="primary"
+              className={styles.button_1}
+              onClick={handleCreatePartyBooking}
+            >
+              <Text className={styles.button_1_text_0} textType="Text">
+                {t("detail_booking_party.button_1_text_0")}
+              </Text>
+            </Button>
+              : isDate ?
                 <Button
                   buttonType="primary"
                   className={styles.button_1}
@@ -182,7 +182,16 @@ function DetailBookingPartyMolecule(
                     {t("detail_booking_party.button_2_text_0")}
                   </Text>
                 </Button>
-              )}
+              : <Button
+              buttonType="primary"
+              className={styles.button_1}
+              onClick={handleDeletePartyBooking}
+            >
+              <Text className={styles.button_1_text_0} textType="Text">
+                {t("detail_booking_party.button_2_text_0")}
+              </Text>
+            </Button>
+              }
             </Box>
           </Box>
         </Col>
