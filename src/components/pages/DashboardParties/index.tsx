@@ -57,7 +57,7 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
     reValidateMode: "onChange",
   });
   const { errors: formForm1Errors } = formForm1.formState;
-
+  
   useEffect(() => {
     formForm1.reset({});
   }, []);
@@ -153,8 +153,11 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <a onClick={()=>navigateListMember(record.id)}>List member</a>
-          <a href="">record.id</a>
+          <a onClick={()=>
+          navigateListMember(record.id)
+          // console.log(record.id)
+          
+          }>List member</a>
         </Space>
       ),
     },
@@ -213,9 +216,9 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
       navigateService.navigate("/newAdmin/dashboard/parties/:partyId");
     } catch (e: unknown) {}
   };
-  const navigateListMember = async () => {
+  const navigateListMember = async (id) => {
     try {
-      navigateService.navigate("/newAdmin/dashboard/parties/:partyId");
+      navigateService.navigate(`/newAdmin/dashboard/ListMemBer/${id}`);
     } catch (e: unknown) {}
   };
   const handleButton1 = async (values?: Form1FormData) => {
