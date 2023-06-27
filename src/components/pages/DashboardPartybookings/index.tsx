@@ -25,7 +25,9 @@ type DashboardPartybookingsPageProps = DefaultPageProps & {
 function DashboardPartybookingsPage(props: DashboardPartybookingsPageProps): JSX.Element {
   const partybookingService = usePartybookingService();
   const getApiPartybookingsInstance = partybookingService.useGetApiPartybookings();
-  const getApiPartybookingsResult = getApiPartybookingsInstance.useQuery();
+  const getApiPartybookingsResult = getApiPartybookingsInstance.useQuery({
+    pagination_limit: Number(20),
+  });
 
   const columnsTable1 = useMemo<TableColumnDefinition<any>[]>(
     () => [
@@ -33,8 +35,6 @@ function DashboardPartybookingsPage(props: DashboardPartybookingsPageProps): JSX
       { path: "updated_at", name: "Updated At", sortable: false },
       { path: "created_at", name: "Created At", sortable: false },
       { path: "updated_at", name: "Updated At", sortable: false },
-      ,
-      ,
       { path: "nameparty", name: "Nameparty", sortable: false },
       { path: "partystarttime", name: "Partystarttime", sortable: false },
       { path: "partylocation", name: "Partylocation", sortable: false },
@@ -45,6 +45,14 @@ function DashboardPartybookingsPage(props: DashboardPartybookingsPageProps): JSX
     []
   );
 
+  const handlePaginationTable1 = async (pageIndex?: number, pageSize?: number) => {
+    try {
+      const responseGetApiPartybookings = await getApiPartybookingsInstance.fetch({
+        pagination_page: pageIndex,
+        pagination_limit: pageSize,
+      });
+    } catch (e: unknown) {}
+  };
   const actionsTable1 = useMemo<TableColumnDefinition<any>[]>(
     () => [
       {
@@ -129,6 +137,11 @@ function DashboardPartybookingsPage(props: DashboardPartybookingsPageProps): JSX
                         textAlign: "center",
                       }}
                       isHeaderVisible
+                      isPaginationEnabled
+                      onPaginationChange={handlePaginationTable1}
+                      pageSize={Number(20)}
+                      paginationPosition="left"
+                      paginationWrapperStyle={{ marginTop: "12px" }}
                       actions={actionsTable1}
                       columns={columnsTable1}
                       tableStyle={{
@@ -139,6 +152,7 @@ function DashboardPartybookingsPage(props: DashboardPartybookingsPageProps): JSX
                         color: "#000",
                         width: "100%",
                       }}
+                      totalPage={get(getApiPartybookingsResult, "data.total_pages")}
                     />
                   </Box>
                 </Box>

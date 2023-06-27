@@ -49,9 +49,7 @@ export const refreshToken = async () => {
   if (result?.user?.error === REFRESH_TOKEN_REJECTED_ERROR) {
     return logout();
   } else if (!result || !result.user || result?.user?.error) {
-    throw new Error(
-      "refresh token error: " + result?.user?.error || "Invalid resturn"
-    );
+    throw new Error("refresh token error: " + result?.user?.error || "Invalid resturn");
   }
 
   memoryStorage.setAuthenticationInfo(result);
@@ -77,9 +75,7 @@ export const testVerify = async (body: TestVerifyRequestBody) => {
 export type CreatePhoneNumberSessionRequestBody = {
   phoneNumber: string;
 };
-export const createPhoneNumberSession = async (
-  body: CreatePhoneNumberSessionRequestBody
-) => {
+export const createPhoneNumberSession = async (body: CreatePhoneNumberSessionRequestBody) => {
   return serviceFetch({
     url: getRoute("/api/send_otp_codes"),
     method: "POST",
@@ -169,9 +165,7 @@ export type ResetPasswordVerifyRequestBody = {
   password: string;
   passwordConfirmation: string;
 };
-export const resetPasswordVerify = async (
-  body: ResetPasswordVerifyRequestBody
-) => {
+export const resetPasswordVerify = async (body: ResetPasswordVerifyRequestBody) => {
   const model = pluralize.singular(body.table);
   return serviceFetch(
     {
