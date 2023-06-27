@@ -5,21 +5,26 @@ import get from "lodash/get";
 import Image from "next/future/image";
 import { useTranslation } from "next-i18next";
 import assets from "@assets/index";
-import { Box, Text } from "@jitera/jitera-web-ui-library";
+import { usePartyService } from "@services/party";
+import { Box, Text, Button, Toast } from "@jitera/jitera-web-ui-library";
 import { Modal as NewModal } from "../../../../libraries/jitera-web-ui-library/src/components/atoms/Modal/Modal.component";
 import styles from "./styles.module.css";
+import { usePartybookingService } from "@services/partybooking";
 type ModalMoleculeProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
-  new_prop_ntse?: string;
+  onYes?: () => any;
+  onNo?: () => any;
+  labelMain?: string;
+  labelDec?: string;
+  id?: number;
 };
 function ModalMolecule(props: ModalMoleculeProps): JSX.Element {
+  const {onYes} = props
+
   const { t } = useTranslation("web");
 
-  const handleBox4 = async () => {
-    // TODO: handle logic
-  };
-  console.log(props);
+
 
   return (
     <Box
@@ -38,7 +43,7 @@ function ModalMolecule(props: ModalMoleculeProps): JSX.Element {
           </Text>
         </Box>
         <Box className={styles.box_3}>
-          <Box className={styles.box_4} onClick={handleBox4}>
+          <Box className={styles.box_4} onClick={onYes}>
             <Text className={styles.text_3} textType="Text">
               {props.labelButtonYes}
             </Text>
@@ -72,3 +77,5 @@ function ModalMolecule(props: ModalMoleculeProps): JSX.Element {
   );
 }
 export default ModalMolecule;
+
+

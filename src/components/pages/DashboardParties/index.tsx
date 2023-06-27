@@ -23,10 +23,12 @@ import {
   Select,
   Input,
   TableColumnDefinition,
+  Toast,
   // Table,
 } from "@jitera/jitera-web-ui-library";
 import { Modal as NewModal } from "../../../../libraries/jitera-web-ui-library/src/components/atoms/Modal/Modal.component";
 import ModalMolecule from "../../molecules/Modal";
+import dateFormat, { masks } from "dateformat";
 import styles from "./styles.module.css";
 type DashboardPartiesPageProps = DefaultPageProps & {
   pageName?: string;
@@ -72,6 +74,7 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
       title: "partystarttime",
       dataIndex: "partystarttime",
       key: "partystarttime",
+      render: (partystarttime) => dateFormat(partystarttime, "paddedShortDate"),
     },
     {
       title: "partylocation",
@@ -117,34 +120,27 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
       title: "Tổng số người tham gia ",
       dataIndex: "requiredage",
       key: "requiredage",
+      render: (_, record) => (
+        <span>
+          {
+            record.partybookings.filter((item) => {
+              return item.status === "Approve";
+            }).length
+          }
+        </span>
+      ),
     },
     {
-      title: "Action",
+      title: "Delete",
       key: "action",
-      render: () => (
+      render: (_, record) => (
         <Space size="middle">
-          <a
-            onClick={() => {
-              NewModal.show(
-                <ModalMolecule 
-                labelMain="Bạn có muốn xoá không ?" 
-                label=" alo 123" 
-                labelButtonYes="Delete"
-                labaelButtonCancel = "Cancel"
-                
-                />
-              );
-              console.log(get(getApiPartiesResult, "data.parties"));
-              
-            }}
-          >
-            Delete
-          </a>
+          <a onClick={() => handleOpenModal(record)}>Delete</a>
         </Space>
       ),
     },
     {
-      title: "Action",
+      title: "Edit",
       key: "action",
       render: () => (
         <Space size="middle">
@@ -153,25 +149,30 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
       ),
     },
     {
-      title: "Action",
+      title: "List member",
       key: "action",
-      render: () => (
+      render: (_, record) => (
         <Space size="middle">
-          <a>List member</a>
+          <a onClick={()=>navigateListMember(record.id)}>List member</a>
+          <a href="">record.id</a>
         </Space>
       ),
     },
-    // {
-    //   title: 'Action',
-    //   key: 'action',
-    //   render: (_, record) => (
-    //     <Space size="middle">
-    //       <a>Invite {record.name}</a>
-    //       <a>Delete</a>
-    //     </Space>
-    //   ),
-    // },
   ];
+
+  const handleOpenModal = (record) => {
+    NewModal.show(
+      <ModalMolecule
+        labelMain="Bạn có muốn xoá không ?"
+        label=" alo 123"
+        labelButtonYes="Delete"
+        labaelButtonCancel="Cancel"
+        recordId={record?.id}
+        onYes={() => handleDeleteParty(record?.id)}
+      />
+    );
+  };
+
   const handlePaginationTable1 = async (
     pageIndex?: number,
     pageSize?: number
@@ -207,7 +208,12 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
     []
   );
 
-  const handleButton0 = async () => {
+  const navigateParties = async () => {
+    try {
+      navigateService.navigate("/newAdmin/dashboard/parties/:partyId");
+    } catch (e: unknown) {}
+  };
+  const navigateListMember = async () => {
     try {
       navigateService.navigate("/newAdmin/dashboard/parties/:partyId");
     } catch (e: unknown) {}
@@ -218,10 +224,25 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
         parties: {
           nameparty: get(values, "input_nameParty", ""),
           partylocation: get(values, "input_location", ""),
-          isstatus: get(values, "select_status", ""),
+          isstatus:
+            get(values, "select_status") === "All"
+              ? undefined
+              : get(values, "select_status", undefined),
         },
       });
     } catch (e: unknown) {}
+  };
+  const handleDeleteParty = async (id) => {
+    console.log("delete ne");
+    try {
+      const responseDeleteApiPartiesId =
+        await partyService.deleteApiPartiesId.fetch({ id });
+      Toast.success("Xoá thành công" || "");
+      NewModal.hide();
+    } catch (e: unknown) {
+      Toast.error("Xoá thất bại " || "");
+      NewModal.hide();
+    }
   };
 
   return (
@@ -251,7 +272,7 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
                     <Button
                       buttonType="primary"
                       className={styles.button_0}
-                      onClick={handleButton0}
+                      onClick={navigateParties}
                     >
                       Create new party
                     </Button>
@@ -273,9 +294,10 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
                                 height: "auto",
                               }}
                               data={[
-                                { value: "public", label: "Public" },
-                                { value: "private", label: "Private" },
-                                { value: "daft", label: "Daft" },
+                                { value: "All", label: "All" },
+                                { value: "Public", label: "Public" },
+                                { value: "Private", label: "Private" },
+                                { value: "Daft", label: "Daft" },
                                 // { value: "close", label: "Close" },
                               ]}
                               iconProps={{
