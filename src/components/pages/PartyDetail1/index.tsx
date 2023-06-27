@@ -76,7 +76,7 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
       Toast.success("Huỷ thành công" || "");
 
       // tạm bợ tiếp tục phát triển
-
+      // navigation.reload();
       window.location.reload();
     } catch (e: unknown) {
       Toast.error("Huỷ thất bại" || "");
@@ -93,13 +93,7 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
           className={styles.image_2}
         /> */}
         <DetailBookingParty
-          // className={styles.detailbookingparty_1} ,
           {...getApiPartiesIdResult?.data?.party}
-          // partyStartTime
-          // partyLocation
-          // numberOfPeople
-          // describe
-          // img
           idPartyBooker={idPartyBooker}
           handleDeletePartyBooking={handleDeletePartyBooking}
           handleCreatePartyBooking={handleCreatePartyBooking}
