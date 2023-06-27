@@ -8,13 +8,9 @@ type DefaultFooterMenuMoleculeProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
 };
-function DefaultFooterMenuMolecule(
-  props: DefaultFooterMenuMoleculeProps
-): JSX.Element {
+function DefaultFooterMenuMolecule(props: DefaultFooterMenuMoleculeProps): JSX.Element {
   return (
-    <Box
-      className={`${styles.footer_menu_molecule_0} ${get(props, "className")}`}
-    >
+    <Box className={`${styles.footer_menu_molecule_0} ${get(props, "className")}`}>
       <Box
         responsiveVisibility={["desktop", "tablet", "mobile"]}
         className={styles.footer_menu_molecule_box_0}

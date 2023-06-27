@@ -95,6 +95,7 @@
   padding-right: 20px;
   padding-top: 14;
   width: 200px;
+  cursor: pointer;
 }
 .text_0 {
   color: #ffffff;
@@ -103,6 +104,25 @@
   font-size: 14px;
   font-weight: 500;
   justify-content: center;
+  word-break: break-word;
+}
+.button_1 {
+  border-radius: 2px;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  height: auto;
+  padding-bottom: 4px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 4px;
+  width: auto;
+  cursor: pointer;
+}
+.button_1_text_0 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
   word-break: break-word;
 }
 .box_6 {

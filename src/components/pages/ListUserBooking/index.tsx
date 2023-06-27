@@ -30,8 +30,7 @@ interface Form1FormData {
 }
 function ListUserBookingPage(props: ListUserBookingPageProps): JSX.Element {
   const partybookingService = usePartybookingService();
-  const getApiPartybookingsInstance =
-    partybookingService.useGetApiPartybookings();
+  const getApiPartybookingsInstance = partybookingService.useGetApiPartybookings();
   const getApiPartybookingsResult = getApiPartybookingsInstance.useQuery();
   const validationForm1Schema = useMemo(() => yup.object().shape({}), []);
   const formForm1 = useForm<Form1FormData>({
@@ -71,10 +70,9 @@ function ListUserBookingPage(props: ListUserBookingPageProps): JSX.Element {
 
   const handleButton1 = async (values?: Form1FormData) => {
     try {
-      const responseGetApiPartybookings =
-        await getApiPartybookingsInstance.fetch({
-          partybookings: { user_id: "[text]" },
-        });
+      const responseGetApiPartybookings = await getApiPartybookingsInstance.fetch({
+        partybookings: { user_id: "[text]" },
+      });
     } catch (e: unknown) {}
   };
   return (

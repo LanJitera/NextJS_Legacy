@@ -25,12 +25,7 @@ function TextMolecule(props: TextMoleculeProps): JSX.Element {
     } catch (e: unknown) {}
   };
   return (
-    <Box
-      className={`${styles.custom_component_container} ${get(
-        props,
-        "className"
-      )}`}
-    >
+    <Box className={`${styles.custom_component_container} ${get(props, "className")}`}>
       <Box className={styles.box_1} onClick={handleBox1}>
         <Text className={styles.text_1} textType="Text" onClick={handleText1}>
           {get(props, "Text")}
