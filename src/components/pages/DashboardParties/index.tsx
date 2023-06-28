@@ -44,7 +44,7 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
   const partyService = usePartyService();
   const getApiPartiesInstance = partyService.useGetApiParties();
   const getApiPartiesResult = getApiPartiesInstance.useQuery({
-    pagination_limit: Number(20),
+    // pagination_limit: Number(20),
   });
   const navigateService = useNavigateService();
   const validationForm1Schema = useMemo(() => yup.object().shape({}), []);
@@ -187,29 +187,6 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
       });
     } catch (e: unknown) {}
   };
-  const actionsTable1 = useMemo<TableColumnDefinition<any>[]>(
-    () => [
-      {
-        name: "Delete",
-        renderColumn: (props) => {
-          return <DashboardButton {...props.row.original} />;
-        },
-      },
-      {
-        name: "Edit",
-        renderColumn: (props) => {
-          return <DashboardButton {...props.row.original} />;
-        },
-      },
-      {
-        name: "List member",
-        renderColumn: (props) => {
-          return <DashboardButton {...props.row.original} />;
-        },
-      },
-    ],
-    []
-  );
 
   const navigateParties = async () => {
     try {
