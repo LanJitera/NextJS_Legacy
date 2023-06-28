@@ -48,7 +48,7 @@ function DashboardListMemberPage(
     partybookings: { party_id: props?.query?.partybookingId },
   });
 
-console.log(getApiPartybookingsResult);
+
 
   
   const validationForm1Schema = useMemo(() => yup.object().shape({}), []);

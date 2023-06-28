@@ -12,7 +12,9 @@ import DashboardFooter from "@components/molecules/DashboardFooter";
 import { useTranslation } from "next-i18next";
 import { useUserService } from "@services/user";
 import { useNavigateService } from "@services/navigate";
-import Modal from "@components/molecules/Modal";
+import { Modal as NewModal } from "../../../../libraries/jitera-web-ui-library/src/components/atoms/Modal/Modal.component";
+import ModalMolecule from "../../molecules/Modal";
+import dateFormat, { masks } from "dateformat";
 import DashboardButton from "@components/molecules/DashboardButton";
 import {
   Page,
@@ -23,8 +25,10 @@ import {
   Button,
   Input,
   TableColumnDefinition,
-  Table,
+  Toast,
+  // Table,
 } from "@jitera/jitera-web-ui-library";
+import { Space, Table, Tag } from "antd";
 import styles from "./styles.module.css";
 type DashboardUsersPageProps = DefaultPageProps & {
   pageName?: string;
@@ -55,57 +59,102 @@ function DashboardUsersPage(props: DashboardUsersPageProps): JSX.Element {
     formForm1.reset({});
   }, []);
 
-  const columnsTable1 = useMemo<TableColumnDefinition<any>[]>(
-    () => [
-      { path: "id", name: "Id", sortable: false },
-      { path: "username", name: "Username", sortable: false },
-      { path: "email", name: "Email", sortable: false },
-      { path: "dateofbirth", name: "Dateofbirth", sortable: false },
-      { path: "created_at", name: "Created At", sortable: false },
-      { path: "updated_at", name: "Updated At", sortable: false },
-      { path: "created_at", name: "Created At", sortable: false },
-      { path: "updated_at", name: "Updated At", sortable: false },
-      { path: "isactive", name: "Isactive", sortable: false },
-    ],
-    []
-  );
-
-  const actionsTable1 = useMemo<TableColumnDefinition<any>[]>(
-    () => [
-      {
-        name: "Delete",
-        renderColumn: (props) => {
-          return <Modal {...props.row.original} />;
-        },
-      },
-      {
-        name: "Edit",
-        renderColumn: (props) => {
-          return <DashboardButton {...props.row.original} />;
-        },
-      },
-    ],
-    []
-  );
-
+  //table ant design
+  const columns = [
+    {
+      title: "ID",
+      key: "id",
+      dataIndex: "id",
+    },
+    {
+      title: "User Name",
+      key: "username",
+      dataIndex: "username",
+    },
+    {
+      title: "Email",
+      key: "email",
+      dataIndex: "email",
+    },
+    {
+      title: "Ngày tạo",
+      key: "created_at",
+      dataIndex: "created_at",
+      render: (created_at) => dateFormat(created_at, "paddedShortDate"),
+    },
+    {
+      title: "Birthday",
+      dataIndex: "dateofbirth",
+      key: "dateofbirth",
+      render: (dateofbirth) => dateFormat(dateofbirth, "paddedShortDate"),
+    },
+    {
+      title: "Delete",
+      key: "Delete ",
+      render: (_, record) => (
+        <Space size="middle">
+          <a onClick={() => handleOpenModal(record)}>Delete</a>
+        </Space>
+      ),
+    },
+    {
+      title: "Edit",
+      key: "Reject ",
+      // render: (_, record) => (
+      //   <Space size="middle">
+      //     <a onClick={() => handleOpenModalReject(record)}>Reject </a>
+      //   </Space>
+      // ),
+    },
+  ];
+  const handleOpenModal = (record) => {
+    NewModal.show(
+      <ModalMolecule
+        labelMain="Bạn có muốn xoá không ?"
+        label=" - "
+        labelButtonYes="Delete"
+        labaelButtonCancel="Cancel"
+        recordId={record?.id}
+        onYes={() => handleDeleteUser(record?.id)}
+      />
+    );
+  };
   const handleButton1 = async () => {
     try {
       navigateService.navigate("/newAdmin/dashboard/users/:userId");
     } catch (e: unknown) {}
   };
-  const handleButton0 = async (values?: Form1FormData) => {
+  const handleButtonSearch = async (values?: Form1FormData) => {
     try {
       const responseGetApiUsers = await getApiUsersInstance.fetch({
         users: { username: get(values, "input_userName", "") },
       });
     } catch (e: unknown) {}
   };
+
+  const handleDeleteUser = async (id) => {
+    try {
+      const responseDeleteApiPartiesId =
+        await userService.deleteApiUsersId.fetch({id});
+      Toast.success("Xoá thành công" || "");
+      NewModal.hide();
+    } catch (e: unknown) {
+      Toast.error("Xoá thất bại " || "");
+      NewModal.hide();
+    }
+  };
+
   return (
     <Page className={styles.page_container}>
       <DashboardNavbar className={styles.dashboardnavbar_1} />
       <Box className={styles.dashboard_main}>
         <Box className={styles.dashboard_main_wrapper}>
-          <Row align="top" gutter={[30, 30]} justify="start" className={styles.row_1}>
+          <Row
+            align="top"
+            gutter={[30, 30]}
+            justify="start"
+            className={styles.row_1}
+          >
             <Col md={Number(24)} xl={Number(6)} xs={Number(24)}>
               <DashboardSidebar
                 responsiveVisibility={["desktop"]}
@@ -117,14 +166,14 @@ function DashboardUsersPage(props: DashboardUsersPageProps): JSX.Element {
                 <Box className={styles.box_1}>
                   <Box className={styles.box_3}>
                     <Text className={styles.text_0} textType="Text">
-                      {t("dashboard_users.text_0")}
+                      List User
                     </Text>
                     <Button
                       buttonType="primary"
                       className={styles.button_1}
                       onClick={handleButton1}
                     >
-                      {t("dashboard_users.button_1")}
+                      Tạo mới user
                     </Button>
                   </Box>
                   <Box className={styles.form_1}>
@@ -137,7 +186,7 @@ function DashboardUsersPage(props: DashboardUsersPageProps): JSX.Element {
                         return (
                           <Input
                             inputStyle={styles.input_user_name_input}
-                            placeholder={t("dashboardusers.input_1")}
+                            placeholder="Enter user name"
                             className={styles.input_user_name}
                             onChange={onChange}
                             value={value}
@@ -149,7 +198,7 @@ function DashboardUsersPage(props: DashboardUsersPageProps): JSX.Element {
                     <Button
                       buttonType="primary"
                       className={styles.button_0}
-                      onClick={formForm1.handleSubmit(handleButton0)}
+                      onClick={formForm1.handleSubmit(handleButtonSearch)}
                     >
                       Search
                     </Button>
@@ -158,60 +207,8 @@ function DashboardUsersPage(props: DashboardUsersPageProps): JSX.Element {
                 <Box className={styles.dashboard_content_filter_table}>
                   <Box className={styles.box_8}>
                     <Table
-                      bodyColumnStyle={{
-                        backgroundColor: "#fff",
-                        borderColor: "#000",
-                        borderStyle: "solid",
-                        borderWidth: "1px",
-                        color: "#000",
-                        fontSize: "14px",
-                        paddingBottom: "4px",
-                        paddingLeft: "8px",
-                        paddingRight: "8px",
-                        paddingTop: "4px",
-                        textAlign: "left",
-                        whiteSpace: "nowrap",
-                      }}
-                      data={get(getApiUsersResult, "data.users")}
-                      footerColumnStyle={{
-                        backgroundColor: "#fff",
-                        borderColor: "#000",
-                        borderStyle: "solid",
-                        borderWidth: "1px",
-                        color: "#000",
-                        fontSize: "16px",
-                        fontWeight: "bold",
-                        paddingBottom: "8px",
-                        paddingLeft: "16px",
-                        paddingRight: "16px",
-                        paddingTop: "8px",
-                        textAlign: "center",
-                      }}
-                      headerColumnStyle={{
-                        backgroundColor: "#001529",
-                        borderColor: "#000",
-                        borderStyle: "solid",
-                        borderWidth: "1px",
-                        color: "#ffffff",
-                        fontSize: "16px",
-                        fontWeight: "bold",
-                        paddingBottom: "8px",
-                        paddingLeft: "16px",
-                        paddingRight: "16px",
-                        paddingTop: "8px",
-                        textAlign: "center",
-                      }}
-                      isHeaderVisible
-                      actions={actionsTable1}
-                      columns={columnsTable1}
-                      tableStyle={{
-                        backgroundColor: "#fff",
-                        borderColor: "#000",
-                        borderStyle: "solid",
-                        borderWidth: "1px",
-                        color: "#000",
-                        width: "100%",
-                      }}
+                      columns={columns}
+                      dataSource={get(getApiUsersResult, "data.users")}
                     />
                   </Box>
                 </Box>

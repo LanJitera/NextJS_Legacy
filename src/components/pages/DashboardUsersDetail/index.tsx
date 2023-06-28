@@ -88,7 +88,8 @@ function DashboardUsersDetailPage(props: DashboardUsersDetailPageProps): JSX.Ele
                       <Box className={styles.box_3}>
                         <Box className={styles.box_4}>
                           <Text className={styles.text_1} textType="Text">
-                            {t("dashboard_users_detail.text_1")}
+                            {/* {t("dashboard_users_detail.text_1")} */}
+                            Tên người dùng
                           </Text>
                           <Text className={styles.text_2} textType="Text">
                             *
@@ -103,7 +104,8 @@ function DashboardUsersDetailPage(props: DashboardUsersDetailPageProps): JSX.Ele
                             return (
                               <Input
                                 inputStyle={styles.input_user_name_input}
-                                placeholder={t("dashboard_users_detail.input_username")}
+                                // placeholder={t("dashboard_users_detail.input_username")}
+                                placeholder="Email"
                                 className={styles.input_user_name}
                                 onChange={onChange}
                                 value={value}
@@ -121,7 +123,8 @@ function DashboardUsersDetailPage(props: DashboardUsersDetailPageProps): JSX.Ele
                       <Box className={styles.box_6}>
                         <Box className={styles.box_7}>
                           <Text className={styles.text_4} textType="Text">
-                            {t("dashboard_users_detail.text_4")}
+                            {/* {t("dashboard_users_detail.text_4")} */}
+                            Mật khẩu
                           </Text>
                           <Text className={styles.text_5} textType="Text">
                             *
@@ -136,7 +139,9 @@ function DashboardUsersDetailPage(props: DashboardUsersDetailPageProps): JSX.Ele
                             return (
                               <Input
                                 inputStyle={styles.input_email_input}
-                                placeholder={t("dashboard_users_detail.input_0")}
+                                // placeholder={t("dashboard_users_detail.input_0")}
+                                 placeholder="Email"
+                                 placeholder="Ngày sinh"
                                 className={styles.input_email}
                                 onChange={onChange}
                                 value={value}

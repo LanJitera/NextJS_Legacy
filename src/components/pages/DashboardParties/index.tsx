@@ -57,7 +57,7 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
     reValidateMode: "onChange",
   });
   const { errors: formForm1Errors } = formForm1.formState;
-  
+
   useEffect(() => {
     formForm1.reset({});
   }, []);
@@ -153,11 +153,14 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <a onClick={()=>
-          navigateListMember(record.id)
-          // console.log(record.id)
-          
-          }>List member</a>
+          <a
+            onClick={
+              () => navigateListMember(record.id)
+              // console.log(record.id)
+            }
+          >
+            List member
+          </a>
         </Space>
       ),
     },
@@ -213,7 +216,6 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
     } catch (e: unknown) {}
   };
   const handleDeleteParty = async (id) => {
-    console.log("delete ne");
     try {
       const responseDeleteApiPartiesId =
         await partyService.deleteApiPartiesId.fetch({ id });
