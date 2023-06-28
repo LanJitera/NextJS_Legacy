@@ -47,7 +47,9 @@ function DashboardListMemberPage(
   const getApiPartybookingsResult = getApiPartybookingsInstance.useQuery({
     partybookings: { party_id: props?.query?.partybookingId },
   });
-  console.log(getApiPartybookingsResult);
+
+console.log(getApiPartybookingsResult);
+
   
   const validationForm1Schema = useMemo(() => yup.object().shape({}), []);
   const formForm1 = useForm<Form1FormData>({
