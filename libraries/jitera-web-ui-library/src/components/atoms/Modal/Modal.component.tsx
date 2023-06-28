@@ -4,7 +4,7 @@ import React from "react";
 import { render as reactRender } from "rc-util/lib/React/render";
 import { Modal as AntModal, ModalProps as AntModalProps } from "antd";
 
-import { ThemeProvider } from "../../../styles/theme/ThemeProvider";
+import { ThemeProvider } from "@src/styles/theme";
 
 export enum ModalPositionEnum {
   DEFAULT = "default",

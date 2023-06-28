@@ -14,7 +14,7 @@
   left: 0px;
   min-height: px;
   padding-bottom: 36px;
-  padding-left: 40px;
+  padding-left: 40;
   padding-right: 40px;
   padding-top: 36px;
   position: absolute;
@@ -70,7 +70,7 @@
   padding-bottom: 14px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 10px;
+  padding-top: 14;
   width: 200px;
   cursor: pointer;
 }
@@ -78,7 +78,7 @@
   color: #4e4e4e;
   display: flex;
   flex-direction: row;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   justify-content: center;
   text-align: left;
@@ -93,7 +93,7 @@
   padding-bottom: 14px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 10px;
+  padding-top: 14;
   width: 200px;
   cursor: pointer;
 }
@@ -101,13 +101,29 @@
   color: #ffffff;
   display: flex;
   flex-direction: row;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   justify-content: center;
   word-break: break-word;
 }
-.text_0:hover{
+.button_1 {
+  border-radius: 2px;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  height: auto;
+  padding-bottom: 4px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 4px;
+  width: auto;
   cursor: pointer;
+}
+.button_1_text_0 {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  word-break: break-word;
 }
 .box_6 {
   align-items: center;
@@ -122,7 +138,6 @@
   position: absolute;
   top: 10px;
   width: 24px;
-  cursor: pointer;
 }
 .image_1 {
   height: 10px;

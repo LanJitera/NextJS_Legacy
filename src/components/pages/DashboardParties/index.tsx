@@ -12,7 +12,6 @@ import DashboardFooter from "@components/molecules/DashboardFooter";
 import { usePartyService } from "@services/party";
 import { useNavigateService } from "@services/navigate";
 import DashboardButton from "@components/molecules/DashboardButton";
-import { Space, Table, Tag } from "antd";
 import {
   Page,
   Box,
@@ -23,12 +22,8 @@ import {
   Select,
   Input,
   TableColumnDefinition,
-  Toast,
-  // Table,
+  Table,
 } from "@jitera/jitera-web-ui-library";
-import { Modal as NewModal } from "../../../../libraries/jitera-web-ui-library/src/components/atoms/Modal/Modal.component";
-import ModalMolecule from "../../molecules/Modal";
-import dateFormat, { masks } from "dateformat";
 import styles from "./styles.module.css";
 type DashboardPartiesPageProps = DefaultPageProps & {
   pageName?: string;
@@ -43,9 +38,7 @@ interface Form1FormData {
 function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
   const partyService = usePartyService();
   const getApiPartiesInstance = partyService.useGetApiParties();
-  const getApiPartiesResult = getApiPartiesInstance.useQuery({
-    // pagination_limit: Number(20),
-  });
+  const getApiPartiesResult = getApiPartiesInstance.useQuery({ pagination_limit: Number(20) });
   const navigateService = useNavigateService();
   const validationForm1Schema = useMemo(() => yup.object().shape({}), []);
   const formForm1 = useForm<Form1FormData>({
@@ -57,129 +50,27 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
     reValidateMode: "onChange",
   });
   const { errors: formForm1Errors } = formForm1.formState;
-  
+
   useEffect(() => {
     formForm1.reset({});
   }, []);
 
-  //table ant design
-  const columns = [
-    {
-      title: "Name party",
-      dataIndex: "nameparty",
-      key: "nameparty",
-      render: (text) => <a>{text}</a>,
-    },
-    {
-      title: "partystarttime",
-      dataIndex: "partystarttime",
-      key: "partystarttime",
-      render: (partystarttime) => dateFormat(partystarttime, "paddedShortDate"),
-    },
-    {
-      title: "partylocation",
-      dataIndex: "partylocation",
-      key: "partylocation",
-    },
-    {
-      title: "numberofpeople",
-      dataIndex: "numberofpeople",
-      key: "numberofpeople",
-    },
-    {
-      title: "isstatus",
-      key: "isstatus",
-      dataIndex: "isstatus",
-      render: (isstatus) => {
-        let color =
-          isstatus === "Public"
-            ? "green"
-            : isstatus === "Close"
-            ? "red"
-            : isstatus === "Draft"
-            ? "geekblue"
-            : "yellow";
-        return (
-          <Tag color={color} key={isstatus}>
-            {isstatus}
-          </Tag>
-        );
-      },
-    },
-    {
-      title: "describe",
-      dataIndex: "describe",
-      key: "describe",
-    },
-    {
-      title: "requiredage",
-      dataIndex: "requiredage",
-      key: "requiredage",
-    },
-    {
-      title: "Tổng số người tham gia ",
-      dataIndex: "requiredage",
-      key: "requiredage",
-      render: (_, record) => (
-        <span>
-          {
-            record.partybookings.filter((item) => {
-              return item.status === "Approve";
-            }).length
-          }
-        </span>
-      ),
-    },
-    {
-      title: "Delete",
-      key: "action",
-      render: (_, record) => (
-        <Space size="middle">
-          <a onClick={() => handleOpenModal(record)}>Delete</a>
-        </Space>
-      ),
-    },
-    {
-      title: "Edit",
-      key: "action",
-      render: () => (
-        <Space size="middle">
-          <a>Edit</a>
-        </Space>
-      ),
-    },
-    {
-      title: "List member",
-      key: "action",
-      render: (_, record) => (
-        <Space size="middle">
-          <a onClick={()=>
-          navigateListMember(record.id)
-          // console.log(record.id)
-          
-          }>List member</a>
-        </Space>
-      ),
-    },
-  ];
+  const columnsTable1 = useMemo<TableColumnDefinition<any>[]>(
+    () => [
+      { path: "img", name: "Img", sortable: false },
+      { path: "created_at", name: "Created At", sortable: false },
+      { path: "nameparty", name: "Nameparty", sortable: false },
+      { path: "partystarttime", name: "Partystarttime", sortable: false },
+      { path: "partylocation", name: "Partylocation", sortable: false },
+      { path: "numberofpeople", name: "Numberofpeople", sortable: false },
+      { path: "isstatus", name: "Isstatus", sortable: false },
+      { path: "describe", name: "Describe", sortable: false },
+      { path: "requiredage", name: "Requiredage", sortable: false },
+    ],
+    []
+  );
 
-  const handleOpenModal = (record) => {
-    NewModal.show(
-      <ModalMolecule
-        labelMain="Bạn có muốn xoá không ?"
-        label=" alo 123"
-        labelButtonYes="Delete"
-        labaelButtonCancel="Cancel"
-        recordId={record?.id}
-        onYes={() => handleDeleteParty(record?.id)}
-      />
-    );
-  };
-
-  const handlePaginationTable1 = async (
-    pageIndex?: number,
-    pageSize?: number
-  ) => {
+  const handlePaginationTable1 = async (pageIndex?: number, pageSize?: number) => {
     try {
       const responseGetApiParties = await getApiPartiesInstance.fetch({
         pagination_page: pageIndex,
@@ -187,15 +78,33 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
       });
     } catch (e: unknown) {}
   };
+  const actionsTable1 = useMemo<TableColumnDefinition<any>[]>(
+    () => [
+      {
+        name: "Delete",
+        renderColumn: (props) => {
+          return <DashboardButton {...props.row.original} />;
+        },
+      },
+      {
+        name: "Edit",
+        renderColumn: (props) => {
+          return <DashboardButton {...props.row.original} />;
+        },
+      },
+      {
+        name: "List member",
+        renderColumn: (props) => {
+          return <DashboardButton {...props.row.original} />;
+        },
+      },
+    ],
+    []
+  );
 
-  const navigateParties = async () => {
+  const handleButton0 = async () => {
     try {
       navigateService.navigate("/newAdmin/dashboard/parties/:partyId");
-    } catch (e: unknown) {}
-  };
-  const navigateListMember = async (id) => {
-    try {
-      navigateService.navigate(`/newAdmin/dashboard/ListMemBer/${id}`);
     } catch (e: unknown) {}
   };
   const handleButton1 = async (values?: Form1FormData) => {
@@ -204,38 +113,17 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
         parties: {
           nameparty: get(values, "input_nameParty", ""),
           partylocation: get(values, "input_location", ""),
-          isstatus:
-            get(values, "select_status") === "All"
-              ? undefined
-              : get(values, "select_status", undefined),
+          isstatus: get(values, "select_status", ""),
         },
       });
     } catch (e: unknown) {}
   };
-  const handleDeleteParty = async (id) => {
-    console.log("delete ne");
-    try {
-      const responseDeleteApiPartiesId =
-        await partyService.deleteApiPartiesId.fetch({ id });
-      Toast.success("Xoá thành công" || "");
-      NewModal.hide();
-    } catch (e: unknown) {
-      Toast.error("Xoá thất bại " || "");
-      NewModal.hide();
-    }
-  };
-
   return (
     <Page className={styles.page_container}>
       <DashboardNavbar className={styles.dashboardnavbar_1} />
       <Box className={styles.dashboard_main}>
         <Box className={styles.dashboard_main_wrapper}>
-          <Row
-            align="top"
-            gutter={[30, 30]}
-            justify="start"
-            className={styles.row_1}
-          >
+          <Row align="top" gutter={[30, 30]} justify="start" className={styles.row_1}>
             <Col md={Number(24)} xl={Number(6)} xs={Number(24)}>
               <DashboardSidebar
                 responsiveVisibility={["desktop"]}
@@ -252,7 +140,7 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
                     <Button
                       buttonType="primary"
                       className={styles.button_0}
-                      onClick={navigateParties}
+                      onClick={handleButton0}
                     >
                       Create new party
                     </Button>
@@ -274,13 +162,12 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
                                 height: "auto",
                               }}
                               data={[
-                                { value: "All", label: "All" },
-                                { value: "Public", label: "Public" },
-                                { value: "Private", label: "Private" },
-                                { value: "Daft", label: "Daft" },
-                                // { value: "close", label: "Close" },
+                                { value: "public", label: "Public" },
+                                { value: "private", label: "Private" },
+                                { value: "daft", label: "Daft" },
+                                { value: "close", label: "Close" },
                               ]}
-                              iconProps={{
+                              /*TODO: generate error key: defaultValue*/ iconProps={{
                                 color: "#000",
                                 iconName: "FaChevronDown",
                                 size: 16,
@@ -343,8 +230,66 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
                 <Box className={styles.dashboard_content_filter_table}>
                   <Box className={styles.box_8}>
                     <Table
-                      columns={columns}
-                      dataSource={get(getApiPartiesResult, "data.parties")}
+                      bodyColumnStyle={{
+                        backgroundColor: "#fff",
+                        borderColor: "#000",
+                        borderStyle: "solid",
+                        borderWidth: "1px",
+                        color: "#000",
+                        fontSize: "14px",
+                        paddingBottom: "4px",
+                        paddingLeft: "8px",
+                        paddingRight: "8px",
+                        paddingTop: "4px",
+                        textAlign: "left",
+                        whiteSpace: "nowrap",
+                      }}
+                      data={get(getApiPartiesResult, "data.parties")}
+                      footerColumnStyle={{
+                        backgroundColor: "#fff",
+                        borderColor: "#000",
+                        borderStyle: "solid",
+                        borderWidth: "1px",
+                        color: "#000",
+                        fontSize: "16px",
+                        fontWeight: "bold",
+                        paddingBottom: "8px",
+                        paddingLeft: "16px",
+                        paddingRight: "16px",
+                        paddingTop: "8px",
+                        textAlign: "center",
+                      }}
+                      headerColumnStyle={{
+                        backgroundColor: "#001529",
+                        borderColor: "#000",
+                        borderStyle: "solid",
+                        borderWidth: "1px",
+                        color: "#ffffff",
+                        fontSize: "16px",
+                        fontWeight: "bold",
+                        paddingBottom: "8px",
+                        paddingLeft: "16px",
+                        paddingRight: "16px",
+                        paddingTop: "8px",
+                        textAlign: "center",
+                      }}
+                      isHeaderVisible
+                      isPaginationEnabled
+                      onPaginationChange={handlePaginationTable1}
+                      pageSize={Number(20)}
+                      paginationPosition="left"
+                      paginationWrapperStyle={{ marginTop: "12px" }}
+                      actions={actionsTable1}
+                      columns={columnsTable1}
+                      tableStyle={{
+                        backgroundColor: "#fff",
+                        borderColor: "#000",
+                        borderStyle: "solid",
+                        borderWidth: "1px",
+                        color: "#000",
+                        width: "100%",
+                      }}
+                      totalPage={get(getApiPartiesResult, "data.total_pages")}
                     />
                   </Box>
                 </Box>

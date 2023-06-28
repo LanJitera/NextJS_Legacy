@@ -17,11 +17,7 @@ function DateMolecule(props: DateMoleculeProps): JSX.Element {
       sourceType="upload"
       className={`${styles.page_container} ${get(props, "className")}`}
     >
-      <Image
-        src={assets("1686621807428svg")}
-        alt={""}
-        className={styles.image327}
-      />
+      <Image src={assets("1686621807428svg")} alt={""} className={styles.image327} />
     </Box>
   );
 }

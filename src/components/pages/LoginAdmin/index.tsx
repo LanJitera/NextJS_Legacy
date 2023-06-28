@@ -59,115 +59,105 @@ function LoginAdminPage(props: LoginAdminPageProps): JSX.Element {
   };
   return (
     <Page className={styles.page_container}>
-    <Box className={styles.header11}>
-      <Image
-        src={assets("16867118351071i0i3jhzu13af58qoc1bzf4xl9phpng")}
-        alt={""}
-        className={styles.image_1}
-      />
-      <Box className={styles.box_3}>
-        <Box className={styles.form_1}>
-          <Text className={styles.form_1_name} textType="Text">
-            {t("login_user.form_1_name")}
-          </Text>
-          <Box className={styles.input_1_container}>
-            <Box className={styles.box_1}>
-              <Text className={styles.text_1} textType="Text">
-                {t("login_user.text_1")}
-              </Text>
-              <Text className={styles.text_2} textType="Text">
-                *
-              </Text>
-            </Box>
-            <Controller
-              control={formForm1.control}
-              render={({
-                field: { onChange, onBlur, value },
-                fieldState: { isTouched, error },
-              }: any) => {
-                return (
-                  <Input
-                    inputStyle={styles.input_email_input}
-                    placeholder={t("login_user.input_1")}
-                    className={styles.input_email}
-                    onChange={onChange}
-                    value={value}
-                  />
-                );
-              }}
-              name="input_email"
-            />
-            <Box className={styles.input_1_error_message_container}>
-              <Text
-                className={styles.input_1_error_message_text}
-                textType="Text"
-              >
-                {get(formForm1Errors, "input_email.message")}
-              </Text>
-            </Box>
-          </Box>
-          <Box className={styles.input_2_container}>
+      <Box className={styles.box_2}>
+        <Image
+          src={assets("16867118351071i0i3jhzu13af58qoc1bzf4xl9phpng")}
+          alt={""}
+          className={styles.image_1}
+        />
+        <Box className={styles.box_0}>
+          <Box className={styles.form_1}>
+            <Text className={styles.text_1} textType="Text">
+              {t("login_user.form_1_name")}
+            </Text>
             <Box className={styles.box_2}>
-              <Text className={styles.text_3} textType="Text">
-                {t("login_user.text_3")}
-              </Text>
-              <Text className={styles.text_4} textType="Text">
-                *
-              </Text>
+              <Box className={styles.box_3}>
+                <Text className={styles.text_0} textType="Text">
+                  {t("login_admin.text_0")}
+                </Text>
+                <Text className={styles.text_2} textType="Text">
+                  {t("login_admin.text_2")}
+                </Text>
+              </Box>
+              <Controller
+                control={formForm1.control}
+                render={({
+                  field: { onChange, onBlur, value },
+                  fieldState: { isTouched, error },
+                }: any) => {
+                  return (
+                    <Input
+                      inputStyle={styles.input_email_input}
+                      placeholder={t("login_admin.input_1")}
+                      className={styles.input_email}
+                      onChange={onChange}
+                      value={value}
+                    />
+                  );
+                }}
+                name="input_email"
+              />
+              <Box className={styles.box_4}>
+                <Text className={styles.text_3} textType="Text">
+                  {get(formForm1Errors, "input_email.message")}
+                </Text>
+              </Box>
             </Box>
-            <Controller
-              control={formForm1.control}
-              render={({
-                field: { onChange, onBlur, value },
-                fieldState: { isTouched, error },
-              }: any) => {
-                return (
-                  <Input
-                    inputStyle={styles.input_password_input}
-                    isPasswordField
-                    placeholder={t("login_user.input_2")}
-                    className={styles.input_password}
-                    onChange={onChange}
-                    value={value}
-                  />
-                );
-              }}
-              name="input_password"
-            />
-            <Box className={styles.input_2_error_message_container}>
-              <Text
-                className={styles.input_2_error_message_text}
-                textType="Text"
-              >
-                {get(formForm1Errors, "input_password.message")}
-              </Text>
+            <Box className={styles.box_5}>
+              <Box className={styles.box_6}>
+                <Text className={styles.text_4} textType="Text">
+                  {t("login_admin.text_4")}
+                </Text>
+                <Text className={styles.text_5} textType="Text">
+                  *
+                </Text>
+              </Box>
+              <Controller
+                control={formForm1.control}
+                render={({
+                  field: { onChange, onBlur, value },
+                  fieldState: { isTouched, error },
+                }: any) => {
+                  return (
+                    <Input
+                      inputStyle={styles.input_password_input}
+                      isPasswordField
+                      placeholder={t("login_admin.input_0")}
+                      className={styles.input_password}
+                      onChange={onChange}
+                      value={value}
+                    />
+                  );
+                }}
+                name="input_password"
+              />
+              <Box className={styles.box_7}>
+                <Text className={styles.text_6} textType="Text">
+                  {get(formForm1Errors, "input_password.message")}
+                </Text>
+              </Box>
             </Box>
-          </Box>
-          <Button
-            buttonType="primary"
-            className={styles.form_1_button}
-            onClick={formForm1.handleSubmit(handleButton1)}
-          >
-            <Text className={styles.form_1_text_0} textType="Text">
-              {t("login_user.form_1_text_0")}
-            </Text>
-          </Button>
-          <Box className={styles.box_7}>
-            <Text className={styles.text_5} textType="Text">
-              {t("login_user.text_5")}
-            </Text>
-            <Text
-              href={"/User/sign-up"}
-              className={styles.text_register}
-              textType="Link"
+            <Button
+              buttonType="primary"
+              className={styles.button_1}
+              onClick={formForm1.handleSubmit(handleButton1)}
             >
-              {t("login_user.text_6")}
-            </Text>
+              <Text className={styles.text_7} textType="Text">
+                {t("login_admin.text_7")}
+              </Text>
+            </Button>
+            <Box className={styles.box_8}>
+              <Text className={styles.text_8} textType="Text">
+                {t("login_user.text_5")}
+              </Text>
+              <Text href={"/NewUser/sign-up"} className={styles.text_9} textType="Link">
+                {t("login_user.text_6")}
+              </Text>
+            </Box>
           </Box>
         </Box>
       </Box>
-    </Box>
-  </Page>
+    </Page>
   );
 }
 export default LoginAdminPage;
