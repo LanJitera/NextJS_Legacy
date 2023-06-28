@@ -10,7 +10,7 @@ export const DefaultGetApiPartybookingsQueryKey: [string, string, string] = [
 export type FetchGetApiPartybookingsRequestBody = {
   pagination_page: number;
   pagination_limit: number;
-  partybookings: { user_id?: string; party_id?: string; status?: string };
+  partybookings: { user_id?: string; party_id?: string; status?: string; username?: string };
 };
 export type FetchGetApiPartybookingsResponseBody = {
   total_pages: number;
@@ -18,17 +18,26 @@ export type FetchGetApiPartybookingsResponseBody = {
     id?: number;
     created_at?: Date;
     updated_at?: Date;
-    user?: { id?: number; created_at?: Date; updated_at?: Date };
-    user_id?: string;
-    party?: {
+    user?: {
       id?: number;
       created_at?: Date;
       updated_at?: Date;
+      name?: string;
+      email?: string;
+      dateofbirth?: Date;
+    };
+    user_id?: string;
+    party?: {
+      id?: number;
       nameparty?: string;
       partystarttime?: Date;
       partylocation?: string;
       numberofpeople?: number;
       isstatus?: boolean;
+      img?: any;
+      describe?: string;
+      requiredage?: number;
+      admin_id?: string;
     };
     party_id?: string;
     status?: boolean;
@@ -37,12 +46,7 @@ export type FetchGetApiPartybookingsResponseBody = {
 
 export const fetchGetApiPartybookings = async (
   context: QueryFunctionContext<
-    [
-      string,
-      string,
-      string,
-      Partial<FetchGetApiPartybookingsRequestBody> | undefined
-    ]
+    [string, string, string, Partial<FetchGetApiPartybookingsRequestBody> | undefined]
   >
 ): Promise<FetchGetApiPartybookingsResponseBody> => {
   return serviceFetch({
@@ -62,7 +66,14 @@ export type FetchGetApiPartybookingsIdResponseBody = {
     id?: number;
     created_at?: Date;
     updated_at?: Date;
-    user?: { id?: number; created_at?: Date; updated_at?: Date };
+    user?: {
+      id?: number;
+      created_at?: Date;
+      updated_at?: Date;
+      name?: string;
+      email?: string;
+      dateofbirth?: Date;
+    };
     user_id?: string;
     party?: {
       id?: number;
@@ -81,12 +92,7 @@ export type FetchGetApiPartybookingsIdResponseBody = {
 
 export const fetchGetApiPartybookingsId = async (
   context: QueryFunctionContext<
-    [
-      string,
-      string,
-      string,
-      Partial<FetchGetApiPartybookingsIdRequestBody> | undefined
-    ]
+    [string, string, string, Partial<FetchGetApiPartybookingsIdRequestBody> | undefined]
   >
 ): Promise<FetchGetApiPartybookingsIdResponseBody> => {
   return serviceFetch({
