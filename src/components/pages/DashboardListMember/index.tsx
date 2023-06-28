@@ -47,6 +47,8 @@ function DashboardListMemberPage(
   const getApiPartybookingsResult = getApiPartybookingsInstance.useQuery({
     partybookings: { party_id: props?.query?.partybookingId },
   });
+  console.log(getApiPartybookingsResult);
+  
   const validationForm1Schema = useMemo(() => yup.object().shape({}), []);
   const formForm1 = useForm<Form1FormData>({
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -57,7 +59,7 @@ function DashboardListMemberPage(
     reValidateMode: "onChange",
   });
   const { errors: formForm1Errors } = formForm1.formState;
-  
+
   useEffect(() => {
     formForm1.reset({});
   }, []);
@@ -72,15 +74,7 @@ function DashboardListMemberPage(
   //   console.log(newData, "newdata here");
 
   // }, [get(getApiPartybookingsResult, "data.partybookings")]);
-  const columnsTable1 = useMemo<TableColumnDefinition<any>[]>(
-    () => [
-      { path: "name", name: "Name", sortable: false },
-      { path: "email", name: "Email", sortable: false },
-      { path: "dateofbirth", name: "Dateofbirth", sortable: false },
-      { path: "status", name: "Status", sortable: false },
-    ],
-    []
-  );
+
   //table ant design
   const columns = [
     {
@@ -104,7 +98,7 @@ function DashboardListMemberPage(
       dataIndex: "status",
       render: (status) => {
         let color =
-        status === "Approve"
+          status === "Approve"
             ? "green"
             : status === "Reject"
             ? "red"
@@ -142,9 +136,7 @@ function DashboardListMemberPage(
         </Space>
       ),
     },
-  
   ];
-
 
   const handleApproveUser = async (record) => {
     try {
@@ -153,11 +145,11 @@ function DashboardListMemberPage(
           id: record.id,
           partybookings: {
             user_id: record.user.id,
-            party_id:record.party_id,
+            party_id: record.party_id,
             status: "Approve",
           },
         });
-        
+
       Toast.success("Cập nhật thành công" || "");
       NewModal.hide();
     } catch (e: unknown) {
@@ -172,7 +164,7 @@ function DashboardListMemberPage(
           id: record.id,
           partybookings: {
             user_id: record.user.id,
-            party_id:record.party_id,
+            party_id: record.party_id,
             status: "Reject",
           },
         });
@@ -207,22 +199,18 @@ function DashboardListMemberPage(
       />
     );
   };
-  const handleButton1 = async (values?: Form1FormData) => {
+  const handleFilterUserName = async (values?: Form1FormData) => {
     try {
-      const responseGetApiParties = await getApiPartiesInstance.fetch({
-        parties: {
-          nameparty: get(values, "input_nameParty", ""),
-          partylocation: get(values, "input_location", ""),
-          isstatus:
-            get(values, "select_status") === "All"
-              ? undefined
-              : get(values, "select_status", undefined),
+      const responseGetApiParties = await getApiPartybookingsInstance.fetch({
+        partybookings: {
+          party_id: props?.query?.partybookingId,
+          username: get(values, "input_userName", ""),
         },
       });
+      console.log(responseGetApiParties);
     } catch (e: unknown) {}
   };
-  console.log(props);
-  
+
   return (
     <Page className={styles.page_container}>
       <DashboardNavbar className={styles.dashboardnavbar_1} />
@@ -244,15 +232,14 @@ function DashboardListMemberPage(
               <Box className={styles.dashboard_content}>
                 <Box className={styles.dashboard_content_title}>
                   <Box className={styles.box_7}>
-                  <Text className={styles.text_9} textType="Text">
-                    List Member (
-                    {
-                      getApiPartybookingsResult?.data?.partybookings?.[0].party
-                        ?.nameparty
-                    }
-                    )
-                  </Text>
-
+                    <Text className={styles.text_9} textType="Text">
+                      List Member (
+                      {
+                        getApiPartybookingsResult?.data?.partybookings?.[0]
+                          .party?.nameparty
+                      }
+                      )
+                    </Text>
                   </Box>
                   <Box className={styles.form_1}>
                     <Controller
@@ -271,12 +258,12 @@ function DashboardListMemberPage(
                           />
                         );
                       }}
-                      name="input_nameParty"
+                      name="input_userName"
                     />
                     <Button
                       buttonType="primary"
                       className={styles.button_1}
-                      onClick={formForm1.handleSubmit(handleButton1)}
+                      onClick={formForm1.handleSubmit(handleFilterUserName)}
                     >
                       Search
                     </Button>
