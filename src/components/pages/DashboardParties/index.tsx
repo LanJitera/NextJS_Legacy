@@ -61,6 +61,7 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
   useEffect(() => {
     formForm1.reset({});
   }, []);
+console.log(getApiPartiesResult);
 
   //table ant design
   const columns = [
@@ -135,16 +136,16 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <a onClick={() => handleOpenModal(record)}>Delete</a>
+          <a onClick={() => handleOpenModalDelete(record)}>Delete</a>
         </Space>
       ),
     },
     {
       title: "Edit",
       key: "action",
-      render: () => (
+      render: (_, record) => (
         <Space size="middle">
-          <a>Edit</a>
+         <a onClick={() => navigateParties(record)}>Edit</a>
         </Space>
       ),
     },
@@ -156,7 +157,6 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
           <a
             onClick={
               () => navigateListMember(record.id)
-              // console.log(record.id)
             }
           >
             List member
@@ -166,7 +166,7 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
     },
   ];
 
-  const handleOpenModal = (record) => {
+  const handleOpenModalDelete = (record) => {
     NewModal.show(
       <ModalMolecule
         labelMain="Bạn có muốn xoá không ?"
@@ -178,6 +178,7 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
       />
     );
   };
+
 
   const handlePaginationTable1 = async (
     pageIndex?: number,
@@ -191,9 +192,9 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
     } catch (e: unknown) {}
   };
 
-  const navigateParties = async () => {
+  const navigateParties = async (record) => {
     try {
-      navigateService.navigate("/newAdmin/dashboard/parties/:partyId");
+      navigateService.navigate(`/newAdmin/dashboard/parties/${record.id}`);
     } catch (e: unknown) {}
   };
   const navigateListMember = async (id) => {
@@ -347,6 +348,9 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
                     <Table
                       columns={columns}
                       dataSource={get(getApiPartiesResult, "data.parties")}
+                      scroll={{
+                        x: 1500
+                      }}
                     />
                   </Box>
                 </Box>

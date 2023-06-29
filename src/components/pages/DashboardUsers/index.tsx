@@ -54,7 +54,7 @@ function DashboardUsersPage(props: DashboardUsersPageProps): JSX.Element {
     reValidateMode: "onChange",
   });
   const { errors: formForm1Errors } = formForm1.formState;
-
+  
   useEffect(() => {
     formForm1.reset({});
   }, []);
@@ -102,7 +102,7 @@ function DashboardUsersPage(props: DashboardUsersPageProps): JSX.Element {
       key: "Reject ",
       render: (_, record) => (
         <Space size="middle">
-          <a onClick={() => navigateUserDetail(record)}>Reject </a>
+          <a onClick={() => navigateUserDetail(record)}>Edit </a>
         </Space>
       ),
     },
@@ -121,8 +121,7 @@ function DashboardUsersPage(props: DashboardUsersPageProps): JSX.Element {
   };
   const navigateUserDetail = async (record) => {
     try {
-      navigateService.navigate(`/newAdmin/dashboard/users/${record.id}`,record);
-      // console.log(record);
+      navigateService.navigate(`/newAdmin/dashboard/users/${record.id}`);
     } catch (e: unknown) {}
   };
   const handleButtonSearch = async (values?: Form1FormData) => {
@@ -130,7 +129,7 @@ function DashboardUsersPage(props: DashboardUsersPageProps): JSX.Element {
       const responseGetApiUsers = await getApiUsersInstance.fetch({
         users: { username: get(values, "input_userName", "") },
       });
-      console.log(responseGetApiUsers);
+
       
     } catch (e: unknown) {}
   };
@@ -219,6 +218,9 @@ function DashboardUsersPage(props: DashboardUsersPageProps): JSX.Element {
                     <Table
                       columns={columns}
                       dataSource={get(getApiUsersResult, "data.users")}
+                      scroll={{
+                        x: 1500
+                      }}
                     />
                   </Box>
                 </Box>

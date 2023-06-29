@@ -48,9 +48,8 @@ function DashboardListMemberPage(
     partybookings: { party_id: props?.query?.partybookingId },
   });
 
+  console.log(getApiPartybookingsResult);
 
-
-  
   const validationForm1Schema = useMemo(() => yup.object().shape({}), []);
   const formForm1 = useForm<Form1FormData>({
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -236,10 +235,11 @@ function DashboardListMemberPage(
                   <Box className={styles.box_7}>
                     <Text className={styles.text_9} textType="Text">
                       List Member (
-                      {
-                        getApiPartybookingsResult?.data?.partybookings?.[0]
-                          .party?.nameparty
-                      }
+                      {get(
+                        getApiPartybookingsResult,
+                        "data.partybookings[0].party.nameparty",
+                        ""
+                      )}
                       )
                     </Text>
                   </Box>

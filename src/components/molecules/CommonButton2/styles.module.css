@@ -27,11 +27,11 @@
   width: 100%;
 }
 .text26 {
-  color: black;
+  color: rgb(253, 253, 253);
   flex: none;
   flex-grow: 1px;
   font-family: Noto Sans JP;
-  font-size: 16px;
+  font-size: 26px;
   font-weight: 500;
   line-height: 100%;
   position: relative;

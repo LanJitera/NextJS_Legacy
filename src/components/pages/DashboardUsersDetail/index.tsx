@@ -21,34 +21,58 @@ import {
   Toast,
 } from "@jitera/jitera-web-ui-library";
 import styles from "./styles.module.css";
+import { useUserService } from "@services/user";
+import { log } from "console";
+import { useNavigateService } from "@services/navigate";
 type DashboardUsersDetailPageProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
 };
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface Form1FormData {
+  Id: number;
   input_userName: string;
   input_Email: string;
   input_Password: string;
   datetimepicker_1: string;
   password_confirmation: string;
 }
-function DashboardUsersDetailPage(props: DashboardUsersDetailPageProps): JSX.Element {
+function DashboardUsersDetailPage(
+  props: DashboardUsersDetailPageProps
+): JSX.Element {
   const { t } = useTranslation("web");
+  const userId = props.query?.userId;
   const authenticationService = useAuthenticationService();
+  const userService = useUserService();
+  const getApiUsersInstance = userService.useGetApiUsersId();
+
+   const getApiUsersResult = getApiUsersInstance.useQuery({
+      id: get(props, "query.userId"),
+    });
+
+
+  const navigateService = useNavigateService();
   const validationForm1Schema = useMemo(
     () =>
       yup.object().shape({
-        input_userName: yup.string().required("input_userName is a required field"),
-        input_Email: yup.string().email().required("input_Email is a required field"),
-        input_Password: yup.string().required("input_Password is a required field"),
+        input_userName: yup
+          .string()
+          .required("input_userName is a required field"),
+        input_Email: yup
+          .string()
+          .email()
+          .required("input_Email is a required field"),
+        input_Password: yup.string().when("userId", {
+          is: "undefined",
+          then: yup.string().required("input_Password is a required field"),
+          otherwise: yup.string(),
+        }),
         password_confirmation: yup
-        .string()
-        .oneOf([yup.ref("input_Password"), null], "Passwords must match"),
+          .string()
+          .oneOf([yup.ref("input_Password"), null], "Passwords must match"),
       }),
-    []
+    [props.query?.userId]
   );
-  console.log(props?.query?.userId)
   const formForm1 = useForm<Form1FormData>({
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
@@ -60,12 +84,20 @@ function DashboardUsersDetailPage(props: DashboardUsersDetailPageProps): JSX.Ele
   const { errors: formForm1Errors } = formForm1.formState;
 
   useEffect(() => {
-  if(props?.query?.userId === undefined){
-    formForm1.setValue('input_userName', props.query.userId);
-  }else{
-    formForm1.reset({});
-  }
-  }, [props?.query?.userId]);
+    if (props?.query?.userId === "undefined") {
+      formForm1.reset({});
+    } else {
+      formForm1.setValue(
+        "input_userName",
+        getApiUsersResult?.data?.user?.username
+      );
+      formForm1.setValue("input_Email", getApiUsersResult?.data?.user?.email);
+      formForm1.setValue(
+        "datetimepicker_1",
+        getApiUsersResult?.data?.user?.dateofbirth
+      );
+    }
+  }, [props?.query?.userId, getApiUsersResult?.isSuccess, getApiUsersResult?.data]);
   const handleRegiter = async (values?: Form1FormData) => {
     try {
       await authenticationService.signupWithEmail("users", {
@@ -78,22 +110,58 @@ function DashboardUsersDetailPage(props: DashboardUsersDetailPageProps): JSX.Ele
         },
       });
       Toast.success("Sign Up Success" || "");
+      navigateService.navigate("/newAdmin/dashboard/users");
     } catch (e: unknown) {
       Toast.error("Registration failed" || "");
     }
+  };
+
+  const handleEdit = async (values?: Form1FormData) => {
+    try {
+      console.log(props.query?.userId);
+
+      const EditUser = await userService.putApiUsersId.fetch({
+        id: props?.query?.userId,
+        users: {
+          isactive: true,
+          username: get(values, "input_userName", ""),
+          dateofbirth: get(values, "datetimepicker_1", ""),
+          email: get(values, "input_Email", ""),
+        },
+      });
+      Toast.success("Edit Success" || "");
+      navigateService.navigate("/newAdmin/dashboard/users");
+    } catch (e: unknown) {
+      Toast.error("Edit failed" || "");
+    }
+  };
+  const navigateGoback = () => {
+    navigateService.goBack();
   };
   return (
     <Page className={styles.page_container}>
       <DashboardNavbar className={styles.dashboardnavbar_1} />
       <Box className={styles.dashboard_main}>
         <Box className={styles.dashboard_main_wrapper}>
-          <Row align="top" gutter={[30, 30]} justify="start" className={styles.row_1}>
+          <Row
+            align="top"
+            gutter={[30, 30]}
+            justify="start"
+            className={styles.row_1}
+          >
             <Col md={Number(24)} xl={Number(24)} xs={Number(24)}>
               <Box className={styles.dashboard_content}>
                 <Box className={styles.dashboard_content_title}>
                   <Text className={styles.text_9} textType="Text">
                     Users Detail
                   </Text>
+                  <Button
+                    buttonType="primary"
+                    className={styles.button_back}
+                    onClick={navigateGoback}
+                  >
+                    Back
+                  </Button>
                 </Box>
                 <Box className={styles.dashboard_content_filter_table}>
                   <Box className={styles.box_1}>
@@ -153,7 +221,7 @@ function DashboardUsersDetailPage(props: DashboardUsersDetailPageProps): JSX.Ele
                               <Input
                                 inputStyle={styles.input_email_input}
                                 // placeholder={t("dashboard_users_detail.input_0")}
-                                 placeholder="Email"
+                                placeholder="Email"
                                 className={styles.input_email}
                                 onChange={onChange}
                                 value={value}
@@ -168,74 +236,83 @@ function DashboardUsersDetailPage(props: DashboardUsersDetailPageProps): JSX.Ele
                           </Text>
                         </Box>
                       </Box>
-                      <Box className={styles.box_9}>
-                        <Box className={styles.box_10}>
-                          <Text className={styles.text_7} textType="Text">
-                            {t("sign_up.text_10")}
-                          </Text>
-                          <Text className={styles.text_8} textType="Text">
-                            *
-                          </Text>
-                        </Box>
-                        <Controller
-                          control={formForm1.control}
-                          render={({
-                            field: { onChange, onBlur, value },
-                            fieldState: { isTouched, error },
-                          }: any) => {
-                            return (
-                              <Input
-                                inputStyle={styles.input_password_input}
-                                isPasswordField
-                                placeholder={t("sign_up.input_2")}
-                                className={styles.input_password}
-                                onChange={onChange}
-                                value={value}
-                              />
-                            );
-                          }}
-                          name="input_Password"
-                        />
-                        <Box className={styles.box_11}>
-                          <Text className={styles.text_10} textType="Text">
-                            {get(formForm1Errors, "input_Password.message")}
-                          </Text>
-                        </Box>
-                      </Box>
-                      <Box className={styles.box_9}>
-                        <Box className={styles.box_10}>
-                          <Text className={styles.text_7} textType="Text">
-                            {t("sign_up.text_11")}
-                          </Text>
-                          <Text className={styles.text_8} textType="Text">
-                            *
-                          </Text>
-                        </Box>
-                        <Controller
-                          control={formForm1.control}
-                          render={({
-                            field: { onChange, onBlur, value },
-                            fieldState: { isTouched, error },
-                          }: any) => {
-                            return (
-                              <Input
-                                inputStyle={styles.input_password_input}
-                                isPasswordField
-                                placeholder={t("sign_up.input_2")}
-                                className={styles.input_password}
-                                onChange={onChange}
-                                value={value}
-                              />
-                            );
-                          }}
-                          name="password_confirmation"
-                        />
-                        <Box className={styles.box_11}>
-                          <Text className={styles.text_10} textType="Text">
-                            {get(formForm1Errors, "password_confirmation.message")}
-                          </Text>
-                        </Box>
-                      </Box>
+                      {props?.query?.userId === "undefined" ? (
+                        <>
+                          <Box className={styles.box_9}>
+                            <Box className={styles.box_10}>
+                              <Text className={styles.text_7} textType="Text">
+                                {t("sign_up.text_10")}
+                              </Text>
+                              <Text className={styles.text_8} textType="Text">
+                                *
+                              </Text>
+                            </Box>
+                            <Controller
+                              control={formForm1.control}
+                              render={({
+                                field: { onChange, onBlur, value },
+                                fieldState: { isTouched, error },
+                              }: any) => {
+                                return (
+                                  <Input
+                                    inputStyle={styles.input_password_input}
+                                    isPasswordField
+                                    placeholder={t("sign_up.input_2")}
+                                    className={styles.input_password}
+                                    onChange={onChange}
+                                    value={value}
+                                  />
+                                );
+                              }}
+                              name="input_Password"
+                            />
+                            <Box className={styles.box_11}>
+                              <Text className={styles.text_10} textType="Text">
+                                {get(formForm1Errors, "input_Password.message")}
+                              </Text>
+                            </Box>
+                          </Box>
+                          <Box className={styles.box_9}>
+                            <Box className={styles.box_10}>
+                              <Text className={styles.text_7} textType="Text">
+                                {t("sign_up.text_11")}
+                              </Text>
+                              <Text className={styles.text_8} textType="Text">
+                                *
+                              </Text>
+                            </Box>
+                            <Controller
+                              control={formForm1.control}
+                              render={({
+                                field: { onChange, onBlur, value },
+                                fieldState: { isTouched, error },
+                              }: any) => {
+                                return (
+                                  <Input
+                                    inputStyle={styles.input_password_input}
+                                    isPasswordField
+                                    placeholder={t("sign_up.input_2")}
+                                    className={styles.input_password}
+                                    onChange={onChange}
+                                    value={value}
+                                  />
+                                );
+                              }}
+                              name="password_confirmation"
+                            />
+                            <Box className={styles.box_11}>
+                              <Text className={styles.text_10} textType="Text">
+                                {get(
+                                  formForm1Errors,
+                                  "password_confirmation.message"
+                                )}
+                              </Text>
+                            </Box>
+                          </Box>
+                        </>
+                      ) : (
+                        ""
+                      )}
                       <Box className={styles.box_12}>
                         <Box className={styles.box_13}>
                           <Box className={styles.box_14}>
@@ -271,15 +348,27 @@ function DashboardUsersDetailPage(props: DashboardUsersDetailPageProps): JSX.Ele
                           </Text>
                         </Box>
                       </Box>
-                      <Button
-                        buttonType="primary"
-                        className={styles.button_1}
-                        onClick={formForm1.handleSubmit(handleRegiter)}
-                      >
-                        <Text className={styles.text_14} textType="Text">
-                          {t("sign_up.text_13")}
-                        </Text>
-                      </Button>
+                      {props?.query?.userId === "undefined" ? (
+                        <Button
+                          buttonType="primary"
+                          className={styles.button_1}
+                          onClick={formForm1.handleSubmit(handleRegiter)}
+                        >
+                          <Text className={styles.text_14} textType="Text">
+                            {t("sign_up.text_13")}
+                          </Text>
+                        </Button>
+                      ) : (
+                        <Button
+                          buttonType="primary"
+                          className={styles.button_1}
+                          onClick={formForm1.handleSubmit(handleEdit)}
+                        >
+                          <Text className={styles.text_14} textType="Text">
+                            Edit
+                          </Text>
+                        </Button>
+                      )}
                     </Box>
                   </Box>
                 </Box>
