@@ -18,6 +18,15 @@ export async function getServerSideProps(context: NextPageContext) {
       },
     };
   }
+  if (!session?.user?.authenticatedOwner) {
+    return {
+      redirect: {
+        destination: "/User/home",
+        permanent: false,
+      },
+    };
+  }
+  
 
   return {
     ...options,

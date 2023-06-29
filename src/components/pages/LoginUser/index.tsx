@@ -83,7 +83,8 @@ function LoginUserPage(props: LoginUserPageProps): JSX.Element {
             <Box className={styles.input_1_container}>
               <Box className={styles.box_1}>
                 <Text className={styles.text_1} textType="Text">
-                  {t("login_user.text_1")}
+                  {/* {t("login_user.text_1")} */}
+                  Email
                 </Text>
                 <Text className={styles.text_2} textType="Text">
                   *

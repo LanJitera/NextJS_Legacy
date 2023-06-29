@@ -61,7 +61,7 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
   useEffect(() => {
     formForm1.reset({});
   }, []);
-console.log(getApiPartiesResult);
+console.log(props.session.user.authenticatedOwner);
 
   //table ant design
   const columns = [

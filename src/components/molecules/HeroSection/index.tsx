@@ -40,9 +40,11 @@ function HeroSectionMolecule(props: HeroSectionMoleculeProps): JSX.Element {
   const handleWebscreen = () => {
     navigation.navigate('/User/home');
   };
-  function deleteCookie(name) {
-    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-  }
+  const handleLogOut = async () => {
+    try {
+      await authenticationService.logout();
+    } catch (e: unknown) {}
+  };
   
   
   return (
@@ -81,7 +83,7 @@ function HeroSectionMolecule(props: HeroSectionMoleculeProps): JSX.Element {
                   href={"/User/login"}
                   className={styles.text_0}
                   textType="Link"
-
+                  onClick={handleLogOut}
                   // onClick={()=>{deleteCookie("next-auth.session-token");}}
 
                 >
