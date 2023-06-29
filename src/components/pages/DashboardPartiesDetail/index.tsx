@@ -11,7 +11,7 @@ import DashboardFooter from "@components/molecules/DashboardFooter";
 import { useTranslation } from "next-i18next";
 import { usePartyService } from "@services/party";
 import { useNavigateService } from "@services/navigate";
-import { Modal as NewModal } from "../../../../libraries/jitera-web-ui-library/src/components/atoms/Modal/Modal.component";
+import Modal from "@components/molecules/Modal";
 import {
   Page,
   Box,
@@ -71,28 +71,30 @@ function DashboardPartiesDetailPage(props: DashboardPartiesDetailPageProps): JSX
   const { errors: formForm1Errors } = formForm1.formState;
 
   useEffect(() => {
-    formForm1.reset({});
-  }, []);
+    formForm1.reset({
+      input_NameParty: get(props, "query.IdParty"),
+    });
+  }, [props]);
 
   const handleButton2 = async () => {
     try {
       navigateService.goBack();
     } catch (e: unknown) {}
   };
-  // const handleButton3 = async () => {
-  //   try {
-  //     Modal.show(
-  //       <Modal
-  //         onYes={handleOnYesButton3}
-  //         onNo={handleOnNoButton3}
-  //         labelMain="Bạn có muốn xoá ?"
-  //         labelDec
-  //         id
-  //       />,
-  //       { position: "default" }
-  //     );
-  //   } catch (e: unknown) {}
-  // };
+  const handleButton3 = async () => {
+    try {
+      Modal.show(
+        <Modal
+          onYes={handleOnYesButton3}
+          onNo={handleOnNoButton3}
+          labelMain="Bạn có muốn xoá ?"
+          labelDec
+          id
+        />,
+        { position: "default" }
+      );
+    } catch (e: unknown) {}
+  };
   const handleImagepicker1Text0 = async (values?: Form1FormData) => {
     // TODO: handle logic
   };
@@ -117,7 +119,7 @@ function DashboardPartiesDetailPage(props: DashboardPartiesDetailPageProps): JSX
   return (
     <Page className={styles.page_container}>
       <DashboardNavbar className={styles.dashboardnavbar_1} />
-      {/* <Box className={styles.dashboard_main}>
+      <Box className={styles.dashboard_main}>
         <Box className={styles.dashboard_main_wrapper}>
           <Row align="top" gutter={[30, 30]} justify="start" className={styles.row_1}>
             <Col md={Number(24)} xl={Number(24)} xs={Number(24)}>
@@ -231,8 +233,7 @@ function DashboardPartiesDetailPage(props: DashboardPartiesDetailPageProps): JSX
                                     }: any) => {
                                       return (
                                         <DateTimePicker
-                                
-                                          format="MM/dd/yyyy"
+                                          /*TODO: generate error key: defaultValue*/ format="MM/dd/yyyy"
                                           picker="date"
                                           showTime
                                           className={styles.datetimepicker_1}
@@ -445,7 +446,7 @@ function DashboardPartiesDetailPage(props: DashboardPartiesDetailPageProps): JSX
             </Col>
           </Row>
         </Box>
-      </Box> */}
+      </Box>
       <DashboardFooter className={styles.dashboardfooter_1} />
     </Page>
   );

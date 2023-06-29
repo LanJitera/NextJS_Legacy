@@ -247,10 +247,7 @@ export const mutatePutApiPartiesId = async (
     data: body,
   });
 };
-export type MutateDeleteApiPartiesIdRequestBody = {
-  id: string;
-  parties: { partylocation?: string; nameparty?: string; img?: any };
-};
+export type MutateDeleteApiPartiesIdRequestBody = { id: string };
 export type MutateDeleteApiPartiesIdResponseBody = {};
 
 export const mutateDeleteApiPartiesId = async (

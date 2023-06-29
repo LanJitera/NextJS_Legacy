@@ -31,10 +31,10 @@
   flex-direction: column;
   flex-grow: 0px;
   gap: 24px;
-  height: auto;
+  height: 386px;
   justify-content: center;
   position: relative;
-  width: 100%;
+  width: 1280px;
 }
 .box_10 {
   align-items: center;
@@ -46,8 +46,7 @@
   height: 35px;
   justify-content: center;
   position: relative;
-  width: 100%;
-  margin-top: 25px;
+  width: 1280px;
 }
 .box_11 {
   display: flex;
@@ -56,7 +55,7 @@
   flex-grow: 1px;
   height: 35px;
   position: relative;
-  width: 102px;
+  width: 1105px;
 }
 .text_5 {
   align-content: center;
@@ -101,5 +100,4 @@
   justify-content: flex-start;
   position: relative;
   width: 100%;
-  margin-top: 423px;
 }

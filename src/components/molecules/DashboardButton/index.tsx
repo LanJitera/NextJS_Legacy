@@ -10,9 +10,7 @@ type DashboardButtonMoleculeProps = DefaultPageProps & {
   label?: string;
   onClick?: () => any;
 };
-function DashboardButtonMolecule(
-  props: DashboardButtonMoleculeProps
-): JSX.Element {
+function DashboardButtonMolecule(props: DashboardButtonMoleculeProps): JSX.Element {
   const handleBox1 = async () => {
     try {
       const { onClick } = props;

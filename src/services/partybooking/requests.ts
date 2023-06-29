@@ -10,7 +10,7 @@ export const DefaultGetApiPartybookingsQueryKey: [string, string, string] = [
 export type FetchGetApiPartybookingsRequestBody = {
   pagination_page: number;
   pagination_limit: number;
-  partybookings: { user_id?: string; party_id?: string; status?: string; username?: string };
+  partybookings: { user_id?: string; party_id?: string; status?: string };
 };
 export type FetchGetApiPartybookingsResponseBody = {
   total_pages: number;

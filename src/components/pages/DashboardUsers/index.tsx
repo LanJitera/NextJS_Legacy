@@ -59,13 +59,13 @@ function DashboardUsersPage(props: DashboardUsersPageProps): JSX.Element {
     () => [
       { path: "id", name: "Id", sortable: false },
       { path: "username", name: "Username", sortable: false },
-      { path: "email", name: "Email", sortable: false },
-      { path: "dateofbirth", name: "Dateofbirth", sortable: false },
       { path: "created_at", name: "Created At", sortable: false },
       { path: "updated_at", name: "Updated At", sortable: false },
       { path: "created_at", name: "Created At", sortable: false },
       { path: "updated_at", name: "Updated At", sortable: false },
       { path: "isactive", name: "Isactive", sortable: false },
+      { path: "dateofbirth", name: "Dateofbirth", sortable: false },
+      { path: "email", name: "Email", sortable: false },
     ],
     []
   );
@@ -172,7 +172,7 @@ function DashboardUsersPage(props: DashboardUsersPageProps): JSX.Element {
                         textAlign: "left",
                         whiteSpace: "nowrap",
                       }}
-                      data={get(getApiUsersResult, "data.users")}
+                      data={undefined}
                       footerColumnStyle={{
                         backgroundColor: "#fff",
                         borderColor: "#000",
