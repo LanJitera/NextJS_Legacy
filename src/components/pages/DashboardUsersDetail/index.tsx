@@ -31,6 +31,7 @@ interface Form1FormData {
   input_Email: string;
   input_Password: string;
   datetimepicker_1: string;
+  password_confirmation: string;
 }
 function DashboardUsersDetailPage(props: DashboardUsersDetailPageProps): JSX.Element {
   const { t } = useTranslation("web");
@@ -41,9 +42,13 @@ function DashboardUsersDetailPage(props: DashboardUsersDetailPageProps): JSX.Ele
         input_userName: yup.string().required("input_userName is a required field"),
         input_Email: yup.string().email().required("input_Email is a required field"),
         input_Password: yup.string().required("input_Password is a required field"),
+        password_confirmation: yup
+        .string()
+        .oneOf([yup.ref("input_Password"), null], "Passwords must match"),
       }),
     []
   );
+  console.log(props?.query?.userId)
   const formForm1 = useForm<Form1FormData>({
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
@@ -55,14 +60,22 @@ function DashboardUsersDetailPage(props: DashboardUsersDetailPageProps): JSX.Ele
   const { errors: formForm1Errors } = formForm1.formState;
 
   useEffect(() => {
+  if(props?.query?.userId === undefined){
+    formForm1.setValue('input_userName', props.query.userId);
+  }else{
     formForm1.reset({});
-  }, []);
-
-  const handleButton1 = async (values?: Form1FormData) => {
+  }
+  }, [props?.query?.userId]);
+  const handleRegiter = async (values?: Form1FormData) => {
     try {
-      await authenticationService.signupWithEmail("admins", {
-        email: get(values, "input_Email", ""),
-        password: get(values, "input_Password", ""),
+      await authenticationService.signupWithEmail("users", {
+        user: {
+          password: get(values, "input_Password", ""),
+          password_confirmation: get(values, "password_confirmation", ""),
+          username: get(values, "input_userName", ""),
+          email: get(values, "input_Email", ""),
+          dateofbirth: get(values, "datetimepicker_1", ""),
+        },
       });
       Toast.success("Sign Up Success" || "");
     } catch (e: unknown) {
@@ -105,7 +118,7 @@ function DashboardUsersDetailPage(props: DashboardUsersDetailPageProps): JSX.Ele
                               <Input
                                 inputStyle={styles.input_user_name_input}
                                 // placeholder={t("dashboard_users_detail.input_username")}
-                                placeholder="Email"
+                                placeholder="User name"
                                 className={styles.input_user_name}
                                 onChange={onChange}
                                 value={value}
@@ -124,7 +137,7 @@ function DashboardUsersDetailPage(props: DashboardUsersDetailPageProps): JSX.Ele
                         <Box className={styles.box_7}>
                           <Text className={styles.text_4} textType="Text">
                             {/* {t("dashboard_users_detail.text_4")} */}
-                            Mật khẩu
+                            Email
                           </Text>
                           <Text className={styles.text_5} textType="Text">
                             *
@@ -141,7 +154,6 @@ function DashboardUsersDetailPage(props: DashboardUsersDetailPageProps): JSX.Ele
                                 inputStyle={styles.input_email_input}
                                 // placeholder={t("dashboard_users_detail.input_0")}
                                  placeholder="Email"
-                                 placeholder="Ngày sinh"
                                 className={styles.input_email}
                                 onChange={onChange}
                                 value={value}
@@ -190,6 +202,40 @@ function DashboardUsersDetailPage(props: DashboardUsersDetailPageProps): JSX.Ele
                           </Text>
                         </Box>
                       </Box>
+                      <Box className={styles.box_9}>
+                        <Box className={styles.box_10}>
+                          <Text className={styles.text_7} textType="Text">
+                            {t("sign_up.text_11")}
+                          </Text>
+                          <Text className={styles.text_8} textType="Text">
+                            *
+                          </Text>
+                        </Box>
+                        <Controller
+                          control={formForm1.control}
+                          render={({
+                            field: { onChange, onBlur, value },
+                            fieldState: { isTouched, error },
+                          }: any) => {
+                            return (
+                              <Input
+                                inputStyle={styles.input_password_input}
+                                isPasswordField
+                                placeholder={t("sign_up.input_2")}
+                                className={styles.input_password}
+                                onChange={onChange}
+                                value={value}
+                              />
+                            );
+                          }}
+                          name="password_confirmation"
+                        />
+                        <Box className={styles.box_11}>
+                          <Text className={styles.text_10} textType="Text">
+                            {get(formForm1Errors, "password_confirmation.message")}
+                          </Text>
+                        </Box>
+                      </Box>
                       <Box className={styles.box_12}>
                         <Box className={styles.box_13}>
                           <Box className={styles.box_14}>
@@ -228,7 +274,7 @@ function DashboardUsersDetailPage(props: DashboardUsersDetailPageProps): JSX.Ele
                       <Button
                         buttonType="primary"
                         className={styles.button_1}
-                        onClick={formForm1.handleSubmit(handleButton1)}
+                        onClick={formForm1.handleSubmit(handleRegiter)}
                       >
                         <Text className={styles.text_14} textType="Text">
                           {t("sign_up.text_13")}

@@ -100,11 +100,11 @@ function DashboardUsersPage(props: DashboardUsersPageProps): JSX.Element {
     {
       title: "Edit",
       key: "Reject ",
-      // render: (_, record) => (
-      //   <Space size="middle">
-      //     <a onClick={() => handleOpenModalReject(record)}>Reject </a>
-      //   </Space>
-      // ),
+      render: (_, record) => (
+        <Space size="middle">
+          <a onClick={() => navigateUserDetail(record)}>Reject </a>
+        </Space>
+      ),
     },
   ];
   const handleOpenModal = (record) => {
@@ -119,9 +119,10 @@ function DashboardUsersPage(props: DashboardUsersPageProps): JSX.Element {
       />
     );
   };
-  const handleButton1 = async () => {
+  const navigateUserDetail = async (record) => {
     try {
-      navigateService.navigate("/newAdmin/dashboard/users/:userId");
+      navigateService.navigate(`/newAdmin/dashboard/users/${record.id}`,record);
+      // console.log(record);
     } catch (e: unknown) {}
   };
   const handleButtonSearch = async (values?: Form1FormData) => {
@@ -129,13 +130,22 @@ function DashboardUsersPage(props: DashboardUsersPageProps): JSX.Element {
       const responseGetApiUsers = await getApiUsersInstance.fetch({
         users: { username: get(values, "input_userName", "") },
       });
+      console.log(responseGetApiUsers);
+      
     } catch (e: unknown) {}
   };
 
   const handleDeleteUser = async (id) => {
     try {
       const responseDeleteApiPartiesId =
-        await userService.deleteApiUsersId.fetch({id});
+        await userService.deleteApiUsersId.fetch({id,
+          users: {
+            username: "string",
+            email: "string",
+            password:"string",
+            dateofbirth: "2023-06-28T14:19:47.389Z"
+          }
+        });
       Toast.success("Xoá thành công" || "");
       NewModal.hide();
     } catch (e: unknown) {
@@ -171,7 +181,7 @@ function DashboardUsersPage(props: DashboardUsersPageProps): JSX.Element {
                     <Button
                       buttonType="primary"
                       className={styles.button_1}
-                      onClick={handleButton1}
+                      onClick={navigateUserDetail}
                     >
                       Tạo mới user
                     </Button>
