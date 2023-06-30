@@ -61,7 +61,6 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
   useEffect(() => {
     formForm1.reset({});
   }, []);
-console.log(props.session.user.authenticatedOwner);
 
   //table ant design
   const columns = [
@@ -69,6 +68,8 @@ console.log(props.session.user.authenticatedOwner);
       title: "Name party",
       dataIndex: "nameparty",
       key: "nameparty",
+      fixed: "left",
+      width: 150,
       render: (text) => <a>{text}</a>,
     },
     {
@@ -134,33 +135,37 @@ console.log(props.session.user.authenticatedOwner);
     {
       title: "Delete",
       key: "action",
-      render: (_, record) => (
-        <Space size="middle">
-          <a onClick={() => handleOpenModalDelete(record)}>Delete</a>
-        </Space>
-      ),
+      render: (_, record) =>
+        record.isstatus !== "Draft" ? (
+          <Space size="middle">
+            <a disabled={true}>Delete</a>
+          </Space>
+        ) : (
+          <Space size="middle">
+            <a onClick={() => handleOpenModalDelete(record)}>Delete</a>
+          </Space>
+        ),
     },
     {
       title: "Edit",
       key: "action",
-      render: (_, record) => (
-        <Space size="middle">
-         <a onClick={() => navigateParties(record)}>Edit</a>
-        </Space>
-      ),
+      render: (_, record) =>
+        record.admin_id === props?.session?.user?.authenticatedId ? (
+          <Space size="middle">
+            <a onClick={() => navigateParties(record)}>Edit</a>
+          </Space>
+        ) : (
+          <Space size="middle">
+            <a disabled={true}>Edit</a>
+          </Space>
+        ),
     },
     {
       title: "List member",
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <a
-            onClick={
-              () => navigateListMember(record.id)
-            }
-          >
-            List member
-          </a>
+          <a onClick={() => navigateListMember(record.id)}>List member</a>
         </Space>
       ),
     },
@@ -178,7 +183,6 @@ console.log(props.session.user.authenticatedOwner);
       />
     );
   };
-
 
   const handlePaginationTable1 = async (
     pageIndex?: number,
@@ -349,7 +353,7 @@ console.log(props.session.user.authenticatedOwner);
                       columns={columns}
                       dataSource={get(getApiPartiesResult, "data.parties")}
                       scroll={{
-                        x: 1500
+                        x: 1500,
                       }}
                     />
                   </Box>

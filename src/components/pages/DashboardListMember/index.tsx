@@ -29,6 +29,7 @@ import {
 } from "@jitera/jitera-web-ui-library";
 import { Space, Table, Tag } from "antd";
 import styles from "./styles.module.css";
+import { useNavigateService } from "@services/navigate";
 type DashboardListMemberPageProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
@@ -41,15 +42,13 @@ interface Form1FormData {
 function DashboardListMemberPage(
   props: DashboardListMemberPageProps
 ): JSX.Element {
+  const navigateService = useNavigateService();
   const partybookingService = usePartybookingService();
   const getApiPartybookingsInstance =
     partybookingService.useGetApiPartybookings();
   const getApiPartybookingsResult = getApiPartybookingsInstance.useQuery({
     partybookings: { party_id: props?.query?.partybookingId },
   });
-
-  console.log(getApiPartybookingsResult);
-
   const validationForm1Schema = useMemo(() => yup.object().shape({}), []);
   const formForm1 = useForm<Form1FormData>({
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -138,7 +137,11 @@ function DashboardListMemberPage(
       ),
     },
   ];
-
+  const handleButton2 = async () => {
+    try {
+      navigateService.goBack();
+    } catch (e: unknown) {}
+  };
   const handleApproveUser = async (record) => {
     try {
       const responseDeleteApiPartiesId =
@@ -176,6 +179,7 @@ function DashboardListMemberPage(
       NewModal.hide();
     }
   };
+
   const handleOpenModalApprove = (record) => {
     NewModal.show(
       <ModalMolecule
@@ -242,6 +246,15 @@ function DashboardListMemberPage(
                       )}
                       )
                     </Text>
+                    <Box className={styles.box_29}>
+                      <Button
+                        buttonType="primary"
+                        className={styles.button_2}
+                        onClick={handleButton2}
+                      >
+                        Back
+                      </Button>
+                    </Box>
                   </Box>
                   <Box className={styles.form_1}>
                     <Controller

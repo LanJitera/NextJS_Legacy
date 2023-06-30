@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useCallback, useMemo, useEffect } from "react";
+import React, { useCallback, useMemo, useEffect, useState } from "react";
 import { DefaultPageProps } from "@interfaces/page";
 import get from "lodash/get";
 import DashboardNavbar from "@components/molecules/DashboardNavbar";
+import DashboardSidebar from "@components/molecules/DashboardSidebar";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -27,6 +28,7 @@ import {
   Toast,
 } from "@jitera/jitera-web-ui-library";
 import styles from "./styles.module.css";
+import axios from "axios";
 type DashboardPartiesDetailPageProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
@@ -47,10 +49,15 @@ function DashboardPartiesDetailPage(
   const { t } = useTranslation("web");
   const partyService = usePartyService();
   const getApiPartiesIdInstance = partyService.useGetApiPartiesId();
-  const getApiPartiesIdResult = getApiPartiesIdInstance.useQuery({
-    id: get(props, "query.partyId"),
-  });
-
+  // const getApiPartiesIdResult = getApiPartiesIdInstance.useQuery({
+  //   id: get(props, "query.partyId"),
+  // });
+  let getApiPartiesIdResult: any;
+  if (props?.partyId !== "undefined") {
+    getApiPartiesIdResult =  getApiPartiesIdInstance.useQuery({
+      id: get(props, "query.partyId"),
+    });
+  }
   const navigateService = useNavigateService();
   const validationForm1Schema = useMemo(
     () =>
@@ -58,7 +65,12 @@ function DashboardPartiesDetailPage(
         input_NameParty: yup
           .string()
           .required("input_NameParty is a required field"),
-        Input_Desc: yup.string().required("Input_Desc is a required field"),
+        Input_Desc: yup
+          .string()
+          .max(
+            200,
+            (messageParams) => `Please enter a description less than 200 words`
+          ),
         input_PartyLocation: yup
           .string()
           .required("input_PartyLocation is a required field"),
@@ -79,7 +91,6 @@ function DashboardPartiesDetailPage(
   });
   const { errors: formForm1Errors } = formForm1.formState;
 
-
   useEffect(() => {
     if (props?.query?.partyId === "undefined") {
       formForm1.reset({});
@@ -94,7 +105,7 @@ function DashboardPartiesDetailPage(
       );
       formForm1.setValue(
         "datetimepicker_1",
-        getApiPartiesIdResult?.data?.party?.partystartime
+        getApiPartiesIdResult?.data?.party?.partystarttime
       );
       formForm1.setValue(
         "input_PartyLocation",
@@ -108,49 +119,45 @@ function DashboardPartiesDetailPage(
         "input_Age",
         getApiPartiesIdResult?.data?.party?.requiredage
       );
-
+      formForm1.setValue(
+        "radio_0",
+        getApiPartiesIdResult?.data?.party?.isstatus
+      );
     }
-  }, [props?.query?.partyId, getApiPartiesIdResult?.isSuccess, getApiPartiesIdResult?.data]);
+  }, [
+    props?.query?.partyId,
+    getApiPartiesIdResult?.isSuccess,
+    getApiPartiesIdResult?.data,
+  ]);
 
   const handleButton2 = async () => {
     try {
       navigateService.goBack();
     } catch (e: unknown) {}
   };
-  // const handleButton3 = async () => {
-  //   try {
-  //     Modal.show(
-  //       <Modal
-  //         onYes={handleOnYesButton3}
-  //         onNo={handleOnNoButton3}
-  //         labelMain="Bạn có muốn xoá ?"
-  //         labelDec
-  //         id
-  //       />,
-  //       { position: "default" }
-  //     );
-  //   } catch (e: unknown) {}
-  // };
+
   const handleImagepicker1Text0 = async (values?: Form1FormData) => {
     // TODO: handle logic
   };
 
   const handleCreateParty = async (values?: Form1FormData) => {
     try {
-      // const responsePutApiPartiesId = await partyService.postApiParties.fetch({
-      //   parties: {
-      //     nameparty: get(values, "input_NameParty", ""),
-      //     partystarttime: get(values, "datetimepicker_1", ""),
-      //     partylocation: get(values, "input_PartyLocation", ""),
-      //     numberofpeople: get(values, "input_NumberOfPeople", ""),
-      //     isstatus: get(values, "radio_0", ""),
-      //     admin_id: props?.session?.user?.authenticatedId,
-      //     describe: get(values, "Input_Desc", ""),
-      //     requiredage: get(values, "input_Age", ""),
-      //     img: get(values, "imagepicker_1", ""),
-      //   },
-      // });
-      // navigateService.navigate("/newAdmin/dashboard/parties");
+      const responsePutApiPartiesId = await partyService.postApiParties.fetch({
+        parties: {
+          nameparty: get(values, "input_NameParty", ""),
+          partystarttime: get(values, "datetimepicker_1", ""),
+          partylocation: get(values, "input_PartyLocation", ""),
+          numberofpeople: get(values, "input_NumberOfPeople", ""),
+          isstatus: get(values, "radio_0", ""),
+          admin_id: props?.session?.user?.authenticatedId,
+          describe: get(values, "Input_Desc", ""),
+          requiredage: get(values, "input_Age", ""),
+          // img: get(values, "imagepicker_1", ""),
+        },
+      });
+      Toast.success("Cập nhật thành công" || "");
+      navigateService.navigate("/newAdmin/dashboard/parties");
+      console.log(values);
     } catch (e: unknown) {
       Toast.error("Cập nhật thất bại" || "");
     }
@@ -168,18 +175,39 @@ function DashboardPartiesDetailPage(
           admin_id: props?.session?.user?.authenticatedId,
           describe: get(values, "Input_Desc", ""),
           requiredage: get(values, "input_Age", ""),
-          img: get(values, "imagepicker_1", ""),
+          img: image,
         },
       });
       console.log(get(values, "imagepicker_1", ""));
-      
-      // navigateService.navigate("/newAdmin/dashboard/parties");
+      Toast.success("Cập nhật thành công" || "");
+      navigateService.navigate("/newAdmin/dashboard/parties");
     } catch (e: unknown) {
       Toast.error("Cập nhật thất bại" || "");
     }
   };
+  const preset_key = "lrgmqsss";
+  const cloud_name = "dxllxabkj";
+  const [image, setImage] = useState();
 
-  
+  useEffect(() => {
+    setImage(getApiPartiesIdResult?.data?.party?.img);
+  }, [getApiPartiesIdResult?.data?.party?.img]);
+
+  function handleFile(event) {
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", preset_key);
+    console.log(file);
+    axios
+      .post(
+        `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`,
+        formData
+      )
+      .then((res) => setImage(res.data.secure_url))
+      .catch((err) => console.log(err));
+  }
+
   return (
     <Page className={styles.page_container}>
       <DashboardNavbar className={styles.dashboardnavbar_1} />
@@ -204,13 +232,6 @@ function DashboardPartiesDetailPage(
                       onClick={handleButton2}
                     >
                       Back
-                    </Button>
-                    <Button
-                      buttonType="primary"
-                      className={styles.button_3}
-                      // onClick={handleButton3}
-                    >
-                      Delete
                     </Button>
                   </Box>
                 </Box>
@@ -484,7 +505,13 @@ function DashboardPartiesDetailPage(
                                     *
                                   </Text>
                                 </Box>
-                                <Controller
+                                <img src={image} className="img"></img>
+                                <input
+                                  type="file"
+                                  name="image"
+                                  onChange={handleFile}
+                                ></input>
+                                {/* <Controller
                                   control={formForm1.control}
                                   render={({
                                     field: { onChange, onBlur, value },
@@ -505,6 +532,7 @@ function DashboardPartiesDetailPage(
                                             styles.imagepicker_1_button
                                           }
                                         >
+                                        
                                           <Text
                                             className={
                                               styles.imagepicker_1_text_0
@@ -521,7 +549,7 @@ function DashboardPartiesDetailPage(
                                     );
                                   }}
                                   name="imagepicker_1"
-                                />
+                                /> */}
                               </Box>
                             </Box>
                             <Box className={styles.box_26}>
@@ -575,18 +603,23 @@ function DashboardPartiesDetailPage(
                                 name="radio_0"
                               />
                             </Box>
-                            {props?.query?.partyId === "undefined" ?
-                            <CommonButton2
-                              className={styles.molecule_0}
-                              label="Create Party"
-                              onPress={formForm1.handleSubmit(handleCreateParty)}
-                            />
-                            :
-                            <CommonButton2
-                              className={styles.molecule_0}
-                              label="Edit Party"
-                              onPress={formForm1.handleSubmit(handleEditParty)}
-                            />}
+                            {props?.query?.partyId === "undefined" ? (
+                              <CommonButton2
+                                className={styles.molecule_0}
+                                label="Create Party"
+                                onPress={formForm1.handleSubmit(
+                                  handleCreateParty
+                                )}
+                              />
+                            ) : (
+                              <CommonButton2
+                                className={styles.molecule_0}
+                                label="Edit Party"
+                                onPress={formForm1.handleSubmit(
+                                  handleEditParty
+                                )}
+                              />
+                            )}
                           </Box>
                         </Col>
                       </Row>

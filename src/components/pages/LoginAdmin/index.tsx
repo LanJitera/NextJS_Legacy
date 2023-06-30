@@ -68,12 +68,14 @@ function LoginAdminPage(props: LoginAdminPageProps): JSX.Element {
       <Box className={styles.box_3}>
         <Box className={styles.form_1}>
           <Text className={styles.form_1_name} textType="Text">
-            {t("login_user.form_1_name")}
+            {/* {t("login_user.form_1_name")} */}
+            Admin login
           </Text>
           <Box className={styles.input_1_container}>
             <Box className={styles.box_1}>
               <Text className={styles.text_1} textType="Text">
-                {t("login_user.text_1")}
+                {/* {t("login_user.text_1")} */}
+                Email
               </Text>
               <Text className={styles.text_2} textType="Text">
                 *

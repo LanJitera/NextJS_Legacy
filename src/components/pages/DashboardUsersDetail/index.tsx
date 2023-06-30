@@ -49,8 +49,13 @@ function DashboardUsersDetailPage(
    const getApiUsersResult = getApiUsersInstance.useQuery({
       id: get(props, "query.userId"),
     });
-
-
+    // let getApiUsersResult: any;
+    // if (props?.userId !== "undefined") {
+    //   getApiUsersResult =  getApiUsersInstance.useQuery({
+    //     id: get(props, "query.partyId"),
+    //   });
+    // }
+  
   const navigateService = useNavigateService();
   const validationForm1Schema = useMemo(
     () =>
