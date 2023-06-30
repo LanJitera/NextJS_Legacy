@@ -42,26 +42,15 @@ function CreatePartyPage(props: CreatePartyPageProps): JSX.Element {
   const navigateService = useNavigateService();
   const partyService = usePartyService();
   const authenticationService = useAuthenticationService();
-  const authenticatedDataValue =
-    authenticationService.useAuthenticatedData("authenticatedData");
+  const authenticatedDataValue = authenticationService.useAuthenticatedData("authenticatedData");
   const validationForm1Schema = useMemo(
     () =>
       yup.object().shape({
-        PartyName_input: yup
-          .string()
-          .required("PartyName_input is a required field"),
-        Describe_input: yup
-          .string()
-          .required("Describe_input is a required field"),
-        PartyLocation_input: yup
-          .string()
-          .required("PartyLocation_input is a required field"),
-        PartyofPeople_input: yup
-          .number()
-          .required("PartyofPeople_input is a required field"),
-        RequiredAge_input: yup
-          .number()
-          .required("RequiredAge_input is a required field"),
+        PartyName_input: yup.string().required("PartyName_input is a required field"),
+        Describe_input: yup.string().required("Describe_input is a required field"),
+        PartyLocation_input: yup.string().required("PartyLocation_input is a required field"),
+        PartyofPeople_input: yup.number().required("PartyofPeople_input is a required field"),
+        RequiredAge_input: yup.number().required("RequiredAge_input is a required field"),
       }),
     []
   );
@@ -109,20 +98,11 @@ function CreatePartyPage(props: CreatePartyPageProps): JSX.Element {
       <Background className={styles.background1} />
       <Box className={styles.container8}>
         <Box className={styles.wrapper8}>
-          <Button
-            buttonType="primary"
-            className={styles.button_1}
-            onClick={handleButton1}
-          >
+          <Button buttonType="primary" className={styles.button_1} onClick={handleButton1}>
             Back
           </Button>
           <Box className={styles.card8}>
-            <Row
-              align="top"
-              gutter={[30, 30]}
-              justify="start"
-              className={styles.row_1}
-            >
+            <Row align="top" gutter={[30, 30]} justify="start" className={styles.row_1}>
               <Col md={Number(24)} xl={Number(24)} xs={Number(24)}>
                 <Box className={styles.form_1}>
                   <Text className={styles.form_1_name} textType="Text">
@@ -195,16 +175,10 @@ function CreatePartyPage(props: CreatePartyPageProps): JSX.Element {
                     <Box className={styles.box_9}>
                       <Box className={styles.datetimepicker_1_container}>
                         <Box className={styles.datetimepicker_1_inner}>
-                          <Text
-                            className={styles.datetimepicker_1_label}
-                            textType="Text"
-                          >
+                          <Text className={styles.datetimepicker_1_label} textType="Text">
                             Party start time
                           </Text>
-                          <Text
-                            className={styles.datetimepicker_1_required}
-                            textType="Text"
-                          >
+                          <Text className={styles.datetimepicker_1_required} textType="Text">
                             *
                           </Text>
                         </Box>

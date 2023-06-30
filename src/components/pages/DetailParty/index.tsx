@@ -48,26 +48,15 @@ function DetailPartyPage(props: DetailPartyPageProps): JSX.Element {
   });
   const navigateService = useNavigateService();
   const authenticationService = useAuthenticationService();
-  const authenticatedDataValue =
-    authenticationService.useAuthenticatedData("authenticatedData");
+  const authenticatedDataValue = authenticationService.useAuthenticatedData("authenticatedData");
   const validationForm1Schema = useMemo(
     () =>
       yup.object().shape({
-        PartyName_input: yup
-          .string()
-          .required("PartyName_input is a required field"),
-        PartyDes_Input: yup
-          .string()
-          .required("PartyDes_Input is a required field"),
-        PartyLocation_input: yup
-          .string()
-          .required("PartyLocation_input is a required field"),
-        NumberOfPeople_input: yup
-          .string()
-          .required("NumberOfPeople_input is a required field"),
-        RequiredAge_input: yup
-          .number()
-          .required("RequiredAge_input is a required field"),
+        PartyName_input: yup.string().required("PartyName_input is a required field"),
+        PartyDes_Input: yup.string().required("PartyDes_Input is a required field"),
+        PartyLocation_input: yup.string().required("PartyLocation_input is a required field"),
+        NumberOfPeople_input: yup.string().required("NumberOfPeople_input is a required field"),
+        RequiredAge_input: yup.number().required("RequiredAge_input is a required field"),
       }),
     []
   );
@@ -86,14 +75,8 @@ function DetailPartyPage(props: DetailPartyPageProps): JSX.Element {
       formForm1.reset({
         PartyName_input: get(getApiPartiesIdResult, "data.party.nameparty"),
         PartyDes_Input: get(getApiPartiesIdResult, "data.party.describe"),
-        PartyLocation_input: get(
-          getApiPartiesIdResult,
-          "data.party.requiredage"
-        ),
-        NumberOfPeople_input: get(
-          getApiPartiesIdResult,
-          "data.party.requiredage"
-        ),
+        PartyLocation_input: get(getApiPartiesIdResult, "data.party.requiredage"),
+        NumberOfPeople_input: get(getApiPartiesIdResult, "data.party.requiredage"),
       });
     }
   }, [getApiPartiesIdResult.data]);
@@ -105,12 +88,9 @@ function DetailPartyPage(props: DetailPartyPageProps): JSX.Element {
   };
   const handleButton0 = async () => {
     try {
-      Modal.show(
-        <ModalConfirmDelete yes={handleYesButton0} No={handleNoButton0} />,
-        {
-          position: "default",
-        }
-      );
+      Modal.show(<ModalConfirmDelete yes={handleYesButton0} No={handleNoButton0} />, {
+        position: "default",
+      });
     } catch (e: unknown) {}
   };
   const handleOnPressMolecule3 = async (values?: Form1FormData) => {
@@ -137,28 +117,15 @@ function DetailPartyPage(props: DetailPartyPageProps): JSX.Element {
       <Box className={styles.box_1}>
         <Box className={styles.box_6}>
           <Box className={styles.box_7}>
-            <Button
-              buttonType="primary"
-              className={styles.button_1}
-              onClick={handleButton1}
-            >
+            <Button buttonType="primary" className={styles.button_1} onClick={handleButton1}>
               Back
             </Button>
-            <Button
-              buttonType="primary"
-              className={styles.button_0}
-              onClick={handleButton0}
-            >
+            <Button buttonType="primary" className={styles.button_0} onClick={handleButton0}>
               Delete
             </Button>
           </Box>
           <Box className={styles.box_8}>
-            <Row
-              align="top"
-              gutter={[30, 30]}
-              justify="start"
-              className={styles.row_1}
-            >
+            <Row align="top" gutter={[30, 30]} justify="start" className={styles.row_1}>
               <Col md={Number(24)} xl={Number(24)} xs={Number(24)}>
                 <Box className={styles.form_1}>
                   <Text className={styles.text_5} textType="Text">
@@ -411,10 +378,7 @@ function DetailPartyPage(props: DetailPartyPageProps): JSX.Element {
                               { value: "daft", label: "Daft" },
                               { value: "close", label: "Close" },
                             ]}
-                            defaultValue={get(
-                              getApiPartiesIdResult,
-                              "data.party.describe"
-                            )}
+                            defaultValue={get(getApiPartiesIdResult, "data.party.describe")}
                             direction="horizontal"
                             inactiveColor="#1890ff"
                             labelStyle={{ color: "#000", fontWeight: "500" }}

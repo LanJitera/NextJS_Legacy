@@ -31,9 +31,7 @@ export type AuthenticatedInfoDataResponse =
   | Record<string, never>;
 export const useAuthenticationService = () => {
   const testVerifyMutation = useMutation(testVerify);
-  const createPhoneNumberSessionMutation = useMutation(
-    createPhoneNumberSession
-  );
+  const createPhoneNumberSessionMutation = useMutation(createPhoneNumberSession);
   const loginWithEmailMutation = useMutation(loginWithEmail);
   const signupWithEmailMutation = useMutation(signupWithEmail);
   const loginWithAppleMutation = useMutation(loginWithApple);
@@ -62,55 +60,31 @@ export const useAuthenticationService = () => {
     createSession: (body: CreatePhoneNumberSessionRequestBody) => {
       return createPhoneNumberSessionMutation.mutateAsync(body);
     },
-    signupWithEmail: (
-      table: string,
-      body: Omit<EmailProviderBodyRequestBody, "table">
-    ) => {
+    signupWithEmail: (table: string, body: Omit<EmailProviderBodyRequestBody, "table">) => {
       return signupWithEmailMutation.mutateAsync({ table, ...body });
     },
     testLogin: (body: TestVerifyRequestBody) => {
       return testVerifyMutation.mutateAsync(body);
     },
-    loginWithEmail: (
-      table: string,
-      body: Omit<EmailProviderBodyRequestBody, "table">
-    ) => {
+    loginWithEmail: (table: string, body: Omit<EmailProviderBodyRequestBody, "table">) => {
       return loginWithEmailMutation.mutateAsync({ table, ...body });
     },
-    loginWithGoogle: (
-      table: string,
-      body: Omit<GoogleProviderRequestBody, "table">
-    ) => {
+    loginWithGoogle: (table: string, body: Omit<GoogleProviderRequestBody, "table">) => {
       return loginWithGoogleMutation.mutateAsync({ table, ...body });
     },
-    loginWithFacebook: (
-      table: string,
-      body: Omit<FacebookProviderRequestBody, "table">
-    ) => {
+    loginWithFacebook: (table: string, body: Omit<FacebookProviderRequestBody, "table">) => {
       return loginWithFacebookMutation.mutateAsync({ table, ...body });
     },
-    loginWithApple: (
-      table: string,
-      body: Omit<AppleProviderRequestBody, "table">
-    ) => {
+    loginWithApple: (table: string, body: Omit<AppleProviderRequestBody, "table">) => {
       return loginWithAppleMutation.mutateAsync({ table, ...body });
     },
-    verifyPhoneNumber: (
-      table: string,
-      body: Omit<VerifyPhoneNumberRequestBody, "table">
-    ) => {
+    verifyPhoneNumber: (table: string, body: Omit<VerifyPhoneNumberRequestBody, "table">) => {
       return verifyPhoneNumberMutation.mutateAsync({ table, ...body });
     },
-    resetPassword: (
-      table: string,
-      body: Omit<ResetPasswordRequestBody, "table">
-    ) => {
+    resetPassword: (table: string, body: Omit<ResetPasswordRequestBody, "table">) => {
       return resetPasswordMutation.mutateAsync({ table, ...body });
     },
-    resetPasswordVerify: (
-      table: string,
-      body: Omit<ResetPasswordVerifyRequestBody, "table">
-    ) => {
+    resetPasswordVerify: (table: string, body: Omit<ResetPasswordVerifyRequestBody, "table">) => {
       return resetPasswordVerifyMutation.mutateAsync({ table, ...body });
     },
     logout: (callbackUrl?: string) => {

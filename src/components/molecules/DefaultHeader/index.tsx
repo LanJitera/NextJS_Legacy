@@ -30,9 +30,7 @@ function DefaultHeaderMolecule(props: DefaultHeaderMoleculeProps): JSX.Element {
           <DefaultHeaderMenu className={styles.header_defaultheadermenu_0} />
         </Box>
         <Box className={styles.box_4}>
-          <DefaultHamburgerMenu
-            className={styles.header_defaulthamburgermenu_1}
-          />
+          <DefaultHamburgerMenu className={styles.header_defaulthamburgermenu_1} />
         </Box>
       </Box>
     </Box>

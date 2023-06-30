@@ -10,9 +10,7 @@ type DashboardMenuItemMoleculeProps = DefaultPageProps & {
   label?: string;
   onClick?: () => any;
 };
-function DashboardMenuItemMolecule(
-  props: DashboardMenuItemMoleculeProps
-): JSX.Element {
+function DashboardMenuItemMolecule(props: DashboardMenuItemMoleculeProps): JSX.Element {
   const handleBox2 = async () => {
     try {
       const { onClick } = props;
