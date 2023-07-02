@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useCallback, useMemo, useEffect } from "react";
+import React, { useCallback, useMemo, useEffect, useState } from "react";
 import { DefaultPageProps } from "@interfaces/page";
 import get from "lodash/get";
 import DashboardNavbar from "@components/molecules/DashboardNavbar";
@@ -204,17 +204,24 @@ function DashboardListMemberPage(
       />
     );
   };
+  const [user, setUser] = useState();
+  useEffect(() => {
+    setUser(getApiPartybookingsResult?.data?.partybookings);
+  }, [getApiPartybookingsResult?.data?.partybookings]);
+  
   const handleFilterUserName = async (values?: Form1FormData) => {
     try {
-      const responseGetApiParties = await getApiPartybookingsInstance.fetch({
-        partybookings: {
-          party_id: props?.query?.partybookingId,
-          username: get(values, "input_userName", ""),
-        },
-      });
-      console.log(responseGetApiParties);
+    //  const resultListMember = getApiPartybookingsResult?.data?.partybookings.filter((ItemUser)=>{
+    //  return ItemUser.user.name === get(values,"input_userName");
+    //  })
+    //  console.log(resultListMember);
+    //  setUser(resultListMember)
+     const regex = new RegExp(get(values,"input_userName"),'i')
+     const result = getApiPartybookingsResult?.data?.partybookings.filter((item)=> regex.test(item.user.name))
+      setUser(result)
     } catch (e: unknown) {}
   };
+console.log(getApiPartybookingsResult);
 
   return (
     <Page className={styles.page_container}>
@@ -288,10 +295,11 @@ function DashboardListMemberPage(
                   <Box className={styles.box_1}>
                     <Table
                       columns={columns}
-                      dataSource={get(
-                        getApiPartybookingsResult,
-                        "data.partybookings"
-                      )}
+                      // dataSource={get(
+                      //   getApiPartybookingsResult,
+                      //   "data.partybookings"
+                      // )}
+                      dataSource={user}
                     />
                   </Box>
                 </Box>

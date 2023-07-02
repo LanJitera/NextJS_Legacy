@@ -18,10 +18,10 @@ export async function getServerSideProps(context: NextPageContext) {
       },
     };
   }
-  if (!session?.user?.authenticatedOwner) {
+  if (session?.user?.authenticatedOwner !== "Admin") {
     return {
       redirect: {
-        destination: "/User/home",
+        destination: "newAdmin/loginAdmin",
         permanent: false,
       },
     };

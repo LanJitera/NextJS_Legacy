@@ -54,7 +54,7 @@ function DashboardPartiesDetailPage(
   // });
   let getApiPartiesIdResult: any;
   if (props?.partyId !== "undefined") {
-    getApiPartiesIdResult =  getApiPartiesIdInstance.useQuery({
+    getApiPartiesIdResult = getApiPartiesIdInstance.useQuery({
       id: get(props, "query.partyId"),
     });
   }
@@ -157,7 +157,6 @@ function DashboardPartiesDetailPage(
       });
       Toast.success("Cập nhật thành công" || "");
       navigateService.navigate("/newAdmin/dashboard/parties");
-      console.log(values);
     } catch (e: unknown) {
       Toast.error("Cập nhật thất bại" || "");
     }
@@ -178,7 +177,6 @@ function DashboardPartiesDetailPage(
           img: image,
         },
       });
-      console.log(get(values, "imagepicker_1", ""));
       Toast.success("Cập nhật thành công" || "");
       navigateService.navigate("/newAdmin/dashboard/parties");
     } catch (e: unknown) {
@@ -198,7 +196,6 @@ function DashboardPartiesDetailPage(
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", preset_key);
-    console.log(file);
     axios
       .post(
         `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`,
@@ -235,396 +232,383 @@ function DashboardPartiesDetailPage(
                     </Button>
                   </Box>
                 </Box>
-                <Box className={styles.dashboard_content_filter_table}>
-                  <Box className={styles.box_1}>
-                    <Box className={styles.box_4}>
-                      <Row
-                        align="top"
-                        gutter={[30, 30]}
-                        justify="start"
-                        className={styles.row_0}
-                      >
-                        <Col md={Number(24)} xl={Number(24)} xs={Number(24)}>
-                          <Box className={styles.form_1}>
-                            <Box className={styles.box_5}>
-                              <Box className={styles.box_6}>
-                                <Text
-                                  className={styles.text_name_party}
-                                  textType="Text"
-                                >
-                                  {/* {t("dashboard_parties_detail.text_nameparty")} */}
-                                  Name party
-                                </Text>
-                                <Text className={styles.text_2} textType="Text">
-                                  *
-                                </Text>
-                              </Box>
-                              <Controller
-                                control={formForm1.control}
-                                render={({
-                                  field: { onChange, onBlur, value },
-                                  fieldState: { isTouched, error },
-                                }: any) => {
-                                  return (
-                                    <Input
-                                      inputStyle={styles.input_name_party_input}
-                                      placeholder={"Plase input party"}
-                                      className={styles.input_name_party}
-                                      onChange={onChange}
-                                      value={value}
-                                    />
-                                  );
-                                }}
-                                name="input_NameParty"
-                              />
-                              <Box className={styles.box_7}>
-                                <Text className={styles.text_3} textType="Text">
-                                  {get(
-                                    formForm1Errors,
-                                    "input_NameParty.message"
-                                  )}
-                                </Text>
-                              </Box>
-                            </Box>
-                            <Box className={styles.box_8}>
-                              <Box className={styles.box_9}>
-                                <Text
-                                  className={styles.text_describe}
-                                  textType="Text"
-                                >
-                                  {/* {t("dashboard_parties_detail.text_4")} */}
-                                  Describe
-                                </Text>
-                              </Box>
-                              <Controller
-                                control={formForm1.control}
-                                render={({
-                                  field: { onChange, onBlur, value },
-                                  fieldState: { isTouched, error },
-                                }: any) => {
-                                  return (
-                                    <Input
-                                      inputStyle={styles.input_desc_input}
-                                      // placeholder={t("dashboard_parties_detail.input_desc")}
-                                      placeholder="Input describe"
-                                      className={styles.input_desc}
-                                      onChange={onChange}
-                                      value={value}
-                                    />
-                                  );
-                                }}
-                                name="Input_Desc"
-                              />
-                              <Box className={styles.box_10}>
-                                <Text className={styles.text_5} textType="Text">
-                                  {get(formForm1Errors, "Input_Desc.message")}
-                                </Text>
-                              </Box>
-                            </Box>
-                            <Box className={styles.box_11}>
-                              <Box className={styles.box_12}>
-                                <Box className={styles.box_13}>
-                                  <Box className={styles.box_14}>
-                                    <Text
-                                      className={styles.text_party_start_time}
-                                      textType="Text"
-                                    >
-                                      {/* {t("dashboard_parties_detail.text_6")} */}
-                                      Party start time
-                                    </Text>
-                                    <Text
-                                      className={styles.text_7}
-                                      textType="Text"
-                                    >
-                                      *
-                                    </Text>
-                                  </Box>
-                                  <Controller
-                                    control={formForm1.control}
-                                    render={({
-                                      field: { onChange, onBlur, value },
-                                      fieldState: { isTouched, error },
-                                    }: any) => {
-                                      return (
-                                        <DateTimePicker
-                                          format="MM/dd/yyyy"
-                                          picker="date"
-                                          showTime
-                                          className={styles.datetimepicker_1}
-                                          onChange={onChange}
-                                          value={value}
-                                        />
-                                      );
-                                    }}
-                                    name="datetimepicker_1"
-                                  />
-                                </Box>
-                              </Box>
-                              <Box className={styles.box_15}>
-                                <Text className={styles.text_8} textType="Text">
-                                  {get(
-                                    formForm1Errors,
-                                    "datetimepicker_1.message"
-                                  )}
-                                </Text>
-                              </Box>
-                            </Box>
-                            <Box className={styles.box_16}>
-                              <Box className={styles.box_17}>
-                                <Text
-                                  className={styles.text_party_location}
-                                  textType="Text"
-                                >
-                                  Party location
-                                </Text>
-                                <Text
-                                  className={styles.text_11}
-                                  textType="Text"
-                                >
-                                  *
-                                </Text>
-                              </Box>
-                              <Controller
-                                control={formForm1.control}
-                                render={({
-                                  field: { onChange, onBlur, value },
-                                  fieldState: { isTouched, error },
-                                }: any) => {
-                                  return (
-                                    <Input
-                                      inputStyle={
-                                        styles.input_party_location_input
-                                      }
-                                      placeholder={"Plase input location"}
-                                      className={styles.input_party_location}
-                                      onChange={onChange}
-                                      value={value}
-                                    />
-                                  );
-                                }}
-                                name="input_PartyLocation"
-                              />
-                              <Box className={styles.box_18}>
-                                <Text
-                                  className={styles.text_12}
-                                  textType="Text"
-                                >
-                                  {get(
-                                    formForm1Errors,
-                                    "input_PartyLocation.message"
-                                  )}
-                                </Text>
-                              </Box>
-                            </Box>
-                            <Box className={styles.box_19}>
-                              <Box className={styles.box_20}>
-                                <Text
-                                  className={styles.text_number_of_people}
-                                  textType="Text"
-                                >
-                                  Number of people
-                                </Text>
-                              </Box>
-                              <Controller
-                                control={formForm1.control}
-                                render={({
-                                  field: { onChange, onBlur, value },
-                                  fieldState: { isTouched, error },
-                                }: any) => {
-                                  return (
-                                    <Input
-                                      inputStyle={
-                                        styles.input_number_of_people_input
-                                      }
-                                      // placeholder={t("dashboard_parties_detail.input_3")}
-                                      placeholder="Please input number of people"
-                                      className={styles.input_number_of_people}
-                                      onChange={onChange}
-                                      value={value}
-                                    />
-                                  );
-                                }}
-                                name="input_NumberOfPeople"
-                              />
-                              <Box className={styles.box_21}>
-                                <Text
-                                  className={styles.text_14}
-                                  textType="Text"
-                                >
-                                  {get(
-                                    formForm1Errors,
-                                    "input_NumberOfPeople.message"
-                                  )}
-                                </Text>
-                              </Box>
-                            </Box>
-                            <Box className={styles.box_22}>
-                              <Box className={styles.box_23}>
-                                <Text
-                                  className={styles.text_required_age}
-                                  textType="Text"
-                                >
-                                  Required age
-                                </Text>
-                              </Box>
-                              <Controller
-                                control={formForm1.control}
-                                render={({
-                                  field: { onChange, onBlur, value },
-                                  fieldState: { isTouched, error },
-                                }: any) => {
-                                  return (
-                                    <Input
-                                      inputStyle={styles.input_age_input}
-                                      placeholder={"Plase input age"}
-                                      className={styles.input_age}
-                                      onChange={onChange}
-                                      value={value}
-                                    />
-                                  );
-                                }}
-                                name="input_Age"
-                              />
-                              <Text className={styles.text_1} textType="Text">
-                                {get(formForm1Errors, "input_Age.message")}
-                              </Text>
-                            </Box>
-                            <Box className={styles.box_30}>
-                              <Box className={styles.imagepicker_1_container}>
-                                <Box className={styles.imagepicker_1_inner}>
+                <Box className={styles.MainDetail}>
+                  <Box className={styles.dashboard_content_filter_table}>
+                    <Box className={styles.box_1}>
+                      <Box className={styles.box_4}>
+                        <Row
+                          align="top"
+                          gutter={[30, 30]}
+                          justify="start"
+                          className={styles.row_0}
+                        >
+                          <Col md={Number(24)} xl={Number(24)} xs={Number(24)}>
+                            <Box className={styles.form_1}>
+                              <Box className={styles.box_5}>
+                                <Box className={styles.box_6}>
                                   <Text
-                                    className={styles.imagepicker_1_label}
+                                    className={styles.text_name_party}
                                     textType="Text"
                                   >
-                                    {/* {t("dashboard_parties_detail.imagepicker_1_label")} */}
+                                    {/* {t("dashboard_parties_detail.text_nameparty")} */}
+                                    Name party
                                   </Text>
                                   <Text
-                                    className={styles.imagepicker_1_required}
+                                    className={styles.text_2}
                                     textType="Text"
                                   >
                                     *
                                   </Text>
                                 </Box>
-                                <img src={image} className="img"></img>
-                                <input
-                                  type="file"
-                                  name="image"
-                                  onChange={handleFile}
-                                ></input>
-                                {/* <Controller
+                                <Controller
                                   control={formForm1.control}
                                   render={({
                                     field: { onChange, onBlur, value },
                                     fieldState: { isTouched, error },
                                   }: any) => {
                                     return (
-                                      <ImagePicker
-                                        maxCount={Number(1)}
-                                        beforeUpload={() => {
-                                          return false;
-                                        }}
+                                      <Input
+                                        inputStyle={
+                                          styles.input_name_party_input
+                                        }
+                                        placeholder={"Plase input party"}
+                                        className={styles.input_name_party}
                                         onChange={onChange}
                                         value={value}
-                                      >
-                                        <Button
-                                          buttonType="primary"
-                                          className={
-                                            styles.imagepicker_1_button
-                                          }
-                                        >
-                                        
-                                          <Text
-                                            className={
-                                              styles.imagepicker_1_text_0
-                                            }
-                                            textType="Text"
-                                            onClick={formForm1.handleSubmit(
-                                              handleImagepicker1Text0
-                                            )}
-                                          >
-                                            [ImagePicker]
-                                          </Text>
-                                        </Button>
-                                      </ImagePicker>
+                                      />
                                     );
                                   }}
-                                  name="imagepicker_1"
-                                /> */}
-                              </Box>
-                            </Box>
-                            <Box className={styles.box_26}>
-                              <Box className={styles.box_27}>
-                                <Box className={styles.box_28}>
+                                  name="input_NameParty"
+                                />
+                                <Box className={styles.box_7}>
                                   <Text
-                                    className={styles.text_17}
+                                    className={styles.text_3}
                                     textType="Text"
                                   >
-                                    Status
+                                    {get(
+                                      formForm1Errors,
+                                      "input_NameParty.message"
+                                    )}
+                                  </Text>
+                                </Box>
+                              </Box>
+                              <Box className={styles.box_8}>
+                                <Box className={styles.box_9}>
+                                  <Text
+                                    className={styles.text_describe}
+                                    textType="Text"
+                                  >
+                                    {/* {t("dashboard_parties_detail.text_4")} */}
+                                    Describe
+                                  </Text>
+                                </Box>
+                                <Controller
+                                  control={formForm1.control}
+                                  render={({
+                                    field: { onChange, onBlur, value },
+                                    fieldState: { isTouched, error },
+                                  }: any) => {
+                                    return (
+                                      <Input
+                                        inputStyle={styles.input_desc_input}
+                                        // placeholder={t("dashboard_parties_detail.input_desc")}
+                                        placeholder="Input describe"
+                                        className={styles.input_desc}
+                                        onChange={onChange}
+                                        value={value}
+                                      />
+                                    );
+                                  }}
+                                  name="Input_Desc"
+                                />
+                                <Box className={styles.box_10}>
+                                  <Text
+                                    className={styles.text_5}
+                                    textType="Text"
+                                  >
+                                    {get(formForm1Errors, "Input_Desc.message")}
+                                  </Text>
+                                </Box>
+                              </Box>
+                              <Box className={styles.box_11}>
+                                <Box className={styles.box_12}>
+                                  <Box className={styles.box_13}>
+                                    <Box className={styles.box_14}>
+                                      <Text
+                                        className={styles.text_party_start_time}
+                                        textType="Text"
+                                      >
+                                        {/* {t("dashboard_parties_detail.text_6")} */}
+                                        Party start time
+                                      </Text>
+                                      <Text
+                                        className={styles.text_7}
+                                        textType="Text"
+                                      >
+                                        *
+                                      </Text>
+                                    </Box>
+                                    <Controller
+                                      control={formForm1.control}
+                                      render={({
+                                        field: { onChange, onBlur, value },
+                                        fieldState: { isTouched, error },
+                                      }: any) => {
+                                        return (
+                                          <DateTimePicker
+                                            format="MM/dd/yyyy"
+                                            picker="date"
+                                            showTime
+                                            className={styles.datetimepicker_1}
+                                            onChange={onChange}
+                                            value={value}
+                                          />
+                                        );
+                                      }}
+                                      name="datetimepicker_1"
+                                    />
+                                  </Box>
+                                </Box>
+                                <Box className={styles.box_15}>
+                                  <Text
+                                    className={styles.text_8}
+                                    textType="Text"
+                                  >
+                                    {get(
+                                      formForm1Errors,
+                                      "datetimepicker_1.message"
+                                    )}
+                                  </Text>
+                                </Box>
+                              </Box>
+                              <Box className={styles.box_16}>
+                                <Box className={styles.box_17}>
+                                  <Text
+                                    className={styles.text_party_location}
+                                    textType="Text"
+                                  >
+                                    Party location
                                   </Text>
                                   <Text
-                                    className={styles.text_18}
+                                    className={styles.text_11}
                                     textType="Text"
                                   >
                                     *
                                   </Text>
                                 </Box>
+                                <Controller
+                                  control={formForm1.control}
+                                  render={({
+                                    field: { onChange, onBlur, value },
+                                    fieldState: { isTouched, error },
+                                  }: any) => {
+                                    return (
+                                      <Input
+                                        inputStyle={
+                                          styles.input_party_location_input
+                                        }
+                                        placeholder={"Plase input location"}
+                                        className={styles.input_party_location}
+                                        onChange={onChange}
+                                        value={value}
+                                      />
+                                    );
+                                  }}
+                                  name="input_PartyLocation"
+                                />
+                                <Box className={styles.box_18}>
+                                  <Text
+                                    className={styles.text_12}
+                                    textType="Text"
+                                  >
+                                    {get(
+                                      formForm1Errors,
+                                      "input_PartyLocation.message"
+                                    )}
+                                  </Text>
+                                </Box>
                               </Box>
-                              <Controller
-                                control={formForm1.control}
-                                render={({
-                                  field: { onChange, onBlur, value },
-                                  fieldState: { isTouched, error },
-                                }: any) => {
-                                  return (
-                                    <Radio
-                                      activeColor="#1890ff"
-                                      data={[
-                                        { value: "Public", label: "Public" },
-                                        { value: "Private", label: "Private" },
-                                        { value: "Daft", label: "Daft" },
-                                        { value: "Close", label: "Close" },
-                                      ]}
-                                      defaultValue={get(
-                                        getApiPartiesIdResult,
-                                        "data.party.describe"
-                                      )}
-                                      direction="horizontal"
-                                      inactiveColor="#1890ff"
-                                      labelStyle={{
-                                        color: "#000",
-                                        fontWeight: "500",
-                                      }}
-                                      className={styles.radio_0}
-                                      onChange={onChange}
-                                      value={value}
-                                    />
-                                  );
-                                }}
-                                name="radio_0"
-                              />
+                              <Box className={styles.box_19}>
+                                <Box className={styles.box_20}>
+                                  <Text
+                                    className={styles.text_number_of_people}
+                                    textType="Text"
+                                  >
+                                    Number of people
+                                  </Text>
+                                </Box>
+                                <Controller
+                                  control={formForm1.control}
+                                  render={({
+                                    field: { onChange, onBlur, value },
+                                    fieldState: { isTouched, error },
+                                  }: any) => {
+                                    return (
+                                      <Input
+                                        inputStyle={
+                                          styles.input_number_of_people_input
+                                        }
+                                        // placeholder={t("dashboard_parties_detail.input_3")}
+                                        placeholder="Please input number of people"
+                                        className={
+                                          styles.input_number_of_people
+                                        }
+                                        onChange={onChange}
+                                        value={value}
+                                      />
+                                    );
+                                  }}
+                                  name="input_NumberOfPeople"
+                                />
+                                <Box className={styles.box_21}>
+                                  <Text
+                                    className={styles.text_14}
+                                    textType="Text"
+                                  >
+                                    {get(
+                                      formForm1Errors,
+                                      "input_NumberOfPeople.message"
+                                    )}
+                                  </Text>
+                                </Box>
+                              </Box>
+                              <Box className={styles.box_22}>
+                                <Box className={styles.box_23}>
+                                  <Text
+                                    className={styles.text_required_age}
+                                    textType="Text"
+                                  >
+                                    Required age
+                                  </Text>
+                                </Box>
+                                <Controller
+                                  control={formForm1.control}
+                                  render={({
+                                    field: { onChange, onBlur, value },
+                                    fieldState: { isTouched, error },
+                                  }: any) => {
+                                    return (
+                                      <Input
+                                        inputStyle={styles.input_age_input}
+                                        placeholder={"Plase input age"}
+                                        className={styles.input_age}
+                                        onChange={onChange}
+                                        value={value}
+                                      />
+                                    );
+                                  }}
+                                  name="input_Age"
+                                />
+                                <Text className={styles.text_1} textType="Text">
+                                  {get(formForm1Errors, "input_Age.message")}
+                                </Text>
+                              </Box>
+                              <Box className={styles.box_30}>
+                                <Box className={styles.imagepicker_1_container}>
+                                  <Box className={styles.imagepicker_1_inner}>
+                                    <Text
+                                      className={styles.imagepicker_1_label}
+                                      textType="Text"
+                                    >
+                                      {/* {t("dashboard_parties_detail.imagepicker_1_label")} */}
+                                      Img
+                                    </Text>
+                                    <Text
+                                      className={styles.imagepicker_1_required}
+                                      textType="Text"
+                                    >
+                                      *
+                                    </Text>
+                                  </Box>
+                                  <input
+                                    type="file"
+                                    name="image"
+                                    onChange={handleFile}
+                                  ></input>
+                                </Box>
+                              </Box>
+                              <Box className={styles.box_26}>
+                                <Box className={styles.box_27}>
+                                  <Box className={styles.box_28}>
+                                    <Text
+                                      className={styles.text_17}
+                                      textType="Text"
+                                    >
+                                      Status
+                                    </Text>
+                                    <Text
+                                      className={styles.text_18}
+                                      textType="Text"
+                                    >
+                                      *
+                                    </Text>
+                                  </Box>
+                                </Box>
+                                <Controller
+                                  control={formForm1.control}
+                                  render={({
+                                    field: { onChange, onBlur, value },
+                                    fieldState: { isTouched, error },
+                                  }: any) => {
+                                    return (
+                                      <Radio
+                                        activeColor="#1890ff"
+                                        data={[
+                                          { value: "Public", label: "Public" },
+                                          {
+                                            value: "Private",
+                                            label: "Private",
+                                          },
+                                          { value: "Draft", label: "Draft" },
+                                          { value: "Close", label: "Close" },
+                                        ]}
+                                        defaultValue={get(
+                                          getApiPartiesIdResult,
+                                          "data.party.describe"
+                                        )}
+                                        direction="horizontal"
+                                        inactiveColor="#1890ff"
+                                        labelStyle={{
+                                          color: "#000",
+                                          fontWeight: "500",
+                                        }}
+                                        className={styles.radio_0}
+                                        onChange={onChange}
+                                        value={value}
+                                      />
+                                    );
+                                  }}
+                                  name="radio_0"
+                                />
+                              </Box>
+                              {props?.query?.partyId === "undefined" ? (
+                                <CommonButton2
+                                  className={styles.molecule_0}
+                                  label="Create Party"
+                                  onPress={formForm1.handleSubmit(
+                                    handleCreateParty
+                                  )}
+                                />
+                              ) : (
+                                <CommonButton2
+                                  className={styles.molecule_0}
+                                  label="Edit Party"
+                                  onPress={formForm1.handleSubmit(
+                                    handleEditParty
+                                  )}
+                                />
+                              )}
                             </Box>
-                            {props?.query?.partyId === "undefined" ? (
-                              <CommonButton2
-                                className={styles.molecule_0}
-                                label="Create Party"
-                                onPress={formForm1.handleSubmit(
-                                  handleCreateParty
-                                )}
-                              />
-                            ) : (
-                              <CommonButton2
-                                className={styles.molecule_0}
-                                label="Edit Party"
-                                onPress={formForm1.handleSubmit(
-                                  handleEditParty
-                                )}
-                              />
-                            )}
-                          </Box>
-                        </Col>
-                      </Row>
+                          </Col>
+                        </Row>
+                      </Box>
                     </Box>
                   </Box>
+                  <Col md={Number(12)} xl={Number(8)} xs={Number(24)}>
+                    <Box className={styles.images4}>
+                      <img src={image} alt="" className={styles.image4} />
+                    </Box>
+                  </Col>
                 </Box>
               </Box>
             </Col>

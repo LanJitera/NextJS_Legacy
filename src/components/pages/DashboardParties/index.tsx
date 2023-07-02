@@ -62,6 +62,7 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
     formForm1.reset({});
   }, []);
 
+  
   //table ant design
   const columns = [
     {
@@ -232,6 +233,8 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
     }
   };
 
+
+
   return (
     <Page className={styles.page_container}>
       <DashboardNavbar className={styles.dashboardnavbar_1} />
@@ -265,42 +268,6 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
                     </Button>
                   </Box>
                   <Box className={styles.form_1}>
-                    <Box className={styles.select_1_container}>
-                      <Controller
-                        control={formForm1.control}
-                        render={({
-                          field: { onChange, onBlur, value },
-                          fieldState: { isTouched, error },
-                        }: any) => {
-                          return (
-                            <Select
-                              containerStyle={{
-                                borderColor: "#177ddc",
-                                borderStyle: "solid",
-                                borderWidth: "3px",
-                                height: "auto",
-                              }}
-                              data={[
-                                { value: "All", label: "All" },
-                                { value: "Public", label: "Public" },
-                                { value: "Private", label: "Private" },
-                                { value: "Daft", label: "Daft" },
-                                // { value: "close", label: "Close" },
-                              ]}
-                              iconProps={{
-                                color: "#000",
-                                iconName: "FaChevronDown",
-                                size: 16,
-                              }}
-                              placeholder={"Placeholder"}
-                              onChange={onChange}
-                              value={value}
-                            />
-                          );
-                        }}
-                        name="select_status"
-                      />
-                    </Box>
                     <Controller
                       control={formForm1.control}
                       render={({
@@ -338,6 +305,42 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
                       }}
                       name="input_location"
                     />
+                    <Box className={styles.select_1_container}>
+                      <Controller
+                        control={formForm1.control}
+                        render={({
+                          field: { onChange, onBlur, value },
+                          fieldState: { isTouched, error },
+                        }: any) => {
+                          return (
+                            <Select
+                              containerStyle={{
+                                borderColor: "#177ddc",
+                                borderStyle: "solid",
+                                borderWidth: "3px",
+                                height: "auto",
+                              }}
+                              data={[
+                                { value: "All", label: "All" },
+                                { value: "Public", label: "Public" },
+                                { value: "Private", label: "Private" },
+                                { value: "Daft", label: "Daft" },
+                                { value: "Close", label: "Close" },
+                              ]}
+                              iconProps={{
+                                color: "#000",
+                                iconName: "FaChevronDown",
+                                size: 16,
+                              }}
+                              placeholder={"Placeholder"}
+                              onChange={onChange}
+                              value={value}
+                            />
+                          );
+                        }}
+                        name="select_status"
+                      />
+                    </Box>
                     <Button
                       buttonType="primary"
                       className={styles.button_1}

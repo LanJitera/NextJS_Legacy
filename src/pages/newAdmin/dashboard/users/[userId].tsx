@@ -18,7 +18,14 @@ export async function getServerSideProps(context: NextPageContext) {
       },
     };
   }
-
+  if (session?.user?.authenticatedOwner !== "Admin") {
+    return {
+      redirect: {
+        destination: "newAdmin/loginAdmin",
+        permanent: false,
+      },
+    };
+  }
   return {
     ...options,
     props: {

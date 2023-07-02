@@ -24,7 +24,7 @@ function ModalMolecule(props: ModalMoleculeProps): JSX.Element {
 
   const { t } = useTranslation("web");
 
-console.log(props);
+
 
 
   return (

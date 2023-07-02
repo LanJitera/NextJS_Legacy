@@ -41,9 +41,12 @@ type DetailBookingPartyMoleculeProps = DefaultPageProps & {
 function DetailBookingPartyMolecule(
   props: DetailBookingPartyMoleculeProps
 ): JSX.Element {
-
-  const { handleDeletePartyBooking, handleCreatePartyBooking, idPartyBooker } =
-    props;
+  const {
+    handleDeletePartyBooking,
+    handleCreatePartyBooking,
+    idPartyBooker,
+    ResultYearUser,
+  } = props;
 
   // const [PartyBooker, usePartyBooker] = useState();
 
@@ -62,23 +65,20 @@ function DetailBookingPartyMolecule(
     // còn  hạn
     isDate = true;
   } else {
-  // quá hạn
+    // quá hạn
     isDate = false;
   }
+  const d = new Date();
+  let year = d.getFullYear();
 
-
-
-
+  console.log(
+    props?.partybookings?.filter((item) => {
+      return item.status === "Approve";
+    }).length
+  );
 
   return (
     <Box className={`${styles.page_container} ${get(props, "className")}`}>
-      {/* <Image
-        src={get(props, "img")}
-        width={"100%"}
-        height={"100%"}
-        alt={""}
-        className={styles.image3}
-      /> */}
       <Row
         align="top"
         gutter={[32, 32]}
@@ -87,13 +87,14 @@ function DetailBookingPartyMolecule(
       >
         <Col md={Number(12)} xl={Number(8)} xs={Number(24)}>
           <Box className={styles.images4}>
-            <Image
+            {/* <Image
               src={""}
               width={"360px"}
               height={"380px"}
               alt={""}
               className={styles.image4}
-            />
+            /> */}
+            <img src={get(props, "img")} alt="" className={styles.image4} />
           </Box>
         </Col>
         <Col md={Number(12)} xl={Number(15)} xs={Number(24)}>
@@ -123,7 +124,11 @@ function DetailBookingPartyMolecule(
                   {t("detail_booking_party.text_5")}
                 </Text>
                 <Text className={styles.text_10} textType="Text">
-                  {props?.numberofpeople}
+                  {
+                    props?.partybookings?.filter((item) => {
+                      return item.status === "Approve";
+                    }).length
+                  }
                 </Text>
               </Box>
               <Box className={styles.box_7}>
@@ -163,44 +168,49 @@ function DetailBookingPartyMolecule(
                 )}
               </Box>
             </Box>
-            <Box className={styles.box_8}>
-              {props.idPartyBooker === -1  ? 
-              isDate ? 
-              ""
-              : 
-              <Button
-              buttonType="primary"
-              className={styles.button_1}
-              onClick={handleCreatePartyBooking}
-            >
-              <Text className={styles.button_1_text_0} textType="Text">
-                {t("detail_booking_party.button_1_text_0")}
+            {year - ResultYearUser >= props?.requiredage ? (
+              <Box className={styles.box_8}>
+                {props.idPartyBooker === -1 ? (
+                  isDate ? (
+                    ""
+                  ) : (
+                    <Button
+                      buttonType="primary"
+                      className={styles.button_1}
+                      onClick={handleCreatePartyBooking}
+                    >
+                      <Text className={styles.button_1_text_0} textType="Text">
+                        {t("detail_booking_party.button_1_text_0")}
+                      </Text>
+                    </Button>
+                  )
+                ) : isDate ? (
+                  <Button
+                    buttonType="primary"
+                    className={styles.button_1}
+                    onClick={handleDeletePartyBooking}
+                  >
+                    <Text className={styles.button_1_text_0} textType="Text">
+                      {t("detail_booking_party.button_2_text_0")}
+                    </Text>
+                  </Button>
+                ) : (
+                  <Button
+                    buttonType="primary"
+                    className={styles.button_1}
+                    onClick={handleDeletePartyBooking}
+                  >
+                    <Text className={styles.button_1_text_0} textType="Text">
+                      {t("detail_booking_party.button_2_text_0")}
+                    </Text>
+                  </Button>
+                )}
+              </Box>
+            ) : (
+              <Text className={styles.reAge} textType="Text">
+                {`Bửa tiệc không dành cho người dưới ${props?.requiredage} tuổi `}
               </Text>
-            </Button>
-              : isDate ?
-
-                <Button
-                  buttonType="primary"
-                  className={styles.button_1}
-                  onClick={handleDeletePartyBooking}
-                >
-                  <Text className={styles.button_1_text_0} textType="Text">
-                    {t("detail_booking_party.button_2_text_0")}
-                  </Text>
-                </Button>
-
-              : <Button
-              buttonType="primary"
-              className={styles.button_1}
-              onClick={handleDeletePartyBooking}
-            >
-              <Text className={styles.button_1_text_0} textType="Text">
-                {t("detail_booking_party.button_2_text_0")}
-              </Text>
-            </Button>
-              }
-
-            </Box>
+            )}
           </Box>
         </Col>
       </Row>

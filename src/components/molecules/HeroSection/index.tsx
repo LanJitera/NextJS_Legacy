@@ -45,7 +45,7 @@ function HeroSectionMolecule(props: HeroSectionMoleculeProps): JSX.Element {
       await authenticationService.logout();
     } catch (e: unknown) {}
   };
-  
+
   
   return (
     <Box className={`${styles.page_container} ${get(props, "className")}`}>
@@ -84,8 +84,6 @@ function HeroSectionMolecule(props: HeroSectionMoleculeProps): JSX.Element {
                   className={styles.text_0}
                   textType="Link"
                   onClick={handleLogOut}
-                  // onClick={()=>{deleteCookie("next-auth.session-token");}}
-
                 >
                   {t("hero_section.text_0")}
                 </Text>

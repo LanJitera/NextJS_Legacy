@@ -43,7 +43,7 @@ function HomePage(props: HomePageProps): JSX.Element {
   });
   const navigateService = useNavigateService();
   const validationForm0Schema = useMemo(() => yup.object().shape({}), []);
-  const currentDate = new Date();
+
   const formForm0 = useForm<Form0FormData>({
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
@@ -59,15 +59,6 @@ function HomePage(props: HomePageProps): JSX.Element {
     formForm0.reset({});
   }, []);
 
-  const [dataSource, setDataSource] = useState(getApiPartiesResult?.data?.parties);
-  useEffect(() => {
-    if (getApiPartiesResult.data) {
-      setDataSource(getApiPartiesResult?.data?.parties)
-    }
-  }, [getApiPartiesResult.data]);
-
-  
-  
   const handleButton1 = async (values?: Form0FormData) => {
     try {
       const datetime = get(values, "datetimepicker_1._d", "");
@@ -82,7 +73,6 @@ function HomePage(props: HomePageProps): JSX.Element {
           partystarttime: formattedDate,
         },
       });
-      console.log(responseGetApiParties);
     } catch (e: unknown) {}
   };
 
@@ -91,27 +81,45 @@ function HomePage(props: HomePageProps): JSX.Element {
       navigateService.navigate(`/User/party-detail/${Id}`);
     } catch (e: unknown) {}
   };
-
-
+  const [dataSource, setDataSource] = useState();
+  useEffect(() => {
+    setDataSource(getApiPartiesResult?.data?.parties);
+  }, [getApiPartiesResult?.data?.parties]);
+  const currentDate = new Date();
   const handlePartyHappenning = async (values?: Form0FormData) => {
     try {
-      const responseGetApiParties = await getApiPartiesInstance.fetch();
-      const filteredParties = responseGetApiParties?.parties.filter((party) => {
-        const partyStartTime = new Date(party.partystarttime);
-        return partyStartTime > currentDate;
-      });
-      console.log(filteredParties);
+      const filteredParties = getApiPartiesResult?.data?.parties.filter(
+        (party) => {
+          const partyStartTime = new Date(party.partystarttime);
+          const isSameDate =
+            partyStartTime.getDate() === currentDate.getDate() &&
+            partyStartTime.getMonth() === currentDate.getMonth() &&
+            partyStartTime.getFullYear() === currentDate.getFullYear();
+          return isSameDate;
+        }
+      );
+      setDataSource(filteredParties);
     } catch (e: unknown) {}
   };
-  const handleButton4 = async (values?: Form0FormData) => {
+  const handleAllListParty = async (values?: Form0FormData) => {
     try {
-      const responseGetApiParties = await getApiPartiesInstance.fetch();
+      setDataSource(getApiPartiesResult?.data?.parties);
     } catch (e: unknown) {}
-
   };
-  console.log(getApiPartiesResult?.data?.parties);
- 
-  
+  const handlePartyUpcoming = async (values?: Form0FormData) => {
+    try {
+      const filteredParties = getApiPartiesResult?.data?.parties.filter(
+        (party) => {
+          const partyStartTime = new Date(party.partystarttime);
+          const isSameDate =
+            partyStartTime > currentDate
+          return isSameDate;
+        }
+      );  
+      setDataSource(filteredParties);
+    } catch (e: unknown) {}
+  };
+
   return (
     <Page className={styles.page_container}>
       <Box className={styles.box_2}>
@@ -218,18 +226,29 @@ function HomePage(props: HomePageProps): JSX.Element {
         <Box className={styles.box_55}>
           <Box className={styles.box_56}>
             <Box className={styles.box_57}>
-
+              <Button
+                buttonType="primary"
+                className={styles.button_3}
+                onClick={formForm0.handleSubmit(handleAllListParty)}
+              >
+                <Text className={styles.button_3_text_0} textType="Text">
+                  Tất cả bửa tiệc
+                </Text>
+              </Button>
               <Button
                 buttonType="primary"
                 className={styles.button_3}
                 onClick={formForm0.handleSubmit(handlePartyHappenning)}
               >
-
                 <Text className={styles.button_3_text_0} textType="Text">
                   {t("home.button_3_text_0")}
                 </Text>
               </Button>
-              <Button buttonType="primary" className={styles.button_4}>
+              <Button
+                buttonType="primary"
+                className={styles.button_4}
+                onClick={formForm0.handleSubmit(handlePartyUpcoming)}
+              >
                 <Text className={styles.button_4_text_0} textType="Text">
                   {t("home.button_4_text_0")}
                 </Text>
@@ -239,10 +258,8 @@ function HomePage(props: HomePageProps): JSX.Element {
           <Box className={styles.box_59}>
             <List
               className={styles.ListAll}
-
               // dataSource={getApiPartiesResult?.data?.parties}
               dataSource={dataSource}
-
               rowKey={useCallback(
                 (item: Record<string, any>) => `${item.id}_${item.created_at}`,
                 []
@@ -259,7 +276,7 @@ function HomePage(props: HomePageProps): JSX.Element {
                     partyLocation={item.partylocation}
                     decribe={item.describe}
                     // img={item.describe}
-                    img={"https://picsum.photos/seed/picsum/200/300"}
+                    img={item.img}
                     label={"Booking"}
                     onPress={handleOnPressList1Item}
                     Id={item.id}

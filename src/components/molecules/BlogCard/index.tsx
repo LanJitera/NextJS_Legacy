@@ -35,8 +35,7 @@ function BlogCardMolecule(props: BlogCardMoleculeProps): JSX.Element {
       Toast.error("Huỷ thất bại" || "");
     }
   };
-
-
+  
   return (
     <Box
       className={`${styles.custom_component_container} ${get(
@@ -45,13 +44,7 @@ function BlogCardMolecule(props: BlogCardMoleculeProps): JSX.Element {
       )}`}
     >
       <Box className={styles.box_8}>
-        <Image
-          src={`https://picsum.photos/600/600`}
-          width={258}
-          height={188}
-          alt={""}
-          className={styles.image_1}
-        />
+        <img src={get(props, "img")} alt="" className={styles.image_1} />
         <Box className={styles.box_1}>
           <Box className={styles.box_3}>
             <Text className={styles.text_3} textType="Text">
@@ -69,10 +62,6 @@ function BlogCardMolecule(props: BlogCardMoleculeProps): JSX.Element {
           </Box>
           <Box className={styles.box_4}>
             <Box className={styles.box_5}>
-              <Text className={styles.text_4} textType="Text">
-              <span className={styles.Text_numberofpeople}>Số người tham gia: </span>
-                 {get(props, "numberofpeople")}
-              </Text>
             </Box>
             <Box className={styles.box_6}>
               <Button
@@ -88,29 +77,25 @@ function BlogCardMolecule(props: BlogCardMoleculeProps): JSX.Element {
           </Box>
 
           <Box className={styles.box_7}>
-                {props?.status === "Unvalue" ? (
-                  <Text className={styles.Unvalue} textType="Text">
-                    Đang chờ xác nhận từ admin
-                  </Text>
-                ) : props?.status ===
-                  "Approve" ? (
-                  <Text className={styles.Approve} textType="Text">
-                    Đặt đã được admin chấp nhận
-                  </Text>
-                ) : props?.status ===
-                  "Reject" ? (
-                  <Text className={styles.Reject} textType="Text">
-                    Đã từ chối
-                  </Text>
-                ) : (
-                  ""
-                )}
-              </Box>
-
+            {props?.status === "Unvalue" ? (
+              <Text className={styles.Unvalue} textType="Text">
+                Đang chờ xác nhận từ admin
+              </Text>
+            ) : props?.status === "Approve" ? (
+              <Text className={styles.Approve} textType="Text">
+                Đặt đã được admin chấp nhận
+              </Text>
+            ) : props?.status === "Reject" ? (
+              <Text className={styles.Reject} textType="Text">
+                Đã từ chối
+              </Text>
+            ) : (
+              ""
+            )}
+          </Box>
         </Box>
       </Box>
     </Box>
   );
-
 }
 export default BlogCardMolecule;

@@ -20,7 +20,7 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
 
   const authenticatedDataValue =
     authenticationService.useAuthenticatedData("authenticatedData");
-    
+
   const partybookingService = usePartybookingService();
   const getApiPartybookingsInstance =
     partybookingService.useGetApiPartybookings();
@@ -29,7 +29,7 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
     partybookings: { user_id: get(authenticatedDataValue, "id") },
   });
 
-  
+
   return (
     <Page className={styles.page_container}>
       <HeroSection className={styles.herosection_1} />
@@ -43,7 +43,6 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
             </Box>
           </Box>
           <Box className={styles.box_5}>
-
             <div className="ListBlogCard">
               <List
                 dataSource={getApiPartybookingsResult?.data?.partybookings}
@@ -66,14 +65,12 @@ function HistoryPage(props: HistoryPageProps): JSX.Element {
                       numberofpeople={item.party.numberofpeople}
                       IdParty={item.party_id}
                       status={item.status}
-
                     />
                   ),
                   []
                 )}
               />
             </div>
-
           </Box>
         </Box>
       </Box>

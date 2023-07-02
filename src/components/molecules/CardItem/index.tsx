@@ -25,6 +25,8 @@ function CardItemMolecule(props: CardItemMoleculeProps): JSX.Element {
       return onPress && onPress(Id);
     } catch (e: unknown) {}
   };
+
+  
   return (
     <Box
       className={`${styles.custom_component_container} ${get(
@@ -33,13 +35,14 @@ function CardItemMolecule(props: CardItemMoleculeProps): JSX.Element {
       )}`}
     >
       <Box className={styles.box_3}>
-        <Image
+        {/* <Image
           src={get(props, "img")}
           width={"288"}
           height={"242"}
           alt={""}
           className={styles.image_1}
-        />
+        /> */}
+        <img src={get(props, "img")} alt="" className={styles.image_1} />
         <Box className={styles.box_4}>
           <Box className={styles.box_5}>
             <Box className={styles.box_6}>

@@ -18,25 +18,43 @@ import styles from "./styles.module.css";
 import { useAuthenticationService } from "@services/authentication";
 import { useNavigateService } from "@services/navigate";
 import { usePartybookingService } from "@services/partybooking";
+import { useUserService } from "@services/user";
 type PartyDetail1PageProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
   idPartyBooker?: number;
 };
 function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
+  //call API party
   const partyService = usePartyService();
   const getApiPartiesIdInstance = partyService.useGetApiPartiesId();
   const getApiPartiesIdResult = getApiPartiesIdInstance.useQuery({
     id: props?.query?.id,
   });
-
   const [idPartyBooker, usePartyBooker] = useState();
   const navigateService = useNavigateService();
   const partybookingService = usePartybookingService();
   const authenticationService = useAuthenticationService();
   const authenticatedDataValue =
     authenticationService.useAuthenticatedData("authenticatedData");
-
+  //Call API USER
+  const userService = useUserService();
+  const getApiUsersIdInstance = userService.useGetApiUsersId();
+  const [userLogin, setUserLogin] = useState("");
+  useEffect(() => {
+    const handleTopHeader = async () => {
+      try {
+        const responseGetApiUsersId = await getApiUsersIdInstance.fetch({
+          id: get(authenticatedDataValue, "id"),
+        });
+          setUserLogin(responseGetApiUsersId);
+      } catch (e: unknown) {}
+    };
+    handleTopHeader();
+  }, []);
+  const yearUser = new Date(userLogin?.user?.dateofbirth);
+  let ResultYearUser = yearUser.getFullYear()
+  
   useLayoutEffect(() => {
     const partyBookerIndex =
       getApiPartiesIdResult.data?.party?.partybookings.findIndex(
@@ -66,7 +84,6 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
     try {
       const responseDeleteApiPartybookingsId =
         await partybookingService.deleteApiPartybookingsId.fetch({
-
           id: get(
             getApiPartiesIdResult,
             `data.party.partybookings.[${idPartyBooker}].id`
@@ -97,6 +114,7 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
           idPartyBooker={idPartyBooker}
           handleDeletePartyBooking={handleDeletePartyBooking}
           handleCreatePartyBooking={handleCreatePartyBooking}
+          ResultYearUser ={ResultYearUser}
         />
       </Box>
       <Box className={styles.box_3}>

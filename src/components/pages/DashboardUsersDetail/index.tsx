@@ -123,8 +123,6 @@ function DashboardUsersDetailPage(
 
   const handleEdit = async (values?: Form1FormData) => {
     try {
-      console.log(props.query?.userId);
-
       const EditUser = await userService.putApiUsersId.fetch({
         id: props?.query?.userId,
         users: {

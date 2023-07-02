@@ -18,15 +18,15 @@ export async function getServerSideProps(context: NextPageContext) {
       },
     };
   }
-  // if (session?.user?.authenticatedOwner !== "admin") {
-  //   return {
-  //     redirect: {
-  //       destination: "newAdmin/loginAdmin",
-  //       permanent: false,
-  //     },
-  //   };
-  // }
-  // console.log(typeof session?.user?.authenticatedOwner);
+  if (session?.user?.authenticatedOwner !== "Admin") {
+    return {
+      redirect: {
+        destination: "newAdmin/loginAdmin",
+        permanent: false,
+      },
+    };
+  }
+
   
   
   return {
