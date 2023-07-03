@@ -10,25 +10,18 @@ export async function getServerSideProps(context: NextPageContext) {
     redirect?: Record<string, unknown>;
   } = {};
   const { session, queryClient } = await initServerInfo(context);
-  if (!session?.user?.accessToken) {
+  if (
+    !session?.user?.accessToken ||
+    session?.user?.authenticatedOwner !== "Admin"
+  ) {
     return {
       redirect: {
-        destination: "newAdmin/loginAdmin",
-        permanent: false,
-      },
-    };
-  }
-  if (session?.user?.authenticatedOwner !== "Admin") {
-    return {
-      redirect: {
-        destination: "newAdmin/loginAdmin",
+        destination: "/newAdmin/loginAdmin",
         permanent: false,
       },
     };
   }
 
-  
-  
   return {
     ...options,
     props: {

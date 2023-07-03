@@ -36,3 +36,19 @@
 .icon_2 {
   padding-top: 5px;
 }
+.text_0 {
+  color: #fffcfc;
+  flex: none;
+  flex-grow: 0px;
+  font-family: unset;
+  font-size: 16px;
+  font-style: unset;
+  font-weight: 500;
+  line-height: normal;
+  padding-left: unset;
+  position: relative;
+  text-align: left;
+  text-decoration: unset;
+  vertical-align: top;
+  white-space: unset;
+}

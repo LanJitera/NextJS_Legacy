@@ -11,15 +11,6 @@ export async function getServerSideProps(context: NextPageContext) {
     redirect?: Record<string, unknown>;
   } = {};
   const { session, queryClient } = await initServerInfo(context);
-  // if (!session?.user?.accessToken) {
-  //   return {
-  //     redirect: {
-  //       destination: "/User/login",
-  //       permanent: false,
-  //     },
-  //   };
-  // }
-
   return {
     ...options,
     props: {

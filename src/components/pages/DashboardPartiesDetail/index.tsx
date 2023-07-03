@@ -74,9 +74,9 @@ function DashboardPartiesDetailPage(
         input_PartyLocation: yup
           .string()
           .required("input_PartyLocation is a required field"),
-        input_NumberOfPeople: yup
-          .number()
-          .required("input_NumberOfPeople is a required field"),
+        // input_NumberOfPeople: yup
+        //   .number()
+        //   .required("input_NumberOfPeople is a required field"),
         input_Age: yup.number().required("input_Age is a required field"),
       }),
     []
@@ -147,7 +147,7 @@ function DashboardPartiesDetailPage(
           nameparty: get(values, "input_NameParty", ""),
           partystarttime: get(values, "datetimepicker_1", ""),
           partylocation: get(values, "input_PartyLocation", ""),
-          numberofpeople: get(values, "input_NumberOfPeople", ""),
+          numberofpeople: "",
           isstatus: get(values, "radio_0", ""),
           admin_id: props?.session?.user?.authenticatedId,
           describe: get(values, "Input_Desc", ""),
@@ -169,7 +169,7 @@ function DashboardPartiesDetailPage(
           nameparty: get(values, "input_NameParty", ""),
           partystarttime: get(values, "datetimepicker_1", ""),
           partylocation: get(values, "input_PartyLocation", ""),
-          numberofpeople: get(values, "input_NumberOfPeople", ""),
+          numberofpeople: "",
           isstatus: get(values, "radio_0", ""),
           admin_id: props?.session?.user?.authenticatedId,
           describe: get(values, "Input_Desc", ""),
@@ -428,7 +428,7 @@ function DashboardPartiesDetailPage(
                                   </Text>
                                 </Box>
                               </Box>
-                              <Box className={styles.box_19}>
+                              {/* <Box className={styles.box_19}>
                                 <Box className={styles.box_20}>
                                   <Text
                                     className={styles.text_number_of_people}
@@ -471,7 +471,7 @@ function DashboardPartiesDetailPage(
                                     )}
                                   </Text>
                                 </Box>
-                              </Box>
+                              </Box> */}
                               <Box className={styles.box_22}>
                                 <Box className={styles.box_23}>
                                   <Text

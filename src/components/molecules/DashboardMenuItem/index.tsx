@@ -25,6 +25,7 @@ function DashboardMenuItemMolecule(
         <Text className={styles.text_2} textType="Text">
           {get(props, "label")}
         </Text>
+        
       </Box>
     </Box>
   );

@@ -54,7 +54,6 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
   }, []);
   const yearUser = new Date(userLogin?.user?.dateofbirth);
   let ResultYearUser = yearUser.getFullYear()
-  
   useLayoutEffect(() => {
     const partyBookerIndex =
       getApiPartiesIdResult.data?.party?.partybookings.findIndex(
@@ -80,6 +79,11 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
       Toast.error("Thất bại" || "");
     }
   };
+  // const [isLoad,setIsLoad]= useState(false)
+  // useEffect(()=>{
+
+  
+  // },[isLoad])
   const handleDeletePartyBooking = async () => {
     try {
       const responseDeleteApiPartybookingsId =
@@ -91,10 +95,8 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
         });
 
       Toast.success("Huỷ thành công" || "");
-
       // tạm bợ tiếp tục phát triển
-      // navigation.reload();
-      window.location.reload();
+      navigation.reload();
     } catch (e: unknown) {
       Toast.error("Huỷ thất bại" || "");
     }
@@ -115,6 +117,7 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
           handleDeletePartyBooking={handleDeletePartyBooking}
           handleCreatePartyBooking={handleCreatePartyBooking}
           ResultYearUser ={ResultYearUser}
+
         />
       </Box>
       <Box className={styles.box_3}>

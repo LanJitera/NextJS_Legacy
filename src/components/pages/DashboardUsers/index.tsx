@@ -77,7 +77,7 @@ function DashboardUsersPage(props: DashboardUsersPageProps): JSX.Element {
       dataIndex: "email",
     },
     {
-      title: "Ngày tạo",
+      title: "Date created",
       key: "created_at",
       dataIndex: "created_at",
       render: (created_at) => dateFormat(created_at, "paddedShortDate"),
@@ -182,7 +182,7 @@ function DashboardUsersPage(props: DashboardUsersPageProps): JSX.Element {
                       className={styles.button_1}
                       onClick={navigateUserDetail}
                     >
-                      Tạo mới user
+                      Create new user
                     </Button>
                   </Box>
                   <Box className={styles.form_1}>

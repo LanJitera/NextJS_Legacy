@@ -62,9 +62,6 @@ function DetailPartyPage(props: DetailPartyPageProps): JSX.Element {
         PartyLocation_input: yup
           .string()
           .required("PartyLocation_input is a required field"),
-        NumberOfPeople_input: yup
-          .string()
-          .required("NumberOfPeople_input is a required field"),
         RequiredAge_input: yup
           .number()
           .required("RequiredAge_input is a required field"),

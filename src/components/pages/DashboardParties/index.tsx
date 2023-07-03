@@ -85,11 +85,6 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
       key: "partylocation",
     },
     {
-      title: "numberofpeople",
-      dataIndex: "numberofpeople",
-      key: "numberofpeople",
-    },
-    {
       title: "isstatus",
       key: "isstatus",
       dataIndex: "isstatus",
@@ -120,7 +115,7 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
       key: "requiredage",
     },
     {
-      title: "Tổng số người tham gia ",
+      title: "Joined",
       dataIndex: "requiredage",
       key: "requiredage",
       render: (_, record) => (
@@ -235,6 +230,7 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
 
 
 
+
   return (
     <Page className={styles.page_container}>
       <DashboardNavbar className={styles.dashboardnavbar_1} />
@@ -324,7 +320,7 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
                                 { value: "All", label: "All" },
                                 { value: "Public", label: "Public" },
                                 { value: "Private", label: "Private" },
-                                { value: "Daft", label: "Daft" },
+                                { value: "Draft", label: "Draft" },
                                 { value: "Close", label: "Close" },
                               ]}
                               iconProps={{

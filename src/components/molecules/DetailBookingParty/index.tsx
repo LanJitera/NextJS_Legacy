@@ -54,6 +54,7 @@ function DetailBookingPartyMolecule(
   // const authenticationService = useAuthenticationService();
   // const authenticatedDataValue =
   //   authenticationService.useAuthenticatedData("authenticatedData");
+  
   const navigateService = useNavigateService();
   const partybookingService = usePartybookingService();
 
@@ -71,14 +72,10 @@ function DetailBookingPartyMolecule(
   const d = new Date();
   let year = d.getFullYear();
 
-  console.log(
-    props?.partybookings?.filter((item) => {
-      return item.status === "Approve";
-    }).length
-  );
+
 
   return (
-    <Box className={`${styles.page_container} ${get(props, "className")}`}>
+    <Box className={`${styles.page_container} ${get(props, "className")}` }>
       <Row
         align="top"
         gutter={[32, 32]}

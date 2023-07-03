@@ -210,18 +210,10 @@ function DashboardListMemberPage(
   }, [getApiPartybookingsResult?.data?.partybookings]);
   
   const handleFilterUserName = async (values?: Form1FormData) => {
-    try {
-    //  const resultListMember = getApiPartybookingsResult?.data?.partybookings.filter((ItemUser)=>{
-    //  return ItemUser.user.name === get(values,"input_userName");
-    //  })
-    //  console.log(resultListMember);
-    //  setUser(resultListMember)
      const regex = new RegExp(get(values,"input_userName"),'i')
      const result = getApiPartybookingsResult?.data?.partybookings.filter((item)=> regex.test(item.user.name))
       setUser(result)
-    } catch (e: unknown) {}
   };
-console.log(getApiPartybookingsResult);
 
   return (
     <Page className={styles.page_container}>
