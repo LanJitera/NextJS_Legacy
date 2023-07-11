@@ -93,7 +93,7 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
             `data.party.partybookings.[${idPartyBooker}].id`
           ),
         });
-
+        setIsLoad(true)
       Toast.success("Huỷ thành công" || "");
       // tạm bợ tiếp tục phát triển
       navigation.reload();
@@ -117,7 +117,7 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
           handleDeletePartyBooking={handleDeletePartyBooking}
           handleCreatePartyBooking={handleCreatePartyBooking}
           ResultYearUser ={ResultYearUser}
-
+          // isLoad = {isLoad}
         />
       </Box>
       <Box className={styles.box_3}>

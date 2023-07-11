@@ -10,7 +10,6 @@ export async function getServerSideProps(context: NextPageContext) {
     redirect?: Record<string, unknown>;
   } = {};
   const { session, queryClient } = await initServerInfo(context);
-
   return {
     ...options,
     props: {

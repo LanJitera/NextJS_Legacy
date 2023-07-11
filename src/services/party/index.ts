@@ -45,6 +45,7 @@ export const usePartyService = () => {
         enabled: query !== undefined,
       }
     );
+    
     return {
       query: (params: Partial<FetchGetApiPartiesRequestBody> = {}) => {
         setQuery({ params });

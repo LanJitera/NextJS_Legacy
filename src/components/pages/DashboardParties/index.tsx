@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useCallback, useMemo, useEffect } from "react";
+import React, {
+  useCallback,
+  useMemo,
+  useEffect,
+  useState,
+  useRef,
+} from "react";
 import { DefaultPageProps } from "@interfaces/page";
 import get from "lodash/get";
 import DashboardNavbar from "@components/molecules/DashboardNavbar";
@@ -30,6 +36,14 @@ import { Modal as NewModal } from "../../../../libraries/jitera-web-ui-library/s
 import ModalMolecule from "../../molecules/Modal";
 import dateFormat, { masks } from "dateformat";
 import styles from "./styles.module.css";
+import * as XLSX from "xlsx";
+import { getEnvironmentData } from "worker_threads";
+import { Document, Page as Page2 } from "react-pdf";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
+
+
+
 type DashboardPartiesPageProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
@@ -62,7 +76,6 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
     formForm1.reset({});
   }, []);
 
-  
   //table ant design
   const columns = [
     {
@@ -74,18 +87,18 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
       render: (text) => <a>{text}</a>,
     },
     {
-      title: "partystarttime",
+      title: "Party start time",
       dataIndex: "partystarttime",
       key: "partystarttime",
       render: (partystarttime) => dateFormat(partystarttime, "paddedShortDate"),
     },
     {
-      title: "partylocation",
+      title: "Party location",
       dataIndex: "partylocation",
       key: "partylocation",
     },
     {
-      title: "isstatus",
+      title: "Status",
       key: "isstatus",
       dataIndex: "isstatus",
       render: (isstatus) => {
@@ -105,12 +118,12 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
       },
     },
     {
-      title: "describe",
+      title: "Describe",
       dataIndex: "describe",
       key: "describe",
     },
     {
-      title: "requiredage",
+      title: "Required age",
       dataIndex: "requiredage",
       key: "requiredage",
     },
@@ -171,7 +184,7 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
     NewModal.show(
       <ModalMolecule
         labelMain="Bạn có muốn xoá không ?"
-        label=" alo 123"
+        label=" - "
         labelButtonYes="Delete"
         labaelButtonCancel="Cancel"
         recordId={record?.id}
@@ -228,8 +241,58 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
     }
   };
 
+  const handleExprotExcelParty =  () => {
+      var wb = XLSX.utils.book_new();
+      var ws = XLSX.utils.json_to_sheet(getApiPartiesResult?.data?.parties);
+      XLSX.utils.book_append_sheet(wb, ws, "MySheet");
+      XLSX.writeFile(wb, "MyExcel.xlsx");
+  };
 
+  const handleExportPdfParty =  (values?: Form1FormData) => {
+      const partyData = getApiPartiesResult?.data?.parties.map((item) => {
+        let formatPartyStartTime = dateFormat(
+          item.partystarttime,
+          "paddedShortDate"
+        );
+        return [
+          item.nameparty,
+          // dateFormat(item, "paddedShortDate"),
+          formatPartyStartTime,
+          item.partylocation,
+          item.isstatus,
+          item.describe,
+          item.requiredage,
+          item.admin_id,
+        ];
+      });
 
+      const doc = new jsPDF();
+      doc.addFont("https://fonts.gstatic.com/s/roboto/v29/KFOmCnqEu92Fr1Mu4mxP.ttf", "Roboto", "normal"); // Thêm phông chữ Roboto
+      doc.setFont("Roboto");
+      autoTable(doc, { html: "#my-table" });
+      // Or use javascript directly:
+      autoTable(doc, {
+        theme: "striped",
+        columnStyles: { 0: {  minCellWidth: 60 } },
+        styles: {  font: 'Roboto'},
+        // columnStyles: { 0: { halign: "center", fillColor: [0, 255, 0] } }, // Cells in first column centered and green
+        // margin: { top: 10 },
+        head: [
+          [
+            "nameparty",
+            "partystarttime",
+            "partylocation",
+            "isstatus",
+            "describe",
+            "requiredage",
+            "admin_id",
+          ],
+        ],
+        body: partyData,
+      });
+      doc.save("table.pdf");
+
+  };
 
   return (
     <Page className={styles.page_container}>
@@ -264,86 +327,107 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
                     </Button>
                   </Box>
                   <Box className={styles.form_1}>
-                    <Controller
-                      control={formForm1.control}
-                      render={({
-                        field: { onChange, onBlur, value },
-                        fieldState: { isTouched, error },
-                      }: any) => {
-                        return (
-                          <Input
-                            inputStyle={styles.input_name_party_input}
-                            placeholder={"Input name party"}
-                            className={styles.input_name_party}
-                            onChange={onChange}
-                            value={value}
+                    <Box className={styles.form_1_All}>
+                      <Box className={styles.search_All}>
+                        <Controller
+                          control={formForm1.control}
+                          render={({
+                            field: { onChange, onBlur, value },
+                            fieldState: { isTouched, error },
+                          }: any) => {
+                            return (
+                              <Input
+                                inputStyle={styles.input_name_party_input}
+                                placeholder={"Input name party"}
+                                className={styles.input_name_party}
+                                onChange={onChange}
+                                value={value}
+                              />
+                            );
+                          }}
+                          name="input_nameParty"
+                        />
+                        <Controller
+                          control={formForm1.control}
+                          render={({
+                            field: { onChange, onBlur, value },
+                            fieldState: { isTouched, error },
+                          }: any) => {
+                            return (
+                              <Input
+                                inputStyle={styles.input_location_input}
+                                placeholder={"Input location"}
+                                className={styles.input_location}
+                                onChange={onChange}
+                                value={value}
+                              />
+                            );
+                          }}
+                          name="input_location"
+                        />
+                        <Box className={styles.select_1_container}>
+                          <Controller
+                            control={formForm1.control}
+                            render={({
+                              field: { onChange, onBlur, value },
+                              fieldState: { isTouched, error },
+                            }: any) => {
+                              return (
+                                <Select
+                                  containerStyle={{
+                                    borderColor: "#177ddc",
+                                    borderStyle: "solid",
+                                    borderWidth: "3px",
+                                    height: "auto",
+                                  }}
+                                  data={[
+                                    { value: "All", label: "All" },
+                                    { value: "Public", label: "Public" },
+                                    { value: "Private", label: "Private" },
+                                    { value: "Draft", label: "Draft" },
+                                    { value: "Close", label: "Close" },
+                                  ]}
+                                  iconProps={{
+                                    color: "#000",
+                                    iconName: "FaChevronDown",
+                                    size: 16,
+                                  }}
+                                  placeholder={"Placeholder"}
+                                  onChange={onChange}
+                                  value={value}
+                                />
+                              );
+                            }}
+                            name="select_status"
                           />
-                        );
-                      }}
-                      name="input_nameParty"
-                    />
-
-                    <Controller
-                      control={formForm1.control}
-                      render={({
-                        field: { onChange, onBlur, value },
-                        fieldState: { isTouched, error },
-                      }: any) => {
-                        return (
-                          <Input
-                            inputStyle={styles.input_location_input}
-                            placeholder={"Input location"}
-                            className={styles.input_location}
-                            onChange={onChange}
-                            value={value}
-                          />
-                        );
-                      }}
-                      name="input_location"
-                    />
-                    <Box className={styles.select_1_container}>
-                      <Controller
-                        control={formForm1.control}
-                        render={({
-                          field: { onChange, onBlur, value },
-                          fieldState: { isTouched, error },
-                        }: any) => {
-                          return (
-                            <Select
-                              containerStyle={{
-                                borderColor: "#177ddc",
-                                borderStyle: "solid",
-                                borderWidth: "3px",
-                                height: "auto",
-                              }}
-                              data={[
-                                { value: "All", label: "All" },
-                                { value: "Public", label: "Public" },
-                                { value: "Private", label: "Private" },
-                                { value: "Draft", label: "Draft" },
-                                { value: "Close", label: "Close" },
-                              ]}
-                              iconProps={{
-                                color: "#000",
-                                iconName: "FaChevronDown",
-                                size: 16,
-                              }}
-                              placeholder={"Placeholder"}
-                              onChange={onChange}
-                              value={value}
-                            />
-                          );
-                        }}
-                        name="select_status"
-                      />
+                        </Box>
+                        <Button
+                          buttonType="primary"
+                          className={styles.button_1}
+                          onClick={formForm1.handleSubmit(handleButton1)}
+                        >
+                          Search
+                        </Button>
+                      </Box>
+                      <Box className={styles.export_All}>
+                        <Button
+                          buttonType="primary"
+                          className={styles.button_0}
+                          onClick={formForm1.handleSubmit(
+                            handleExprotExcelParty
+                          )}
+                        >
+                          Export
+                        </Button>
+                        <Button
+                          buttonType="primary"
+                          className={styles.button_0}
+                          onClick={handleExportPdfParty}
+                        >
+                          PDF
+                        </Button>
+                      </Box>
                     </Box>
-                    <Button
-                      buttonType="primary"
-                      className={styles.button_1}
-                      onClick={formForm1.handleSubmit(handleButton1)}
-                    >
-                      Search
-                    </Button>
                   </Box>
                 </Box>
                 <Box className={styles.dashboard_content_filter_table}>
@@ -362,6 +446,7 @@ function DashboardPartiesPage(props: DashboardPartiesPageProps): JSX.Element {
           </Row>
         </Box>
       </Box>
+
       <DashboardFooter className={styles.dashboardfooter_1} />
     </Page>
   );

@@ -10,6 +10,7 @@ export async function getServerSideProps(context: NextPageContext) {
     redirect?: Record<string, unknown>;
   } = {};
   const { session, queryClient } = await initServerInfo(context);
+
   if (
     !session?.user?.accessToken ||
     session?.user?.authenticatedOwner !== "Admin"

@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useCallback, useMemo, useEffect, useState } from "react";
+import ReactDOM from "react-dom";
+import ReactPaginate from "react-paginate";
 import { DefaultPageProps } from "@interfaces/page";
 import get from "lodash/get";
 import HeroSection from "@components/molecules/HeroSection";
@@ -23,7 +25,8 @@ import {
 } from "@jitera/jitera-web-ui-library";
 import dateFormat, { masks } from "dateformat";
 import styles from "./styles.module.css";
-import { log } from "console";
+import PaginatedItems from "@components/molecules/PaginatedItems";
+
 type HomePageProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
@@ -34,6 +37,7 @@ interface Form0FormData {
   input_SearchAddress: string;
   datetimepicker_1: string;
 }
+
 function HomePage(props: HomePageProps): JSX.Element {
   const { t } = useTranslation("web");
   const partyService = usePartyService();
@@ -71,6 +75,7 @@ function HomePage(props: HomePageProps): JSX.Element {
           nameparty: get(values, "input_SearchName", ""),
           partylocation: get(values, "input_SearchAddress", ""),
           partystarttime: formattedDate,
+          isstatus: "Public",
         },
       });
     } catch (e: unknown) {}
@@ -88,37 +93,49 @@ function HomePage(props: HomePageProps): JSX.Element {
   const currentDate = new Date();
   const handlePartyHappenning = async (values?: Form0FormData) => {
     try {
-      const filteredParties = getApiPartiesResult?.data?.parties.filter(
-        (party) => {
-          const partyStartTime = new Date(party.partystarttime);
-          const isSameDate =
-            partyStartTime.getDate() === currentDate.getDate() &&
-            partyStartTime.getMonth() === currentDate.getMonth() &&
-            partyStartTime.getFullYear() === currentDate.getFullYear();
-          return isSameDate;
-        }
-      );
+      const responseGetApiParties = await getApiPartiesInstance.fetch({
+        parties: {
+          isstatus: "Public",
+        },
+      });
+      const filteredParties = responseGetApiParties?.parties.filter((party) => {
+        const partyStartTime = new Date(party.partystarttime);
+        const isSameDate =
+          partyStartTime.getDate() === currentDate.getDate() &&
+          partyStartTime.getMonth() === currentDate.getMonth() &&
+          partyStartTime.getFullYear() === currentDate.getFullYear();
+        return isSameDate;
+      });
       setDataSource(filteredParties);
     } catch (e: unknown) {}
   };
   const handleAllListParty = async (values?: Form0FormData) => {
     try {
-      setDataSource(getApiPartiesResult?.data?.parties);
+      const responseGetApiParties = await getApiPartiesInstance.fetch({
+        parties: {
+          isstatus: "Public",
+        },
+      });
+      setDataSource(responseGetApiParties?.parties);
     } catch (e: unknown) {}
   };
   const handlePartyUpcoming = async (values?: Form0FormData) => {
     try {
-      const filteredParties = getApiPartiesResult?.data?.parties.filter(
-        (party) => {
-          const partyStartTime = new Date(party.partystarttime);
-          const isSameDate =
-            partyStartTime > currentDate
-          return isSameDate;
-        }
-      );  
+      const responseGetApiParties = await getApiPartiesInstance.fetch({
+        parties: {
+          isstatus: "Public",
+        },
+      });
+      const filteredParties = responseGetApiParties?.parties.filter((party) => {
+        const partyStartTime = new Date(party.partystarttime);
+        const isSameDate = partyStartTime > currentDate;
+        return isSameDate;
+      });
       setDataSource(filteredParties);
     } catch (e: unknown) {}
   };
+
+  //  paginate
 
   return (
     <Page className={styles.page_container}>
@@ -256,7 +273,7 @@ function HomePage(props: HomePageProps): JSX.Element {
             </Box>
           </Box>
           <Box className={styles.box_59}>
-            <List
+            {/* <List
               className={styles.ListAll}
               // dataSource={getApiPartiesResult?.data?.parties}
               dataSource={dataSource}
@@ -264,10 +281,11 @@ function HomePage(props: HomePageProps): JSX.Element {
                 (item: Record<string, any>) => `${item.id}_${item.created_at}`,
                 []
               )}
-              grid={{ gutter: 0, xs: 2, md: 2, xl: 3, xxl: 4 }}
+              grid={{ gutter: 0, xs: 3, md: 3, xl: 3, xxl: 4 }}
               renderItem={useCallback(
                 (item: any) => (
                   <CardItem
+                    className={styles.test}
                     nameParty={item.nameparty}
                     partystarttime={dateFormat(
                       item.partystarttime,
@@ -284,8 +302,14 @@ function HomePage(props: HomePageProps): JSX.Element {
                 ),
                 [getApiPartiesResult]
               )}
-            />
+            /> */}
           </Box>
+          <PaginatedItems
+            handleOnPressList1Item={handleOnPressList1Item}
+            getApiPartiesResult={getApiPartiesResult}
+            test={dataSource}
+            itemsPerPage={4}
+          />
         </Box>
         <Box className={styles.box_33}>
           <Box className={styles.box_3}>

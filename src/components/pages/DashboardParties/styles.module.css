@@ -81,7 +81,7 @@
   height: auto;
   justify-content: flex-start;
   margin-top: 15;
-  max-width: 630px;
+  /* max-width: 630px; */
   gap:10px;
 }
 .select_1_container {
@@ -148,6 +148,16 @@
   height: auto;
   width: 100%;
 }
+.search_All{
+  display: flex;
+}
+.form_1_All{
+display: flex;
+justify-content: space-between;
+width: 100%;
+padding-top: 10px;
+}
+
 @media screen and (max-width: 600px) {
   .dashboard_main {
     padding-bottom: 16px;
