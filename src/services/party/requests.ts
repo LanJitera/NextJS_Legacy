@@ -19,7 +19,7 @@ export type FetchGetApiPartiesRequestBody = {
     admin_id?: string;
     describe?: string;
     requiredage?: number;
-    img?: any;
+    img?: string;
   };
 };
 export type FetchGetApiPartiesResponseBody = {
@@ -45,6 +45,7 @@ export type FetchGetApiPartiesResponseBody = {
     describe?: string;
     requiredage?: number;
     img?: any;
+    comments?: { id?: number; created_at?: Date; updated_at?: Date; party_id?: string }[];
   }[];
 };
 
@@ -66,7 +67,7 @@ export const DefaultGetApiPartiesIdQueryKey: [string, string, string] = [
 ];
 export type FetchGetApiPartiesIdRequestBody = {
   id: string;
-  parties: { partylocation?: string; nameparty?: string; img?: any };
+  parties: { partylocation?: string; nameparty?: string; img?: string };
 };
 export type FetchGetApiPartiesIdResponseBody = {
   party: {
@@ -90,6 +91,7 @@ export type FetchGetApiPartiesIdResponseBody = {
     describe?: string;
     requiredage?: number;
     img?: any;
+    comments?: { id?: number; created_at?: Date; updated_at?: Date; party_id?: string }[];
   };
 };
 
@@ -162,7 +164,7 @@ export type MutatePostApiPartiesRequestBody = {
     admin_id?: string;
     describe?: string;
     requiredage?: number;
-    img?: any;
+    img?: string;
   };
 };
 export type MutatePostApiPartiesResponseBody = {
@@ -187,6 +189,7 @@ export type MutatePostApiPartiesResponseBody = {
     describe?: string;
     requiredage?: number;
     img?: any;
+    comments?: { id?: number; created_at?: Date; updated_at?: Date; party_id?: string }[];
   };
 };
 
@@ -210,7 +213,7 @@ export type MutatePutApiPartiesIdRequestBody = {
     admin_id?: string;
     describe?: string;
     requiredage?: number;
-    img?: any;
+    img?: string;
   };
 };
 export type MutatePutApiPartiesIdResponseBody = {
@@ -235,6 +238,7 @@ export type MutatePutApiPartiesIdResponseBody = {
     describe?: string;
     requiredage?: number;
     img?: any;
+    comments?: { id?: number; created_at?: Date; updated_at?: Date; party_id?: string }[];
   };
 };
 
