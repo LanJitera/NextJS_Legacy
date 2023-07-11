@@ -12,6 +12,7 @@ import HeroSection from "@components/molecules/HeroSection";
 import Image from "next/future/image";
 import DetailBookingParty from "@components/molecules/DetailBookingParty";
 import assets from "@assets/index";
+import { useForm, Controller } from "react-hook-form";
 import { usePartyService } from "@services/party";
 import { Page, Box, Text, Toast } from "@jitera/jitera-web-ui-library";
 import styles from "./styles.module.css";
@@ -19,12 +20,20 @@ import { useAuthenticationService } from "@services/authentication";
 import { useNavigateService } from "@services/navigate";
 import { usePartybookingService } from "@services/partybooking";
 import { useUserService } from "@services/user";
+import CommentCommon from "@components/molecules/Comment";
 type PartyDetail1PageProps = DefaultPageProps & {
   pageName?: string;
   className?: string;
   idPartyBooker?: number;
 };
+
+interface FormComment {
+  comment : string;
+}
+
 function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
+
+
   //call API party
   const partyService = usePartyService();
   const getApiPartiesIdInstance = partyService.useGetApiPartiesId();
@@ -120,6 +129,13 @@ function PartyDetail1Page(props: PartyDetail1PageProps): JSX.Element {
           // isLoad = {isLoad}
         />
       </Box>
+      <Box>
+        <Text textType="Text">
+        COMMENT
+        </Text>
+        <CommentCommon />
+      </Box>
+      
       <Box className={styles.box_3}>
         <Box className={styles.box_4}>
           <Box className={styles.box_5}>
