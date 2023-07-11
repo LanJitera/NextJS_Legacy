@@ -91,7 +91,21 @@ export type FetchGetApiPartiesIdResponseBody = {
     describe?: string;
     requiredage?: number;
     img?: any;
-    comments?: { id?: number; created_at?: Date; updated_at?: Date; party_id?: string }[];
+    comments?: {
+      id?: number;
+      created_at?: Date;
+      updated_at?: Date;
+      party_id?: string;
+      user?: {
+        user_id?: number;
+        user_created_at?: Date;
+        user_updated_at?: Date;
+        user_isactive?: boolean;
+        username?: string;
+        dateofbirth?: Date;
+        email?: string;
+      };
+    }[];
   };
 };
 
