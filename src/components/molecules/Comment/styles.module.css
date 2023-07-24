@@ -1,6 +1,38 @@
-.comment{
+.comment {
     display: flex;
+    gap: 15px;
+    margin: 15px 0px;
 }
-.User{
+
+.comment_body {
+    width: 90%;
+}
+
+.User {
     display: flex;
+    gap: 10px;
+}
+
+.User_time {
+    padding-top: 6px;
+    font-weight: 600;
+}
+
+.User_name {
+    font-size: 20px;
+    color: #1c81e6;
+}
+
+.ChildCommnet {
+    /* margin-left: 60px; */
+}
+.ContentComment{
+    font-weight: 650;
+}
+.Comment_action{
+display: flex;
+gap: 10px;
+}
+.Item_Comment_action{
+
 }

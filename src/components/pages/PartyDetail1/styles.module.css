@@ -385,3 +385,13 @@
   top: 140.7578125px;
   vertical-align: top;
 }
+.Comment_All{
+  padding-left: 54px;
+  background-color: rgb(247, 245, 245);
+  border-radius: 7px;
+  width: 70%;
+  margin-left: 3%;
+}
+.Comment_title{
+font-size: 25px;
+}
